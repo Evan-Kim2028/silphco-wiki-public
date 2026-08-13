@@ -171,9 +171,9 @@
   .art img.broken { display: none; }
   .cohort {
     position: absolute; top: 0.35rem; right: 0.35rem; z-index: 2;
-    width: 2rem; height: 2rem; border-radius: 999px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 1.05rem; line-height: 1;
+    border-radius: 999px; padding: 0.18rem 0.45rem;
+    font-weight: 800; font-size: 0.68rem; letter-spacing: 0.03em;
+    text-transform: uppercase;
   }
   .cohort.t1 { background: #e6b450; color: #1a1408; }
   .cohort.t2 { background: #8b95a8; color: #10141c; }
@@ -307,10 +307,10 @@
           <span class="amt">+106%</span>
         </div>
       </div>
-      <p class="note">Blue is this card. Gray is friends in the same set, same kind. Longer grew more.</p>
+      <p class="note">Blue is this leftover. Gray is the other $200+ cards in the same set and kind. Longer bar grew more (PSA 10 path).</p>
     </figure>
     <figure>
-      <figcaption>The 90 cards</figcaption>
+      <figcaption>The 58 leftovers</figcaption>
       <div class="hz-row">
         <span class="hz-lab">3 months</span>
         <div class="stack"><span class="seg-trail" style="width:100.0%">all 58 shorter</span></div>
@@ -323,7 +323,7 @@
           <span class="seg-miss" style="width:0.0%">0</span>
         </div>
       </div>
-      <p class="note">Same leftover list. The year picture splits.</p>
+      <p class="note">Same leftover list. At 1 year some catch friends; some stay behind.</p>
     </figure>
     <figure>
       <figcaption>Cheaper grades</figcaption>
@@ -335,7 +335,7 @@
           <span class="seg-miss" style="width:1.7%">1</span>
         </div>
       </div>
-      <p class="note">Green edge on a card means PSA 9 and raw went the same way as PSA 10.</p>
+      <p class="note">Green edge = PSA 9 and raw moved the same way as PSA 10. Not your LP bid.</p>
     </figure>
   </section>
   <div class="controls">
@@ -347,8 +347,9 @@
       <button type="button" class="cut" data-cut="agree">Grades agree · 41</button>
       <button type="button" class="cut" data-cut="binder">My binder</button>
     </div>
-    <p class="eli">In its set and kind: <b>1</b> is beating its friends (the name). <b>3</b> is behind (leftover). Pay up for 1s only if you want the name. Buy 3s cheap.</p>
-    <label>In group <select id="cohort"><option value="all">all 1 / 2 / 3</option><option value="1">1 — top</option><option value="2">2 — middle</option><option value="3">3 — behind</option></select></label>
+    <p class="eli"><b>Ahead</b> = beating its friends (the name). <b>Middle</b> = pack. <b>Behind</b> = leftover. Pay up for Ahead only if you want the name. Buy Behind cheap.</p>
+    <label>In group <select id="cohort"><option value="all">all</option><option value="1">Ahead</option><option value="2">Middle</option><option value="3">Behind</option></select></label>
+    <label>Set <select id="setn"><option value="all">all sets</option></select></label>
     <label>View <select id="view"><option value="grid">cards</option><option value="table">table</option></select></label>
     <label>Era <select id="block"><option value="all">all</option></select></label>
     <label>Kind <select id="tier"><option value="all">all</option></select></label>
@@ -412,8 +413,11 @@ const COHORT = (() => {
   return out;
 })();
 function cohortOf(r) { return r.cohort || COHORT.get(bindKey(r)); }
+const COH_WORD = {1: "Ahead", 2: "Middle", 3: "Behind"};
 function applyCohort(out) {
   const ch = document.getElementById("cohort").value;
+  const setv = setSel.value;
+  if (setv !== "all") out = out.filter(r => r.set === setv);
   if (ch === "all") return out;
   const t = Number(ch);
   return out.filter(r => cohortOf(r) && cohortOf(r).t === t);
@@ -429,8 +433,12 @@ const blocks = [...new Set(ROWS.map(r => r.block))].sort();
 const tiers = [...new Set(ROWS.map(r => r.tier))].sort();
 const blockSel = document.getElementById("block");
 const tierSel = document.getElementById("tier");
+const setSel = document.getElementById("setn");
 blocks.forEach(b => blockSel.insertAdjacentHTML("beforeend", `<option>${b}</option>`));
 tiers.forEach(t => tierSel.insertAdjacentHTML("beforeend", `<option>${t}</option>`));
+[...new Set(catalog().map(r => r.set).filter(Boolean))].sort().forEach(s => {
+  setSel.insertAdjacentHTML("beforeend", `<option>${s}</option>`);
+});
 const sleeveSel = document.getElementById("sleeve");
 SLEEVES.forEach(s => {
   const lab = `${s.set} · ${s.tier} · ${s.pulled} pulled / ${s.leftover} leftover`;
@@ -555,8 +563,8 @@ function tile(r, inSleeve) {
   const fm = finishMeta(r);
   const badge = fm.label ? `<span class="finish-badge ${fm.cls}">${fm.label}</span>` : "";
   const ch = cohortOf(r);
-  const cBadge = ch ? `<span class="cohort t${ch.t}" title="${ch.place} of ${ch.n} in this set and kind">${ch.t}</span>` : "";
-  const cNote = ch ? `<div class="coh-note">${ch.t === 1 ? "Top of its group" : ch.t === 2 ? "Middle of its group" : "Behind its group"} · ${ch.place}/${ch.n}</div>` : "";
+  const cBadge = ch ? `<span class="cohort t${ch.t}" title="${ch.place} of ${ch.n} in this set and kind">${COH_WORD[ch.t]}</span>` : "";
+  const cNote = ch ? `<div class="coh-note">${COH_WORD[ch.t]} · ${ch.place} of ${ch.n} in this set and kind</div>` : "";
   const scanNote = (r.finish === "reverse_holo" && String(r.img||"").includes("pokemontcg.io"))
     ? `<div class="img-note">Scan is the non-foil print</div>`
     : (r.finish === "reverse_holo" ? `<div class="img-note">Reverse foil photo</div>` : "");
@@ -669,7 +677,7 @@ function paintSuggest() {
   box.hidden = false;
   box.innerHTML = hits.map(r => {
     const ch = cohortOf(r);
-    return `<button type="button" data-name="${r.name.replace(/"/g,"&quot;")}">${r.lp!=null?`<span class="s-lp">${usd(r.lp)}</span>`:""}<span>${ch?ch.t+" · ":""}${r.name}</span><div class="s-sub">${r.set} · ${r.tier}</div></button>`;
+    return `<button type="button" data-name="${r.name.replace(/"/g,"&quot;")}">${r.lp!=null?`<span class="s-lp">${usd(r.lp)}</span>`:""}<span>${ch?COH_WORD[ch.t]+" · ":""}${r.name}</span><div class="s-sub">${r.set} · ${r.tier}</div></button>`;
   }).join("");
 }
 function buyCard(key) {
@@ -697,7 +705,7 @@ document.querySelectorAll(".cuts [data-cut]").forEach(el => {
     setCut(el.dataset.cut);
   });
 });
-["view","block","tier","sort","sleeve","cohort"].forEach(id => {
+["view","block","tier","sort","sleeve","cohort","setn"].forEach(id => {
   document.getElementById(id).addEventListener("input", render);
 });
 document.getElementById("q").addEventListener("input", () => { paintSuggest(); render(); });
