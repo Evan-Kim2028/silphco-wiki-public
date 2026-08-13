@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>The whole board — mid-era sets</title>
+<style>
+:root{--bg:#0c0f16;--panel:#141925;--panel2:#1b2233;--text:#eef2fa;--muted:#97a1b5;
+  --border:#2a3348;--accent:#6ea8ff;--pos:#3dd68c;--neg:#f87171;--warn:#fbbf24}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);
+  color:var(--text);line-height:1.5;-webkit-text-size-adjust:100%}
+main{max-width:56rem;margin:0 auto;padding:1.4rem 1.1rem 4rem}
+h1{font-size:1.35rem;margin:0 0 .3rem}
+.lede{color:var(--muted);font-size:.94rem;margin:0 0 1.2rem}
+a.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.85rem;margin-bottom:.9rem}
+
+.story{background:var(--panel);border:1px solid var(--border);border-radius:14px;
+  padding:1rem 1.1rem;margin-bottom:1.3rem}
+.story h2{margin:0 0 .5rem;font-size:1.02rem}
+.story p{margin:.45rem 0;font-size:.9rem;color:var(--muted)}
+.story b{color:var(--text)}
+
+.ladder{display:grid;gap:.5rem;margin:.9rem 0 0}
+.step{display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start;
+  background:var(--panel2);border-radius:10px;padding:.6rem .7rem}
+.step .ico{width:2.1rem;height:2.1rem;flex:none}
+.step h3{margin:0;font-size:.9rem}
+.step p{margin:.15rem 0 0;font-size:.8rem;color:var(--muted)}
+
+section.band{margin:1.5rem 0 0}
+section.band>header{display:flex;align-items:baseline;gap:.55rem;flex-wrap:wrap;margin-bottom:.5rem}
+section.band h2{margin:0;font-size:1.05rem}
+section.band .n{background:var(--panel2);border-radius:999px;padding:.05rem .5rem;
+  font-size:.76rem;color:var(--muted)}
+section.band>header p{margin:0;flex-basis:100%;font-size:.84rem;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15.5rem,1fr));gap:.6rem}
+.set{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.75rem .85rem}
+.set.climb{border-color:rgba(61,214,140,.42)}
+.set.waking{border-color:rgba(251,191,36,.42)}
+.set.ran{border-color:rgba(110,168,255,.34)}
+.set.asleep{border-color:rgba(148,163,184,.22)}
+.set h3{margin:0;font-size:1rem}
+.set .meta{font-size:.76rem;color:var(--muted);margin:.1rem 0 .5rem}
+.pill{display:inline-block;border-radius:999px;padding:.1rem .5rem;font-size:.72rem;font-weight:650}
+.pill.climb{background:rgba(61,214,140,.15);color:#86efac}
+.pill.waking{background:rgba(251,191,36,.15);color:#fcd34d}
+.pill.ran{background:rgba(110,168,255,.15);color:#bfdbfe}
+.pill.asleep{background:rgba(148,163,184,.14);color:#cbd5e1}
+
+.bars{display:grid;gap:.3rem;margin:.55rem 0 .2rem}
+.bar{display:grid;grid-template-columns:2.6rem 1fr 3.4rem;gap:.4rem;align-items:center;font-size:.78rem}
+.bar .k{color:var(--muted)}
+.bar .track{position:relative;height:.62rem;background:var(--panel2);border-radius:999px;overflow:hidden}
+.bar .track i{position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--border)}
+.bar .track span{position:absolute;top:0;bottom:0;border-radius:999px}
+.bar .track span.up{background:var(--pos)}
+.bar .track span.down{background:var(--neg)}
+.bar .v{text-align:right;font-variant-numeric:tabular-nums}
+.bar .v.up{color:var(--pos)} .bar .v.down{color:var(--neg)}
+.peak{font-size:.76rem;color:var(--muted);margin:.35rem 0 0}
+.why{font-size:.78rem;color:var(--muted);margin:.4rem 0 0;border-top:1px dashed var(--border);padding-top:.4rem}
+
+.foot{margin-top:2rem;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem}
+@media (max-width:520px){ .grid{grid-template-columns:1fr} main{padding:1rem .85rem 3rem} }
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="index.html">← back</a>
+<h1>The whole board</h1>
+<p class="lede">Every mid-era set we care about, on one screen, sorted by how hot it is
+right now. 25 sets, 41 months of PSA 10 history.</p>
+
+<section class="story">
+  <h2>Read this first</h2>
+  <p>Think of each set as a <b>hill</b>. Some hills are being climbed right now by lots of
+     people at once — those prices already jumped. Some hills are being walked up slowly.
+     Some were climbed years ago, everyone left, and a few people are just coming back.</p>
+  <p>You usually want the <b>slow, steady hill</b>: still going up, but not so fast that
+     you are paying for a move that already happened.</p>
+  <div class="ladder">
+    <div class="step">
+      <svg class="ico" viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="4" y="26" width="7" height="10" rx="2" fill="#3dd68c" opacity=".45"/>
+        <rect x="14" y="19" width="7" height="17" rx="2" fill="#3dd68c" opacity=".7"/>
+        <rect x="24" y="11" width="7" height="25" rx="2" fill="#3dd68c"/>
+      </svg>
+      <div><h3>Climbing steadily</h3><p>Up, calmly, near its high. The comfortable buy.</p></div>
+    </div>
+    <div class="step">
+      <svg class="ico" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M4 12 L14 30 L26 24 L36 27" stroke="#fbbf24" stroke-width="3"
+              fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="36" cy="27" r="3.4" fill="#fbbf24"/>
+      </svg>
+      <div><h3>Waking up</h3><p>Fell a long way, just turned back up. More room, more risk.</p></div>
+    </div>
+    <div class="step">
+      <svg class="ico" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M4 32 L16 26 L26 10 L36 6" stroke="#6ea8ff" stroke-width="3"
+              fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="36" cy="6" r="3.4" fill="#6ea8ff"/>
+      </svg>
+      <div><h3>Already ran</h3><p>Jumped hard in 3 months. You would be buying after the move.</p></div>
+    </div>
+    <div class="step">
+      <svg class="ico" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M4 20 L36 20" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="3.2" fill="#94a3b8"/>
+      </svg>
+      <div><h3>Still asleep</h3><p>Flat. Cheap, but nothing says it turns soon.</p></div>
+    </div>
+  </div>
+  <p>Right now: <b>6</b> climbing · <b>11</b> waking up ·
+     <b>7</b> already ran · <b>1</b> asleep.</p>
+</section>
+
+<div id="board"></div>
+
+<p class="foot">PSA 10 set index, equal-weighted across the cards in each set, from freeze
+<b>2026-08-11-mid-era-through-2010</b>. A set index is the middle of the set, not any one card — a set can be
+green while your card is not. “Down from high” is how far below its best month the set sits
+now. This page is a map, not advice.</p>
+</main>
+<script>
+const SETS = [{"set_id":"ex14","name":"Crystal Guardians","year":2006,"block":"delta","n":97,"px":174.225,"r3":0.5379352959350312,"r12":0.7303108550998112,"r36":1.1155363973043535,"dd":0.0,"below":0,"months":41,"state":"ran"},{"set_id":"ex3","name":"Dragon","year":2003,"block":"EX early","n":93,"px":99.95,"r3":0.33605133003609144,"r12":0.26791830521375126,"r36":0.33142400426268837,"dd":0.0,"below":0,"months":41,"state":"ran"},{"set_id":"ex11","name":"Delta Species","year":2005,"block":"delta","n":108,"px":146.14499999999998,"r3":0.32859090909090893,"r12":0.4415565200236733,"r36":0.7738196383056193,"dd":-0.03157511099330734,"below":1,"months":41,"state":"ran"},{"set_id":"ex2","name":"Sandstorm","year":2003,"block":"EX early","n":94,"px":100.0,"r3":0.32450331125827825,"r12":0.42877553936276613,"r36":0.3114754098360655,"dd":0.0,"below":0,"months":41,"state":"ran"},{"set_id":"ex13","name":"Holon Phantoms","year":2006,"block":"delta","n":106,"px":121.69,"r3":0.23324043577400566,"r12":0.4777170613236188,"r36":0.6782512756861121,"dd":0.0,"below":0,"months":41,"state":"ran"},{"set_id":"ex7","name":"Team Rocket Returns","year":2004,"block":"EX early","n":104,"px":179.015,"r3":0.224871707150188,"r12":0.849710684025625,"r36":0.8558469832054738,"dd":0.0,"below":0,"months":41,"state":"ran"},{"set_id":"ex12","name":"Legend Maker","year":2006,"block":"EX mid","n":89,"px":102.0,"r3":0.21025154247745603,"r12":0.33307194667712214,"r36":0.29903209373408024,"dd":0.0,"below":0,"months":41,"state":"ran"},{"set_id":"ex10","name":"Unseen Forces","year":2005,"block":"EX mid","n":136,"px":152.0,"r3":0.1952504521506644,"r12":0.3778100072516317,"r36":0.3362637362637362,"dd":0.0,"below":0,"months":41,"state":"climb"},{"set_id":"ex8","name":"Deoxys","year":2005,"block":"EX mid","n":100,"px":142.015,"r3":0.16491674185874827,"r12":0.42086043021510733,"r36":0.8937858381117483,"dd":-0.04537357577387158,"below":1,"months":41,"state":"climb"},{"set_id":"ex9","name":"Emerald","year":2005,"block":"EX mid","n":100,"px":122.75999999999999,"r3":0.15849572972207793,"r12":0.3766190075693858,"r36":0.40297142857142854,"dd":0.0,"below":0,"months":41,"state":"climb"},{"set_id":"hgss4","name":"HS Triumphant","year":2010,"block":"HGSS","n":97,"px":59.0,"r3":0.1132075471698113,"r12":-0.044843775295450916,"r36":0.0005935724582379898,"dd":-0.09758335882532876,"below":40,"months":41,"state":"waking"},{"set_id":"dp7","name":"Stormfront","year":2008,"block":"DP","n":94,"px":64.96,"r3":0.1115674195756331,"r12":-0.20474995409193864,"r36":-0.1190072557130265,"dd":-0.235764705882353,"below":36,"months":41,"state":"waking"},{"set_id":"pl2","name":"Rising Rivals","year":2009,"block":"Platinum","n":106,"px":81.0,"r3":0.08681068026298133,"r12":-0.005707972749033341,"r36":0.05785555700666056,"dd":-0.021620968716028366,"below":12,"months":41,"state":"waking"},{"set_id":"ex15","name":"Dragon Frontiers","year":2006,"block":"delta","n":97,"px":89.0,"r3":0.05394043460240394,"r12":0.1378891516972447,"r36":0.17105263157894735,"dd":0.0,"below":0,"months":41,"state":"climb"},{"set_id":"hgss3","name":"HS Undaunted","year":2010,"block":"HGSS","n":85,"px":61.35,"r3":0.052044928406070445,"r12":-0.1125415883118761,"r36":0.057576279951732534,"dd":-0.1125415883118761,"below":11,"months":41,"state":"waking"},{"set_id":"pl1","name":"Platinum","year":2009,"block":"Platinum","n":121,"px":67.38,"r3":0.050187032418952615,"r12":-0.08226641242168353,"r36":-0.07533964594483333,"dd":-0.12128325508607207,"below":12,"months":41,"state":"waking"},{"set_id":"dp5","name":"Majestic Dawn","year":2008,"block":"DP","n":90,"px":70.225,"r3":0.04782154580722153,"r12":-0.206497175141243,"r36":-0.1946674311926606,"dd":-0.24424235901851066,"below":12,"months":41,"state":"waking"},{"set_id":"hgss2","name":"HS Unleashed","year":2010,"block":"HGSS","n":89,"px":62.36,"r3":0.044731110738817303,"r12":-0.3067259588660367,"r36":-0.18125123088032558,"dd":-0.3435789473684211,"below":40,"months":41,"state":"waking"},{"set_id":"dp2","name":"Mysterious Treasures","year":2007,"block":"DP","n":113,"px":60.95,"r3":0.041702273115706845,"r12":-0.11209847767499459,"r36":0.024886497393644014,"dd":-0.12704096247493546,"below":12,"months":41,"state":"waking"},{"set_id":"dp4","name":"Great Encounters","year":2008,"block":"DP","n":101,"px":65.04,"r3":0.031235135563659533,"r12":-0.17613528405852164,"r36":-0.025617977528089808,"dd":-0.19485021044813067,"below":12,"months":41,"state":"waking"},{"set_id":"dp6","name":"Legends Awakened","year":2008,"block":"DP","n":138,"px":67.555,"r3":0.025113808801213944,"r12":-0.12470847369784921,"r36":-0.12117861324313772,"dd":-0.2378722924187725,"below":34,"months":41,"state":"waking"},{"set_id":"ex16","name":"Power Keepers","year":2007,"block":"EX late","n":102,"px":73.31,"r3":0.009501514734232996,"r12":0.04788450543167522,"r36":0.19106417546710008,"dd":-0.021424280851631727,"below":10,"months":41,"state":"climb"},{"set_id":"pl3","name":"Supreme Victors","year":2009,"block":"Platinum","n":140,"px":68.4,"r3":0.004700352526439522,"r12":-0.06678491029401723,"r36":-0.0288918861361539,"dd":-0.1062328498627988,"below":40,"months":41,"state":"waking"},{"set_id":"ex5","name":"Hidden Legends","year":2004,"block":"EX early","n":96,"px":95.715,"r3":0.0015696123057604705,"r12":0.10181880971566715,"r36":0.2432134043382259,"dd":-0.00813471502590668,"below":2,"months":41,"state":"climb"},{"set_id":"dp3","name":"Secret Wonders","year":2007,"block":"DP","n":121,"px":63.03,"r3":-0.018224299065420557,"r12":-0.1254336062161786,"r36":0.07230350459339907,"dd":-0.14215719632528068,"below":12,"months":41,"state":"asleep"}];
+const STATE = {
+  climb:  {label:"Climbing steadily", line:"Going up, calmly, and still near its high. The comfortable place to buy."},
+  waking: {label:"Waking up",         line:"Fell a long way and has just started back up. More upside, more risk."},
+  ran:    {label:"Already ran",       line:"Jumped hard in the last 3 months. You would be buying after the move."},
+  asleep: {label:"Still asleep",      line:"Not moving yet. Cheap, but nothing says it turns soon."}
+};
+const ORDER = ["climb","waking","ran","asleep"];
+function pct(x){ if(x==null) return "—"; return (x>=0?"+":"") + (x*100).toFixed(0) + "%"; }
+function bar(label, v, max){
+  if (v == null) return "";
+  const w = Math.min(50, Math.round(Math.abs(v)/max*50));
+  const up = v >= 0;
+  const style = up ? `left:50%;width:${w}%` : `right:50%;width:${w}%`;
+  return `<div class="bar"><span class="k">${label}</span>
+    <span class="track"><i></i><span class="${up?"up":"down"}" style="${style}"></span></span>
+    <span class="v ${up?"up":"down"}">${pct(v)}</span></div>`;
+}
+function card(s){
+  const max = Math.max(0.25, Math.abs(s.r3||0), Math.abs(s.r12||0), Math.abs(s.r36||0));
+  const peak = (s.dd == null || s.dd >= -0.005)
+    ? `<p class="peak">At its highest point right now.</p>`
+    : `<p class="peak">Down ${Math.abs(s.dd*100).toFixed(0)}% from its best month · ${s.below} months below it.</p>`;
+  return `<article class="set ${s.state}">
+    <h3>${s.name}</h3>
+    <div class="meta">${s.year} · ${s.block} · ${s.n} cards</div>
+    <span class="pill ${s.state}">${STATE[s.state].label}</span>
+    <div class="bars">
+      ${bar("3 mo", s.r3, max)}
+      ${bar("1 yr", s.r12, max)}
+      ${bar("3 yr", s.r36, max)}
+    </div>
+    ${peak}
+    <p class="why">${driver(s)}</p>
+  </article>`;
+}
+/* One plain sentence naming what is actually moving this set. */
+function driver(s){
+  const r3=s.r3||0, r12=s.r12||0, r36=s.r36||0, dd=s.dd||0;
+  if (s.state === "ran")
+    return r12 > r3*2
+      ? "Been climbing all year and the last 3 months are the steep part."
+      : "Almost all of this year's move happened in the last 3 months.";
+  if (s.state === "climb")
+    return r36 > 0.4
+      ? "Strong over 3 years and still adding, without a spike."
+      : "Quietly positive on every timeframe. Nothing dramatic driving it.";
+  if (s.state === "waking")
+    return dd < -0.2
+      ? `Sat ${Math.abs(dd*100).toFixed(0)}% under its high for ${s.below} months. The last 3 months are the first real bounce.`
+      : "Still below its high, but the recent 3 months turned positive.";
+  return r36 > 0
+    ? "Flat lately. It held its value over 3 years but has no push right now."
+    : "Down over 1 and 3 years, and still not turning.";
+}
+document.getElementById("board").innerHTML = ORDER.map(k => {
+  const rows = SETS.filter(s => s.state === k);
+  if (!rows.length) return "";
+  return `<section class="band">
+    <header><h2>${STATE[k].label}</h2><span class="n">${rows.length}</span>
+    <p>${STATE[k].line}</p></header>
+    <div class="grid">${rows.map(card).join("")}</div>
+  </section>`;
+}).join("");
+</script>
+</body>
+</html>
