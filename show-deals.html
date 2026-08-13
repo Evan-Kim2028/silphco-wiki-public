@@ -9,20 +9,20 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;background:#0c0f16;color:var(--text);line-height:1.35}
-.topbar{position:sticky;top:0;z-index:40;background:rgba(12,15,22,.96);border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top)}
+.topbar{position:sticky;top:0;z-index:40;background:#0c0f16;border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top)}
 .inner{max-width:40rem;margin:0 auto;padding:.7rem 1rem}
 h1{margin:0;font-size:1.1rem}
 .meta{color:var(--muted);font-size:.8rem;margin-top:.15rem}
 .meta a{color:var(--accent);text-decoration:none}
 .rule{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.65rem .75rem;margin:.75rem 0;font-size:.84rem;color:var(--muted)}
 .rule b{color:var(--text)}
-#q{width:100%;font-size:16px;padding:.7rem .8rem;border-radius:10px;border:1px solid var(--border);background:var(--panel2);color:var(--text)}
+#q{width:100%;font-size:16px;padding:.7rem .8rem;border-radius:10px;border:1px solid var(--border);background:var(--panel2);color:var(--text);min-height:44px;text-overflow:ellipsis}
 .cuts{display:flex;flex-wrap:wrap;gap:.35rem;margin:.55rem 0}
 .cut{appearance:none;border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:999px;padding:.4rem .7rem;font-size:.8rem;min-height:40px}
 .cut.active{border-color:var(--accent);background:rgba(110,168,255,.14);color:#cfe2ff}
 .ask{display:flex;gap:.45rem;align-items:center;margin:.45rem 0 .7rem}
 .ask label{font-size:.78rem;color:var(--muted);white-space:nowrap}
-.ask input{flex:1;font-size:16px;padding:.55rem .65rem;border-radius:8px;border:1px solid var(--border);background:var(--panel2);color:var(--text)}
+.ask input{flex:1;min-width:0;font-size:16px;padding:.55rem .65rem;border-radius:8px;border:1px solid var(--border);background:var(--panel2);color:var(--text);min-height:44px}
 .count{color:var(--muted);font-size:.78rem;margin:0 0 .4rem}
 .row{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.7rem .8rem;margin:.4rem 0}
 .row.want{border-color:rgba(61,214,140,.35)}
@@ -42,6 +42,25 @@ h1{margin:0;font-size:1.1rem}
 .verdict.steal{color:var(--pos)}.verdict.good{color:var(--accent)}.verdict.nm{color:var(--warn)}.verdict.walk{color:var(--neg)}
 .empty{color:var(--muted);padding:1.5rem .2rem}
 main{padding-bottom:max(2rem,env(safe-area-inset-bottom))}
+html{overflow-x:clip}
+@media (max-width:700px){
+  body{font-size:17px}
+  .inner{padding:.65rem max(.85rem,env(safe-area-inset-left)) .65rem max(.85rem,env(safe-area-inset-right))}
+  h1{font-size:1.2rem}
+  .meta{font-size:.88rem}
+  .rule{font-size:.92rem}
+  .cut{min-height:44px;font-size:.95rem}
+  #q{min-height:48px}
+  .ask{flex-wrap:wrap}
+  .ask label{font-size:.92rem}
+  .name{font-size:1.12rem}
+  .sub{font-size:.95rem}
+  .nums .k{font-size:.72rem}
+  .nums .v{font-size:1.15rem}
+  .tag{font-size:.72rem;padding:.14rem .45rem}
+  .verdict{font-size:1rem}
+  .count{font-size:.9rem}
+}
 </style>
 </head>
 <body>
@@ -51,7 +70,7 @@ main{padding-bottom:max(2rem,env(safe-area-inset-bottom))}
 </div></header>
 <main class="inner">
   <p class="rule">Assume <b>LP</b>. Steal ≤ 75% of LP. Good = about LP. Pay NM only if the foil is clean and the back is black. Above LP without that → walk. <b>Want</b> = still-hot leftover (behind friends). Don’t chase pulled names.</p>
-  <input id="q" type="search" placeholder="Name, set, or number — tyranitar delta, tyranitar 16…" autocomplete="off" autofocus/>
+  <input id="q" type="search" placeholder="Name, set, or # — tyranitar 16" autocomplete="off" autofocus/>
   <div class="cuts">
     <button type="button" class="cut active" data-cut="want">Want · 104</button>
     <button type="button" class="cut" data-cut="mine">My pile</button>

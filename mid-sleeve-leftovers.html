@@ -21,7 +21,7 @@
   }
   .topbar {
     position: sticky; top: 0; z-index: 40;
-    background: rgba(12,15,22,0.94); border-bottom: 1px solid var(--border);
+    background: #0c0f16; border-bottom: 1px solid var(--border);
   }
   .topbar-inner { max-width: 96rem; margin: 0 auto; padding: 0.75rem 1.1rem; }
   h1 { margin: 0; font-size: 1.15rem; font-weight: 700; text-wrap: balance; }
@@ -263,26 +263,73 @@
     .cut { transition: none; }
     .cut:active { transform: none; }
   }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
   img, svg { max-width: 100%; height: auto; }
   input, select, textarea, button { font-size: 16px; }
   @media (max-width: 700px) {
-    body { font-size: 16px; }
-    .topbar { padding-top: env(safe-area-inset-top); }
+    body { font-size: 17px; }
+    .topbar { padding-top: env(safe-area-inset-top); background: #0c0f16; }
     .topbar-inner, main {
       padding-left: max(0.85rem, env(safe-area-inset-left));
       padding-right: max(0.85rem, env(safe-area-inset-right));
     }
+    .topbar-inner { padding-top: 0.55rem; padding-bottom: 0.55rem; }
     main { padding-bottom: max(2.5rem, env(safe-area-inset-bottom)); }
-    h1 { font-size: 1.2rem; }
+    h1 { font-size: 1.12rem; line-height: 1.25; }
+    .meta { font-size: 0.88rem; }
     .chip, .cut, .seg button, .sort-chip, .pager button, .set-chip {
-      min-height: 44px; min-width: 44px;
+      min-height: 44px; min-width: 44px; font-size: 0.95rem;
     }
-    .controls { flex-direction: column; align-items: stretch; }
-    .controls input[type="search"], .controls select { width: 100%; min-width: 0; }
+    .controls { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+    .controls label {
+      display: flex; flex-direction: column; align-items: stretch;
+      gap: 0.25rem; width: 100%; font-size: 0.92rem;
+    }
+    .controls input[type="search"], .controls select {
+      width: 100%; min-width: 0; min-height: 44px; font-size: 16px;
+    }
+    .find { flex: 1 1 auto; min-width: 0; width: 100%; }
+    #q { min-height: 48px; text-overflow: ellipsis; }
+    #count { margin-left: 0; font-size: 0.95rem; }
+    #suggest { max-height: 50vh; }
+    #suggest button {
+      min-height: 48px; font-size: 0.95rem;
+      display: grid; grid-template-columns: 1fr auto; gap: 0.1rem 0.55rem;
+    }
+    #suggest .s-lp { float: none; grid-column: 2; grid-row: 1; }
+    #suggest button > span { grid-column: 1; grid-row: 1; }
+    #suggest .s-sub { grid-column: 1 / -1; }
     .story, .pack-grid, #card-grid { grid-template-columns: 1fr !important; }
+    .story figcaption { font-size: 0.78rem; }
+    .story .note, .eli { font-size: 0.92rem; }
     .hz-row { grid-template-columns: 4.2rem 1fr; }
-    .bar-row { grid-template-columns: 3.4rem 1fr 3rem; }
+    .stack { height: 28px; }
+    .stack > * { font-size: 0.78rem; }
+    .bar-row { grid-template-columns: 3.2rem 1fr 3.4rem; }
+    .when { font-size: 0.8rem; }
+    .who { font-size: 0.72rem; }
+    .amt { font-size: 0.85rem; }
+    .art { min-height: 0; padding: 2.35rem 0.55rem 1.7rem; }
+    .art img {
+      width: min(100%, 300px); height: auto; aspect-ratio: 63 / 88;
+      object-fit: contain;
+    }
+    .finish-badge, .cohort { font-size: 0.75rem; padding: 0.28rem 0.5rem; }
+    .img-note { font-size: 0.78rem; }
+    .name { font-size: 1.12rem; }
+    .name-row { flex-wrap: wrap; }
+    .sub, .price, .coh-note { font-size: 0.95rem; }
+    .price .p10 { font-size: 0.9em; }
+    .buy { min-height: 44px; font-size: 0.95rem; padding: 0.4rem 0.85rem; }
+    .pack, .tile { scroll-margin-top: 6.75rem; }
+    .tile:active { transform: none; }
+    .rank { grid-template-columns: minmax(0, 7.6rem) 1fr 3.2rem; }
+    .rank .nm { font-size: 0.88rem; }
+    .rank .amt { font-size: 0.82rem; }
+    #table-wrap { -webkit-overflow-scrolling: touch; }
+    table { min-width: 44rem; width: max-content; font-size: 0.95rem; }
+    th, td { white-space: nowrap; }
+    .thumb { width: 42px; height: 58px; }
   }
 </style>
 </head>
@@ -366,7 +413,7 @@
       <option value="name">name</option>
     </select></label>
     <div class="find">
-      <input type="search" id="q" placeholder="Name, set, or number — tyranitar delta, tyranitar 16…" autocomplete="off"/>
+      <input type="search" id="q" placeholder="Name, set, or # — tyranitar 16" autocomplete="off"/>
       <div id="suggest" hidden></div>
     </div>
     <span id="count"></span>
@@ -480,8 +527,17 @@ function filtered() {
     out.sort((a,b) => a.name.localeCompare(b.name) || a.set.localeCompare(b.set));
     return applyCohort(out);
   }
+  if (sleeve !== "all") {
+    let out = PEERS.filter(r => r.sleeve === sleeve);
+    const key = { resid: r => r.resid ?? 0, r3: r => -(r.r3 ?? -99), r12: r => -(r.r12 ?? -99), resid12: r => (r.resid12 ?? 0), px: r => -r.px, name: r => r.name };
+    out.sort((a,b) => {
+      const ka = key[sort](a), kb = key[sort](b);
+      return ka < kb ? -1 : ka > kb ? 1 : 0;
+    });
+    return applyCohort(out);
+  }
   const TYPES = new Set(["stamp", "delta-rare", "ex", "holo"]);
-  if (TYPES.has(cut) && !q) {
+  if (TYPES.has(cut)) {
     let out = catalog().filter(r => kindGroup(r) === cut);
     if (block !== "all" && out.some(r => r.block)) out = out.filter(r => !r.block || r.block === block);
     if (tier !== "all") out = out.filter(r => r.tier === tier);
@@ -495,19 +551,6 @@ function filtered() {
   if (cut === "binder") {
     const b = loadBind();
     return applyCohort(catalog().filter(r => b[bindKey(r)]).sort((a,b) => a.name.localeCompare(b.name)));
-  }
-  if (sleeve !== "all") {
-    let out = PEERS.filter(r => {
-      if (r.sleeve !== sleeve) return false;
-      if (q && !hitsQuery(r, q)) return false;
-      return true;
-    });
-    const key = { resid: r => r.resid ?? 0, r3: r => -(r.r3 ?? -99), r12: r => -(r.r12 ?? -99), resid12: r => (r.resid12 ?? 0), px: r => -r.px, name: r => r.name };
-    out.sort((a,b) => {
-      const ka = key[sort](a), kb = key[sort](b);
-      return ka < kb ? -1 : ka > kb ? 1 : 0;
-    });
-    return applyCohort(out);
   }
   let out = ROWS.filter(r => {
     if (cut === "still" && r.story !== "still") return false;
