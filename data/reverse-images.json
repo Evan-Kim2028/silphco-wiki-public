@@ -1,0 +1,2655 @@
+{
+  "bw4-10": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2a3dab0762ce56b2638c620e891ee81b00b87ce6feea5f17507318e473220cdf/1600.jpg",
+    "name": "Growlithe",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-next-destinies/growlithe-reverse-holo-10",
+    "set": "Next Destinies",
+    "source": "pricecharting"
+  },
+  "bw4-39": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/frv3lswwiaiba3pe/1600.jpg",
+    "name": "Pikachu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-next-destinies/pikachu-reverse-holo-39",
+    "set": "Next Destinies",
+    "source": "pricecharting"
+  },
+  "bw5-29": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/0d694387167777f20ad916814c5f82eb140aa35b3e3b735a5bfe56d83be79acf/1600.jpg",
+    "name": "Empoleon",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dark-explorers/empoleon-reverse-holo-29",
+    "set": "Dark Explorers",
+    "source": "pricecharting"
+  },
+  "bw5-89": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/025f2cbbafff407662f3be34d10afa865b6679ea4589de756dd3f364732d3959/1600.jpg",
+    "name": "Haxorus",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dark-explorers/haxorus-reverse-holo-89",
+    "set": "Dark Explorers",
+    "source": "pricecharting"
+  },
+  "bw6-19": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/e87c332cde48e5d7a8552585f31d566d6e06aa9e4fbf635033f88c86f5281338/1600.jpg",
+    "name": "Ninetales",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragons-exalted/ninetales-reverse-holo-19",
+    "set": "Dragons Exalted",
+    "source": "pricecharting"
+  },
+  "bw9-39": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c8fc4fe0f95ad6b40368352142816be728818c344a41b67fd2b3532aee858c53/1600.jpg",
+    "name": "Zekrom",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-plasma-freeze/zekrom-reverse-holo-39",
+    "set": "Plasma Freeze",
+    "source": "pricecharting"
+  },
+  "bw9-78": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/81111170c7bffc39778650e9cbdff7f041d6feeddd2f8c59ec811e6f155caf71/1600.jpg",
+    "name": "Hydreigon",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-plasma-freeze/hydreigon-reverse-holo-78",
+    "set": "Plasma Freeze",
+    "source": "pricecharting"
+  },
+  "dp3-27": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/44c78027b34b9ca2598060998b21ba33c2010a1ad6891a85d409943f5aaf7a92/1600.jpg",
+    "name": "Furret",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-secret-wonders/furret-reverse-holo-27",
+    "set": "Secret Wonders",
+    "source": "pricecharting"
+  },
+  "dp4-14": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d51c517b5856a38a7c4458007df8a8ff04fa0f32a3c1286ca850aebc87f26230/1600.jpg",
+    "name": "Butterfree",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-great-encounters/butterfree-reverse-holo-14",
+    "set": "Great Encounters",
+    "source": "pricecharting"
+  },
+  "dp4-17": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/51c56fc07c5d197468b23b7e5a992e091eb52e6faa1d52902d5653c71fbd981e/1600.jpg",
+    "name": "Exploud",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-great-encounters/exploud-reverse-holo-17",
+    "set": "Great Encounters",
+    "source": "pricecharting"
+  },
+  "dp5-14": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/nmmlmdhxrtgvykcl/1600.jpg",
+    "name": "Zapdos",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-majestic-dawn/zapdos-reverse-holo-14",
+    "set": "Majestic Dawn",
+    "source": "pricecharting"
+  },
+  "dp5-6": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/41d37d5a0a005e13818a09d463dfe0e7e53b54d253905fb7e43d5510f983c4e1/1600.jpg",
+    "name": "Kabutops",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-majestic-dawn/kabutops-reverse-holo-6",
+    "set": "Majestic Dawn",
+    "source": "pricecharting"
+  },
+  "dp6-39": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/86591bcaaf9aab00cbbd25823df0889e5290188c3c182b6f291825cb55e06b76/1600.jpg",
+    "name": "Registeel",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legends-awakened/registeel-reverse-holo-39",
+    "set": "Legends Awakened",
+    "source": "pricecharting"
+  },
+  "dp6-45": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/3cf6ebf41d85037da26318b20dd73e207b711a5396577f980c7e91f93e0e2e3d/1600.jpg",
+    "name": "Vileplume",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legends-awakened/vileplume-reverse-holo-45",
+    "set": "Legends Awakened",
+    "source": "pricecharting"
+  },
+  "ex10-51": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/wxclfz2d5umpjh6e/1600.jpg",
+    "name": "Chikorita",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/chikorita-reverse-holo-51",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-53": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/k5r277xesxsqqta7/1600.jpg",
+    "name": "Clefairy",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/clefairy-reverse-holo-53",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-54": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/5412c62a96a03a5f1ea764521892a6fdb79353bf8181cd81ffbcd9142475da25/1600.jpg",
+    "name": "Cyndaquil",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/cyndaquil-reverse-holo-54",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-55": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b053d083e7a3f30443981b2855d7748d61f13ceaf89a4a12a9bc46ae405d0a51/1600.jpg",
+    "name": "Eevee",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/eevee-reverse-holo-55",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-56": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/fc042593fd31fec1a550e603c7676968a2646c34f2ef82e940c792e6da80ce5f/1600.jpg",
+    "name": "Flaaffy",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/flaaffy-reverse-holo-56",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-57": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/o3pkp7oozbq7u24x/1600.jpg",
+    "name": "Gligar",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/gligar-reverse-holo-57",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-59": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7419179a0613e97675e50583de1a606776c86a05433d36a48a3a278322ca3248/1600.jpg",
+    "name": "Hoothoot",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/hoothoot-reverse-holo-59",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-60": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/e04b3bde301c2545be7b125f54d625099143cbab2d2c8eaf35ad994f743c8bfc/1600.jpg",
+    "name": "Houndour",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/houndour-reverse-holo-60",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-61": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/28619bedee75161a08c17bbb67680fb6dc55d141ef0356136dccfeb212c282c9/1600.jpg",
+    "name": "Larvitar",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/larvitar-reverse-holo-61",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-62": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/corrm74h4vyi6fswockf/1600.jpg",
+    "name": "Mareep",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/mareep-reverse-holo-62",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-63": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/52d199144fe1d63708f8a6777d98fa32a989b5c2bb80a50c6385000c67469d0e/1600.jpg",
+    "name": "Natu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/natu-reverse-holo-63",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-64": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b272d20b991ed9780813c86b8b24c9f800f05db6277f36c8c4920939e27888f5/1600.jpg",
+    "name": "Oddish",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/oddish-reverse-holo-64",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-65": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c252a09c164835d1cb388771abb48084028d759cc48ab5886ab474041874721c/1600.jpg",
+    "name": "Onix",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/onix-reverse-holo-65",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-66": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/q3aawx3atl4dv4qz/1600.jpg",
+    "name": "Pineco",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/pineco-reverse-holo-66",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-67": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/54d11d33fe1fa134c6594b00bfc609fb09f6afe3c70e7fc264a845c4da6badf4/1600.jpg",
+    "name": "Poliwag",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/poliwag-reverse-holo-67",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-68": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ec4b9431d37a7f88879a2042c13dcfb7e38e5498975168e213f33fafb2b1ae58/1600.jpg",
+    "name": "Poliwhirl",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/poliwhirl-reverse-holo-68",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-69": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/8568f2621f994821f1b6e578f092db6264ceb765893a32473fa5deda80338566/1600.jpg",
+    "name": "Porygon",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/porygon-reverse-holo-69",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-70": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/3f7osncynssn4kg3/1600.jpg",
+    "name": "Pupitar",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/pupitar-reverse-holo-70",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-71": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ge7f4uqr4nk2r2ct/1600.jpg",
+    "name": "Remoraid",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/remoraid-reverse-holo-71",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-72": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ef2345b085d88d053511c9d36cab695d8171d5b71e67436292d26cf74f591ea0/1600.jpg",
+    "name": "Slowpoke",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/slowpoke-reverse-holo-72",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-73": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/xwslc2zkkn4wh4au/1600.jpg",
+    "name": "Slugma",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/slugma-reverse-holo-73",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-74": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b283f4cbe858f3c9eeb3ae9eca6c21cf288c72f85e4d9b9f6b59534f069efa85/1600.jpg",
+    "name": "Snubbull",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/snubbull-reverse-holo-74",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-75": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/43fe703b116c04237777483e066bd0c57bf525987a137b3506c2d1e797fbbb2e/1600.jpg",
+    "name": "Spinarak",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/spinarak-reverse-holo-75",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-76": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4lzgf53zor7235cg/1600.jpg",
+    "name": "Sunkern",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/sunkern-reverse-holo-76",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-77": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/mnxnyeidpulm5blo/1600.jpg",
+    "name": "Teddiursa",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/teddiursa-reverse-holo-77",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-78": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7cf9874e704334006e7a631c8c67f46d25eaea7c88b6e5f716ab2dce15d67903/1600.jpg",
+    "name": "Totodile",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/totodile-reverse-holo-78",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex10-94": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c870f921feea9690c69a65bd43c772462b8d4259916a28d5890153f34ae66e88/1600.jpg",
+    "name": "Energy Search",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-unseen-forces/energy-search-reverse-holo-94",
+    "set": "Unseen Forces",
+    "source": "pricecharting"
+  },
+  "ex11-101": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/46fc400eb57f6f9819627709ce04272b940ac8bd8a67202fd41e1af318f80cf1/1600.jpg",
+    "name": "Potion",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/potion-reverse-holo-101",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-102": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/778ff82204ba9b8993bdcec9f8ffe16d2ba7a36a40e48544436ae056a168f7a9/1600.jpg",
+    "name": "Switch",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/switch-reverse-holo-102",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-104": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/9a12a8585dabca0f1f1e998db1a3ef5cbd6111ee798085b1c9b9d5811244a248/1600.jpg",
+    "name": "Holon Energy FF",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/holon-energy-ff-reverse-holo-104",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-105": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4pqy5wc4y4jvzeu4/1600.jpg",
+    "name": "Holon Energy GL",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/holon-energy-gl-reverse-holo-105",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-19": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b6682f72eb3048a27d4c2aae2e6e55cfb8f08694fdd5eacf356150aa80fa3887/1600.jpg",
+    "name": "Azumarill \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/azumarill-delta-reverse-holo-19",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-20": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/74e51df9e29121d414a40e113f9830299aa7b6cc97167d1ef932f90d3ab7bbff/1600.jpg",
+    "name": "Azurill",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/azurill-reverse-holo-20",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-21": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/64d31debc5414720f9c87ddbf6641b10bf17b8c0618bfd7182b4cc92bcfc20be/1600.jpg",
+    "name": "Holon's Electrode",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/holons-electrode-reverse-holo-21",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-22": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/015d72abfd2bc4897d7d7788559d72e2304abd54b44208c3703f7cdc13f8f12e/1600.jpg",
+    "name": "Holon's Magneton",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/holons-magneton-reverse-holo-22",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-23": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/8885acd83d7b6f2f07149fd839e514192ea463dd6f8cd782d77bfa8d7c12e234/1600.jpg",
+    "name": "Hypno",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/hypno-reverse-holo-23",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-24": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ecf8982f5dc384fca8e613f3ad852560171984a044f93d4be58ffc6dae809c53/1600.jpg",
+    "name": "Mightyena \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/mightyena-delta-reverse-holo-24",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-25": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/271fed19019254a046f343a357e6406197eec9ac7f79d808035c8ea8b582ac3b/1600.jpg",
+    "name": "Porygon2",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/porygon2-reverse-holo-25",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-26": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/3c114e0f71eb7f37438a4feaa5a51b1cc51695d3d54bd75e02cec9d288753449/1600.jpg",
+    "name": "Rain Castform",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/rain-castform-reverse-holo-26",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-27": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/az3iogewlcqdiu4s/1600.jpg",
+    "name": "Sandslash \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/sandslash-delta-reverse-holo-27",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-28": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a2209fc228e3ecc792004ac894849cb80d4b9f5f971cf7f740075ebc192aca40/1600.jpg",
+    "name": "Slowking",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/slowking-reverse-holo-28",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-29": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f9b0f021060d62aa354bc0df7c99c95b4d8cd98ab64d4d15cb447d20e1b29119/1600.jpg",
+    "name": "Snow-cloud Castform",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/snow-cloud-castform-reverse-holo-29",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-30": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7ee75b7b8bbdaef7b0a65a3867ea458489b37c72705ad4dcad18af0a4fef5c23/1600.jpg",
+    "name": "Starmie \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/starmie-delta-reverse-holo-30",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-31": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/348c8e4969f893beb3c693ad4edcb010130f6efd835a6f41e7a054d2a03b7a04/1600.jpg",
+    "name": "Sunny Castform",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/sunny-castform-reverse-holo-31",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-32": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/hvwenqvglai5ospf/1600.jpg",
+    "name": "Swellow",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/swellow-reverse-holo-32",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-33": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c6412f63b21df46a0145bb5483f9a6bd90319123b0b00d70dd75a9f96287353f/1600.jpg",
+    "name": "Weezing",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/weezing-reverse-holo-33",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-57": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/770b38f92d13512fa3c7c3dcb14f074f43d40679dd8de011b43a1775a0b75e9d/1600.jpg",
+    "name": "Bagon \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/bagon-delta-reverse-holo-57",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-58": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/fdb711ccc23b6570d39e4e6ec36d862735a2748942c08a7bb223c998b45112a1/1600.jpg",
+    "name": "Bagon \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/bagon-delta-reverse-holo-58",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-59": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/v224xjovji3bsxx3/1600.jpg",
+    "name": "Beldum \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/beldum-delta-reverse-holo-59",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-60": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b8f694b355a21195c93746b44f62e19c68ea568e2d73b4c49d04e8009359d14b/1600.jpg",
+    "name": "Cubone",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/cubone-reverse-holo-60",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-61": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/068803b33bb613497dcf34b64667bffa5d297a5ddcac1bc548997904235f0bbe/1600.jpg",
+    "name": "Ditto",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/ditto-reverse-holo-61",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-62": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/e4bd675b8b309c38cf347b53d696dfc3a10a17e431fbdbe109a55fd912e88d3c/1600.jpg",
+    "name": "Ditto",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/ditto-reverse-holo-62",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-63": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/efd6bfcb1e003d6106e32546989f9c04013a9bdfd9fbd00ae35b89395da07d42/1600.jpg",
+    "name": "Ditto",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/ditto-reverse-holo-63",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-64": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/290bf891005389819c43f32ca9aab99950c7bf34e54e042d95a63339dd655fef/1600.jpg",
+    "name": "Ditto",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/ditto-squirtle-reverse-holo-64",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-65": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/5b1612c0bb8b903544bf62b9e7852fcf115064b2398571fb7a0b1fb6a9bee0b1/1600.jpg",
+    "name": "Dratini \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/dratini-delta-reverse-holo-65",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-66": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/gpfg6xcjwlxlmnt5/1600.jpg",
+    "name": "Dratini \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/dratini-delta-reverse-holo-66",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-67": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1f27637c725de75d071e3c7a82a7d2befc0fc7f01a2066206897f24fb0fae5fd/1600.jpg",
+    "name": "Drowzee",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/drowzee-reverse-holo-67",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-68": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d9d2f4d3c37324beaf44996073df8098e5a6325dbf01d1e5030df34be8ddc7c1/1600.jpg",
+    "name": "Eevee \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/eevee-delta-reverse-holo-68",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-69": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/30459eb09db4bdf30f5d3a889b70f65444d78cd012fb7093b5d80caec693083c/1600.jpg",
+    "name": "Eevee",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/eevee-reverse-holo-69",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-70": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c8157476865f6e26d2324f54bc55793c77a315541b8afbf5a5ac35e45ccd405c/1600.jpg",
+    "name": "Holon's Magnemite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/holons-magnemite-reverse-holo-70",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-71": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ixfoejwnlmf3md5i/1600.jpg",
+    "name": "Holon's Voltorb",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/holons-voltorb-reverse-holo-71",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-72": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/dghnxxujxmjikckt/1600.jpg",
+    "name": "Koffing",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/koffing-reverse-holo-72",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-73": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f75edab79475196f02b395f51971dd1cd4c7a81c3f578a97b049855b4c18c333/1600.jpg",
+    "name": "Larvitar \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/larvitar-delta-reverse-holo-73",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-74": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/m7vihckl3kvm24tp/1600.jpg",
+    "name": "Magnemite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/magnemite-reverse-holo-74",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-75": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6oitvd2tivtzfbwj/1600.jpg",
+    "name": "Makuhita",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/makuhita-reverse-holo-75",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-76": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/e3d7570cf22ccf7a1db10f1032138af56db935a211e4aed39795f7bfb64feb9a/1600.jpg",
+    "name": "Marill",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/marill-reverse-holo-76",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-77": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/56b59f33f84cc276511e06d28fd7d84f0dfd697ae3e03501f2b04425e96f5383/1600.jpg",
+    "name": "Meowth",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/meowth-reverse-holo-77",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-78": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/67ba8843e57c347712d5f4382d213d8290f28cf86b552a3d954bed39092d09d6/1600.jpg",
+    "name": "Ponyta",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/ponyta-reverse-holo-78",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-79": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ahshscf7stbfic42/1600.jpg",
+    "name": "Poochyena",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/poochyena-reverse-holo-79",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-81": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a4zelpcr2c7oblzg/1600.jpg",
+    "name": "Ralts",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/ralts-reverse-holo-81",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-82": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7e0a36e878e9d1b8fd6e21b4267f52015313612eb6f5db8c961f76e5cf1b8c88/1600.jpg",
+    "name": "Sandshrew",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/sandshrew-reverse-holo-82",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-83": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/01ae61eace878c5115064ce3abe317ff38e9fd223ec187841458e2007dec446f/1600.jpg",
+    "name": "Slowpoke",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/slowpoke-reverse-holo-83",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-84": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/064a2a783be83c6cf1b985839e73eb5ff53f053dd111bfb85204041c84be0395/1600.jpg",
+    "name": "Staryu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/staryu-reverse-holo-84",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-85": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/43b4edee345b830c6203596abef767d7074e2926991827ad0284d7f4414af24c/1600.jpg",
+    "name": "Staryu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/staryu-reverse-holo-85",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-86": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/89c087acf96b7ff35c56c879c303eb579007f97f5815cfac35470b8cd8ce5f82/1600.jpg",
+    "name": "Taillow",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/taillow-reverse-holo-86",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-87": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/x7edjzgiutxv7ajf/1600.jpg",
+    "name": "Weedle",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/weedle-reverse-holo-87",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex11-88": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/96fd12cd6bf6b9fe3c51a6b22164c9794100593b3fe8a88cfb549aead398f485/1600.jpg",
+    "name": "Zubat",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-delta-species/zubat-reverse-holo-88",
+    "set": "Delta Species",
+    "source": "pricecharting"
+  },
+  "ex12-48": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/q3oypo4sgvgiaqzs/1600.jpg",
+    "name": "Aron",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/aron-reverse-holo-48",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-50": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/8d8559a9875a6f3de0d1b374ad533d0d09245f7bec61a5f79cca160f4a9e9acb/1600.jpg",
+    "name": "Chinchou",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/chinchou-reverse-holo-50",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-51": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/e6a29b2f6d797b1f3be3f09e96aa97944f8bcd84b576831a2bb423c1d96777e4/1600.jpg",
+    "name": "Clamperl",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/clamperl-reverse-holo-51",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-52": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/8c69332d321d51a311fa9b512f3d4cd992e1080843718a2b9b02d4a713a3b362/1600.jpg",
+    "name": "Gastly",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/gastly-reverse-holo-52",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-53": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/dc1982678cff1cee05c57dbff7b08ddfff1e50ed64bb8aae1240f0fbf9c46755/1600.jpg",
+    "name": "Geodude",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/geodude-reverse-holo-53",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-54": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/3f16da49b46febac254326477c0616399a4f46719f7c80ec15fab06af99d8984/1600.jpg",
+    "name": "Grimer",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/grimer-reverse-holo-54",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-55": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/5b14ae2bfc19188c8360cb2f9322cafa9da6e1c10f7b70ccd8a03ee6352c33a8/1600.jpg",
+    "name": "Growlithe",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/growlithe-reverse-holo-55",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-56": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/t4vkwbp7zs5avgqh/1600.jpg",
+    "name": "Lileep",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/lileep-reverse-holo-56",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-57": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/cobf4wneeeb6qeb6/1600.jpg",
+    "name": "Machop",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/machop-reverse-holo-57",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-58": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/810d2974755bfe731ae7457041f700997706cfcc9872ede3d942396fb19a1da5/1600.jpg",
+    "name": "Magby",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/magby-reverse-holo-58",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-59": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/71335fc08609d073ca11e83f8ea4a78a49952fcf3bce76990a37b007763b9be6/1600.jpg",
+    "name": "Magnemite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/magnemite-reverse-holo-59",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-60": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/161e5785023b260b296184603cd10964818b910621f9620610919ffacfd34eb3/1600.jpg",
+    "name": "Omanyte",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/omanyte-reverse-holo-60",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-61": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/62305180d2479e0c961a776b124ce0178abfb5210d075f677a72f374c71680fc/1600.jpg",
+    "name": "Seedot",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/seedot-reverse-holo-61",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-62": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/697d2100534e540f9340930a2738a2115a6c4e588573b969d54ce51bef992364/1600.jpg",
+    "name": "Sentret",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/sentret-reverse-holo-62",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-63": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4tbaonn37jgittpq/1600.jpg",
+    "name": "Shuppet",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/shuppet-reverse-holo-63",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-64": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6f2ff5a81855747f4b3e7e58f88da5cdbd54ff921e9171d096764f71c5e898c7/1600.jpg",
+    "name": "Skitty",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/skitty-reverse-holo-64",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-65": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d5dea6e8f1cfde52eccfa757ed452bd384c84dbcb0c34353e53f6dbedc4eef32/1600.jpg",
+    "name": "Spheal",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/spheal-reverse-holo-65",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-66": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/698a793c0e1b716c6e67c37382a3968da17ad25a3543f465073c3ff9472fd2c4/1600.jpg",
+    "name": "Tentacool",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/tentacool-reverse-holo-66",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-67": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/554a0cc32bb070601ea572719598d6082d962aea60654cb7cf22155eb777636f/1600.jpg",
+    "name": "Trapinch",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/trapinch-reverse-holo-67",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-68": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ef9602d6332e1c27a122f2c6a218fa95e8ceaef305b9848237eb816601d7f14e/1600.jpg",
+    "name": "Voltorb",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/voltorb-reverse-holo-68",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-69": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/06d4608615ac3f03e034a62e58c9f5e57fa88c65f1c9361bab4c813e32e2223d/1600.jpg",
+    "name": "Wailmer",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/wailmer-reverse-holo-69",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-70": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d76c7a12f237b9dcb132ed2cf93e435df870dbef4828bc2c639980d00023e245/1600.jpg",
+    "name": "Wurmple",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/wurmple-reverse-holo-70",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-71": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/e5659ae43920eb385977abf6e1905cd9d3d30789d5fb1d483101bc3195eb3140/1600.jpg",
+    "name": "Wynaut",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/wynaut-reverse-holo-71",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-78": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/68560a6c7b7fc168ed45db3d8132e79a624fff3e32077420b3a6a34e29df8568/1600.jpg",
+    "name": "Claw Fossil",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/claw-fossil-reverse-holo-78",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex12-80": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/48a5157c0d3bc96bf5ea86396ab0b24c784770c39f83a28562900aa995e12b75/1600.jpg",
+    "name": "Root Fossil",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-legend-maker/root-fossil-reverse-holo-80",
+    "set": "Legend Maker",
+    "source": "pricecharting"
+  },
+  "ex13-57": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/60cd5319fe7846dd9901333376a6ceef412b0ce941deb9e43daedbd647f77863/1600.jpg",
+    "name": "Anorith \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/anorith-reverse-holo-57",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-58": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6fc8db6c983715b5766f8abb1f9af18da96ba6377b6dccfbc85e51422d3857ea/1600.jpg",
+    "name": "Aron",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/aron-reverse-holo-58",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-59": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/nqv6w44vmsgmrt3d/1600.jpg",
+    "name": "Baltoy",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/baltoy-reverse-holo-59",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-61": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/934e8915990b523bfb0240aa2eccdbab8cf864db5d04b487f4127d4e15acaafe/1600.jpg",
+    "name": "Carvanha \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/carvanha-reverse-holo-61",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-62": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d858fb9d232335fab5c4098fb544e19b2445e45f914a897fd9720981fe25397f/1600.jpg",
+    "name": "Corphish",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/corphish-reverse-holo-62",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-63": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f433a4a110bda06307fb395ad94f13f77b98efa24c2ff05d758e3ddc4bed3449/1600.jpg",
+    "name": "Corphish",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/corphish-reverse-holo-63",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-64": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7fhomle4eadpvmfl/1600.jpg",
+    "name": "Electrike",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/electrike-reverse-holo-64",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-65": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a6235ad144f9766e5061991691e9584c29ef659f7b6f6b5e98253e408b89e85b/1600.jpg",
+    "name": "Exeggcute \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/exeggcute-reverse-holo-65",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-66": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/addc7815a842cce8f9a07438bb039066673c86fd5fb5e188a5572c50193948ac/1600.jpg",
+    "name": "Horsea \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/horsea-reverse-holo-66",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-68": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ekivm4acobskh4vv/1600.jpg",
+    "name": "Lileep \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/lileep-reverse-holo-68",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-69": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4a5e77817f9d3979b3b14cdbc6c60e8af70c31d69aba07da2673b9110dc63189/1600.jpg",
+    "name": "Magikarp \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/magikarp-reverse-holo-69",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-70": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2b32716d0600514729ea24b704d0350e3a8a0eaa7d262d44cfeb71a5e6a0da0d/1600.jpg",
+    "name": "Mankey \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/mankey-reverse-holo-70",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-71": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/cfc77997b1f5d73d821a8675ec5b569b6adf5fb360020891c0e9f31c36752d1a/1600.jpg",
+    "name": "Meowth \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/meowth-reverse-holo-71",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-74": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/bqeci7mjobtmqmtf/1600.jpg",
+    "name": "Omanyte \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/omanyte-reverse-holo-74",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-75": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/565060615e4b52768676e814d48d91e54f12932ff5e653007760b79335695d9e/1600.jpg",
+    "name": "Phanpy",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/phanpy-reverse-holo-75",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-76": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/89d097f914fd10a7182195013bd9a22c886b8387b7f8b1abaf2bef2528a5ffc7/1600.jpg",
+    "name": "Pichu \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/pichu-reverse-holo-76",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-77": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/sh46owyagr32ovhj/1600.jpg",
+    "name": "Pidgey \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/pidgey-reverse-holo-77",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-78": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/3479d6c20201769830ca5364f3f259a45a61857ed9ddf7e2cdacbbeafe5da943/1600.jpg",
+    "name": "Pikachu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/pikachu-reverse-holo-78",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-79": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2ec5f4d35154488ebb54a2363ebe2097258a189b6e632925166bc11a096a1e57/1600.jpg",
+    "name": "Pikachu \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/pikachu-reverse-holo-79",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-80": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/582c9b3876d96d5cf1958b90095e89f0725ee2a3685569b2c39f63d7e4b503e1/1600.jpg",
+    "name": "Poochyena",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/poochyena-reverse-holo-80",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-81": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/dacdd5c61c43a4e1d75ca5ec00777b1b6a0b3ae116383f9f4896a2262e9b51c1/1600.jpg",
+    "name": "Psyduck \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/psyduck-reverse-holo-81",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-82": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c41c910f17c3be21b5891bbf291aa4795108eccf8db374ca05447787a07854c9/1600.jpg",
+    "name": "Surskit",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/surskit-reverse-holo-82",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-83": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/fa292ca8e0845815f785829b35e3480150aea8eb57327c5faf48958fcc8d46b3/1600.jpg",
+    "name": "Torchic",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/torchic-reverse-holo-83",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-84": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b5lgydufcoq7iiv4/1600.jpg",
+    "name": "Trapinch \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/trapinch-reverse-holo-84",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-92": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/n5zah34rtexuc6te/1600.jpg",
+    "name": "Mysterious Fossil",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/mysterious-fossil-reverse-holo-92",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex13-93": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f7zjdzs4ll7z5uwz/1600.jpg",
+    "name": "Root Fossil",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-holon-phantoms/root-fossil-reverse-holo-93",
+    "set": "Holon Phantoms",
+    "source": "pricecharting"
+  },
+  "ex14-1": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/9abcf312dd7f0d60bfb6443b9f310eb51cf9970a2c64f360a8d4c997f5ab3f1c/1600.jpg",
+    "name": "Banette",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/banette-reverse-holo-1",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-10": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/93127e688a07df01ddfdf5f0d1b15d4060cfa9e052d7a0db3be7c3aeac5de14e/1600.jpg",
+    "name": "Sableye",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/sableye-reverse-holo-10",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-11": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/fplx377rbwx23pwl/1600.jpg",
+    "name": "Swalot",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/swalot-reverse-holo-11",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-12": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/15cb37799725bf66a433d778e1ade5ba5ecc24b0dc672cf755c277b612dee13f/1600.jpg",
+    "name": "Tauros",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/tauros-reverse-holo-12",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-13": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/525td362bqonlkt3/1600.jpg",
+    "name": "Wigglytuff",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/wigglytuff-reverse-holo-13",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-2": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2fa85317e2f5daaa923cee235079392ba1eb632c2a9c0c006742e77f8dc5eaaf/1600.jpg",
+    "name": "Blastoise \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/blastoise-reverse-holo-2",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-3": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/da161cf5a4e07265d71518570a681cfe7e8b411d205e9130dbb170bae099dc89/1600.jpg",
+    "name": "Camerupt",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/camerupt-reverse-holo-3",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-4": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/oy34dpap3tgvdxpd/1600.jpg",
+    "name": "Charizard \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/charizard-reverse-holo-4",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-45": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d0b675b385c26b02619919c47db739957561fd946ce9b491dc49a58a12f553f7/1600.jpg",
+    "name": "Bulbasaur",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/bulbasaur-reverse-holo-45",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-46": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/29e9e1bd88929ca47193ad233cbadc560d39d62cf255c7aed6a9391873309d82/1600.jpg",
+    "name": "Bulbasaur",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/bulbasaur-reverse-holo-46",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-47": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/15e80f8f71fa37d8798a5c25937bdc8c95dc2839ef88596c25bb7ca1aa715fc4/1600.jpg",
+    "name": "Cacnea",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/cacnea-reverse-holo-47",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-48": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/57cd2e6bff8283d6ded4db67e465276fcd94e1ff82f5e6c0c9e7ba999e0e1e5e/1600.jpg",
+    "name": "Charmander",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/charmander-reverse-holo-48",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-49": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/8c9f8059a304d1c75d1b1e1f4c6e7e068e4cf0c5739ef7610da3d584c350a6ee/1600.jpg",
+    "name": "Charmander \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/charmander-reverse-holo-49",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-5": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/00ad76b8542c7729776edc193976521b5f215180d6acf9f58f9f5ec61fffdac5/1600.jpg",
+    "name": "Dugtrio",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/dugtrio-reverse-holo-5",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-50": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/04125c77d905fafb43e35eda66b7ec113817e3dadef98b6bbdb1628275d0e554/1600.jpg",
+    "name": "Diglett",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/diglett-reverse-holo-50",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-51": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/tdho7q3ucls5i2mo/1600.jpg",
+    "name": "Duskull",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/duskull-reverse-holo-51",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-52": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/56cfcyrb6qlmdrlw/1600.jpg",
+    "name": "Electrike",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/electrike-reverse-holo-52",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-53": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1fabdb6a155654e0af929be5177e4bd1bbcb6cbb656dad9c1f676ebcc9ba43a0/1600.jpg",
+    "name": "Jigglypuff",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/jigglypuff-reverse-holo-53",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-54": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/763ad2a9bbc764dec307ed89ebd60040b4d139b0fdcd066799d920b45ac9df53/1600.jpg",
+    "name": "Krabby",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/krabby-reverse-holo-54",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-55": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7ebe26bf7365e3559a2589af60699e94c03bb4a7dfde062d8a0d1c5050e5a68b/1600.jpg",
+    "name": "Lotad",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/lotad-reverse-holo-55",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-56": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/494ebc091d376f9c029364072720892e858b44c679ea22bbaabf6e0843bfa4cf/1600.jpg",
+    "name": "Meditite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/meditite-reverse-holo-56",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-57": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/410b0c813246815dc7a755205f6c7956c3e5a29fa5b462b2cd23cd0f9b5e2e0e/1600.jpg",
+    "name": "Mudkip",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/mudkip-reverse-holo-57",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-6": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/wih7x4u66pudjd3l/1600.jpg",
+    "name": "Ludicolo \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/ludicolo-reverse-holo-6",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-60": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/95dd2513973fdd3ac49ac5fb5ebec1918af9e9514578281a5c49235364ab715a/1600.jpg",
+    "name": "Seedot",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/seedot-reverse-holo-60",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-62": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/cb73ntdlcu7vf7yy/1600.jpg",
+    "name": "Spoink",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/spoink-reverse-holo-62",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-63": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/db0cd28a2daaf7214de7d6c538ea4187d6200e569845795c84fa23da90892ef5/1600.jpg",
+    "name": "Squirtle",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/squirtle-reverse-holo-63",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-64": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a2a6da1933dfa70df5cbc6cd65c41b3effdb5d1da304b66cf24edf60e931a769/1600.jpg",
+    "name": "Squirtle",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/squirtle-reverse-holo-64",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-66": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/u5aolnwfsuj6xbom/1600.jpg",
+    "name": "Torchic",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/torchic-reverse-holo-66",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-68": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/43e5cebaad6d3ce7f617458535644828c8c7c8f85944bd0fc4304228800f7744/1600.jpg",
+    "name": "Treecko \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/treecko-reverse-holo-68",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-7": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/vziq4jgmzajviavx/1600.jpg",
+    "name": "Luvdisc",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/luvdisc-reverse-holo-7",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-70": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d4e338c8c23754bd4feb2ce4ec09c7164a66ddab63408b11e31db61fe8fddbbc/1600.jpg",
+    "name": "Wingull",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/wingull-reverse-holo-70",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-8": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6b4cb38ad3dc26fc16013b4fc375bcdf5638d7962dec5afb610db908da7d4496/1600.jpg",
+    "name": "Manectric",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/manectric-reverse-holo-8",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-86": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/yfajfkfacgthena3/1600.jpg",
+    "name": "Energy Search",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/energy-search-reverse-holo-86",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-87": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/noxsbygw4ru5amrc/1600.jpg",
+    "name": "Potion",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/potion-reverse-holo-87",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex14-9": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1e2d22bc06a504745cb9c6148f2ad3e571d9a9e75965252623703184e61fd502/1600.jpg",
+    "name": "Mawile",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-crystal-guardians/mawile-reverse-holo-9",
+    "set": "Crystal Guardians",
+    "source": "pricecharting"
+  },
+  "ex15-43": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/lcqr7yt5gpyvity4/1600.jpg",
+    "name": "Bagon \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/bagon-reverse-holo-43",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-44": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/360537608dde22cd6144b831d91d3d8ffd1581525d41440ff382646264e40b81/1600.jpg",
+    "name": "Chikorita \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/chikorita-reverse-holo-44",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-45": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a1059b985d34f84cd247ace5df7cdb05095fb7a09a13e0121d2d70925fbc87fe/1600.jpg",
+    "name": "Cyndaquil \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/cyndaquil-reverse-holo-45",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-46": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/96b21fb6ba69b356b56021bedcacb2268a7cce7fb1fa52f9d12d32656964cc8b/1600.jpg",
+    "name": "Dratini \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/dratini-reverse-holo-46",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-47": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/0cebd192fbda9807131d4b4ff7a5a322dca1e64d17c611e930259f2ea549110c/1600.jpg",
+    "name": "Ekans \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/ekans-reverse-holo-47",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-48": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a7f5259fdf09d3a281acff0df65af8e51220becb74a23ab306d161dfc5c9d658/1600.jpg",
+    "name": "Elekid \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/elekid-reverse-holo-48",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-49": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/pdsggcvy7j3m52cp/1600.jpg",
+    "name": "Feebas \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/feebas-reverse-holo-49",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-51": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2efc95be363201a43fb75231f3b34db1aecbd852e58508fdf55dd503aa127ae4/1600.jpg",
+    "name": "Larvitar",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/larvitar-reverse-holo-51",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-52": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/37435403359a07635cfb0850e564813530c84ccde83ece4b7b15cdcd56a8c5d2/1600.jpg",
+    "name": "Larvitar \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/larvitar-reverse-holo-52",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-57": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/x77gt6yia3mqbqq2/1600.jpg",
+    "name": "Nidoran \u2642 \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/nidoran-m-reverse-holo-57",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-58": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b42069d3bb1deb029ac866ce27b3f4e91622213aef6238d871dc054cae90c5e4/1600.jpg",
+    "name": "Pupitar",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/pupitar-reverse-holo-58",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-59": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6af712619c1deedadfc4bc438a92f70f800c4c611a28ba74d5c80237e0d2a8f3/1600.jpg",
+    "name": "Pupitar \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/pupitar-reverse-holo-59",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-60": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7077ba54ba2d3f122e4de7d12f64fb56321718690ea7ea2fd6cd9cc4b75fd69d/1600.jpg",
+    "name": "Ralts",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/ralts-reverse-holo-60",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-63": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/5e99311fc03df243f5e9319fd6b371b862916ba07151f9f1683649515f27adec/1600.jpg",
+    "name": "Shellder \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/shellder-reverse-holo-63",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-66": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ooxzcez2rgbb7avl/1600.jpg",
+    "name": "Taillow \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/taillow-reverse-holo-66",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-67": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6cf336a66d13a8715c5af4fd79004c350963b56932f9ea61b9b0c274a8a70165/1600.jpg",
+    "name": "Totodile \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/totodile-reverse-holo-67",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-68": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/qar6sexmizph4adm/1600.jpg",
+    "name": "Trapinch \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/trapinch-reverse-holo-68",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-69": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/clymigvgwvq6qwj5/1600.jpg",
+    "name": "Trapinch \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/trapinch-reverse-holo-69",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-70": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ae9b85fe84c8b7f03fdbb9223c70db6359f4d8818cd0c54b89c4827b5ab95012/1600.jpg",
+    "name": "Vulpix \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/vulpix-reverse-holo-70",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-71": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/686013845f095bcb20e44101fcfcc3b0ec0c83597894e8fbe293541acc05d39f/1600.jpg",
+    "name": "Wooper \u03b4",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/wooper-reverse-holo-71",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex15-83": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1746fd11157fcc8bbb2ac8f7a8c44a4281fbdf6a83abcb510abcb7c8f46ad31a/1600.jpg",
+    "name": "Switch",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon-frontiers/switch-reverse-holo-83",
+    "set": "Dragon Frontiers",
+    "source": "pricecharting"
+  },
+  "ex16-14": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/5117ab47abcce7ecd28dce3dc2e8d255d36ba6eaa0a12cd7e85d8d737f2714fd/1600.jpg",
+    "name": "Dusclops",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/dusclops-reverse-holo-14",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-15": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ea285db3d03271b9425c65d63e6bcde5a7f74f1b21713d98020ddbfd754a768f/1600.jpg",
+    "name": "Lanturn",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/lanturn-reverse-holo-15",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-16": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/927188e0787d61f15573571bd4b5e6f9067feb7c134f5694b600990e9d6d8598/1600.jpg",
+    "name": "Magneton",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/magneton-reverse-holo-16",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-17": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/jhnvjxywy3h3sdx7/1600.jpg",
+    "name": "Mawile",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/mawile-reverse-holo-17",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-18": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d366811572f6e317a0288f1fe3026fbed3fd6fbd2f10f8e74dd336cedeab81e9/1600.jpg",
+    "name": "Mightyena",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/mightyena-reverse-holo-18",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-19": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/9279965c306625c325f2e4b82358c2a75e88feab265676f2883d3dbe936d955a/1600.jpg",
+    "name": "Ninetales",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/ninetales-reverse-holo-19",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-22": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a5b28ddd4c74381e964f50e90189d80cc3c04a004705c96e8108f9c24de7e777/1600.jpg",
+    "name": "Sableye",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/sableye-reverse-holo-22",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-23": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/0dea858e0ed75bf33f853ecfa0f0868da10e22111cd1b50de6bb6d018e248d66/1600.jpg",
+    "name": "Seviper",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/seviper-reverse-holo-23",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-24": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/43a245b9b993054fb0da00dbfef8669c5131ff6c6ddf723d036ffd2947d87ffe/1600.jpg",
+    "name": "Wobbuffet",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/wobbuffet-reverse-holo-24",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-25": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/387fee856eb881204787fb66e1aa2755cbd97fe03a8845d25b81be26f535c3b6/1600.jpg",
+    "name": "Zangoose",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/zangoose-reverse-holo-25",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-44": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/392bd466d342251a315a67ca3f9bad3f89a8aab17338e25a8a6665ffa7ea3016/1600.jpg",
+    "name": "Baltoy",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/baltoy-reverse-holo-44",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-45": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/850c42323642bbc97ff476f18e2368b588c9c4eee63bb7edbe77f17f2d338939/1600.jpg",
+    "name": "Beldum",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/beldum-reverse-holo-45",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-46": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/20e5292f0bcc6480c68da27d9bc2af22daf6d7986ecf19d25aa20237e85018e6/1600.jpg",
+    "name": "Cacnea",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/cacnea-reverse-holo-46",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-48": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4032f1a13c62fcba98a3b014d5416c810d03e6ee3aa9938be60a312cd660819b/1600.jpg",
+    "name": "Charmander",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/charmander-reverse-holo-48",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-50": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/60255fca9d207f88839d4e150c57aacccc09f07f79a344559a1acad69b5fd8da/1600.jpg",
+    "name": "Duskull",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/duskull-reverse-holo-50",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-53": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/34b8fdddb8642fafad2bf9b6d9b82dcb31adfe311534a4f53ad93d3a5185740e/1600.jpg",
+    "name": "Machop",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/machop-reverse-holo-53",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-54": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/9949ae4adea3310aea6b4b3c9ac7ab815780b2f76b74b61ec6f0d837ec30f993/1600.jpg",
+    "name": "Magnemite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/magnemite-reverse-holo-54",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-55": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/32da4ba2eae57a8c15501f960f600042c26831d31813b53cc5986c14e0f7942f/1600.jpg",
+    "name": "Meditite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/meditite-reverse-holo-55",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-56": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/bc4988fbea2f022c53d6eed6a5913cafbc83fb32ace35b834e1f121ae3188389/1600.jpg",
+    "name": "Omanyte",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/omanyte-reverse-holo-56",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-57": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/771cd3700b47ef92558cdaea5d855f96d607088fb25863b60d48f89f79efb60a/1600.jpg",
+    "name": "Pikachu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/pikachu-reverse-holo-57",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-59": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/euurt5vd2krwd7mq/1600.jpg",
+    "name": "Ralts",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/ralts-reverse-holo-59",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-61": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b82c2e47178787de8890dfa0fc7ac04f61a0ee78848310507f07aec49ff1f32d/1600.jpg",
+    "name": "Shuppet",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/shuppet-reverse-holo-61",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-62": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/e88dc84ad91733cf1caccb439728eca874fcf1b916b2145c7506dc3d5fedce93/1600.jpg",
+    "name": "Skitty",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/skitty-reverse-holo-62",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-63": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1d17c2fdd5b7dda35454298b45a60ca62b83bf3b15c7fb3458f92a659c12bcc6/1600.jpg",
+    "name": "Slakoth",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/slakoth-reverse-holo-63",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-67": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4542162b6186a6e11fbf5edad36353485c4871628d3b625952b85854337f71fa/1600.jpg",
+    "name": "Torchic",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/torchic-reverse-holo-67",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-69": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1bf5ca35800897a83d2780062fb021b28524f15b1a6cde98036162b58f79c1af/1600.jpg",
+    "name": "Vulpix",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/vulpix-reverse-holo-69",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-85": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/12edef9204d5fd25267779de6cecea0880a4ba757a725614d4c7dcd9c716f798/1600.jpg",
+    "name": "Mysterious Fossil",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/mysterious-fossil-reverse-holo-85",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-86": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/95d80251cbd9fa91ad219f0402470c1337445e4b94ee197f7186f9ca7349470f/1600.jpg",
+    "name": "Root Fossil",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/root-fossil-reverse-holo-86",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-87": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ba9d4b334f594239a6aaa08f3f667740ee1b43260c8d11d788d2e3fa01acc799/1600.jpg",
+    "name": "Darkness Energy",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/darkness-energy-reverse-holo-87",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-88": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b0f884a25ec95d6a18b5598f4f992ae4113c252125584065cfe40e71d9cf9f09/1600.jpg",
+    "name": "Metal Energy",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/metal-energy-reverse-holo-88",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex16-89": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b6cdb5ad36b202d3934eda7cc215f5cdc7d681f393cbc96ed41dadcf97aabee4/1600.jpg",
+    "name": "Multi Energy",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-power-keepers/multi-energy-reverse-holo-89",
+    "set": "Power Keepers",
+    "source": "pricecharting"
+  },
+  "ex2-56": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/9203108651d06d792f6156cf5b56f521d280e31a68a232b9698b4a1a44db2e18/1600.jpg",
+    "name": "Aron",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/aron-reverse-holo-56",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-58": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/914bc62a1c68af1e737bb04a3f7ca8bb64707121909368aef2ebb297f64cf285/1600.jpg",
+    "name": "Cacnea",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/cacnea-reverse-holo-58",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-59": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b77f31a35216b474b2e60ba617d38a73abff27d26c83d7eadd25bc97a6a9024c/1600.jpg",
+    "name": "Cyndaquil",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/cyndaquil-reverse-holo-59",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-60": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6c7cedd62f6bbf6e52f9248dda303bd6f362a77b7967acb3058b82f67d42371a/1600.jpg",
+    "name": "Dunsparce",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/dunsparce-reverse-holo-60",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-61": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/3d2ddb840dcab3d5d0cfb4ad242499805c4765e5198551e47994dc4af6c98504/1600.jpg",
+    "name": "Duskull",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/duskull-reverse-holo-61",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-62": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/gsltx3lc7bgzo275/1600.jpg",
+    "name": "Duskull",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/duskull-reverse-holo-62",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-63": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c35553451c130a85c3af27363041fb953b8b226c07f3860a3f4e34c7a7f346f0/1600.jpg",
+    "name": "Eevee",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/eevee-reverse-holo-63",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-64": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/5856469d81c8a2983fb7ccaf6a714231cb9e703dbd471959b9d51bc9d74a1dce/1600.jpg",
+    "name": "Ekans",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-sandstorm/ekans-reverse-holo-64",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-65": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f488dc033606a83a0bdd9a95a087d0d826922d69e04c1a08e3cb4f2d4ee9adf8/1600.jpg",
+    "name": "Growlithe",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/growlithe-reverse-holo-65",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-66": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/htertv3jqot2ivzh/1600.jpg",
+    "name": "Lotad",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/lotad-reverse-holo-66",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-67": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/09192f98e18e8cefbee831b4abb830f20cd413c9bd745cbc9652cfd8cbdda1dc/1600.jpg",
+    "name": "Lotad",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/lotad-reverse-holo-67",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-68": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/69ce5b82adae959b56947875f0a9104604f1432e7c17b5a26b210f1dcd6f207e/1600.jpg",
+    "name": "Marill",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/marill-reverse-holo-68",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-69": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/le35gsdrvcyjbrap/1600.jpg",
+    "name": "Natu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/natu-reverse-holo-69",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-70": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4ebb85ffd33a0bee60684cff2f5e446df37d06ee6519771f6a8771ec514b636f/1600.jpg",
+    "name": "Omanyte",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/omanyte-reverse-holo-70",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-71": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c9c0a809ad9befdbb6a7be853b402538578b681e28dd68b740f1f2197f758df6/1600.jpg",
+    "name": "Onix",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/onix-reverse-holo-71",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-72": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/obghydn6ejmia7h2/1600.jpg",
+    "name": "Pikachu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-sandstorm/pikachu-reverse-holo-72",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-73": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7eec04791d263db76e8df31173a7827a1243465578f55f08b0cf1da38992f635/1600.jpg",
+    "name": "Psyduck",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/psyduck-reverse-holo-73",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-74": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6xzcdhhss3h7h6zd/1600.jpg",
+    "name": "Ralts",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/ralts-reverse-holo-74",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-75": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b873e93e6d9a09551ff57ffaa1e2bb171b8a99fc01bae2115fe9ebace7a68884/1600.jpg",
+    "name": "Sandshrew",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/sandshrew-reverse-holo-75",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-76": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/67753dc81045e98a6fcc128da17faa4d2edce238d53c558da23e613a37263e51/1600.jpg",
+    "name": "Seedot",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/seedot-reverse-holo-76",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-77": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7p34wqwojcusfegy/1600.jpg",
+    "name": "Seedot",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/seedot-reverse-holo-77",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-78": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/009a1ae1f1f331abbbc9504963d27009a5434b89634fb1676c888eb896ce28ff/1600.jpg",
+    "name": "Shroomish",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/shroomish-reverse-holo-78",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-81": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a2c69dae34351af7d42ea66542a865e7e15872a515acbcd05fc87cee6a911623/1600.jpg",
+    "name": "Spearow",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/spearow-reverse-holo-81",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-82": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/mitgpfvxu3grou4e/1600.jpg",
+    "name": "Trapinch",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/trapinch-reverse-holo-82",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-83": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1b04fc8c6e3302bc6e7326a15d8a8902eaa74b897d9561106c928c94e686ae46/1600.jpg",
+    "name": "Wailmer",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-sandstorm/wailmer-reverse-holo-83",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-85": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/914bd99238db84685f45fb308a0a925a7dbb51b5d920e02d39ba20ffc877391a/1600.jpg",
+    "name": "Zigzagoon",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-sandstorm/zigzagoon-reverse-holo-85",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-91": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/e05a8dcefff982665f1bf5a535fea7e42c505d0006d9749a594048acaeadb4c1/1600.jpg",
+    "name": "Mysterious Fossil",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-sandstorm/mysterious-fossil-reverse-holo-91",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex2-92": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6a97a40313bfe1aabd136973a4001e00a9c28783c378f62617c4f2d72d7813e8/1600.jpg",
+    "name": "Root Fossil",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-sandstorm/root-fossil-reverse-holo-92",
+    "set": "Sandstorm",
+    "source": "pricecharting"
+  },
+  "ex3-13": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/199dc776a18e6739cb9522afb2815606a81f5f25e5180a1c625340bbd66efb78/1600.jpg",
+    "name": "Crawdaunt",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-dragon/crawdaunt-reverse-holo-13",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-14": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7ff5518a1e62028589952e14147747e4157409bf6675a3278cde0eeb1d43166b/1600.jpg",
+    "name": "Dragonair",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/dragonair-reverse-holo-14",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-15": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/5271a577d9dc781dabe2a767be0a2a9849aee667b0acf0d9aa9b2de284353ce2/1600.jpg",
+    "name": "Flygon",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-dragon/flygon-reverse-holo-15",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-16": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f1fa97ff367eebfef6d4de2721ab931dc8d0eeabb4a346becdf3e4a273662a2f/1600.jpg",
+    "name": "Girafarig",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/girafarig-reverse-holo-16",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-17": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/edxfxgnl4cow4g6z/1600.jpg",
+    "name": "Magneton",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-dragon/magneton-reverse-holo-17",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-18": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a128986d3f50157882890fb5fd983fe9254dc05c56ffd16c67e4d7541a4b6b2d/1600.jpg",
+    "name": "Ninjask",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/ninjask-reverse-holo-18",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-19": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/79c811d408a874f3ce1efd39f557b5f4925143b2044000f77561e6038cefa15a/1600.jpg",
+    "name": "Salamence",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/salamence-reverse-holo-19",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-20": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/corrafv6on6tdtec5rga/1600.jpg",
+    "name": "Shelgon",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/shelgon-reverse-holo-20",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-22": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/dax45nzui7vnssrw/1600.jpg",
+    "name": "Vibrava",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-dragon/vibrava-reverse-holo-22",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-49": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b072b761cfa780ab1f1894108801b7ebae9b030255d627e8b8b637b1cdd7c75f/1600.jpg",
+    "name": "Bagon",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/bagon-reverse-holo-49",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-50": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/8aa8016950422ee9ca5e5586df2b422ec1315054a4bc4eeb64083eb7165c7ff0/1600.jpg",
+    "name": "Bagon",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/bagon-reverse-holo-50",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-51": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/l6mzp7n2xpenox3i/1600.jpg",
+    "name": "Barboach",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/barboach-reverse-holo-51",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-52": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/e8f394d7811798e2a4fedfa3392da309a9215c359801e76ebd653b04b9484a16/1600.jpg",
+    "name": "Corphish",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-dragon/corphish-reverse-holo-52",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-53": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c753c7f48402d5fffcd604e1c071c412ea6f9b833f8b11f7cd124b95b3b9843d/1600.jpg",
+    "name": "Corphish",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/corphish-reverse-holo-53",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-54": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2641708a9a11aedc5d878026ca981beab0f4f20cda2e535dc8824cc2d639aabd/1600.jpg",
+    "name": "Corphish",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/corphish-reverse-holo-54",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-55": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/fd7044483e8fd8457be4a216bd87c78f4004645d6252940e460471ff9d4cd174/1600.jpg",
+    "name": "Geodude",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-dragon/geodude-reverse-holo-55",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-56": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/9778df776abbac75b2b1c41611a027556e9a447db90bb908903bd71621fdf0ae/1600.jpg",
+    "name": "Geodude",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/geodude-reverse-holo-56",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-57": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/fed934da682e18c332ea7f90ddeffe20501173eb4173567c2a0fdb8bbe64563a/1600.jpg",
+    "name": "Grimer",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/grimer-reverse-holo-57",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-58": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d42b6e91b53db34dd596d085d81df70cbd6a21f46df66ea4eca8fa756fceba83/1600.jpg",
+    "name": "Horsea",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/horsea-reverse-holo-58",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-59": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c78d95000a5e09a348a9367f23c339f2453725555d2a49727f9cf16badca8abc/1600.jpg",
+    "name": "Houndour",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/houndour-reverse-holo-59",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-60": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/05eb914622e96806e8b805fc834cfa4e486d91b26c1ed4e00c100b9f9c4d650f/1600.jpg",
+    "name": "Magikarp",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-dragon/magikarp-reverse-holo-60",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-61": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4ae4476902be4bd32894488698aa6ea63f9061886638cdd91df7f41a1fc54159/1600.jpg",
+    "name": "Magnemite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/magnemite-reverse-holo-61",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-62": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a3912a6603a31b5fc0263d351ee30ded54fa3a1a4f28e4b67c55f542c7ebb0e0/1600.jpg",
+    "name": "Magnemite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/magnemite-reverse-holo-62",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-63": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4f8bde9cd14d5bc07f7c9d863600810995802efb57d18ad53f1005ed0830f97c/1600.jpg",
+    "name": "Magnemite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/magnemite-reverse-holo-63",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-64": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f889682e1bcdeea456aedecc9444d125437242bb6e1cb4b1a0bdd38f19f5d179/1600.jpg",
+    "name": "Mareep",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-dragon/mareep-reverse-holo-64",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-65": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/823fd39921332c7d79e333c7b17f67993ffcf26b8ce9ba37d5ee44bc61a98351/1600.jpg",
+    "name": "Mudkip",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/mudkip-reverse-holo-65",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-68": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c6512204c588df8935d4f0e2854b5831450a100972d67804bb00a148bd1af36f/1600.jpg",
+    "name": "Nincada",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/nincada-reverse-holo-68",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-69": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4884972c614cdd648bc572c2eed4c1258ced19a7c9be2642f159d4c1bd33bf3a/1600.jpg",
+    "name": "Numel",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/numel-reverse-holo-69",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-70": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/115843d683d0dcdb98de4af2d42fbe9d340ae31df1eaeefea587334442e71dfb/1600.jpg",
+    "name": "Numel",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/numel-reverse-holo-70",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-72": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/7fe0a4e9bacd401c1992fda7675e4d55569ee8c9bca82381e68ab9903f8a6da2/1600.jpg",
+    "name": "Slugma",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-dragon/slugma-reverse-holo-72",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-74": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1af3a7db90166852683efab069dc836d28837bcd9f359d15f6c3aea017200e92/1600.jpg",
+    "name": "Spoink",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/spoink-reverse-holo-74",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-75": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/dsphpl24wllhfnal/1600.jpg",
+    "name": "Swablu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/swablu-reverse-holo-75",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-76": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f2e317eb8bb429261f1b29d969c733c39f2e5ada34bd906b2ad577a74a14d089/1600.jpg",
+    "name": "Taillow",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/taillow-reverse-holo-76",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-77": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/l5rnklvjhzwfufwp/1600.jpg",
+    "name": "Torchic",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/torchic-reverse-holo-77",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-78": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f23025ae30f32309354f83ac480c943a0e32ebd770e1ed0a97436b5de9207c93/1600.jpg",
+    "name": "Trapinch",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/trapinch-reverse-holo-78",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-79": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2a81f60b0cbc2b935ea58a5c5adf9ff231ebea83bf6175b61f65196c2d103dbf/1600.jpg",
+    "name": "Trapinch",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/trapinch-reverse-holo-79",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-80": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b9a55f87c9bbfed0d78c967163a716d0bf1f5677ba52cefc68732e17c6009d75/1600.jpg",
+    "name": "Treecko",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-dragon/treecko-reverse-holo-80",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex3-81": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/5a6d86caa11fd147ff5c149814dd039389042f3571d84bf7d8137d9ecd78862c/1600.jpg",
+    "name": "Wurmple",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-dragon/wurmple-reverse-holo-81",
+    "set": "Dragon",
+    "source": "pricecharting"
+  },
+  "ex7-15": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/abcb292b85d57a6dcd9d1ca78604fceeb64bfad92f741e6eb718d027ca9fcb1f/1600.jpg",
+    "name": "Dark Dragonite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/dark-dragonite-reverse-holo-15",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-16": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1246796706848178628262f0c634e9eb19ea3ea19e3092f376499fdbe4ba34bb/1600.jpg",
+    "name": "Dark Muk",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/dark-muk-reverse-holo-16",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-17": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/5bc1300b433e81fdc1bed6e358cbe25221c5cc7518d12880bcb938fc6b377b6f/1600.jpg",
+    "name": "Dark Raticate",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/dark-raticate-reverse-holo-17",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-18": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2ddf860797eec26c303eaf501681c5fa39b3b3107b2a3f5b47518b4819a3e9ee/1600.jpg",
+    "name": "Dark Sandslash",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/dark-sandslash-reverse-holo-18",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-19": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a57110d598def23f93ad71efde6421547717b38a1303a8751cbbdbe4d5555955/1600.jpg",
+    "name": "Dark Tyranitar",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/dark-tyranitar-reverse-holo-19",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-20": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/66ba0b5db9d91334c97c522957a82d97f94d0c6c5435413e0e0431f4288a1619/1600.jpg",
+    "name": "Dark Tyranitar",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/dark-tyranitar-reverse-holo-20",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-21": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d6c6dc63640efe73a34deff4b87762dd93c3cc26f41a741d9e9604beafe5e2ff/1600.jpg",
+    "name": "Delibird",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/delibird-reverse-holo-21",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-22": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/65730421e7b1b10631bef7211c80e02ea870d4641c3c599ab7e523ddb2e07e5c/1600.jpg",
+    "name": "Furret",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/furret-reverse-holo-22",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-23": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/af913a3b7659d4c12547138a2fccfe15e4db9a1ded3da67da34ec39c474caa10/1600.jpg",
+    "name": "Ledian",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/ledian-reverse-holo-23",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-24": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/8aaf27d31265791b67617eccc2855bd5970b7f74f6009fdecfc83578b86e537e/1600.jpg",
+    "name": "Magby",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/magby-reverse-holo-24",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-25": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/afe719081bcee6031ba6a856d9ad406a1f772c33e3bb2431d70e9b29e048fd3b/1600.jpg",
+    "name": "Misdreavus",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/misdreavus-reverse-holo-25",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-26": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ctj7bxcx5lze4f54/1600.jpg",
+    "name": "Quagsire",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/quagsire-reverse-holo-26",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-27": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/d7392cf7a6fa3ed6d94a08d5c42c6027046b754c9ebdfd11eb80476fec4680c6/1600.jpg",
+    "name": "Qwilfish",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/qwilfish-reverse-holo-27",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-28": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ecabc80ebf8c4ce6d5656a44da051f7f059c991d01532b70b9c61ad7eebf3717/1600.jpg",
+    "name": "Yanma",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/yanma-reverse-holo-28",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-51": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a0f31bc7686a65573220d43c43f6f332e32a3d690b551c069bb8e568571c0dbb/1600.jpg",
+    "name": "Cubone",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/cubone-reverse-holo-51",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-52": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/91e573e7586fb3048cdbc47c4216a84ca7db15e1101e5a4b602d1cb32213c2e4/1600.jpg",
+    "name": "Dratini",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/dratini-reverse-holo-52",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-53": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/577aad84919ab445c5820f03b80ff724e5c5fddd43858fde5d9fb71ad9f4e296/1600.jpg",
+    "name": "Dratini",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/dratini-reverse-holo-53",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-54": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a1fd8bd266d3c5e9f48dbb5ea701eddee730b11fd4172b98fdeb4819d9a7f7fd/1600.jpg",
+    "name": "Drowzee",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/drowzee-reverse-holo-54",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-55": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/scqowo6qckbrnmrd/1600.jpg",
+    "name": "Ekans",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/ekans-reverse-holo-55",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-56": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/5fdd50395be017c04ed1f90bb5c457a5b4cf5430c77c697fe705362dd9c8d589/1600.jpg",
+    "name": "Grimer",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/grimer-reverse-holo-56",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-57": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/97a24c01662b4d75de6de5a765aba223e015970984c9e7561845774dd6e3ff43/1600.jpg",
+    "name": "Hoppip",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/hoppip-reverse-holo-57",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-58": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2308fd656133fa307c5a3adb828333b08b4ebd1dca03dccd32ceb708fffcfd20/1600.jpg",
+    "name": "Horsea",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/horsea-reverse-holo-58",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-59": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/83d35ad6554c139e6be2d0d5dea62d9b3206bde2898f04d0638523190ae4c12b/1600.jpg",
+    "name": "Houndour",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/houndour-reverse-holo-59",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-60": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/11fe8bab19fcde1353ae31f8bb0603dc5693d4565e9fe2c172c47222c9194c1a/1600.jpg",
+    "name": "Houndour",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/houndour-reverse-holo-60",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-61": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2d159b68aa889880897f0903a1e32d0d59cf4d393bebc0f38473983f1cae77fe/1600.jpg",
+    "name": "Koffing",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/koffing-reverse-holo-61",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-63": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/60adf3cc06859a82933dd1c4154ae8468a8642a0727e65825b51623f9ba8f353/1600.jpg",
+    "name": "Larvitar",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/larvitar-reverse-holo-63",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-64": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/94f7be7a65535236a97fe178772dc9e026ca9b92dbebab1df0eeb052e111cfae/1600.jpg",
+    "name": "Ledyba",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/ledyba-reverse-holo-64",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-65": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/86b0262847c2205472ad9123a5f47dbdd4da19eaf745a273f051e13d285fa5d1/1600.jpg",
+    "name": "Magikarp",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/magikarp-reverse-holo-65",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-69": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ab22a7612c2243c36ff3f4df5a7914db72ce354d66505bcb4fe81a37b4b4e5e9/1600.jpg",
+    "name": "Onix",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/onix-reverse-holo-69",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-70": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/571f2c3fa151970fcf2192934d279c5a99fe4b4e62c55acf0a92920001aa63f1/1600.jpg",
+    "name": "Psyduck",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/psyduck-reverse-holo-70",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-71": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/e5a8ceaf91979a3681b0bed445603b5d54c9e994830dbe9ab9d31f287877cafe/1600.jpg",
+    "name": "Rattata",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/rattata-reverse-holo-71",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-72": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/62e7bff5796325d15f1994cdbfe8c3e75973adb042c5be867cbb156367ff0166/1600.jpg",
+    "name": "Rattata",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/rattata-reverse-holo-72",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-73": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4821f866db31eee5935d7eea6fbd142e8d73a917fc6a42955b5b9e5c320991b9/1600.jpg",
+    "name": "Remoraid",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/remoraid-reverse-holo-73",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-74": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6c02e0578d9794e5fc0603f36741e8dc039c028fc76e5583dcd5160e9b1a385a/1600.jpg",
+    "name": "Sandshrew",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/sandshrew-reverse-holo-74",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-75": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c0be90614e27f203c62a0c1c014347d47871fe65ffd58c645351bb48c0fe1dbe/1600.jpg",
+    "name": "Sentret",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/sentret-reverse-holo-75",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-76": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1c264b97c5f8231b01926d85bab46da39f23b8f45ee320ab91f9e9d78fe390d3/1600.jpg",
+    "name": "Slowpoke",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/slowpoke-reverse-holo-76",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-77": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b20caa30f786f82bdeefc99e9758aba8851a15c47faed1ffbf6b0f64597b1785/1600.jpg",
+    "name": "Slugma",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/slugma-reverse-holo-77",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-78": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/20ef8309a26a8999ca85be0002753396bb6404b3d40211d2d2e93993c34983dc/1600.jpg",
+    "name": "Spinarak",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/spinarak-reverse-holo-78",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-79": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b86d5b6f56fbe85377e5b1cd5702403f9550be8b1cb1feae6f0d694e663d94cf/1600.jpg",
+    "name": "Swinub",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/swinub-reverse-holo-79",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-80": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/cd953ef87bf7edfc552a9664ffc26e2e44691bda77aa05f22a2faf96c191d45b/1600.jpg",
+    "name": "Voltorb",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/voltorb-reverse-holo-80",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-81": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/4f6346aa41f0dbb38f69b30583278a7b23ab33f98fff56f35d4f61fdb0a6abd8/1600.jpg",
+    "name": "Wooper",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/wooper-reverse-holo-81",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex7-82": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/78755cc675f5578187b420252cb0064119ab474138e08bfd3685958dfa9cbd15/1600.jpg",
+    "name": "Zubat",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-team-rocket-returns/zubat-reverse-holo-82",
+    "set": "Team Rocket Returns",
+    "source": "pricecharting"
+  },
+  "ex8-16": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1377b2811aaf8879bcdadb6cd625539d27c1c4b842a2637c81a13934d06cf925/1600.jpg",
+    "name": "Deoxys",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-deoxys/deoxys-reverse-holo-16",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-17": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/fed58ea10e3c3059d48f86aa97490fff3b31141ae2c8401eac984a3045be2797/1600.jpg",
+    "name": "Deoxys",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-deoxys/deoxys-reverse-holo-17",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-18": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b4eadedf4f8cba6d724b4516ff7830ca0fe29f62af7f57b848e95e7e0596164c/1600.jpg",
+    "name": "Deoxys",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-deoxys/deoxys-reverse-holo-18",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-19": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/653b2f2b0f1cba1d415c0f86cfbb80caa7a0223804a44b401852e295ec0672aa/1600.jpg",
+    "name": "Ludicolo",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-deoxys/ludicolo-reverse-holo-19",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-20": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/667001ae6e961cd7b521df3c75e55c1dffd24770fffe008360b5750497524b04/1600.jpg",
+    "name": "Magcargo",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-deoxys/magcargo-reverse-holo-20",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-21": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/10ceeebba75bf79142d5d76e71a8876966de7965ed6caef07bc2e70d6e99dc9d/1600.jpg",
+    "name": "Pelipper",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-deoxys/pelipper-reverse-holo-21",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-22": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/316f19fc805439758381353c3aaec86baec93fd5ecbfc640e1e13910b557beb1/1600.jpg",
+    "name": "Rayquaza",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-deoxys/rayquaza-reverse-holo-22",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-23": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/jagffw3lxs7jr64k/1600.jpg",
+    "name": "Sableye",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-deoxys/sableye-reverse-holo-23",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-24": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/144fbefc84ffa22c5450b143af031d1f3d11a1085d8f6cd5eee4fb9364681b4e/1600.jpg",
+    "name": "Seaking",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-deoxys/seaking-reverse-holo-24",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-25": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/qsgfjah6hfy3osmu/1600.jpg",
+    "name": "Shiftry",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-deoxys/shiftry-reverse-holo-25",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-27": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/36593766907791437fa6f99c812fe38af188125784b078ec9401c0be0c7afc26/1600.jpg",
+    "name": "Tropius",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-deoxys/tropius-reverse-holo-27",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-28": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/00c5b3056f8888a97965ec0e2949b7442366227be5c2c63216c6ebf6aaba5f73/1600.jpg",
+    "name": "Whiscash",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-deoxys/whiscash-reverse-holo-28",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex8-29": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/1099d004b1f17a9fe6f42e762f21e272cf0d3623d6cc4659591afa31981c6ad6/1600.jpg",
+    "name": "Xatu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-deoxys/xatu-reverse-holo-29",
+    "set": "Deoxys",
+    "source": "pricecharting"
+  },
+  "ex9-12": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/b62vdmlbyoei7g6k/1600.jpg",
+    "name": "Chimecho",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-ex-emerald/chimecho-reverse-holo-12",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-13": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/53648f1c3524897b9e0014baa72fe62970a146b68a670f3b9c0283a42cae558c/1600.jpg",
+    "name": "Glalie",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/glalie-reverse-holo-13",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-14": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/0d15b76a0ed8664c647050284c5811fb0a8b627fc8e1628cebf47d20d73d9e45/1600.jpg",
+    "name": "Groudon",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/groudon-reverse-holo-14",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-15": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/8b6853e7dc45722087460118afa4682c9e141dde9c9d893bd6dd62af80ce71b8/1600.jpg",
+    "name": "Kyogre",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/kyogre-reverse-holo-15",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-16": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/14708c18b7fba36da1aacd121a43791731e435c697012ba047ced0b093df979e/1600.jpg",
+    "name": "Manectric",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/manectric-reverse-holo-16",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-17": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/zorurd3fhawt527m/1600.jpg",
+    "name": "Nosepass",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/nosepass-reverse-holo-17",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-18": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/golkvy2d5wjgxdty/1600.jpg",
+    "name": "Relicanth",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/relicanth-reverse-holo-18",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-19": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/2hnffbbcqx6733pt/1600.jpg",
+    "name": "Rhydon",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/rhydon-reverse-holo-19",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-20": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/940192566d55c094d9816b4b21cd29c7614452e663151474fd3ddef614daae97/1600.jpg",
+    "name": "Seviper",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/seviper-reverse-holo-20",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-21": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/9b2a286998cc875b3013f48dd086710161833026a72a74d02d5243ce1cb6c52d/1600.jpg",
+    "name": "Zangoose",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/zangoose-reverse-holo-21",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-86": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/6fe5mokohrvmdxjs/1600.jpg",
+    "name": "Darkness Energy",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/darkness-energy-reverse-holo-86",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "ex9-87": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/otxjjxnqkbyehimo/1600.jpg",
+    "name": "Double Rainbow Energy",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-emerald/double-rainbow-energy-reverse-holo-87",
+    "set": "Emerald",
+    "source": "pricecharting"
+  },
+  "hgss2-13": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a0b8dfe4e3eeb772a4525298b32afe6670ad9e10d2858523a5ed4d3f162d06c8/1600.jpg",
+    "name": "Blastoise",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-hs-unleashed/blastoise-reverse-holo-13",
+    "set": "HS Unleashed",
+    "source": "pricecharting"
+  },
+  "hgss2-17": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a37cfa64a274f62a91da058afaa5f3c152e0eef9815a3d9bec3778466a59d58a/1600.jpg",
+    "name": "Kingdra",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-hs-unleashed/kingdra-reverse-holo-17",
+    "set": "HS Unleashed",
+    "source": "pricecharting"
+  },
+  "hgss2-19": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/55fb54f86126a6220a60df76f010929b550919cc252992be3c5b9a65e6737871/1600.jpg",
+    "name": "Lucario",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-hs-unleashed/lucario-reverse-holo-19",
+    "set": "HS Unleashed",
+    "source": "pricecharting"
+  },
+  "hgss2-21": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/c928808543f32f0a19bd6aad1993044ba45000f004e6d9f99e8b2347b5244316/1600.jpg",
+    "name": "Poliwrath",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-hs-unleashed/poliwrath-reverse-holo-21",
+    "set": "HS Unleashed",
+    "source": "pricecharting"
+  },
+  "hgss2-7": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/95a38ae32bce8699bf06c18a460eeea9a271763e255d046746010a1f1c94428a/1600.jpg",
+    "name": "Politoed",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-hs-unleashed/politoed-reverse-holo-7",
+    "set": "HS Unleashed",
+    "source": "pricecharting"
+  },
+  "hgss3-54": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/29a4b3920840cbf4ef30df06c4eb258edfb15a0d165fadefbb829d77225f175d/1600.jpg",
+    "name": "Houndour",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-undaunted/houndour-reverse-holo-54",
+    "set": "HS Undaunted",
+    "source": "pricecharting"
+  },
+  "hgss3-61": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/9b0727bb5a11bac15afdd8828fe4687bc85de77af7607be62733a1ea37b1a529/1600.jpg",
+    "name": "Pikachu",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-undaunted/pikachu-reverse-holo-61",
+    "set": "HS Undaunted",
+    "source": "pricecharting"
+  },
+  "hgss3-68": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/57e379e5abbff1205bdf35e2c6dbf3317ca9368717eb5e3e2f74e1df8e70b9af/1600.jpg",
+    "name": "Sneasel",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-undaunted/sneasel-reverse-holo-68",
+    "set": "HS Undaunted",
+    "source": "pricecharting"
+  },
+  "hgss4-1": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/fa3ad892a3ed0b43aaa197f56025216401d99987203b29a0685ecc42ed5d31e8/1600.jpg",
+    "name": "Aggron",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-triumphant/aggron-reverse-holo-1",
+    "set": "HS Triumphant",
+    "source": "pricecharting"
+  },
+  "hgss4-18": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/854c35762c359ca32db1aaa569412248754d644e6c928172bd2e2d82a486218f/1600.jpg",
+    "name": "Dragonite",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-hs-triumphant/dragonite-reverse-holo-18",
+    "set": "HS Triumphant",
+    "source": "pricecharting"
+  },
+  "hgss4-19": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/mihjlisel57bjrcw/1600.jpg",
+    "name": "Dugtrio",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-hs-triumphant/dugtrio-reverse-holo-19",
+    "set": "HS Triumphant",
+    "source": "pricecharting"
+  },
+  "hgss4-6": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f03319f3aa0f3891c3a14c1a1356978cf375e8ad45d3d87ec99a8df2b34f0b57/1600.jpg",
+    "name": "Nidoking",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-triumphant/nidoking-reverse-holo-6",
+    "set": "HS Triumphant",
+    "source": "pricecharting"
+  },
+  "hgss4-8": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/f54bbdd5ad78fcb655d4111da29e6679a4405d6a9ac5b30968f8ecb7cc34c65b/1600.jpg",
+    "name": "Rapidash",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-hs-triumphant/rapidash-reverse-holo-8",
+    "set": "HS Triumphant",
+    "source": "pricecharting"
+  },
+  "pl1-14": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/a57a36492dcb4ce6127e73544da72184506855e9507a5d27dc62769ae0d510a0/1600.jpg",
+    "name": "Shaymin",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-platinum/shaymin-reverse-holo-14",
+    "set": "Platinum",
+    "source": "pricecharting"
+  },
+  "pl1-18": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/135dd474b6b3c8d349b87d097cd56b7775da372430746cac100a024a8a9b7090/1600.jpg",
+    "name": "Altaria",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-platinum/altaria-reverse-holo-18",
+    "set": "Platinum",
+    "source": "pricecharting"
+  },
+  "pl3-41": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/psco3s45arod3pue/1600.jpg",
+    "name": "Sableye G",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-supreme-victors/sableye-g-reverse-holo-41",
+    "set": "Supreme Victors",
+    "source": "pricecharting"
+  },
+  "pl4-72": {
+    "img": "https://storage.googleapis.com/images.pricecharting.com/ccf5f28891f42589616ab911beca5e992ad7d00741e32cc182d14f66bda1d589/1600.jpg",
+    "name": "Ponyta",
+    "pc_url": "https://www.pricecharting.com/game/pokemon-arceus/ponyta-reverse-holo-72",
+    "set": "Arceus",
+    "source": "pricecharting"
+  }
+}

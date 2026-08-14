@@ -1,14 +1,14 @@
 {
   "freeze": "2026-08-13-oracle",
-  "as_of": "2026-08-13",
+  "as_of": "2026-08-14",
   "cards": 712,
-  "prints": 1381,
+  "prints": 1478,
   "sets": 25,
   "trust_counts": {
-    "green": 543,
-    "amber": 378,
-    "red": 287,
-    "conflict": 173,
+    "green": 632,
+    "amber": 295,
+    "red": 382,
+    "conflict": 169,
     "unknown": 0
   },
   "fields": {
