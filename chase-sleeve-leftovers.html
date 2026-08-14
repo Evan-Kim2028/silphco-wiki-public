@@ -665,9 +665,11 @@ function usd(x) {
 function slabUsd(x) { return x == null ? "—" : usd(x); }
 function slabBox(r) {
   const p10 = r.px != null ? r.px : r.p10;
-  const cells = [["PSA 10" + defBtn("psa10"), p10], ["Grade 9", r.p9], ["Grade 8", r.p8], ["Grade 7", r.p7]];
+  const moodBand = r.bands && r.bands.p10;
+  const mood = moodBand ? ` · ${p10Mood(moodBand.frac)}` : "";
+  const cells = [["PSA 10" + defBtn("psa10"), p10, mood], ["Grade 9", r.p9, ""], ["Grade 8", r.p8, ""], ["Grade 7", r.p7, ""]];
   return `<div class="slab">
-    <div class="slab-row">${cells.map(([k,v]) => `<div><span class="k">${k}</span><span class="v">${slabUsd(v)}</span></div>`).join("")}</div>
+    <div class="slab-row">${cells.map(([k,v,m]) => `<div><span class="k">${k}</span><span class="v">${slabUsd(v)}${m||""}</span></div>`).join("")}</div>
     <p class="slab-note">9–7 are PriceCharting mixed-grader bands, not PSA-only. No Grade 6 on the guide.</p>
   </div>`;
 }
@@ -897,35 +899,15 @@ function crossNote(r) {
     about ${usd(r.cross.listed)} right now (${r.cross.ratio}x apart). The sale price is
     probably a graded copy or a lot counted as a raw card. Pay the listing price.</p>`;
 }
-function oneRange(label, b, half) {
-  if (!b) return "";
-  const span = b.lo === b.hi ? usd(b.lo) : `${usd(b.lo)} – ${usd(b.hi)}`;
-  const src = b.src === "book" ? "from live listings"
-            : b.src === "book_thin" ? "from a thin listing book"
-            : "from recent sales";
-  // The tight span is what sellers are asking; the wide one is where sales land.
-  const wide = half ? `<div class="half">Half of real sales: ${usd(half.lo)} – ${usd(half.hi)}</div>` : "";
-  return `<div class="rrow"><span class="rlab">${label}</span><span class="rng">${span}</span></div>
-    ${wide}<div class="why">${src} · ${b.why}</div>`;
-}
-function buyBox(r) {
-  if (!r.buy_nm && !r.buy_lp) {
-    const why = r.trust === "unknown"
-      ? "This card was not in the checked list, so there is no range for it yet."
-      : "No trustworthy sales and no clean listings.";
-    return `<div class="buyrange none"><div class="lab">What to pay${defBtn("pay")}</div>
-      <div class="rng">Not enough data to name a range</div>
-      <div class="why">${why}</div></div>`;
-  }
-  const inv = r.range_inverted
-    ? `<p class="inv-note">Lightly Played is asking more than Near Mint here (${usd(r.range_inverted.lp)} vs ${usd(r.range_inverted.nm)}). Usually one of the two has very few listings, or sellers graded their own cards wrongly. Treat both as shaky.${defBtn("inverted")}</p>`
-    : "";
-  return `<div class="buyrange"><div class="lab">What to pay${defBtn("pay")}</div>
-    ${inv}
-    ${oneRange("Near Mint", r.buy_nm, r.half_nm)}
-    ${(r.buy_nm && r.buy_lp) ? `<div class="rsep"></div>` : ""}
-    ${oneRange("Lightly Played", r.buy_lp, r.half_lp)}
-  </div>`;
+// The band row IS "what to pay" now — no separate box. If there is truly no
+// range at all (never in the checked list, no sales, no listings), say so in
+// one line instead of a whole titled box.
+function noBandNote(r) {
+  if (r.bands && (r.bands.nm || r.bands.lp)) return "";
+  const why = r.trust === "unknown"
+    ? "This card was not in the checked list, so there is no range for it yet."
+    : "No trustworthy sales and no clean listings.";
+  return `<p class="rough-guess">Not enough data to name a range — ${why}</p>`;
 }
 // "What sellers ask" — live listings summary. Prefers the receipt's
 // sentinel-filtered live_listings block (r.receipt.live_listings, from
@@ -933,6 +915,13 @@ function buyBox(r) {
 // r.b_nm book box shape so this renders correctly before trust_layer ships
 // the receipt too. Coded defensively: any missing field just drops that row.
 function bookBox(r) {
+  // Skip entirely when the ask range already printed under the LP band row
+  // (askLine()) — this box is the one place ask quartiles show, so only show
+  // it when nothing has surfaced that number yet.
+  if (r.buy_lp && r.bands && r.bands.lp) {
+    const same = Math.round(r.buy_lp.lo) === Math.round(r.bands.lp.lo) && Math.round(r.buy_lp.hi) === Math.round(r.bands.lp.hi);
+    if (!same) return "";
+  }
   const rec = r.receipt && r.receipt.live_listings;
   const b = rec
     ? { n: rec.n, sellers: rec.sellers, low: rec.low, med: rec.med, as_of: rec.as_of, disputed: false, fenced: 0 }
@@ -997,11 +986,26 @@ const TRI_LABEL = {
 function triangulationLine(r) {
   const sources = r.receipt && r.receipt.sources;
   if (!sources || !sources.length) return "";
-  const parts = sources
-    .filter(s => s && s.implied_lo != null && s.implied_hi != null)
-    .map(s => `${TRI_LABEL[s.src] || s.src} ${usd(s.implied_lo)}–${usd(s.implied_hi)}`);
-  if (!parts.length) return "";
-  const warn = r.receipt.tension
+  // Only keep sources that ADD information beyond the band rows already on
+  // screen: drop card_sales when it just restates the displayed NM/LP band
+  // (that number is already up top, twice would be a repeat). Slab-implied
+  // (ladder) and cohort-implied lines are always novel context, so they stay.
+  const band = (r.bands && (r.bands.lp || r.bands.nm)) || null;
+  const novel = sources.filter(s => {
+    if (!s || s.implied_lo == null || s.implied_hi == null) return false;
+    if (s.src === "card_sales" && band) {
+      const same = Math.round(s.implied_lo) === Math.round(band.lo) && Math.round(s.implied_hi) === Math.round(band.hi);
+      if (same) return false;
+    }
+    return true;
+  });
+  if (!novel.length) return "";
+  const parts = novel.map(s => `${TRI_LABEL[s.src] || s.src} ${usd(s.implied_lo)}–${usd(s.implied_hi)}`);
+  // Tension needs at least two DISPLAYED sources actually disagreeing, not
+  // just trust_layer's tension flag (which is computed over the full,
+  // pre-filter evidence set and can stay true even after we drop a
+  // now-redundant source here). One visible source can never show ⚠.
+  const warn = (r.receipt.tension && novel.length >= 2)
     ? ` <span class="tri-warn" title="These sources disagree by a lot — treat the wide end as real">⚠</span>`
     : "";
   return `<div class="triangulation"><h4>Where this number comes from${defBtn("triangulation")}</h4>
@@ -1102,10 +1106,24 @@ function bandOne(r) {
     <div class="band1-ends"><span>${usd(b.lo)}</span><span>${usd(b.hi)}</span></div>
   </div>`;
 }
-const BAND_LABELS = [["nm", "Near Mint"], ["lp", "Played a little"]];
+// Level 2 shows only the Lightly Played band row — Level 1 already shows
+// Near Mint, so re-rendering it here would repeat the same number twice in
+// the same stack for no reason. If a book-sourced ask range exists and
+// differs from the band itself, it prints as one compact line under the row
+// ("Sellers ask $X-Y") instead of a separate "What to pay" box.
+const BAND_LABELS = [["lp", "Played a little"]];
+function askLine(buy, band) {
+  if (!buy) return "";
+  const same = band && Math.round(buy.lo) === Math.round(band.lo) && Math.round(buy.hi) === Math.round(band.hi);
+  if (same) return "";
+  return `<div class="band-ask">Sellers ask ${usd(buy.lo)}–${usd(buy.hi)}</div>`;
+}
 function renderBands(r) {
   if (r.half_frac == null || !r.bands) return "";
   const half = r.half_frac;
+  const inv = r.range_inverted
+    ? `<p class="inv-note">Lightly Played is asking more than Near Mint here (${usd(r.range_inverted.lp)} vs ${usd(r.range_inverted.nm)}). Usually one of the two has very few listings, or sellers graded their own cards wrongly. Treat both as shaky.${defBtn("inverted")}</p>`
+    : "";
   const rows = BAND_LABELS.map(([key, label]) => {
     const b = r.bands[key];
     if (!b) return "";
@@ -1116,6 +1134,7 @@ function renderBands(r) {
     const v = bandVerdict(b, r);
     const vcls = bandVerdictClass(v);
     const rough = b.estimated ? `<span class="rough-guess">Rough guess</span>` : "";
+    const ask = askLine(r.buy_lp, b);
     return `<div class="band-row2">
       <div class="band-row2-top">
         <span class="band-lab">${label}</span>
@@ -1124,15 +1143,10 @@ function renderBands(r) {
       </div>
       <div class="band1-track small"><div class="band1-fill" style="width:${width}%;background:rgba(110,168,255,${alpha})"></div><div class="band1-marker" style="left:${marker}%"></div></div>
       <div class="band1-ends"><span>${usd(b.lo)}</span><span>${usd(b.hi)}</span></div>
+      ${ask}
     </div>`;
   }).join("");
-  const p10 = r.bands.p10;
-  const mood = p10
-    ? `<div class="band-row2 mood"><span class="band-lab">Graded 10</span>
-        <span class="band-price">${usd(p10.price)}</span>
-        <span class="mood-word">${p10Mood(p10.frac)}</span></div>`
-    : "";
-  return (rows || mood) ? `<div class="bands">${mood}${rows}</div>` : "";
+  return (rows || inv) ? `<div class="bands">${inv}${rows}</div>` : "";
 }
 function tile(r, inSleeve) {
   const fm = finishMeta(r);
@@ -1191,7 +1205,7 @@ function tile(r, inSleeve) {
     <p class="trust-why">${r.trust_blurb || ""}</p>
     ${ladderNote}
     ${crossNote(r)}
-    ${buyBox(r)}
+    ${noBandNote(r)}
     ${renderBands(r)}
     <button type="button" class="more">Slabs &amp; book ▾</button>
     ${slabBox(r)}
