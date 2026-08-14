@@ -54,10 +54,16 @@ self.addEventListener("fetch", (e) => {
 
   if (isImg) {
     // Card art: cache-first, and keep whatever we managed to fetch once.
+    //
+    // A cross-origin <img> is a no-cors request, so the response is OPAQUE and
+    // its status is 0, not 200. Gating on `status === 200` therefore cached
+    // nothing at all — every image was refetched from the network forever and
+    // none survived going offline. Accept opaque responses explicitly.
     e.respondWith(caches.match(req).then((hit) => hit || fetch(req).then((res) => {
-      if (res && res.status === 200) {
+      const keepable = res && (res.status === 200 || res.type === "opaque");
+      if (keepable) {
         const copy = res.clone();
-        caches.open(CACHE).then((c) => c.put(req, copy));
+        caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
       }
       return res;
     }).catch(() => hit)));
