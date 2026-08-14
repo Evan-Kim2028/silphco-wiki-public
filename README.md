@@ -26,5 +26,19 @@ Prices come from two independent sources: past **sales**, and what the card is
 in four, which is the main reason to trust either. Where they disagree the page
 says so and tells you to go with the listing.
 
+## What is in this repo
+
+Everything the pages need, so nothing is fetched at a show:
+
+| Path | |
+|---|---|
+| `*.html` | the pages, with all prices already inline |
+| `img/cards/` | 722 card scans (WebP, ~15 MB) — vendored, not hotlinked |
+| `data/` | the same numbers as JSON and CSV — `cards.json`, `cards.csv`, `sets.json`, `meta.json` |
+| `sw.js` | service worker; precaches all of the above for offline use |
+
+`data/meta.json` names the freeze the snapshot came from and carries the field
+descriptions. 1,381 prints across 712 cards.
+
 Regenerate from the private `silphco-wiki` with `bash scripts/build_pages.sh`, then
 copy these files. GitHub Pages serves the repo root.

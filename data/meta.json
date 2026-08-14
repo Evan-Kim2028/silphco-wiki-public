@@ -1,0 +1,25 @@
+{
+  "freeze": "2026-08-13-oracle",
+  "generated_at": "2026-08-14T03:34:09Z",
+  "cards": 712,
+  "prints": 1381,
+  "sets": 25,
+  "trust_counts": {
+    "green": 575,
+    "amber": 391,
+    "red": 287,
+    "conflict": 128,
+    "unknown": 0
+  },
+  "fields": {
+    "pay_low_usd/pay_high_usd": "what to pay for a Near Mint copy, as a range",
+    "pay_source": "book = live listings \u00b7 band/mark = past sales \u00b7 book_thin = 1-2 listings",
+    "trust": "green 5+ sales \u00b7 amber 1-4 \u00b7 red none \u00b7 conflict sales vs listings disagree",
+    "conflict_ratio": "sale mark divided by listing midpoint, when they disagree by >2x"
+  },
+  "caveats": [
+    "Prices are ranges, not quotes. Nothing here is advice.",
+    "A red row has no sales behind it at all.",
+    "Sales and listings agree within 50% about 3 times in 4 where both exist."
+  ]
+}
