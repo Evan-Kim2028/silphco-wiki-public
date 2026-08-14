@@ -1,0 +1,10 @@
+{
+  "name": "Silph leftover floor",
+  "short_name": "Silph",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0c0f16",
+  "theme_color": "#0c0f16",
+  "description": "Mid-era leftover, chase and deal lookup. Works offline.",
+  "icons": []
+}

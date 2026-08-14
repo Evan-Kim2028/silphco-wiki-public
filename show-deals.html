@@ -76,6 +76,7 @@ html{overflow-x:clip}
   .slab-row .v{font-size:.95rem}
 }
 </style>
+<link rel="manifest" href="manifest.webmanifest"/>
 </head>
 <body>
 <header class="topbar"><div class="inner">
@@ -210,6 +211,10 @@ document.querySelectorAll(".cut").forEach(b => b.addEventListener("click", () =>
   render();
 }));
 render();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
 </script>
 </body>
 </html>

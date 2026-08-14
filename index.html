@@ -17,13 +17,15 @@ b{color:var(--accent)}
 .key h2{margin:0 0 .4rem;font-size:.9rem}
 .key p{margin:.2rem 0;font-size:.8rem}
 .dot{display:inline-block;width:.5rem;height:.5rem;border-radius:50%;margin-right:.35rem;vertical-align:.02rem}
-.g{background:#4ade80}.a{background:#fbbf24}.r{background:#f87171}
+.g{background:#4ade80}.a{background:#fbbf24}.r{background:#f87171}.c{background:#c084fc}
 </style>
+<link rel="manifest" href="manifest.webmanifest"/>
 </head>
 <body>
 <main>
 <h1>Silph leftover floor</h1>
 <p>Preloaded mid-era leftover + Rob chase + deal lookup. LP is the bid. Binder stays in this browser.</p>
+<a href="scan.html"><b>Scan a card</b><br/>Type the number · works offline</a>
 <a href="set-macro.html"><b>The whole board</b><br/>Every mid-era set · which ones already ran</a>
 <a href="mid-sleeve-leftovers.html"><b>Leftovers</b><br/>Search, 1/2/3 in group, binder</a>
 <a href="chase-sleeve-leftovers.html"><b>Chase leftovers</b><br/>Rob's EX-δ list vs friends</a>
@@ -33,8 +35,13 @@ b{color:var(--accent)}
   <p><span class="dot g"></span>Real sales — 5 or more behind the number</p>
   <p><span class="dot a"></span>Few sales — 1 to 4, treat as a rough guide</p>
   <p><span class="dot r"></span>Estimated — no sales at all, a computer guess</p>
+  <p><span class="dot c"></span>Sales disagree with listings — pay the listing</p>
   <p style="margin-top:.5rem">Tap any card for what to pay and what is for sale right now.</p>
 </div>
 </main>
+
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
+</script>
 </body>
 </html>

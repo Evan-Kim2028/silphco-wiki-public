@@ -1,15 +1,30 @@
 # silphco-wiki-public
 
-Public slice of the private leftover catalog: generated HTML with marks already in the page. No vault, no freezes, no emit scripts.
+Public slice of the private leftover catalog: generated HTML with prices already in
+the page. No vault, no freezes, no emit scripts. **Works offline** — open it once on
+wifi and it keeps working on a convention floor with no signal.
 
+- [Scan a card](scan.html) — type the collector number, get the price. Start here at a show.
 - [The whole board](set-macro.html) — every mid-era set, which ones already ran
-- [Leftovers](mid-sleeve-leftovers.html)
-- [Chase leftovers](chase-sleeve-leftovers.html)
-- [Show deals](show-deals.html)
+- [Leftovers](mid-sleeve-leftovers.html) · [Chase leftovers](chase-sleeve-leftovers.html) · [Show deals](show-deals.html)
 
-Every price carries a trust colour: **Real sales** (5+ behind it), **Few sales** (1–4),
-**Estimated** (none at all — a computer guess), **Not checked** (outside the checked list).
-Prices are published as a *range*, never a single number. Tap a card for what is
-for sale right now.
+## Reading a price
 
-Regenerate from the private `silphco-wiki` emit, then copy these files. GitHub Pages serves the repo root.
+Prices are a **range**, never a single number, and every one carries a colour for
+how much to trust it:
+
+| | Means |
+|---|---|
+| green | Real sales — 5 or more behind the number |
+| yellow | Few sales — 1 to 4, a rough guide |
+| red | Estimated — no sales at all, a computer guess |
+| purple | Sales and listings disagree — pay the listing price |
+| grey | Not checked — outside the checked list |
+
+Prices come from two independent sources: past **sales**, and what the card is
+**listed** at right now. Where both exist they agree within 50% about three times
+in four, which is the main reason to trust either. Where they disagree the page
+says so and tells you to go with the listing.
+
+Regenerate from the private `silphco-wiki` with `bash scripts/build_pages.sh`, then
+copy these files. GitHub Pages serves the repo root.

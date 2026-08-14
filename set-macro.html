@@ -65,6 +65,7 @@ section.band>header p{margin:0;flex-basis:100%;font-size:.84rem;color:var(--mute
 .foot{margin-top:2rem;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem}
 @media (max-width:520px){ .grid{grid-template-columns:1fr} main{padding:1rem .85rem 3rem} }
 </style>
+<link rel="manifest" href="manifest.webmanifest"/>
 </head>
 <body>
 <main>
@@ -189,6 +190,10 @@ document.getElementById("board").innerHTML = ORDER.map(k => {
     <div class="grid">${rows.map(card).join("")}</div>
   </section>`;
 }).join("");
+</script>
+
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
 </script>
 </body>
 </html>
