@@ -5,10 +5,10 @@
   "prints": 1478,
   "sets": 25,
   "trust_counts": {
-    "green": 632,
-    "amber": 295,
-    "red": 382,
-    "conflict": 169,
+    "green": 633,
+    "amber": 296,
+    "red": 383,
+    "conflict": 166,
     "unknown": 0
   },
   "fields": {
