@@ -264,6 +264,12 @@
   .slab-row {
     display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.3rem;
   }
+  /* narrow (2-up) tiles: slab cells wrap 2x2 so prices never clip */
+  @media (max-width: 700px) { .slab-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  /* when expanded, L2's stacked NM/LP pair is the single band display */
+  .tile.open .tile-l1 .band1, .tile.open .tile-l1 .verdict { display: none; }
+  .cond-row { display: flex; gap: 0.35rem; align-items: baseline; }
+  .cond-row-lab { white-space: nowrap; }
   .slab-row div { background: var(--panel2); border-radius: 8px; padding: 0.35rem 0.4rem; }
   .slab-row .k { display: block; font-size: 0.68rem; color: var(--muted); }
   .slab-row .v { font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -312,7 +318,28 @@
     #suggest .s-lp { float: none; grid-column: 2; grid-row: 1; }
     #suggest button > span { grid-column: 1; grid-row: 1; }
     #suggest .s-sub { grid-column: 1 / -1; }
-    .story, .pack-grid, #card-grid { grid-template-columns: 1fr !important; }
+    .story, #card-grid { grid-template-columns: 1fr !important; }
+    /* 2 tiles per row down to phone width, so the grid reads as a grid, not a
+       single list. At 390px this gives ~180px tiles: image, name, NM price,
+       tiny band and verdict word stay; everything else waits for tap. */
+    .pack-grid { grid-template-columns: 1fr 1fr !important; gap: 0.5rem; }
+    .pack-grid .art { min-height: 0; padding: 0.5rem 0.4rem 1rem; }
+    .pack-grid .art img { width: 100%; height: auto; aspect-ratio: 63 / 88; }
+    .pack-grid .body { padding: 0.45rem 0.5rem 0.55rem; }
+    .pack-grid .name {
+      font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    .pack-grid .role-pill, .pack-grid .dots { display: none; }
+    .pack-grid .sub, .pack-grid .coh-note, .pack-grid p.trust-why,
+    .pack-grid .price .p10, .pack-grid .cross-note, .pack-grid .ladder-note,
+    .pack-grid .tension { display: none; }
+    .pack-grid .price { font-size: 0.8rem; }
+    .pack-grid .trust { font-size: 0.62rem; padding: 0.1rem 0.4rem 0.1rem 0.3rem; }
+    .pack-grid .band1-price { font-size: 0.92rem; }
+    .pack-grid .band1-ends { font-size: 13px; }
+    .pack-grid .verdict { font-size: 0.72rem; margin: 0.25rem 0 0.05rem; }
+    .pack-grid .buy, .pack-grid .more { display: none; }
     .story figcaption { font-size: 0.78rem; }
     .story .note, .eli { font-size: 0.92rem; }
     .hz-row { grid-template-columns: 4.2rem 1fr; }
@@ -467,7 +494,9 @@
   .tile-l1 { display: flex; flex-direction: column; }
   .tile-l2 { display: none; margin-top: 0.5rem; border-top: 1px dashed var(--border); padding-top: 0.5rem; }
   .tile.open .tile-l2 { display: block; }
+  .bands { display: flex; flex-direction: column; gap: 0.3rem; }
   .band-row2 { margin: 0.35rem 0; }
+  .bands .band-row2 { margin: 0; }
   .band-row2-top { display: flex; align-items: baseline; gap: 0.4rem; }
   .band-verdict { margin-left: auto; font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
   .band-verdict.good { color: var(--pos); }
@@ -880,8 +909,9 @@ function condRow(r, cond, label) {
   const b = condBook(r, cond);
   const price = b && b.med != null ? usd(b.med) : (r[cond] != null ? usd(r[cond]) : null);
   if (price == null) return "";
-  const n = b && b.n ? ` <span class="cond-row-n">(${b.n})</span>` : "";
-  return `<div class="cond-row cond-row-${cond}"><span class="cond-row-lab">${label}</span><span class="cond-row-price">${price}${n}</span></div>`;
+  // Every ask line names its condition — never an unlabeled "Sellers ask".
+  const n = b && b.n ? ` <span class="cond-row-n">· ${b.n} for sale</span>` : "";
+  return `<div class="cond-row cond-row-${cond}"><span class="cond-row-lab">${label} asks:</span><span class="cond-row-price">${price} typical${n}</span></div>`;
 }
 function condStack(r) {
   const rows = [condRow(r, "nm", "NM"), condRow(r, "lp", "LP")].filter(Boolean);
@@ -902,8 +932,10 @@ function condStack(r) {
 // job (a monthly return chart doesn't stack next to NM/LP rows in the space
 // available). Renders nothing when the card has no p10 data.
 function p10ChartArea(r) {
-  if (!condHasChart(r, "p10") && !condHasBook(r, "p10")) return "";
-  return `<div class="cond-book">${bookBox(r, "p10")}</div><div class="cond-race">${raceBoard(r, "p10")}</div>`;
+  // Graded data is context only: show the PSA 10 monthly race chart, never a
+  // graded ask book — asks on this page are raw NM/LP only.
+  if (!condHasChart(r, "p10")) return "";
+  return `<div class="cond-race">${raceBoard(r, "p10")}</div>`;
 }
 function raceBoard(r, cond) {
   cond = cond || "p10";
@@ -1048,9 +1080,9 @@ function trustBadge(r) {
 }
 function crossNote(r) {
   if (!r.cross) return "";
-  return `<p class="cross-note">Old sales say ${usd(r.cross.mark)}, but it is listed at
-    about ${usd(r.cross.listed)} right now (${r.cross.ratio}x apart). The sale price is
-    probably a graded copy or a lot counted as a raw card. Pay the listing price.</p>`;
+  return `<p class="cross-note">Past sales say ${usd(r.cross.mark)}; today's listing is
+    ${usd(r.cross.listed)} (${r.cross.ratio}x apart). Likely a graded copy or a lot,
+    not a raw card. Pay the listing price.</p>`;
 }
 // Sales-vs-asks tension line — milder cousin of crossNote(). Compares the
 // recent-sales mark (r.nm) against the book's typical ask (live listings if
@@ -1063,8 +1095,9 @@ function salesVsAsksLine(r) {
   const ask = b && b.med;
   if (mark == null || !ask) return "";
   if (Math.abs(mark - ask) / ask <= 0.25) return "";
-  return `<div class="tension">Recent sales ${usd(mark)} · Sellers ask ${usd(ask)} ⚠${defBtn("tension")}</div>`;
+  return `<div class="tension">Recent sales ${usd(mark)} · NM asks ${usd(ask)} ⚠${defBtn("tension")}</div>`;
 }
+const COND_ASK_LABEL = { p10: "PSA 10", nm: "NM", lp: "LP" };
 function bookBox(r, cond) {
   cond = cond || "p10";
   // Skip entirely when the ask range already printed under the LP band row
@@ -1076,11 +1109,12 @@ function bookBox(r, cond) {
     if (!same) return "";
   }
   const b = condBook(r, cond);
-  if (!b || !b.n) return `<div class="book"><h4>What sellers ask${defBtn("book")}</h4>
+  const askLabel = `${COND_ASK_LABEL[cond] || cond.toUpperCase()} asks`;
+  if (!b || !b.n) return `<div class="book"><h4>${askLabel}${defBtn("book")}</h4>
     <div class="book-empty">No clean listings found.</div></div>`;
-  if (b.disputed) return `<div class="book"><h4>What sellers ask${defBtn("book")}</h4>
-    <div class="book-warn">Listings disagree with the sale price by too much to trust
-    (${b.fenced} of ${b.n + b.fenced} looked wrong). Not showing a floor.</div></div>`;
+  if (b.disputed) return `<div class="book"><h4>${askLabel}${defBtn("book")}</h4>
+    <div class="book-warn">Listings and sales disagree too much to trust
+    (${b.fenced} of ${b.n + b.fenced} looked wrong). No floor shown.</div></div>`;
   const rows = [
     ["Cheapest clean ask", usd(b.low)],
     b.p25 != null ? ["25th pct ask", usd(b.p25)] : null,
@@ -1096,7 +1130,7 @@ function bookBox(r, cond) {
   const srcTag = b.sources ? `<div class="book-src">from ${b.sellers || 0} seller${b.sellers === 1 ? "" : "s"} on ${b.sources} site${b.sources === 1 ? "" : "s"}</div>` : "";
   const asof = b.as_of ? `<div class="book-asof">as of ${b.as_of}</div>` : "";
   const tension = cond === "nm" ? salesVsAsksLine(r) : "";
-  return `<div class="book"><h4>What sellers ask${defBtn("book")}</h4>
+  return `<div class="book"><h4>${askLabel}${defBtn("book")}</h4>
     <div class="book-rows">${rows.map(([k, v]) => `<span class="k">${k}</span><span class="v">${v}</span>`).join("")}</div>
     ${srcTag}${dropped}${asof}${tension}</div>`;
 }// Graded sales history — p10/p9/p8 marks with sample counts, plus what raw
@@ -1106,10 +1140,8 @@ function bookBox(r, cond) {
 const GRADE_LABEL = { "PSA:10": "PSA 10", "PSA:9": "PSA 9", "PSA:8": "PSA 8" };
 function noBandNote(r) {
   if (r.bands && (r.bands.nm || r.bands.lp)) return "";
-  const why = r.trust === "unknown"
-    ? "This card was not in the checked list, so there is no range for it yet."
-    : "No trustworthy sales and no clean listings.";
-  return `<p class="rough-guess">Not enough data to name a range — ${why}</p>`;
+  const why = r.trust === "unknown" ? "not on our checked list yet" : "no sales, no listings";
+  return `<p class="rough-guess">No range yet — ${why}.</p>`;
 }
 // "What sellers ask" — live listings summary. Prefers the receipt's
 // sentinel-filtered live_listings block (r.receipt.live_listings, from
@@ -1264,7 +1296,7 @@ function bandOne(r) {
   if (!b) return "";
   const half = r.half_frac != null ? r.half_frac : 0.2;
   const priceColor = fracColor(b.frac);
-  const width = Math.round(30 + half * 130);
+  const width = Math.min(100, Math.round(30 + half * 130));
   const alpha = Math.max(0.35, 1 - half * 1.2);
   const marker = Math.max(2, Math.min(98, Math.round(b.frac * 100)));
   const rough = b.estimated ? `<span class="rough-guess">Rough guess</span>` : "";
@@ -1274,35 +1306,37 @@ function bandOne(r) {
     <div class="band1-ends"><span>${usd(b.lo)}</span><span>${usd(b.hi)}</span></div>
   </div>`;
 }
-// Level 2 shows only the Lightly Played band row — Level 1 already shows
-// Near Mint, so re-rendering it here would repeat the same number twice in
-// the same stack for no reason. If a book-sourced ask range exists and
-// differs from the band itself, it prints as one compact line under the row
-// ("Sellers ask $X-Y") instead of a separate "What to pay" box.
-const BAND_LABELS = [["lp", "LP"]];
-function askLine(buy, band) {
+// Expanded view shows NM and LP bars stacked directly adjacent (NM on top,
+// LP under it) so both conditions compare at a glance. No switcher hides
+// either one. If a book-sourced ask range exists and differs from the band
+// itself, it prints as one compact line under its own row, always naming
+// the condition ("NM asks: $X-Y" / "LP asks: $X-Y") — never an unlabeled
+// "Sellers ask".
+const BAND_LABELS = [["nm", "NM"], ["lp", "LP"]];
+const BAND_BUY = { nm: "buy_nm", lp: "buy_lp" };
+function askLine(buy, band, label) {
   if (!buy) return "";
   const same = band && Math.round(buy.lo) === Math.round(band.lo) && Math.round(buy.hi) === Math.round(band.hi);
   if (same) return "";
-  return `<div class="band-ask">Sellers ask ${usd(buy.lo)}–${usd(buy.hi)}</div>`;
+  return `<div class="band-ask">${label} asks: ${usd(buy.lo)}–${usd(buy.hi)}</div>`;
 }
 function renderBands(r) {
   if (r.half_frac == null || !r.bands) return "";
   const half = r.half_frac;
   const inv = r.range_inverted
-    ? `<p class="inv-note">LP is asking more than NM here (${usd(r.range_inverted.lp)} vs ${usd(r.range_inverted.nm)}). Usually one of the two has very few listings, or sellers graded their own cards wrongly. Treat both as shaky.${defBtn("inverted")}</p>`
+    ? `<p class="inv-note">LP asks more than NM (${usd(r.range_inverted.lp)} vs ${usd(r.range_inverted.nm)}) — treat both as shaky.${defBtn("inverted")}</p>`
     : "";
   const rows = BAND_LABELS.map(([key, label]) => {
     const b = r.bands[key];
     if (!b) return "";
     const priceColor = fracColor(b.frac);
     const marker = Math.max(2, Math.min(98, Math.round(b.frac * 100)));
-    const width = Math.round(40 + half * 100);
+    const width = Math.min(100, Math.round(40 + half * 100));
     const alpha = Math.max(0.35, 1 - half * 1.2);
     const v = bandVerdict(b, r);
     const vcls = bandVerdictClass(v);
     const rough = b.estimated ? `<span class="rough-guess">Rough guess</span>` : "";
-    const ask = askLine(r.buy_lp, b);
+    const ask = askLine(r[BAND_BUY[key]], b, label);
     return `<div class="band-row2">
       <div class="band-row2-top">
         <span class="band-lab">${label}</span>
@@ -1333,10 +1367,10 @@ function tile(r, inSleeve) {
     (r.nm != null && !r.ladder) ? `NM ${usd(r.nm)}` : null,
   ].filter(Boolean).join(" · ");
   const ladderNote = r.ladder
-    ? `<p class="ladder-note">NM (${usd(r.ladder.nm)}) is showing below LP (${usd(r.ladder.lp)}), which cannot be right.${
+    ? `<p class="ladder-note">NM (${usd(r.ladder.nm)}) below LP (${usd(r.ladder.lp)}) — that's wrong.${
         (r.mark_n || 0) === 0
-          ? " The NM figure has no sales behind it, so ignore it and use the range above."
-          : " Both figures are suspect on this card — use the range above and check it yourself."
+          ? " Ignoring NM. Use the range above."
+          : " Both numbers are shaky here. Check listings yourself."
       }${defBtn("ladder")}</p>`
     : "";
   const p10 = r.px != null ? `<span class="p10">PSA 10 ${usd(r.px)}</span>` : "";
