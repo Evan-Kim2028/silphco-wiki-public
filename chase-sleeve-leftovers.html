@@ -136,6 +136,75 @@
     display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
     gap: 0.85rem;
   }
+  /* Picture-book page: full-bleed card art, then a fixed caption so name /
+     NM price / band / verdict line up across every tile in the grid. */
+  .pack-grid .tile {
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .pack-grid .art {
+    min-height: 0;
+    padding: 0;
+    aspect-ratio: 63 / 88;
+    background: #0a0d13;
+    align-items: center;
+    justify-content: center;
+  }
+  .pack-grid .art img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+    outline: none;
+  }
+  .pack-grid .body {
+    padding: 8px 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pack-grid .tile:not(.open) .role-pill,
+  .pack-grid .tile:not(.open) .dots,
+  .pack-grid .tile:not(.open) .sub,
+  .pack-grid .tile:not(.open) .coh-note,
+  .pack-grid .tile:not(.open) .price,
+  .pack-grid .tile:not(.open) .trust,
+  .pack-grid .tile:not(.open) .trust-why,
+  .pack-grid .tile:not(.open) .cross-note,
+  .pack-grid .tile:not(.open) .ladder-note,
+  .pack-grid .tile:not(.open) .tension,
+  .pack-grid .tile:not(.open) .buyrange,
+  .pack-grid .tile:not(.open) .buy,
+  .pack-grid .tile:not(.open) .more,
+  .pack-grid .tile:not(.open) .weatherpair,
+  .pack-grid .tile:not(.open) .def,
+  .pack-grid .tile:not(.open) .cohort {
+    display: none;
+  }
+  .pack-grid .tile:not(.open) .name-row {
+    height: 24px;
+    align-items: center;
+  }
+  .pack-grid .tile:not(.open) .name {
+    font-size: 0.86rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  .pack-grid .tile:not(.open) .band1 { margin: 0; }
+  .pack-grid .tile:not(.open) .band1-top { height: 24px; margin-bottom: 0; }
+  .pack-grid .tile:not(.open) .band1-track { height: 4px; }
+  .pack-grid .tile:not(.open) .band1-ends { display: none; }
+  .pack-grid .tile:not(.open) .verdict {
+    height: 24px;
+    margin: 0;
+    font-size: 0.74rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .pack-h {
     display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.7rem;
     margin: 0 0 0.55rem;
@@ -155,7 +224,7 @@
   .glyph.caught b:last-of-type { width: 42%; }
   .pack, .tile { scroll-margin-top: 4.75rem; }
   .tile {
-    background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 16px;
     overflow: hidden;
   }
   .tile.agree { border-color: rgba(61,214,140,0.4); }
@@ -323,23 +392,8 @@
        single list. At 390px this gives ~180px tiles: image, name, NM price,
        tiny band and verdict word stay; everything else waits for tap. */
     .pack-grid { grid-template-columns: 1fr 1fr !important; gap: 0.5rem; }
-    .pack-grid .art { min-height: 0; padding: 0.5rem 0.4rem 1rem; }
-    .pack-grid .art img { width: 100%; height: auto; aspect-ratio: 63 / 88; }
-    .pack-grid .body { padding: 0.45rem 0.5rem 0.55rem; }
-    .pack-grid .name {
-      font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      max-width: 100%;
-    }
-    .pack-grid .role-pill, .pack-grid .dots { display: none; }
-    .pack-grid .sub, .pack-grid .coh-note, .pack-grid p.trust-why,
-    .pack-grid .price .p10, .pack-grid .cross-note, .pack-grid .ladder-note,
-    .pack-grid .tension { display: none; }
-    .pack-grid .price { font-size: 0.8rem; }
-    .pack-grid .trust { font-size: 0.62rem; padding: 0.1rem 0.4rem 0.1rem 0.3rem; }
-    .pack-grid .band1-price { font-size: 0.92rem; }
-    .pack-grid .band1-ends { font-size: 13px; }
-    .pack-grid .verdict { font-size: 0.72rem; margin: 0.25rem 0 0.05rem; }
-    .pack-grid .buy, .pack-grid .more { display: none; }
+    .pack-grid .tile:not(.open) .band1-price { font-size: 0.92rem; }
+    .pack-grid .tile:not(.open) .verdict { font-size: 0.72rem; }
     .story figcaption { font-size: 0.78rem; }
     .story .note, .eli { font-size: 0.92rem; }
     .hz-row { grid-template-columns: 4.2rem 1fr; }
