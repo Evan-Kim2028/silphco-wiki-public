@@ -109,6 +109,12 @@
   .controls input[type="search"] { min-width: 12rem; }
   .find { position: relative; flex: 1 1 16rem; min-width: 12rem; }
   .find input { width: 100%; }
+  .search-bar { position: relative; margin: 0 0 0.75rem; }
+  .search-bar input {
+    width: 100%; font-size: 16px; padding: 0.7rem 0.8rem;
+    border-radius: 10px; border: 1px solid var(--border);
+    background: var(--panel2); color: var(--text); min-height: 48px;
+  }
   #suggest {
     position: absolute; left: 0; right: 0; top: 100%; z-index: 50;
     background: var(--panel2); border: 1px solid var(--border); border-radius: 10px;
@@ -402,6 +408,10 @@
       <p class="note">Green edge = PSA 9 and raw moved the same way as PSA 10. Not your LP bid.</p>
     </figure>
   </section>
+  <div class="search-bar find">
+    <input type="search" id="q" placeholder="Name, set, or # — magikarp 69" autocomplete="off" autofocus/>
+    <div id="suggest" hidden></div>
+  </div>
   <div class="controls">
     <div class="cuts" role="tablist" aria-label="Story cut">
       <button type="button" class="cut" data-cut="all">Leftover 58</button>
@@ -430,10 +440,6 @@
       <option value="px">highest price</option>
       <option value="name">name</option>
     </select></label>
-    <div class="find">
-      <input type="search" id="q" placeholder="Name, set, or # — tyranitar 16" autocomplete="off"/>
-      <div id="suggest" hidden></div>
-    </div>
     <span id="count"></span>
   </div>
   <div id="grid"></div>
@@ -561,17 +567,15 @@ function hitsQuery(r, q) {
   });
 }
 function filtered() {
-  const q = document.getElementById("q").value.toLowerCase();
+  const q = document.getElementById("q").value;
   const block = blockSel.value;
   const tier = tierSel.value;
   const sort = document.getElementById("sort").value;
   const sleeve = sleeveSel.value;
-  if (q) {
+  if (normQ(q)) {
     let out = catalog().filter(r => hitsQuery(r, q));
-    if (block !== "all") out = out.filter(r => !r.block || r.block === block);
-    if (tier !== "all") out = out.filter(r => r.tier === tier);
     out.sort((a,b) => a.name.localeCompare(b.name) || a.set.localeCompare(b.set));
-    return applyCohort(out);
+    return out;
   }
   if (sleeve !== "all") {
     let out = PEERS.filter(r => r.sleeve === sleeve);
