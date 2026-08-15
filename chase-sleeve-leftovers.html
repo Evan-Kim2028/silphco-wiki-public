@@ -731,7 +731,7 @@ function filtered() {
   }
   const TYPES = new Set(["stamp", "delta-rare", "ex", "holo", "star"]);
   if (TYPES.has(cut) || cut === "all") {
-    let out = catalog().filter(r => r.chase);
+    let out = catalog().some(r => r.chase) ? catalog().filter(r => r.chase) : ROWS;
     if (TYPES.has(cut)) out = out.filter(r => kindGroup(r) === cut);
     if (block !== "all" && out.some(r => r.block)) out = out.filter(r => !r.block || r.block === block);
     if (tier !== "all") out = out.filter(r => r.tier === tier);
