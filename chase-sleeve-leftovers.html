@@ -54,7 +54,7 @@
   .stack > * {
     display: flex; align-items: center; padding: 0 0.4rem;
     font-size: 0.68rem; font-variant-numeric: tabular-nums; white-space: nowrap;
-    overflow: hidden; min-width: 0; flex: 0 0 auto;
+    overflow: hidden; min-width: 0; flex: 0 1 auto;
   }
   .seg-trail { background: #6a6258; color: #f4efe6; }
   .seg-ahead { background: #2a8f5b; color: #e8fff2; }
@@ -562,7 +562,7 @@ function hitsQuery(r, q) {
   const words = new Set(normQ([r.name, r.set, r.set_id, r.id, num].join(" ")).split(/\s+/));
   for (const a of (SET_ALIASES[r.set_id] || [])) words.add(a);
   return tokens.every(t => {
-    if (/^\d+[a-z]?$/.test(t)) return words.has(t);
+    if (/^\d+[a-z]?$/.test(t) || t.length <= 2) return words.has(t);
     return [...words].some(w => w === t || w.startsWith(t) || (t.length >= 3 && t.startsWith(w)));
   });
 }
@@ -891,6 +891,12 @@ document.getElementById("grid").addEventListener("click", e => {
 sleeveSel.addEventListener("change", () => {
   if (sleeveSel.value !== "all") document.getElementById("sort").value = "r3";
   render();
+});
+document.querySelectorAll(".stack > *").forEach(el => {
+  const w = parseFloat(el.style.width);
+  el.title = (el.textContent || "").trim();
+  if (!(w > 0)) el.remove();
+  else if (w < 8) el.textContent = "";
 });
 render();
 </script>
