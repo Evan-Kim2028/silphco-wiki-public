@@ -70,7 +70,7 @@
   .when { font-size: 0.68rem; color: var(--muted); padding-top: 0.2rem; }
   .lanes { display: flex; flex-direction: column; gap: 0.2rem; }
   .bar-row {
-    display: grid; grid-template-columns: 3.15rem 1fr 2.55rem;
+    display: grid; grid-template-columns: 3.15rem minmax(2rem, 1fr) 2.55rem;
     gap: 0.28rem; align-items: center;
   }
   .who {
@@ -142,6 +142,17 @@
     border-radius: 16px;
     display: flex;
     flex-direction: column;
+  }
+  /* Collapsed stays 2-up; open tile is a full-width page so NM/LP asks
+     and the race bars have room (half-width expand zeroed the tracks). */
+  .pack-grid .tile.open { grid-column: 1 / -1; }
+  .pack-grid .tile.open .art {
+    aspect-ratio: auto;
+    max-height: 240px;
+  }
+  .pack-grid .tile.open .art img {
+    height: 100%;
+    max-height: 240px;
   }
   .pack-grid .art {
     min-height: 0;
@@ -399,7 +410,7 @@
     .hz-row { grid-template-columns: 4.2rem 1fr; }
     .stack { height: 28px; }
     .stack > * { font-size: 0.78rem; }
-    .bar-row { grid-template-columns: 3.2rem 1fr 3.4rem; }
+    .bar-row { grid-template-columns: 3.2rem minmax(2rem, 1fr) 3.4rem; }
     .when { font-size: 0.8rem; }
     .who { font-size: 0.72rem; }
     .amt { font-size: 0.85rem; }
@@ -479,11 +490,11 @@
 /* NM/LP stacked rows — both conditions always visible, no toggle to hide one */
 .cond-stack { display:flex; flex-direction:column; gap:1px; margin-bottom:.4rem; }
 .cond-row {
-  display:flex; align-items:center; justify-content:space-between;
-  min-height:18px; max-height:22px; padding:.1rem .1rem; font-size:.74rem;
+  display:flex; align-items:baseline; justify-content:space-between; gap:.4rem;
+  min-height:18px; padding:.1rem .1rem; font-size:.74rem;
 }
-.cond-row-lab { color:var(--muted); font-weight:600; width:2.2em; }
-.cond-row-price { color:var(--text); }
+.cond-row-lab { color:var(--muted); font-weight:600; flex:0 0 auto; white-space:nowrap; }
+.cond-row-price { color:var(--text); min-width:0; text-align:right; }
 .cond-row-n { color:var(--muted); font-size:.68rem; }
 .cond-btn {
   appearance:none; border:1px solid var(--border); background:var(--panel2);
