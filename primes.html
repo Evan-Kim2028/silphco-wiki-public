@@ -250,7 +250,7 @@ function salesBody(r, d){
       }</tbody></table></div>`
     : `<p class="tab-note">No ${salesBand==="raw"?"raw":"graded"} sales in the last 60 days.</p>`;
   return `<div class="row" id="sales-band" style="margin:0 0 .55rem"></div>
-    <p class="tab-note">Last 60 days · ${n} sales. A wide spread can mean a mixed lot or a bad match.</p>`
+    <p class="tab-note">Last 60 days · ${n} sales. A wide spread can mean a mixed lot or a bad match.</p>
     ${table}`;
 }
 function listingsBody(r, d){
