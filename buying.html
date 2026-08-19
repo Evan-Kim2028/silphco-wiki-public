@@ -3,1255 +3,897 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<title>After the Prime pile</title>
+<title>What to buy</title>
 <style>
-:root{--bg:#0c0f16;--panel:#141925;--panel2:#1b2233;--text:#eef2fa;--muted:#97a1b5;
-  --border:#2a3348;--accent:#6ea8ff;--pos:#3dd68c;--neg:#f87171;--bar:#5b657a}
+:root{--bg:#0c0f16;--panel:#141925;--text:#eef2fa;--muted:#97a1b5;
+  --border:#2a3348;--accent:#6ea8ff;--pos:#3dd68c;--neg:#f87171}
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);
-  color:var(--text);line-height:1.5;-webkit-text-size-adjust:100%}
+  color:var(--text);line-height:1.35;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
 main{max-width:98rem;margin:0 auto;padding:1rem 1.1rem 3rem;padding-bottom:calc(3rem + env(safe-area-inset-bottom))}
-.top{display:grid;gap:1rem}
-.desk{display:grid;gap:.6rem}
-h1{font-size:1.35rem;margin:0 0 .3rem}
-.lede{color:var(--muted);font-size:.94rem;margin:0 0 1.2rem}
-a.back,button.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.85rem;margin-bottom:.9rem;min-height:44px}
-button.back{appearance:none;border:0;background:none;cursor:pointer;font:inherit;padding:0}
-.story a{color:var(--accent)}
-.story{background:var(--panel);border:1px solid var(--border);border-radius:14px;
-  padding:1rem 1.1rem;margin-bottom:1.3rem}
-.story h2{margin:0 0 .5rem;font-size:1.02rem}
-.story p{margin:.45rem 0;font-size:.9rem;color:var(--muted)}
-.story b{color:var(--text)}
-.bars{margin:.7rem 0 0}
-.bar-row{margin:.55rem 0 0}
-.bar-row span{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.25rem}
-.bar{height:14px;border-radius:8px}
-.bar.grow{width:88%;background:var(--pos)}
-.bar.tired{width:36%;background:var(--bar)}
-.bar.short{width:22%;background:var(--accent)}
-.bar.friends{width:74%;background:var(--bar)}
-section{margin:1.4rem 0 0}
-section h2,.desk h2{margin:0 0 .35rem;font-size:1.05rem}
-section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
-.grid{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(16.5rem,1fr))}
-.flow-grid{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr))}
+a.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.85rem;margin-bottom:.7rem;min-height:44px}
+h1{font-size:1.7rem;margin:0 0 .25rem;letter-spacing:-.02em}
+h2{font-size:1.25rem;margin:0 0 .45rem}
+.say{margin:0;color:var(--muted);font-size:.95rem}
+.spread{display:grid;gap:1.1rem;margin:0 0 1.4rem}
+.page{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:.85rem .9rem 1rem}
+.page.leave{border-color:rgba(248,113,113,.28)}
+.page.buy{border-color:rgba(61,214,140,.32)}
+.faces{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.45rem;margin:.65rem 0 .55rem}
+.face{margin:0}
+.face img{display:block;width:100%;height:auto;max-height:200px;object-fit:contain;background:#0a0d14;border-radius:10px;padding:.3rem}
+.face figcaption{margin:.35rem .1rem 0;display:grid;gap:.05rem}
+.face b{font-size:.82rem}
+.face span{font-size:.72rem;color:var(--muted)}
+.face .note{font-size:.7rem}
+.face em{font-style:normal;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:.15rem}
+.face.buy em{color:var(--pos)}
+.face.leave em{color:var(--neg)}
+.how{display:grid;gap:.4rem;margin:0 0 1.3rem}
+.how div{display:grid;grid-template-columns:7.5rem 1fr;gap:.55rem;align-items:center;color:var(--muted);font-size:.9rem}
+.how i{display:block;height:14px;border-radius:999px}
+.how .grow{width:100%;background:var(--pos)}
+.how .flat{width:38%;background:#6b7280}
 .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .7rem}
 .chip{appearance:none;border:1px solid var(--border);background:var(--panel);color:var(--text);
-  border-radius:999px;padding:.28rem .65rem;font-size:.78rem;cursor:pointer;min-height:44px}
+  border-radius:999px;padding:.28rem .65rem;font-size:.8rem;cursor:pointer;min-height:44px}
 .chip.active{border-color:var(--accent);background:rgba(110,168,255,.14);color:#cfe2ff}
-.set,.macro,.path,.rule,.flow-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.85rem .95rem}
-.set.pick,.macro.pick,.path.pick{border-color:rgba(61,214,140,.42)}
-.set.skip,.macro.skip,.path.skip{border-color:rgba(248,113,113,.32)}
-.set h3,.macro h3,.path h3,.rule h3,.flow-card h3{margin:0;font-size:1rem}
-.why,.rule p,.path p,.flow-card p{margin:.4rem 0 0;font-size:.88rem;color:var(--muted)}
-.pair{display:grid;gap:.45rem;margin:.65rem 0 0}
-.lane{display:grid;grid-template-columns:5.4rem 1fr 3.2rem;gap:.45rem;align-items:center;font-size:.82rem}
-.lane span{color:var(--muted)}
-.track{position:relative;height:.68rem;background:var(--panel2);border-radius:999px;overflow:hidden}
-.track span{position:absolute;top:0;bottom:0;left:0;border-radius:999px;background:var(--bar)}
-.track span.up{background:#64748b}
-.track span.up.now{background:var(--pos)}
-.track span.down{background:var(--neg)}
-.track span.sit{background:#8b93a7}
-.track span.sold{background:var(--pos)}
-.v{text-align:right;font-variant-numeric:tabular-nums}
-.v.up{color:var(--pos)} .v.down{color:var(--neg)}
-.flow-pair{display:grid;gap:.7rem;margin:.7rem 0 0}
-.flow-lab{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;margin-bottom:.28rem;font-size:.82rem}
-.flow-lab b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
-.path{display:grid;grid-template-columns:1fr 10rem;gap:.7rem;align-items:center}
-.spark{width:100%;height:54px;display:block}
-.pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:.65rem}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.7rem}
 .card-tile{display:block;width:100%;background:var(--panel);border:1px solid rgba(61,214,140,.36);
-  border-radius:12px;overflow:hidden}
-.card-tile.open{grid-column:1/-1;display:grid;grid-template-columns:minmax(140px,220px) 1fr;align-items:start}
+  border-radius:14px;overflow:hidden}
+.card-tile.open{grid-column:1/-1;display:grid;grid-template-columns:minmax(150px,240px) 1fr;align-items:start}
 .card-tile.open .art{grid-row:1/3}
-.card-tile.open .more{grid-column:2;padding:0 .75rem .85rem}
-.card-tile .art{appearance:none;border:0;width:100%;min-height:188px;display:flex;align-items:flex-end;
-  justify-content:center;padding:.45rem;background:#0a0d14;cursor:zoom-in;color:inherit}
+.card-tile.open .more{grid-column:2;padding:0 .85rem .9rem}
+.card-tile .art{appearance:none;border:0;width:100%;min-height:210px;display:flex;align-items:flex-end;
+  justify-content:center;padding:.5rem;background:#0a0d14;cursor:zoom-in;color:inherit}
 .card-tile .art:focus-visible,.card-tile .body:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
-.card-tile .art img{width:min(100%,148px);height:200px;object-fit:contain}
-.card-tile .body{appearance:none;border:0;width:100%;padding:.45rem .5rem .55rem;background:transparent;
+.card-tile .art img{width:min(100%,168px);height:220px;object-fit:contain}
+.card-tile .body{appearance:none;border:0;width:100%;padding:.5rem .55rem .6rem;background:transparent;
   color:inherit;font:inherit;text-align:left;cursor:pointer}
-.card-tile .nm{font-weight:700;font-size:.86rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.card-tile .sm{color:var(--muted);font-size:.7rem;margin:.1rem 0 .35rem}
-.sg{display:grid;grid-template-columns:1fr 1fr;gap:.25rem}
-.st{background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:8px;padding:.22rem .3rem}
-.st .k{display:block;font-size:.58rem;text-transform:uppercase;color:var(--muted);letter-spacing:.04em}
-.st .v{display:block;font-size:.76rem;font-variant-numeric:tabular-nums}
-.st .v.pos{color:var(--pos)} .st .v.neg{color:var(--neg)}
-.foot{margin-top:2rem;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem}
-.tabs{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .7rem}
-.tab-note{color:var(--muted);font-size:.78rem;margin:.15rem 0 .55rem}
-.more h3{margin:.75rem 0 .3rem;font-size:.92rem}
-.more .spark{width:min(100%,16rem);margin:.15rem 0 .45rem}
-.table-wrap{overflow-x:auto;max-width:100%;margin:.2rem 0 .65rem}
-.ladder{width:100%;border-collapse:collapse;font-size:.82rem}
+.card-tile .nm{font-weight:700;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-tile .sm{color:var(--muted);font-size:.72rem;margin:.08rem 0 .2rem}
+.price{display:flex;justify-content:space-between;align-items:baseline;gap:.4rem;font-variant-numeric:tabular-nums;font-size:.9rem}
+.move.pos{color:var(--pos)} .move.neg{color:var(--neg)}
+.more h3{margin:.7rem 0 .3rem;font-size:.95rem}
+.more .spark{width:min(100%,16rem);margin:.1rem 0 .35rem}
+.tab-note{color:var(--muted);font-size:.8rem;margin:.1rem 0 .4rem}
+.table-wrap{overflow-x:auto;max-width:100%;margin:.15rem 0 .5rem}
+.ladder{width:100%;border-collapse:collapse;font-size:.84rem}
 .ladder th{text-align:left;color:var(--muted);font-weight:600;font-size:.68rem;text-transform:uppercase;padding:.28rem .3rem;border-bottom:1px solid var(--border)}
 .ladder td{padding:.32rem .3rem;border-bottom:1px solid rgba(42,51,72,.55)}
 .ladder th.num,.ladder td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .asks{margin:0;padding:0;list-style:none;display:grid;gap:.28rem}
-.asks li{display:flex;justify-content:space-between;gap:.5rem;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.4rem .55rem;font-size:.82rem}
+.asks li{display:flex;justify-content:space-between;gap:.5rem;background:#0a0d14;border:1px solid var(--border);border-radius:10px;padding:.4rem .55rem;font-size:.84rem}
 .asks li b{font-variant-numeric:tabular-nums}
-.heat-row{cursor:pointer}
-.heat-row:hover,.heat-row:focus{background:rgba(110,168,255,.08)}
-.heat-row:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.see{display:inline-block;margin-top:.45rem;color:var(--accent);text-decoration:none;font-size:.85rem;min-height:44px}
+.foot{margin-top:2rem;font-size:.75rem;color:var(--muted)}
 .lightbox{display:none;position:fixed;inset:0;z-index:80;background:rgba(6,8,12,.92);align-items:center;justify-content:center;padding:1.2rem}
 .lightbox.on{display:flex}
 .lightbox img{max-width:min(92vw,520px);max-height:92vh;object-fit:contain;border-radius:12px}
 .lightbox button{position:absolute;top:max(.7rem,env(safe-area-inset-top));right:max(.7rem,env(safe-area-inset-right));min-height:44px;min-width:44px}
-@media (min-width:900px){
-  .top{grid-template-columns:minmax(20rem,26rem) 1fr;align-items:start}
-  .desk{grid-template-columns:1fr 1fr}
+@media (min-width:820px){
+  .spread{grid-template-columns:1fr 1fr}
 }
 @media (max-width:700px){
+  .faces{grid-template-columns:repeat(2,minmax(0,1fr))}
   .pack-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}
-  .card-tile .art{min-height:156px}
-  .card-tile .art img{height:160px}
+  .card-tile .art{min-height:168px}
+  .card-tile .art img{height:168px}
   .card-tile.open{grid-template-columns:1fr}
   .card-tile.open .art{grid-row:auto}
   .card-tile.open .more{grid-column:1}
-  .grid,.flow-grid{grid-template-columns:1fr}
-  .path{grid-template-columns:1fr}
-  .spark{width:13.5rem}
 }
 </style>
 <link rel="manifest" href="manifest.webmanifest"/>
 </head>
 <body>
 <main>
-<a class="back" href="index.html">← back</a>
-<div class="top">
-<section class="story">
-  <h2>The call</h2>
-  <p>Buy <b>HeartGold</b>, <b>Call of Legends</b>, and <b>Rising Rivals</b> shiny ones.</p>
-  <p>Buy the <b>plain rares</b> in Unleashed, Undaunted, and Triumphant. Leave those sets' shiny ones.</p>
-  <p>Leave Prime cards in plastic cases. Leave LV.X cards in plastic cases.</p>
-  <p>The <a href="primes.html">Prime cards</a> page is that leave pile. The <a href="listings-watch.html">cards to watch</a> page is the picture grid.</p>
-</section>
-<div class="desk">
-  <div>
-    <h2>Pick these</h2>
-    <div class="grid"><article class="set pick"><h3>HeartGold shiny ones</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
-<article class="set pick"><h3>Call of Legends shiny ones</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
-<article class="set pick"><h3>Rising Rivals shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
-<article class="set pick"><h3>Supreme Victors shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
-<article class="set pick"><h3>Arceus shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
-<article class="set pick"><h3>Unleashed plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
-<article class="set pick"><h3>Undaunted plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
-<article class="set pick"><h3>Triumphant plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article></div>
-  </div>
-  <div>
-    <h2>Leave these</h2>
-    <div class="grid"><article class="set skip"><h3>Platinum shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
-<article class="set skip"><h3>Unleashed shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
-<article class="set skip"><h3>Undaunted shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
-<article class="set skip"><h3>Triumphant shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
-<article class="set skip"><h3>Prime cards in plastic cases</h3><p class="why">Prices already jumped last year. Leave the whole pile.</p></article>
-<article class="set skip"><h3>LV.X cards in plastic cases</h3><p class="why">These are not moving. Leave them.</p></article>
-<article class="set skip"><h3>Emerging Powers</h3><p class="why">This pile is not moving.</p></article></div>
-  </div>
+<a class="back" href="index.html">← home</a>
+<h1>What to buy</h1>
+<p class="say">Buy the cards still going up. Leave the ones that already jumped.</p>
+<div class="how" aria-hidden="true">
+  <div><i class="grow"></i> still going up</div>
+  <div><i class="flat"></i> already jumped</div>
 </div>
+<div class="spread">
+  <section class="page buy">
+    <h2>Buy</h2>
+    <div class="faces"><figure class="face buy">
+  <img src="https://images.pokemontcg.io/hgss1/123.png" alt="Gyarados" loading="lazy" onerror="this.parentNode.hidden=true"/>
+  <figcaption>
+    <b>Gyarados</b>
+    <span>HeartGold</span>
+    <span class="note">sparkly</span>
+    <em>Buy</em>
+  </figcaption>
+</figure>
+<figure class="face buy">
+  <img src="https://images.pokemontcg.io/col1/4.png" alt="Espeon" loading="lazy" onerror="this.parentNode.hidden=true"/>
+  <figcaption>
+    <b>Espeon</b>
+    <span>Call of Legends</span>
+    <span class="note">sparkly</span>
+    <em>Buy</em>
+  </figcaption>
+</figure>
+<figure class="face buy">
+  <img src="https://images.pokemontcg.io/pl2/3.png" alt="Darkrai" loading="lazy" onerror="this.parentNode.hidden=true"/>
+  <figcaption>
+    <b>Darkrai</b>
+    <span>Rising Rivals</span>
+    <span class="note">sparkly</span>
+    <em>Buy</em>
+  </figcaption>
+</figure>
+<figure class="face buy">
+  <img src="https://images.pokemontcg.io/hgss2/13.png" alt="Blastoise" loading="lazy" onerror="this.parentNode.hidden=true"/>
+  <figcaption>
+    <b>Blastoise</b>
+    <span>Unleashed</span>
+    <span class="note">not sparkly</span>
+    <em>Buy</em>
+  </figcaption>
+</figure></div>
+    <p class="say">Sparkly HeartGold, Call of Legends, Rising Rivals. Not-sparkly rares from Unleashed, Undaunted, Triumphant.</p>
+  </section>
+  <section class="page leave">
+    <h2>Leave</h2>
+    <div class="faces"><figure class="face leave">
+  <img src="https://images.pokemontcg.io/col1/18.png" alt="Pachirisu" loading="lazy" onerror="this.parentNode.hidden=true"/>
+  <figcaption>
+    <b>Pachirisu</b>
+    <span>Left behind</span>
+    <span class="note">friends grew more</span>
+    <em>Leave</em>
+  </figcaption>
+</figure>
+<figure class="face leave">
+  <img src="https://images.pokemontcg.io/hgss2/11.png" alt="Typhlosion" loading="lazy" onerror="this.parentNode.hidden=true"/>
+  <figcaption>
+    <b>Typhlosion</b>
+    <span>Unleashed</span>
+    <span class="note">sparkly, already jumped</span>
+    <em>Leave</em>
+  </figcaption>
+</figure>
+<figure class="face leave">
+  <img src="https://images.pokemontcg.io/hgss3/86.png" alt="Umbreon" loading="lazy" onerror="this.parentNode.hidden=true"/>
+  <figcaption>
+    <b>Umbreon</b>
+    <span>Prime case</span>
+    <span class="note">already jumped</span>
+    <em>Leave</em>
+  </figcaption>
+</figure>
+<figure class="face leave">
+  <img src="https://images.pokemontcg.io/pl1/125.png" alt="Palkia" loading="lazy" onerror="this.parentNode.hidden=true"/>
+  <figcaption>
+    <b>Palkia</b>
+    <span>Plastic case</span>
+    <span class="note">already jumped</span>
+    <em>Leave</em>
+  </figcaption>
+</figure></div>
+    <p class="say">Sparkly Unleashed, Undaunted, Triumphant. Cards in plastic cases. Pachirisu.</p>
+    <a class="see" href="primes.html">The plastic cases →</a>
+  </section>
 </div>
 <section>
-  <h2>Buy these cards</h2>
-  <p class="hint">Tap the picture to zoom. Tap the numbers to open the path, sold tape, and what's for sale — the tile stays in the grid. Hard refresh if the old grid is still cached.</p>
+  <h2>These cards</h2>
+  <p class="say">Tap the words for what people paid. Tap the picture to make it bigger.</p>
   <div class="chips"><button type="button" class="chip active" data-pile="all">All</button>
-<button type="button" class="chip" data-pile="heat">Slow shelves</button>
-<button type="button" class="chip" data-pile="0">HeartGold shiny ones</button>
-<button type="button" class="chip" data-pile="1">Call of Legends shiny ones</button>
-<button type="button" class="chip" data-pile="2">Rising Rivals shiny ones</button>
-<button type="button" class="chip" data-pile="3">Supreme Victors shiny ones</button>
-<button type="button" class="chip" data-pile="4">Arceus shiny ones</button>
-<button type="button" class="chip" data-pile="5">Unleashed plain rares</button>
-<button type="button" class="chip" data-pile="6">Undaunted plain rares</button>
-<button type="button" class="chip" data-pile="7">Triumphant plain rares</button></div>
+<button type="button" class="chip" data-pile="0">HeartGold</button>
+<button type="button" class="chip" data-pile="1">Call of Legends</button>
+<button type="button" class="chip" data-pile="2">Rising Rivals</button>
+<button type="button" class="chip" data-pile="3">Supreme Victors</button>
+<button type="button" class="chip" data-pile="4">Arceus</button>
+<button type="button" class="chip" data-pile="5">Unleashed</button>
+<button type="button" class="chip" data-pile="6">Undaunted</button>
+<button type="button" class="chip" data-pile="7">Triumphant</button></div>
   <div class="pack-grid"><article class="card-tile" data-id="hgss1-12" data-pile="0" data-heat="0">
-  <button type="button" class="art" data-zoom="hgss1-12" aria-label="Larger image of Slowking">
+  <button type="button" class="art" data-zoom="hgss1-12" aria-label="Bigger picture of Slowking">
     <img src="https://images.pokemontcg.io/hgss1/12.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss1-12" aria-expanded="false">
     <div class="nm">Slowking</div>
-    <div class="sm">HeartGold · 12</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$32.74</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+80%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+7%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+53%</span></div>
+    <div class="sm">HeartGold</div>
+    <div class="price">
+      <span>$33</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss1-7" data-pile="0" data-heat="0">
-  <button type="button" class="art" data-zoom="hgss1-7" aria-label="Larger image of Ninetales">
+  <button type="button" class="art" data-zoom="hgss1-7" aria-label="Bigger picture of Ninetales">
     <img src="https://images.pokemontcg.io/hgss1/7.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss1-7" aria-expanded="false">
     <div class="nm">Ninetales</div>
-    <div class="sm">HeartGold · 7</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$49.11</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+57%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+16%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+30%</span></div>
+    <div class="sm">HeartGold</div>
+    <div class="price">
+      <span>$49</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss1-13" data-pile="0" data-heat="0">
-  <button type="button" class="art" data-zoom="hgss1-13" aria-label="Larger image of Wobbuffet">
+  <button type="button" class="art" data-zoom="hgss1-13" aria-label="Bigger picture of Wobbuffet">
     <img src="https://images.pokemontcg.io/hgss1/13.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss1-13" aria-expanded="false">
     <div class="nm">Wobbuffet</div>
-    <div class="sm">HeartGold · 13</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$25.13</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+55%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+15%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+28%</span></div>
+    <div class="sm">HeartGold</div>
+    <div class="price">
+      <span>$25</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss1-11" data-pile="0" data-heat="0">
-  <button type="button" class="art" data-zoom="hgss1-11" aria-label="Larger image of Shuckle">
+  <button type="button" class="art" data-zoom="hgss1-11" aria-label="Bigger picture of Shuckle">
     <img src="https://images.pokemontcg.io/hgss1/11.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss1-11" aria-expanded="false">
     <div class="nm">Shuckle</div>
-    <div class="sm">HeartGold · 11</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$29.78</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+41%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+61%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+14%</span></div>
+    <div class="sm">HeartGold</div>
+    <div class="price">
+      <span>$30</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss1-10" data-pile="0" data-heat="0">
-  <button type="button" class="art" data-zoom="hgss1-10" aria-label="Larger image of Raichu">
+  <button type="button" class="art" data-zoom="hgss1-10" aria-label="Bigger picture of Raichu">
     <img src="https://images.pokemontcg.io/hgss1/10.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss1-10" aria-expanded="false">
     <div class="nm">Raichu</div>
-    <div class="sm">HeartGold · 10</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$31.52</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+32%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+13%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+5%</span></div>
+    <div class="sm">HeartGold</div>
+    <div class="price">
+      <span>$32</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss1-1" data-pile="0" data-heat="0">
-  <button type="button" class="art" data-zoom="hgss1-1" aria-label="Larger image of Arcanine">
+  <button type="button" class="art" data-zoom="hgss1-1" aria-label="Bigger picture of Arcanine">
     <img src="https://images.pokemontcg.io/hgss1/1.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss1-1" aria-expanded="false">
     <div class="nm">Arcanine</div>
-    <div class="sm">HeartGold · 1</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$75.84</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+28%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+39%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v">+2%</span></div>
+    <div class="sm">HeartGold</div>
+    <div class="price">
+      <span>$76</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss1-2" data-pile="0" data-heat="0">
-  <button type="button" class="art" data-zoom="hgss1-2" aria-label="Larger image of Azumarill">
+  <button type="button" class="art" data-zoom="hgss1-2" aria-label="Bigger picture of Azumarill">
     <img src="https://images.pokemontcg.io/hgss1/2.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss1-2" aria-expanded="false">
     <div class="nm">Azumarill</div>
-    <div class="sm">HeartGold · 2</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$9.66</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+25%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+25%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v">-2%</span></div>
+    <div class="sm">HeartGold</div>
+    <div class="price">
+      <span>$10</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss1-5" data-pile="0" data-heat="0">
-  <button type="button" class="art" data-zoom="hgss1-5" aria-label="Larger image of Hitmontop">
+  <button type="button" class="art" data-zoom="hgss1-5" aria-label="Bigger picture of Hitmontop">
     <img src="https://images.pokemontcg.io/hgss1/5.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss1-5" aria-expanded="false">
     <div class="nm">Hitmontop</div>
-    <div class="sm">HeartGold · 5</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$8.04</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+24%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+37%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v neg">-2%</span></div>
+    <div class="sm">HeartGold</div>
+    <div class="price">
+      <span>$8</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="col1-2" data-pile="1" data-heat="1">
-  <button type="button" class="art" data-zoom="col1-2" aria-label="Larger image of Deoxys">
+  <button type="button" class="art" data-zoom="col1-2" aria-label="Bigger picture of Deoxys">
     <img src="https://images.pokemontcg.io/col1/2.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="col1-2" aria-expanded="false">
     <div class="nm">Deoxys</div>
-    <div class="sm">Call of Legends · 2</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$39.58</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+67%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+10%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+47%</span></div>
+    <div class="sm">Call of Legends</div>
+    <div class="price">
+      <span>$40</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="col1-1" data-pile="1" data-heat="1">
-  <button type="button" class="art" data-zoom="col1-1" aria-label="Larger image of Clefable">
+  <button type="button" class="art" data-zoom="col1-1" aria-label="Bigger picture of Clefable">
     <img src="https://images.pokemontcg.io/col1/1.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="col1-1" aria-expanded="false">
     <div class="nm">Clefable</div>
-    <div class="sm">Call of Legends · 1</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$16.38</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+51%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+88%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+31%</span></div>
+    <div class="sm">Call of Legends</div>
+    <div class="price">
+      <span>$16</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="col1-7" data-pile="1" data-heat="1">
-  <button type="button" class="art" data-zoom="col1-7" aria-label="Larger image of Gyarados">
+  <button type="button" class="art" data-zoom="col1-7" aria-label="Bigger picture of Gyarados">
     <img src="https://images.pokemontcg.io/col1/7.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="col1-7" aria-expanded="false">
     <div class="nm">Gyarados</div>
-    <div class="sm">Call of Legends · 7</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$66.20</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+34%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+16%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+14%</span></div>
+    <div class="sm">Call of Legends</div>
+    <div class="price">
+      <span>$66</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="col1-16" data-pile="1" data-heat="1">
-  <button type="button" class="art" data-zoom="col1-16" aria-label="Larger image of Magmortar">
+  <button type="button" class="art" data-zoom="col1-16" aria-label="Bigger picture of Magmortar">
     <img src="https://images.pokemontcg.io/col1/16.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="col1-16" aria-expanded="false">
     <div class="nm">Magmortar</div>
-    <div class="sm">Call of Legends · 16</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$7.57</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+31%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+5%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+11%</span></div>
+    <div class="sm">Call of Legends</div>
+    <div class="price">
+      <span>$8</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="col1-12" data-pile="1" data-heat="1">
-  <button type="button" class="art" data-zoom="col1-12" aria-label="Larger image of Kyogre">
+  <button type="button" class="art" data-zoom="col1-12" aria-label="Bigger picture of Kyogre">
     <img src="https://images.pokemontcg.io/col1/12.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="col1-12" aria-expanded="false">
     <div class="nm">Kyogre</div>
-    <div class="sm">Call of Legends · 12</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$42.61</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+28%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+97%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+8%</span></div>
+    <div class="sm">Call of Legends</div>
+    <div class="price">
+      <span>$43</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="col1-21" data-pile="1" data-heat="1">
-  <button type="button" class="art" data-zoom="col1-21" aria-label="Larger image of Smeargle">
+  <button type="button" class="art" data-zoom="col1-21" aria-label="Bigger picture of Smeargle">
     <img src="https://images.pokemontcg.io/col1/21.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="col1-21" aria-expanded="false">
     <div class="nm">Smeargle</div>
-    <div class="sm">Call of Legends · 21</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$10.08</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+25%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+7%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+5%</span></div>
+    <div class="sm">Call of Legends</div>
+    <div class="price">
+      <span>$10</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="col1-9" data-pile="1" data-heat="1">
-  <button type="button" class="art" data-zoom="col1-9" aria-label="Larger image of Ho-Oh">
+  <button type="button" class="art" data-zoom="col1-9" aria-label="Bigger picture of Ho-Oh">
     <img src="https://images.pokemontcg.io/col1/9.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="col1-9" aria-expanded="false">
     <div class="nm">Ho-Oh</div>
-    <div class="sm">Call of Legends · 9</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$36.05</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+20%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+4%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v">+0%</span></div>
+    <div class="sm">Call of Legends</div>
+    <div class="price">
+      <span>$36</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="col1-11" data-pile="1" data-heat="0">
-  <button type="button" class="art" data-zoom="col1-11" aria-label="Larger image of Jirachi">
+  <button type="button" class="art" data-zoom="col1-11" aria-label="Bigger picture of Jirachi">
     <img src="https://images.pokemontcg.io/col1/11.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="col1-11" aria-expanded="false">
     <div class="nm">Jirachi</div>
-    <div class="sm">Call of Legends · 11</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$34.24</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+18%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+10%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v neg">-3%</span></div>
+    <div class="sm">Call of Legends</div>
+    <div class="price">
+      <span>$34</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl2-11" data-pile="2" data-heat="0">
-  <button type="button" class="art" data-zoom="pl2-11" aria-label="Larger image of Rampardos GL">
+  <button type="button" class="art" data-zoom="pl2-11" aria-label="Bigger picture of Rampardos GL">
     <img src="https://images.pokemontcg.io/pl2/11.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl2-11" aria-expanded="false">
     <div class="nm">Rampardos GL</div>
-    <div class="sm">Rising Rivals · 11</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$12.47</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+50%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+35%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+33%</span></div>
+    <div class="sm">Rising Rivals</div>
+    <div class="price">
+      <span>$12</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl2-7" data-pile="2" data-heat="0">
-  <button type="button" class="art" data-zoom="pl2-7" aria-label="Larger image of Jirachi">
+  <button type="button" class="art" data-zoom="pl2-7" aria-label="Bigger picture of Jirachi">
     <img src="https://images.pokemontcg.io/pl2/7.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl2-7" aria-expanded="false">
     <div class="nm">Jirachi</div>
-    <div class="sm">Rising Rivals · 7</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$44.55</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+41%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+59%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+24%</span></div>
+    <div class="sm">Rising Rivals</div>
+    <div class="price">
+      <span>$45</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl2-4" data-pile="2" data-heat="0">
-  <button type="button" class="art" data-zoom="pl2-4" aria-label="Larger image of Floatzel GL">
+  <button type="button" class="art" data-zoom="pl2-4" aria-label="Bigger picture of Floatzel GL">
     <img src="https://images.pokemontcg.io/pl2/4.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl2-4" aria-expanded="false">
     <div class="nm">Floatzel GL</div>
-    <div class="sm">Rising Rivals · 4</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$7.79</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+38%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+18%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+21%</span></div>
+    <div class="sm">Rising Rivals</div>
+    <div class="price">
+      <span>$8</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl2-3" data-pile="2" data-heat="0">
-  <button type="button" class="art" data-zoom="pl2-3" aria-label="Larger image of Darkrai G">
+  <button type="button" class="art" data-zoom="pl2-3" aria-label="Bigger picture of Darkrai G">
     <img src="https://images.pokemontcg.io/pl2/3.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl2-3" aria-expanded="false">
     <div class="nm">Darkrai G</div>
-    <div class="sm">Rising Rivals · 3</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$69.87</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+32%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+8%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+15%</span></div>
+    <div class="sm">Rising Rivals</div>
+    <div class="price">
+      <span>$70</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl2-5" data-pile="2" data-heat="0">
-  <button type="button" class="art" data-zoom="pl2-5" aria-label="Larger image of Flygon">
+  <button type="button" class="art" data-zoom="pl2-5" aria-label="Bigger picture of Flygon">
     <img src="https://images.pokemontcg.io/pl2/5.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl2-5" aria-expanded="false">
     <div class="nm">Flygon</div>
-    <div class="sm">Rising Rivals · 5</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$22.99</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+27%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+5%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+10%</span></div>
+    <div class="sm">Rising Rivals</div>
+    <div class="price">
+      <span>$23</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl2-12" data-pile="2" data-heat="0">
-  <button type="button" class="art" data-zoom="pl2-12" aria-label="Larger image of Roserade GL">
+  <button type="button" class="art" data-zoom="pl2-12" aria-label="Bigger picture of Roserade GL">
     <img src="https://images.pokemontcg.io/pl2/12.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl2-12" aria-expanded="false">
     <div class="nm">Roserade GL</div>
-    <div class="sm">Rising Rivals · 12</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$7.23</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+26%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+6%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+9%</span></div>
+    <div class="sm">Rising Rivals</div>
+    <div class="price">
+      <span>$7</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl2-8" data-pile="2" data-heat="0">
-  <button type="button" class="art" data-zoom="pl2-8" aria-label="Larger image of Lucario GL">
+  <button type="button" class="art" data-zoom="pl2-8" aria-label="Bigger picture of Lucario GL">
     <img src="https://images.pokemontcg.io/pl2/8.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl2-8" aria-expanded="false">
     <div class="nm">Lucario GL</div>
-    <div class="sm">Rising Rivals · 8</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$27.87</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+17%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+14%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v">+0%</span></div>
+    <div class="sm">Rising Rivals</div>
+    <div class="price">
+      <span>$28</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl2-2" data-pile="2" data-heat="0">
-  <button type="button" class="art" data-zoom="pl2-2" aria-label="Larger image of Bastiodon GL">
+  <button type="button" class="art" data-zoom="pl2-2" aria-label="Bigger picture of Bastiodon GL">
     <img src="https://images.pokemontcg.io/pl2/2.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl2-2" aria-expanded="false">
     <div class="nm">Bastiodon GL</div>
-    <div class="sm">Rising Rivals · 2</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$10.87</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+17%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+47%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v">-0%</span></div>
+    <div class="sm">Rising Rivals</div>
+    <div class="price">
+      <span>$11</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl2-6" data-pile="2" data-heat="0">
-  <button type="button" class="art" data-zoom="pl2-6" aria-label="Larger image of Froslass GL">
+  <button type="button" class="art" data-zoom="pl2-6" aria-label="Bigger picture of Froslass GL">
     <img src="https://images.pokemontcg.io/pl2/6.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl2-6" aria-expanded="false">
     <div class="nm">Froslass GL</div>
-    <div class="sm">Rising Rivals · 6</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$10.47</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+12%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+17%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v neg">-5%</span></div>
+    <div class="sm">Rising Rivals</div>
+    <div class="price">
+      <span>$10</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl3-2" data-pile="3" data-heat="1">
-  <button type="button" class="art" data-zoom="pl3-2" aria-label="Larger image of Blaziken FB">
+  <button type="button" class="art" data-zoom="pl3-2" aria-label="Bigger picture of Blaziken FB">
     <img src="https://images.pokemontcg.io/pl3/2.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl3-2" aria-expanded="false">
     <div class="nm">Blaziken FB</div>
-    <div class="sm">Supreme Victors · 2</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$37.76</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+62%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+53%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+40%</span></div>
+    <div class="sm">Supreme Victors</div>
+    <div class="price">
+      <span>$38</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl3-1" data-pile="3" data-heat="1">
-  <button type="button" class="art" data-zoom="pl3-1" aria-label="Larger image of Absol G">
+  <button type="button" class="art" data-zoom="pl3-1" aria-label="Bigger picture of Absol G">
     <img src="https://images.pokemontcg.io/pl3/1.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl3-1" aria-expanded="false">
     <div class="nm">Absol G</div>
-    <div class="sm">Supreme Victors · 1</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$32.08</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+57%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+15%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+35%</span></div>
+    <div class="sm">Supreme Victors</div>
+    <div class="price">
+      <span>$32</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl3-14" data-pile="3" data-heat="1">
-  <button type="button" class="art" data-zoom="pl3-14" aria-label="Larger image of Yanmega">
+  <button type="button" class="art" data-zoom="pl3-14" aria-label="Bigger picture of Yanmega">
     <img src="https://images.pokemontcg.io/pl3/14.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl3-14" aria-expanded="false">
     <div class="nm">Yanmega</div>
-    <div class="sm">Supreme Victors · 14</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$9.40</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+42%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+33%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+20%</span></div>
+    <div class="sm">Supreme Victors</div>
+    <div class="price">
+      <span>$9</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl3-13" data-pile="3" data-heat="1">
-  <button type="button" class="art" data-zoom="pl3-13" aria-label="Larger image of Venusaur">
+  <button type="button" class="art" data-zoom="pl3-13" aria-label="Bigger picture of Venusaur">
     <img src="https://images.pokemontcg.io/pl3/13.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl3-13" aria-expanded="false">
     <div class="nm">Venusaur</div>
-    <div class="sm">Supreme Victors · 13</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$45.86</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+36%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+27%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+14%</span></div>
+    <div class="sm">Supreme Victors</div>
+    <div class="price">
+      <span>$46</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl3-6" data-pile="3" data-heat="1">
-  <button type="button" class="art" data-zoom="pl3-6" aria-label="Larger image of Magmortar">
+  <button type="button" class="art" data-zoom="pl3-6" aria-label="Bigger picture of Magmortar">
     <img src="https://images.pokemontcg.io/pl3/6.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl3-6" aria-expanded="false">
     <div class="nm">Magmortar</div>
-    <div class="sm">Supreme Victors · 6</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$11.84</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+31%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+62%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+9%</span></div>
+    <div class="sm">Supreme Victors</div>
+    <div class="price">
+      <span>$12</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl3-11" data-pile="3" data-heat="0">
-  <button type="button" class="art" data-zoom="pl3-11" aria-label="Larger image of Staraptor FB">
+  <button type="button" class="art" data-zoom="pl3-11" aria-label="Bigger picture of Staraptor FB">
     <img src="https://images.pokemontcg.io/pl3/11.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl3-11" aria-expanded="false">
     <div class="nm">Staraptor FB</div>
-    <div class="sm">Supreme Victors · 11</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$10.90</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+21%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+34%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v">-1%</span></div>
+    <div class="sm">Supreme Victors</div>
+    <div class="price">
+      <span>$11</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl4-8" data-pile="4" data-heat="1">
-  <button type="button" class="art" data-zoom="pl4-8" aria-label="Larger image of Salamence">
+  <button type="button" class="art" data-zoom="pl4-8" aria-label="Bigger picture of Salamence">
     <img src="https://images.pokemontcg.io/pl4/8.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl4-8" aria-expanded="false">
     <div class="nm">Salamence</div>
-    <div class="sm">Arceus · 8</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$15.43</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+61%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+53%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+46%</span></div>
+    <div class="sm">Arceus</div>
+    <div class="price">
+      <span>$15</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl4-2" data-pile="4" data-heat="1">
-  <button type="button" class="art" data-zoom="pl4-2" aria-label="Larger image of Froslass">
+  <button type="button" class="art" data-zoom="pl4-2" aria-label="Bigger picture of Froslass">
     <img src="https://images.pokemontcg.io/pl4/2.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl4-2" aria-expanded="false">
     <div class="nm">Froslass</div>
-    <div class="sm">Arceus · 2</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$8.10</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+34%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+50%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+19%</span></div>
+    <div class="sm">Arceus</div>
+    <div class="price">
+      <span>$8</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl4-4" data-pile="4" data-heat="1">
-  <button type="button" class="art" data-zoom="pl4-4" aria-label="Larger image of Kabutops">
+  <button type="button" class="art" data-zoom="pl4-4" aria-label="Bigger picture of Kabutops">
     <img src="https://images.pokemontcg.io/pl4/4.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl4-4" aria-expanded="false">
     <div class="nm">Kabutops</div>
-    <div class="sm">Arceus · 4</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$18.38</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+23%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+43%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+7%</span></div>
+    <div class="sm">Arceus</div>
+    <div class="price">
+      <span>$18</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl4-5" data-pile="4" data-heat="1">
-  <button type="button" class="art" data-zoom="pl4-5" aria-label="Larger image of Luxray">
+  <button type="button" class="art" data-zoom="pl4-5" aria-label="Bigger picture of Luxray">
     <img src="https://images.pokemontcg.io/pl4/5.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl4-5" aria-expanded="false">
     <div class="nm">Luxray</div>
-    <div class="sm">Arceus · 5</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$6.40</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+19%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+7%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+4%</span></div>
+    <div class="sm">Arceus</div>
+    <div class="price">
+      <span>$6</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl4-1" data-pile="4" data-heat="0">
-  <button type="button" class="art" data-zoom="pl4-1" aria-label="Larger image of Charizard">
+  <button type="button" class="art" data-zoom="pl4-1" aria-label="Bigger picture of Charizard">
     <img src="https://images.pokemontcg.io/pl4/1.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl4-1" aria-expanded="false">
     <div class="nm">Charizard</div>
-    <div class="sm">Arceus · 1</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$70.61</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+12%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+41%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v neg">-3%</span></div>
+    <div class="sm">Arceus</div>
+    <div class="price">
+      <span>$71</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="pl4-12" data-pile="4" data-heat="0">
-  <button type="button" class="art" data-zoom="pl4-12" aria-label="Larger image of Zapdos G">
+  <button type="button" class="art" data-zoom="pl4-12" aria-label="Bigger picture of Zapdos G">
     <img src="https://images.pokemontcg.io/pl4/12.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="pl4-12" aria-expanded="false">
     <div class="nm">Zapdos G</div>
-    <div class="sm">Arceus · 12</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$17.31</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+11%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+25%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v neg">-4%</span></div>
+    <div class="sm">Arceus</div>
+    <div class="price">
+      <span>$17</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss2-24" data-pile="5" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss2-24" aria-label="Larger image of Steelix">
+  <button type="button" class="art" data-zoom="hgss2-24" aria-label="Bigger picture of Steelix">
     <img src="https://images.pokemontcg.io/hgss2/24.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss2-24" aria-expanded="false">
     <div class="nm">Steelix</div>
-    <div class="sm">Unleashed · 24</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$3.01</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+90%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v">+1%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+51%</span></div>
+    <div class="sm">Unleashed</div>
+    <div class="price">
+      <span>$3</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss2-13" data-pile="5" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss2-13" aria-label="Larger image of Blastoise">
+  <button type="button" class="art" data-zoom="hgss2-13" aria-label="Bigger picture of Blastoise">
     <img src="https://images.pokemontcg.io/hgss2/13.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss2-13" aria-expanded="false">
     <div class="nm">Blastoise</div>
-    <div class="sm">Unleashed · 13</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$14.26</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+55%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+15%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+15%</span></div>
+    <div class="sm">Unleashed</div>
+    <div class="price">
+      <span>$14</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss2-19" data-pile="5" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss2-19" aria-label="Larger image of Lucario">
+  <button type="button" class="art" data-zoom="hgss2-19" aria-label="Bigger picture of Lucario">
     <img src="https://images.pokemontcg.io/hgss2/19.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss2-19" aria-expanded="false">
     <div class="nm">Lucario</div>
-    <div class="sm">Unleashed · 19</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$5.91</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+54%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+104%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+14%</span></div>
+    <div class="sm">Unleashed</div>
+    <div class="price">
+      <span>$6</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss2-20" data-pile="5" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss2-20" aria-label="Larger image of Ninetales">
+  <button type="button" class="art" data-zoom="hgss2-20" aria-label="Bigger picture of Ninetales">
     <img src="https://images.pokemontcg.io/hgss2/20.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss2-20" aria-expanded="false">
     <div class="nm">Ninetales</div>
-    <div class="sm">Unleashed · 20</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$12.37</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+53%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+51%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+13%</span></div>
+    <div class="sm">Unleashed</div>
+    <div class="price">
+      <span>$12</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss2-17" data-pile="5" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss2-17" aria-label="Larger image of Kingdra">
+  <button type="button" class="art" data-zoom="hgss2-17" aria-label="Bigger picture of Kingdra">
     <img src="https://images.pokemontcg.io/hgss2/17.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss2-17" aria-expanded="false">
     <div class="nm">Kingdra</div>
-    <div class="sm">Unleashed · 17</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$3.84</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+40%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+15%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v">+1%</span></div>
+    <div class="sm">Unleashed</div>
+    <div class="price">
+      <span>$4</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss2-26" data-pile="5" data-heat="0">
-  <button type="button" class="art" data-zoom="hgss2-26" aria-label="Larger image of Tyranitar">
+  <button type="button" class="art" data-zoom="hgss2-26" aria-label="Bigger picture of Tyranitar">
     <img src="https://images.pokemontcg.io/hgss2/26.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss2-26" aria-expanded="false">
     <div class="nm">Tyranitar</div>
-    <div class="sm">Unleashed · 26</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$10.08</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+35%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+29%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v neg">-4%</span></div>
+    <div class="sm">Unleashed</div>
+    <div class="price">
+      <span>$10</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss3-14" data-pile="6" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss3-14" aria-label="Larger image of Hariyama">
+  <button type="button" class="art" data-zoom="hgss3-14" aria-label="Bigger picture of Hariyama">
     <img src="https://images.pokemontcg.io/hgss3/14.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss3-14" aria-expanded="false">
     <div class="nm">Hariyama</div>
-    <div class="sm">Undaunted · 14</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$4.08</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+44%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+62%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+23%</span></div>
+    <div class="sm">Undaunted</div>
+    <div class="price">
+      <span>$4</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss3-24" data-pile="6" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss3-24" aria-label="Larger image of Vileplume">
+  <button type="button" class="art" data-zoom="hgss3-24" aria-label="Bigger picture of Vileplume">
     <img src="https://images.pokemontcg.io/hgss3/24.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss3-24" aria-expanded="false">
     <div class="nm">Vileplume</div>
-    <div class="sm">Undaunted · 24</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$5.86</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+43%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v">+1%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+22%</span></div>
+    <div class="sm">Undaunted</div>
+    <div class="price">
+      <span>$6</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss3-17" data-pile="6" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss3-17" aria-label="Larger image of Leafeon">
+  <button type="button" class="art" data-zoom="hgss3-17" aria-label="Bigger picture of Leafeon">
     <img src="https://images.pokemontcg.io/hgss3/17.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss3-17" aria-expanded="false">
     <div class="nm">Leafeon</div>
-    <div class="sm">Undaunted · 17</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$10.14</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+21%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+23%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v">+0%</span></div>
+    <div class="sm">Undaunted</div>
+    <div class="price">
+      <span>$10</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss4-30" data-pile="7" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss4-30" aria-label="Larger image of Sharpedo">
+  <button type="button" class="art" data-zoom="hgss4-30" aria-label="Bigger picture of Sharpedo">
     <img src="https://images.pokemontcg.io/hgss4/30.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss4-30" aria-expanded="false">
     <div class="nm">Sharpedo</div>
-    <div class="sm">Triumphant · 30</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$4.16</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+72%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+89%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+50%</span></div>
+    <div class="sm">Triumphant</div>
+    <div class="price">
+      <span>$4</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss4-18" data-pile="7" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss4-18" aria-label="Larger image of Dragonite">
+  <button type="button" class="art" data-zoom="hgss4-18" aria-label="Bigger picture of Dragonite">
     <img src="https://images.pokemontcg.io/hgss4/18.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss4-18" aria-expanded="false">
     <div class="nm">Dragonite</div>
-    <div class="sm">Triumphant · 18</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$18.65</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+32%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+28%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+10%</span></div>
+    <div class="sm">Triumphant</div>
+    <div class="price">
+      <span>$19</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss4-15" data-pile="7" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss4-15" aria-label="Larger image of Bronzong">
+  <button type="button" class="art" data-zoom="hgss4-15" aria-label="Bigger picture of Bronzong">
     <img src="https://images.pokemontcg.io/hgss4/15.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss4-15" aria-expanded="false">
     <div class="nm">Bronzong</div>
-    <div class="sm">Triumphant · 15</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$15.26</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+28%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+68%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v pos">+7%</span></div>
+    <div class="sm">Triumphant</div>
+    <div class="price">
+      <span>$15</span>
+      <span class="tag pos">Ahead</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article>
 <article class="card-tile" data-id="hgss4-29" data-pile="7" data-heat="1">
-  <button type="button" class="art" data-zoom="hgss4-29" aria-label="Larger image of Pidgeot">
+  <button type="button" class="art" data-zoom="hgss4-29" aria-label="Bigger picture of Pidgeot">
     <img src="https://images.pokemontcg.io/hgss4/29.png" alt="" loading="lazy"/>
   </button>
   <button type="button" class="body" data-open="hgss4-29" aria-expanded="false">
     <div class="nm">Pidgeot</div>
-    <div class="sm">Triumphant · 29</div>
-    <div class="sg">
-      <div class="st"><span class="k">Price</span><span class="v">$11.77</span></div>
-      <div class="st"><span class="k">3 months</span><span class="v pos">+22%</span></div>
-      <div class="st"><span class="k">Before</span><span class="v pos">+32%</span></div>
-      <div class="st"><span class="k">vs friends</span><span class="v">+0%</span></div>
+    <div class="sm">Triumphant</div>
+    <div class="price">
+      <span>$12</span>
+      <span class="tag">With friends</span>
     </div>
   </button>
   <div class="more" hidden></div>
 </article></div>
 </section>
-<section>
-  <h2>Heating on the slow shelves</h2>
-  <p class="hint">These piles sit because plastic cases do not sell. Shop prices on the middle cards are still running. Tap a name to open that tile in the grid.</p>
-  <div class="table-wrap">
-    <table class="ladder">
-      <thead>
-        <tr><th>Card</th><th>Pile</th><th class="num">Shop now</th><th class="num">vs the pile</th><th class="num">Typical sale</th></tr>
-      </thead>
-      <tbody><tr class="heat-row" data-id="hgss2-24" tabindex="0"><td>Steelix</td><td>Unleashed plain rare</td><td class="num">$3</td><td class="num pos">+51%</td><td class="num">$5</td></tr>
-<tr class="heat-row" data-id="hgss4-30" tabindex="0"><td>Sharpedo</td><td>Triumphant plain rare</td><td class="num">$4</td><td class="num pos">+50%</td><td class="num">$4</td></tr>
-<tr class="heat-row" data-id="col1-2" tabindex="0"><td>Deoxys</td><td>Call of Legends shiny</td><td class="num">$40</td><td class="num pos">+47%</td><td class="num">$25</td></tr>
-<tr class="heat-row" data-id="pl3-2" tabindex="0"><td>Blaziken FB</td><td>Supreme Victors shiny</td><td class="num">$38</td><td class="num pos">+40%</td><td class="num">$16</td></tr>
-<tr class="heat-row" data-id="pl4-8" tabindex="0"><td>Salamence</td><td>Arceus shiny</td><td class="num">$15</td><td class="num pos">+46%</td><td class="num">$8</td></tr>
-<tr class="heat-row" data-id="pl3-1" tabindex="0"><td>Absol G</td><td>Supreme Victors shiny</td><td class="num">$32</td><td class="num pos">+35%</td><td class="num">$16</td></tr>
-<tr class="heat-row" data-id="hgss2-13" tabindex="0"><td>Blastoise</td><td>Unleashed plain rare</td><td class="num">$14</td><td class="num pos">+15%</td><td class="num">$13</td></tr>
-<tr class="heat-row" data-id="hgss2-19" tabindex="0"><td>Lucario</td><td>Unleashed plain rare</td><td class="num">$6</td><td class="num pos">+14%</td><td class="num">$5</td></tr>
-<tr class="heat-row" data-id="hgss2-20" tabindex="0"><td>Ninetales</td><td>Unleashed plain rare</td><td class="num">$12</td><td class="num pos">+13%</td><td class="num">$6</td></tr>
-<tr class="heat-row" data-id="col1-1" tabindex="0"><td>Clefable</td><td>Call of Legends shiny</td><td class="num">$16</td><td class="num pos">+31%</td><td class="num">$7</td></tr>
-<tr class="heat-row" data-id="hgss3-14" tabindex="0"><td>Hariyama</td><td>Undaunted plain rare</td><td class="num">$4</td><td class="num pos">+23%</td><td class="num">$3</td></tr>
-<tr class="heat-row" data-id="hgss3-24" tabindex="0"><td>Vileplume</td><td>Undaunted plain rare</td><td class="num">$6</td><td class="num pos">+22%</td><td class="num">$5</td></tr>
-<tr class="heat-row" data-id="pl3-14" tabindex="0"><td>Yanmega</td><td>Supreme Victors shiny</td><td class="num">$9</td><td class="num pos">+20%</td><td class="num">$5</td></tr>
-<tr class="heat-row" data-id="hgss2-17" tabindex="0"><td>Kingdra</td><td>Unleashed plain rare</td><td class="num">$4</td><td class="num">+1%</td><td class="num">$3</td></tr>
-<tr class="heat-row" data-id="pl3-13" tabindex="0"><td>Venusaur</td><td>Supreme Victors shiny</td><td class="num">$46</td><td class="num pos">+14%</td><td class="num">$11</td></tr>
-<tr class="heat-row" data-id="pl4-2" tabindex="0"><td>Froslass</td><td>Arceus shiny</td><td class="num">$8</td><td class="num pos">+19%</td><td class="num">$4</td></tr>
-<tr class="heat-row" data-id="col1-7" tabindex="0"><td>Gyarados</td><td>Call of Legends shiny</td><td class="num">$66</td><td class="num pos">+14%</td><td class="num">$37</td></tr>
-<tr class="heat-row" data-id="hgss4-18" tabindex="0"><td>Dragonite</td><td>Triumphant plain rare</td><td class="num">$19</td><td class="num pos">+10%</td><td class="num">$15</td></tr>
-<tr class="heat-row" data-id="col1-16" tabindex="0"><td>Magmortar</td><td>Call of Legends shiny</td><td class="num">$8</td><td class="num pos">+11%</td><td class="num">$4</td></tr>
-<tr class="heat-row" data-id="pl3-6" tabindex="0"><td>Magmortar</td><td>Supreme Victors shiny</td><td class="num">$12</td><td class="num pos">+9%</td><td class="num">$5</td></tr>
-<tr class="heat-row" data-id="hgss4-15" tabindex="0"><td>Bronzong</td><td>Triumphant plain rare</td><td class="num">$15</td><td class="num pos">+7%</td><td class="num">$16</td></tr>
-<tr class="heat-row" data-id="col1-12" tabindex="0"><td>Kyogre</td><td>Call of Legends shiny</td><td class="num">$43</td><td class="num pos">+8%</td><td class="num">$19</td></tr>
-<tr class="heat-row" data-id="col1-21" tabindex="0"><td>Smeargle</td><td>Call of Legends shiny</td><td class="num">$10</td><td class="num pos">+5%</td><td class="num">$9</td></tr>
-<tr class="heat-row" data-id="pl4-4" tabindex="0"><td>Kabutops</td><td>Arceus shiny</td><td class="num">$18</td><td class="num pos">+7%</td><td class="num">$10</td></tr>
-<tr class="heat-row" data-id="hgss4-29" tabindex="0"><td>Pidgeot</td><td>Triumphant plain rare</td><td class="num">$12</td><td class="num">+0%</td><td class="num">$6</td></tr>
-<tr class="heat-row" data-id="hgss3-17" tabindex="0"><td>Leafeon</td><td>Undaunted plain rare</td><td class="num">$10</td><td class="num">+0%</td><td class="num">$9</td></tr>
-<tr class="heat-row" data-id="col1-9" tabindex="0"><td>Ho-Oh</td><td>Call of Legends shiny</td><td class="num">$36</td><td class="num">+0%</td><td class="num">$19</td></tr>
-<tr class="heat-row" data-id="pl4-5" tabindex="0"><td>Luxray</td><td>Arceus shiny</td><td class="num">$6</td><td class="num pos">+4%</td><td class="num">$5</td></tr></tbody>
-    </table>
-  </div>
-  <article class="rule" style="margin-top:.7rem">
-    <h3>Left off</h3>
-    <p>Metagross, Electivire FB, Houndoom, and Palkia — one fat sale is most of their sold dollars.</p>
-  </article>
-</section>
-<section>
-  <h2>Last 3 months vs the 3 months before</h2>
-  <p class="hint">Green is the last 3 months. Gray is the 3 months before that. A much shorter green bar means the jump already happened.</p>
-  <div class="grid"><article class="macro pick">
-  <h3>HeartGold shiny ones</h3>
-  <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:17%"></span></div><span class="v up">+27%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:10%"></span></div><span class="v up">+15%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
-  </div>
-</article>
-<article class="macro pick">
-  <h3>Call of Legends shiny ones</h3>
-  <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:13%"></span></div><span class="v up">+20%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:6%"></span></div><span class="v up">+10%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:63%"></span></div><span class="v up">+98%</span></div>
-  </div>
-</article>
-<article class="macro pick">
-  <h3>Rising Rivals shiny ones</h3>
-  <p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:11%"></span></div><span class="v up">+17%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:11%"></span></div><span class="v up">+17%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:72%"></span></div><span class="v up">+113%</span></div>
-  </div>
-</article>
-<article class="macro pick">
-  <h3>Supreme Victors shiny ones</h3>
-  <p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:14%"></span></div><span class="v up">+22%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+28%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:81%"></span></div><span class="v up">+126%</span></div>
-  </div>
-</article>
-<article class="macro pick">
-  <h3>Arceus shiny ones</h3>
-  <p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:10%"></span></div><span class="v up">+15%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:17%"></span></div><span class="v up">+26%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:43%"></span></div><span class="v up">+67%</span></div>
-  </div>
-</article>
-<article class="macro pick">
-  <h3>Unleashed plain rares</h3>
-  <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:25%"></span></div><span class="v up">+39%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:10%"></span></div><span class="v up">+15%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:74%"></span></div><span class="v up">+116%</span></div>
-  </div>
-</article>
-<article class="macro pick">
-  <h3>Undaunted plain rares</h3>
-  <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:13%"></span></div><span class="v up">+21%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:5%"></span></div><span class="v up">+7%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:31%"></span></div><span class="v up">+48%</span></div>
-  </div>
-</article>
-<article class="macro pick">
-  <h3>Triumphant plain rares</h3>
-  <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:14%"></span></div><span class="v up">+22%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:12%"></span></div><span class="v up">+19%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:39%"></span></div><span class="v up">+61%</span></div>
-  </div>
-</article>
-<article class="macro skip">
-  <h3>Platinum shiny ones</h3>
-  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:6%"></span></div><span class="v up">+9%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:13%"></span></div><span class="v up">+20%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
-  </div>
-</article>
-<article class="macro skip">
-  <h3>Unleashed shiny ones</h3>
-  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:5%"></span></div><span class="v up">+7%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:16%"></span></div><span class="v up">+24%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:77%"></span></div><span class="v up">+120%</span></div>
-  </div>
-</article>
-<article class="macro skip">
-  <h3>Undaunted shiny ones</h3>
-  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:7%"></span></div><span class="v up">+11%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:22%"></span></div><span class="v up">+34%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:82%"></span></div><span class="v up">+128%</span></div>
-  </div>
-</article>
-<article class="macro skip">
-  <h3>Triumphant shiny ones</h3>
-  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:8%"></span></div><span class="v up">+12%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:20%"></span></div><span class="v up">+32%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
-  </div>
-</article>
-<article class="macro skip">
-  <h3>HeartGold Prime</h3>
-  <p class="why">Prices already jumped last year. Leave the whole pile.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:15%"></span></div><span class="v up">+23%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+28%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:100%"></span></div><span class="v up">+156%</span></div>
-  </div>
-</article>
-<article class="macro skip">
-  <h3>Unleashed Prime</h3>
-  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:10%"></span></div><span class="v up">+15%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:17%"></span></div><span class="v up">+26%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:81%"></span></div><span class="v up">+127%</span></div>
-  </div>
-</article>
-<article class="macro skip">
-  <h3>Emerging Powers shiny ones</h3>
-  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
-  <div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:4%"></span></div><span class="v up">+2%</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:4%"></span></div><span class="v up">+2%</span></div>
-    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+29%</span></div>
-  </div>
-</article></div>
-</section>
-<section>
-  <h2>The path</h2>
-  <p class="hint">Left is a year ago. Right is now. A line still climbing at the end is still growing.</p>
-  <div class="grid"><article class="path pick">
-  <div>
-    <h3>HeartGold shiny ones</h3>
-    <p>Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
-  </div>
-  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,19.4 131.3,14.2 194.0,4.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#3dd68c"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
-</article>
-<article class="path pick">
-  <div>
-    <h3>Call of Legends shiny ones</h3>
-    <p>Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
-  </div>
-  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,17.8 131.3,13.5 194.0,4.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#3dd68c"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
-</article>
-<article class="path skip">
-  <div>
-    <h3>Unleashed shiny ones</h3>
-    <p>Jumped in the spring. That jump already happened. Leave it.</p>
-  </div>
-  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,16.9 131.3,7.5 194.0,4.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#97a1b5"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
-</article>
-<article class="path pick">
-  <div>
-    <h3>Unleashed plain rares</h3>
-    <p>Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
-  </div>
-  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,23.6 131.3,18.7 194.0,4.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#3dd68c"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
-</article>
-<article class="path skip">
-  <div>
-    <h3>HeartGold Prime</h3>
-    <p>Prices already jumped last year. Leave the whole pile.</p>
-  </div>
-  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,20.7 131.3,12.7 194.0,4.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#97a1b5"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
-</article>
-<article class="path skip">
-  <div>
-    <h3>Emerging Powers shiny ones</h3>
-    <p>Jumped in the spring. That jump already happened. Leave it.</p>
-  </div>
-  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,8.3 131.3,6.2 194.0,4.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#97a1b5"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
-</article></div>
-</section>
-<section>
-  <h2>Inside a pile</h2>
-  <div class="grid">
-    <article class="rule"><h3>Middle of the set</h3><p>A shiny one or a plain rare that people already buy and sell. On HeartGold or Call of Legends, that is a Johto starter, a legendary, or Umbreon.</p></article>
-    <article class="rule"><h3>Skip the leftover</h3><p>Pachirisu did not go up with the rest of Call of Legends. A short bar next to long friends is not a bargain.</p>
-      <div class="bars">
-        <div class="bar-row"><span>This card</span><div class="bar short"></div></div>
-        <div class="bar-row"><span>Friends in the same pile</span><div class="bar friends"></div></div>
-      </div>
-    </article>
-    <article class="rule"><h3>Skip the fake-famous one</h3><p>A two-dollar card with a famous name is still a two-dollar card. Same for last year's plastic case.</p></article>
-  </div>
-</section>
-<section>
-  <h2>Sitting on the shelf vs sold</h2>
-  <p class="hint">Gray is money still for sale. Green is money that sold last month. Same scale on every pile.</p>
-  <div class="flow-grid"><article class="flow-card">
-  <h3>Call of Legends</h3>
-  <p>Asked a lot. Nobody bought.</p>
-  <div class="flow-pair">
-    <div class="flow-row"><div class="flow-lab"><span>still for sale</span><b>$5.8 million</b></div><div class="track"><span class="sit" style="width:100%"></span></div></div>
-    <div class="flow-row"><div class="flow-lab"><span>sold</span><b>$275,000</b></div><div class="track"><span class="sold" style="width:6%"></span></div></div>
-  </div>
-</article>
-<article class="flow-card">
-  <h3>Triumphant</h3>
-  <p>Smaller shelf. More sold.</p>
-  <div class="flow-pair">
-    <div class="flow-row"><div class="flow-lab"><span>still for sale</span><b>$2.5 million</b></div><div class="track"><span class="sit" style="width:43%"></span></div></div>
-    <div class="flow-row"><div class="flow-lab"><span>sold</span><b>$503,000</b></div><div class="track"><span class="sold" style="width:9%"></span></div></div>
-  </div>
-</article>
-<article class="flow-card">
-  <h3>Unleashed</h3>
-  <p>Sat there.</p>
-  <div class="flow-pair">
-    <div class="flow-row"><div class="flow-lab"><span>still for sale</span><b>$657,000</b></div><div class="track"><span class="sit" style="width:11%"></span></div></div>
-    <div class="flow-row"><div class="flow-lab"><span>sold</span><b>$84,000</b></div><div class="track"><span class="sold" style="width:6%"></span></div></div>
-  </div>
-</article>
-<article class="flow-card">
-  <h3>Rising Rivals</h3>
-  <p>Small shelf. People bought.</p>
-  <div class="flow-pair">
-    <div class="flow-row"><div class="flow-lab"><span>still for sale</span><b>$357,000</b></div><div class="track"><span class="sit" style="width:6%"></span></div></div>
-    <div class="flow-row"><div class="flow-lab"><span>sold</span><b>$532,000</b></div><div class="track"><span class="sold" style="width:9%"></span></div></div>
-  </div>
-</article></div>
-  <article class="rule" style="margin-top:.7rem">
-    <h3>What this means</h3>
-    <p>Call of Legends had the most money sitting. People asked a lot for plastic cases, and those cases stayed on the shelf. Rising Rivals had a small shelf and people bought. Prime cases sold, but their big jump was last year — leave that pile.</p>
-  </article>
-</section>
-<p class="foot">Shop prices from August 18. Shelf vs sold from one week in August so the shop and eBay line up.</p>
+<p class="foot">Prices from August 18.</p>
 </main>
-<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Larger card image">
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Bigger card">
   <button type="button" id="lb-close">Close</button>
   <img id="lb-img" alt=""/>
 </div>
@@ -1261,10 +903,12 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
 const ROWS = JSON.parse(document.getElementById("rows-data").textContent);
 const DETAIL = JSON.parse(document.getElementById("detail-data").textContent);
 const MKT = {tcgplayer:"TCGplayer",ebay:"eBay",ebay_hk:"eBay HK",alt_xyz:"ALT",misprint:"Misprint",doubleholo:"Doubleholo"};
+const LOOK = {"Near Mint":"Almost new","Lightly Played":"A little worn","Moderately Played":"Worn","Heavily Played":"Beat up","Damaged":"Torn","Raw (unspecified)":"Loose card"};
 let openId=null, salesBand="raw", listMkt="all";
 function $(id){ return document.getElementById(id); }
 function usd(x){ if(x==null) return "—"; return x>=100 ? "$"+Math.round(x).toLocaleString() : "$"+x.toFixed(2).replace(/\.00$/,""); }
 function pct(x){ if(x==null) return "—"; return (x>=0?"+":"")+(x*100).toFixed(0)+"%"; }
+function look(s){ return LOOK[s] || s.replace(/^(PSA|BGS|CGC|SGC)\s/i, "Case "); }
 function mktName(k){ return MKT[k] || k; }
 function tileEl(id){ return document.querySelector('.card-tile[data-id="'+id+'"]'); }
 function sparkSvg(r3, prev){
@@ -1285,56 +929,39 @@ function sparkSvg(r3, prev){
   return `<svg class="spark" viewBox="0 0 ${w} ${h}" aria-hidden="true">
     <polyline points="${pts.join(" ")}" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="${last[0]}" cy="${last[1]}" r="3.2" fill="#3dd68c"/>
-    <text x="${pad}" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">6 months ago</text>
+    <text x="${pad}" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">then</text>
     <text x="${w-pad}" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text>
   </svg>`;
-}
-function pairBars(r){
-  const mx=Math.max(0.40, Math.abs(r.r3||0), Math.abs(r.r_prev3||0));
-  const w=v=>Math.max(4, Math.min(100, Math.round(Math.abs(v||0)/mx*100)));
-  return `<div class="pair">
-    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:${w(r.r3)}%"></span></div><span class="v up">${pct(r.r3)}</span></div>
-    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:${w(r.r_prev3)}%"></span></div><span class="v">${pct(r.r_prev3)}</span></div>
-  </div>`;
 }
 function salesBody(d){
   const rows=(d.sales||[]).filter(s=>s.band===salesBand);
   const n=rows.reduce((a,s)=>a+(s.n||0),0);
   const table=rows.length
-    ? `<div class="table-wrap"><table class="ladder"><thead><tr><th>Condition</th><th class="num">Sold</th><th class="num">Typical</th><th class="num">Low–high</th></tr></thead><tbody>${
-        rows.map(s=>`<tr><td>${s.label}</td><td class="num">${s.n}</td><td class="num">${usd(s.med)}</td><td class="num">${usd(s.lo)}–${usd(s.hi)}</td></tr>`).join("")
+    ? `<div class="table-wrap"><table class="ladder"><thead><tr><th>How it looks</th><th class="num">Sold</th><th class="num">Usual price</th></tr></thead><tbody>${
+        rows.map(s=>`<tr><td>${look(s.label)}</td><td class="num">${s.n}</td><td class="num">${usd(s.med)}</td></tr>`).join("")
       }</tbody></table></div>`
-    : `<p class="tab-note">No ${salesBand==="raw"?"loose":"graded"} sales in the last 60 days.</p>`;
+    : `<p class="tab-note">Nobody bought one like this lately.</p>`;
   return `<div class="chips" data-sales-band></div>
-    <p class="tab-note">Last 60 days · ${n} sales.</p>${table}`;
+    <p class="tab-note">${n} sold in 2 months.</p>${table}`;
 }
 function listingsBody(d){
-  const view=(d.asks||[]).filter(a=>listMkt==="all"||a.mkt===listMkt);
-  const cheap=(d.ask_rows||[]).filter(a=>listMkt==="all"||a.mkt===listMkt);
-  const table=view.length
-    ? `<div class="table-wrap"><table class="ladder"><thead><tr><th>Shop</th><th>Condition</th><th class="num">Listed</th><th class="num">Qty</th><th class="num">Lowest</th><th class="num">Typical</th></tr></thead><tbody>${
-        view.map(a=>`<tr><td>${mktName(a.mkt)}</td><td>${a.label}</td><td class="num">${a.n}</td><td class="num">${a.qty}</td><td class="num">${usd(a.lo)}</td><td class="num">${usd(a.med)}</td></tr>`).join("")
-      }</tbody></table></div>`
-    : `<p class="tab-note">Nothing for sale in this filter.</p>`;
+  const cheap=(d.ask_rows||[]).filter(a=>listMkt==="all"||a.mkt===listMkt).slice(0,8);
   const list=cheap.length
-    ? `<ul class="asks">${cheap.map(a=>`<li><span>${mktName(a.mkt)} · ${a.label} · ×${a.qty}</span><b>${usd(a.px)}</b></li>`).join("")}</ul>`
-    : "";
-  return `<div class="chips" data-list-mkt></div>
-    <p class="tab-note">What people are asking right now. Lowest 12 below.</p>${table}${list?`<h3>Lowest prices</h3>${list}`:""}`;
+    ? `<ul class="asks">${cheap.map(a=>`<li><span>${mktName(a.mkt)} · ${look(a.label)}</span><b>${usd(a.px)}</b></li>`).join("")}</ul>`
+    : `<p class="tab-note">Nothing for sale right now.</p>`;
+  return `<div class="chips" data-list-mkt></div>${list}`;
 }
 function paintMore(id){
   const r=ROWS.find(x=>x.id===id); if(!r) return;
   const t=tileEl(id); if(!t) return;
   const d=DETAIL[id]||{sales:[],asks:[],ask_rows:[]};
-  const typ=r.typical!=null?`<div class="st"><span class="k">Typical sale</span><span class="v">${usd(r.typical)}</span></div>`:"";
+  const typ=r.typical!=null?`<p class="tab-note">People usually pay ${usd(r.typical)}.</p>`:"";
   t.querySelector(".more").innerHTML=`
-    <h3>The path</h3>
     ${sparkSvg(r.r3, r.r_prev3)}
-    ${pairBars(r)}
-    ${typ?`<div class="sg" style="max-width:16rem;margin-top:.55rem">${typ}</div>`:""}
-    <h3>Sold</h3>
+    ${typ}
+    <h3>People paid</h3>
     ${salesBody(d)}
-    <h3>For sale</h3>
+    <h3>Shops want</h3>
     ${listingsBody(d)}`;
   const sb=t.querySelector("[data-sales-band]");
   [["raw","Loose card"],["graded","In a case"]].forEach(([idb,lab])=>{
@@ -1344,13 +971,15 @@ function paintMore(id){
     sb.appendChild(b);
   });
   const lm=t.querySelector("[data-list-mkt]");
-  const mkts=[...new Set((d.asks||[]).map(a=>a.mkt))].sort();
-  [["all","All"],...mkts.map(k=>[k,mktName(k)])].forEach(([idb,lab])=>{
-    const b=document.createElement("button");
-    b.type="button"; b.className="chip"+(listMkt===idb?" active":""); b.textContent=lab;
-    b.onclick=()=>{listMkt=idb; paintMore(id);};
-    lm.appendChild(b);
-  });
+  const mkts=[...new Set((d.ask_rows||[]).map(a=>a.mkt))].sort();
+  if(mkts.length>1){
+    [["all","All"],...mkts.map(k=>[k,mktName(k)])].forEach(([idb,lab])=>{
+      const b=document.createElement("button");
+      b.type="button"; b.className="chip"+(listMkt===idb?" active":""); b.textContent=lab;
+      b.onclick=()=>{listMkt=idb; paintMore(id);};
+      lm.appendChild(b);
+    });
+  }
 }
 function closeCard(){
   if(!openId) return;
@@ -1397,8 +1026,7 @@ document.querySelectorAll(".chip[data-pile]").forEach(c=>{
     c.classList.add("active");
     const pile=c.getAttribute("data-pile");
     document.querySelectorAll(".card-tile").forEach(t=>{
-      const show=pile==="all"||(pile==="heat"?t.getAttribute("data-heat")==="1":t.getAttribute("data-pile")===pile);
-      t.style.display=show?"":"none";
+      t.style.display=(pile==="all"||t.getAttribute("data-pile")===pile)?"":"none";
     });
     if(openId && tileEl(openId) && tileEl(openId).style.display==="none") closeCard();
   });
@@ -1411,10 +1039,6 @@ document.querySelectorAll("[data-zoom]").forEach(b=>{
 });
 document.querySelectorAll("[data-open]").forEach(b=>{
   b.addEventListener("click",()=>openCard(b.getAttribute("data-open")));
-});
-document.querySelectorAll(".heat-row").forEach(t=>{
-  t.addEventListener("click",()=>openCard(t.getAttribute("data-id")));
-  t.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" ") { e.preventDefault(); openCard(t.getAttribute("data-id")); }});
 });
 $("lb-close").onclick=closeZoom;
 $("lightbox").addEventListener("click",e=>{ if(e.target.id==="lightbox") closeZoom(); });
