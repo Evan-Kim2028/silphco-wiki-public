@@ -22,25 +22,30 @@ main{max-width:98rem;margin:0 auto;padding:.85rem 1rem 3rem;padding-bottom:max(2
 .chip.active{border-color:var(--accent);background:rgba(110,168,255,.14);color:#cfe2ff}
 .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .controls input[type=search]{flex:1 1 12rem;min-width:12rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:.35rem .5rem;font-size:16px}
-.pack-grid{display:grid;grid-template-columns:1fr;gap:.65rem}
-.card-tile{display:grid;grid-template-columns:5.25rem minmax(0,1fr);align-items:center;gap:.7rem;background:var(--panel2);border:1px solid var(--border);border-radius:16px;cursor:pointer;text-align:left;width:100%;padding:.7rem;color:inherit;font:inherit;transition:transform 160ms cubic-bezier(0.2,0,0,1)}
+.rail-wrap{max-width:42rem}
+.rail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;touch-action:pan-x;margin:0 -1rem}
+.rail::-webkit-scrollbar{display:none}
+.pack{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:.5rem;padding:0 1rem;height:min(36rem,calc(100dvh - 13.5rem));min-height:22rem}
+.rail-nav{display:flex;align-items:center;justify-content:center;gap:.65rem;margin:.55rem 0 0}
+.rail-nav .pg{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.82rem;min-width:7rem;text-align:center}
+.card-tile{display:flex;flex-direction:column;align-items:stretch;gap:.28rem;min-width:0;min-height:0;height:100%;background:var(--panel2);border:1px solid var(--border);border-radius:16px;cursor:pointer;text-align:left;width:100%;padding:.5rem .55rem .55rem;color:inherit;font:inherit;transition:transform 160ms cubic-bezier(0.2,0,0,1)}
 .card-tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .card-tile:active{transform:scale(0.96)}
 .card-tile.deal{border-color:rgba(61,214,140,.36)}
 .card-tile.live{border-color:rgba(110,168,255,.36)}
 .card-tile.thin{border-color:rgba(230,180,80,.36)}
-.art{aspect-ratio:63/88;min-height:0;padding:0;background:#0a0d14;border-radius:8px;overflow:hidden;outline:1px solid rgba(255,255,255,.1)}
+.art{flex:1 1 auto;aspect-ratio:63/88;width:auto;max-height:46%;margin:0 auto;padding:0;background:#0a0d14;border-radius:8px;overflow:hidden;outline:1px solid rgba(255,255,255,.1)}
 .art img{width:100%;height:100%;object-fit:contain}
 .badge{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.12rem .35rem;border-radius:6px;border:1px solid var(--border);margin:0 0 .2rem}
 .badge.deal{border-color:rgba(61,214,140,.55);color:#b8f5d4}
 .badge.live{border-color:rgba(110,168,255,.55);color:#cfe2ff}
 .badge.thin{border-color:rgba(230,180,80,.55);color:#f0d78c}
 .body{min-width:0}
-.nm{font-weight:700;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sm{color:var(--muted);font-size:.75rem;margin:.12rem 0 .2rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hint{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
-.mark{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.25rem;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:-.02em}
-.cmp{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;margin-top:.35rem;font-size:.78rem;color:var(--muted)}
+.nm{font-weight:700;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sm{color:var(--muted);font-size:.68rem;margin:0;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hint{display:block;font-size:.58rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.mark{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.05rem;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:-.02em}
+.cmp{display:flex;justify-content:space-between;align-items:baseline;gap:.35rem;margin-top:.1rem;font-size:.68rem;color:var(--muted)}
 .cmp b{color:var(--text);font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",ui-monospace,monospace}
 .warn{margin-top:.35rem;font-size:.75rem;color:var(--warn)}
 footer{color:var(--muted);font-size:.78rem;margin-top:1rem}
@@ -75,10 +80,10 @@ body.card-open #browse{pointer-events:none}
 .lightbox img{max-width:min(92vw,520px);max-height:92vh;object-fit:contain;border-radius:12px}
 .lightbox button{position:absolute;top:max(.7rem,env(safe-area-inset-top));right:max(.7rem,env(safe-area-inset-right))}
 @media (min-width:700px){
-  .pack-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
-  .card-tile{grid-template-columns:5.75rem minmax(0,1fr)}
   .peek{grid-template-columns:11rem minmax(0,1fr);align-items:start}
   .hero-art{max-width:none;margin:0}
+  .nm{font-size:.9rem}
+  .mark{font-size:1.15rem}
 }
 @media (prefers-reduced-motion:reduce){
   .card-tile,.card-tile:active,.back,.go,#card-page{transition:none;transform:none}
@@ -92,13 +97,20 @@ body.card-open #browse{pointer-events:none}
 </div></header>
 <main>
 <div id="browse">
-  <p class="callout">Do not pay more than the big number. The small one is what people are asking today. If it says not enough listings, trust the big number only.</p>
+  <p class="callout">Do not pay more than the big number. The small one is what people are asking today. If it says not enough listings, trust the big number only. Swipe for the next four.</p>
   <div class="controls">
     <div id="rank-row"></div>
     <input id="q" type="search" placeholder="Articuno, Fomantis…" autocomplete="off"/>
   </div>
-  <div class="pack-grid" id="grid"></div>
-  <footer>Looked at 19 Aug 2026. Near Mint, shiny side. Pictures: pokemontcg.io / Scrydex.</footer>
+  <div class="rail-wrap">
+    <div class="rail" id="rail" tabindex="0" aria-label="Card pages"></div>
+    <div class="rail-nav">
+      <button type="button" class="back" id="prev" aria-label="Previous four">←</button>
+      <span class="pg" id="rail-meta">1 / 1</span>
+      <button type="button" class="back" id="next" aria-label="Next four">→</button>
+    </div>
+  </div>
+  <footer>Looked at 19 Aug 2026. Near Mint, shiny side. Swipe pages. Pictures: pokemontcg.io / Scrydex.</footer>
 </div>
 <section id="card-page" aria-hidden="true">
   <div class="card-page-inner">
@@ -118,9 +130,12 @@ body.card-open #browse{pointer-events:none}
 <script>
 const ROWS = JSON.parse(document.getElementById("app-data").textContent);
 const BADGE = {"deal":"Pay this","live":"Shop looks right","thin":"Not enough listings"};
+const BUILD = "carousel-2x2";
+const PAGE = 4;
 const $ = (id) => document.getElementById(id);
 let filt = "all", q = "";
 let sheetId = null, lastFocus = null, typedAsk = null;
+let dragged = false, dragX = 0;
 function usd(x){
   if(x==null) return "—";
   return "$" + (x>=100 ? Math.round(x).toLocaleString() : x.toFixed(2));
@@ -198,11 +213,11 @@ function tile(r){
   b.innerHTML = `<div class="art"><img alt="${r.name}" loading="lazy"/></div>
     <div class="body"><span class="badge ${pile}">${BADGE[pile]||pile}</span>
     <div class="nm">${r.name}</div>
-    <div class="sm">${r.set} · #${r.num} · ${finishOf(r)}</div>
+    <div class="sm">${r.set} · #${r.num}</div>
     <span class="hint">Pay at most</span>
     <div class="mark">${usd(r.keepMax)}</div>
     ${sellers}</div>`;
-  b.onclick=()=>openCard(r.id);
+  b.onclick=()=>{ if(dragged) return; openCard(r.id); };
   bindArt(b.querySelector("img"), r.imgs || [r.img]);
   return b;
 }
@@ -298,19 +313,68 @@ function closeCard(){
   history.replaceState({}, "", location.pathname);
   if(lastFocus && lastFocus.focus) lastFocus.focus();
 }
+function pageCount(){
+  return Math.max(1, Math.ceil(filtered().length / PAGE));
+}
+function currentPage(){
+  const rail = $("rail");
+  if(!rail || !rail.clientWidth) return 0;
+  return Math.round(rail.scrollLeft / rail.clientWidth);
+}
+function goPage(i){
+  const rail = $("rail");
+  const n = pageCount();
+  const p = Math.max(0, Math.min(n - 1, i));
+  rail.scrollTo({left: p * rail.clientWidth, behavior: "smooth"});
+  paintPager();
+}
+function paintPager(){
+  const n = pageCount();
+  const p = currentPage() + 1;
+  $("rail-meta").textContent = p + " / " + n;
+  $("prev").disabled = p <= 1;
+  $("next").disabled = p >= n;
+}
 function draw(){
   chips();
-  const g=$("grid"); g.innerHTML="";
-  filtered().forEach(r=>g.appendChild(tile(r)));
+  const rail = $("rail");
+  rail.innerHTML = "";
+  const xs = filtered();
+  if(!xs.length){
+    const empty = document.createElement("div");
+    empty.className = "pack";
+    empty.innerHTML = `<p class="note" style="grid-column:1/-1">No pictures in this pile.</p>`;
+    rail.appendChild(empty);
+  } else {
+    for(let i=0;i<xs.length;i+=PAGE){
+      const pack = document.createElement("div");
+      pack.className = "pack";
+      xs.slice(i, i+PAGE).forEach(r=>pack.appendChild(tile(r)));
+      rail.appendChild(pack);
+    }
+  }
+  rail.scrollLeft = 0;
+  paintPager();
 }
 $("q").addEventListener("input", e=>{q=e.target.value; draw();});
+$("prev").onclick=()=>goPage(currentPage()-1);
+$("next").onclick=()=>goPage(currentPage()+1);
+$("rail").addEventListener("scroll", ()=>paintPager(), {passive:true});
+$("rail").addEventListener("pointerdown", e=>{ dragged=false; dragX=e.clientX; });
+$("rail").addEventListener("pointermove", e=>{ if(Math.abs(e.clientX-dragX)>12) dragged=true; });
+$("rail").addEventListener("pointerup", ()=>setTimeout(()=>{ dragged=false; }, 0));
 $("back").onclick=closeCard;
 $("lb-close").onclick=closeZoom;
 $("lightbox").addEventListener("click", e=>{ if(e.target.id==="lightbox") closeZoom(); });
 document.addEventListener("keydown", e=>{
-  if(e.key!=="Escape") return;
-  if(!$("lightbox").hidden){ closeZoom(); return; }
-  if(document.body.classList.contains("card-open")) closeCard();
+  if(e.key==="Escape"){
+    if(!$("lightbox").hidden){ closeZoom(); return; }
+    if(document.body.classList.contains("card-open")) closeCard();
+    return;
+  }
+  if(document.body.classList.contains("card-open")) return;
+  if(e.key==="ArrowRight"){ e.preventDefault(); goPage(currentPage()+1); }
+  if(e.key==="ArrowLeft"){ e.preventDefault(); goPage(currentPage()-1); }
 });
 window.addEventListener("popstate", ()=>{
   if(location.hash) openCard(location.hash.slice(1));
@@ -320,7 +384,13 @@ if(location.hash) openCard(location.hash.slice(1));
 draw();
 </script>
 <script>
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistrations().then((regs) =>
+    Promise.all(regs.map((r) => r.unregister()))
+  ).then(() => caches.keys()).then((keys) =>
+    Promise.all(keys.filter((k) => k.startsWith("silph-")).map((k) => caches.delete(k)))
+  ).then(() => navigator.serviceWorker.register("sw.js?b=" + BUILD)).catch(function(){});
+}
 </script>
 </body>
 </html>
