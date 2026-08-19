@@ -21,11 +21,13 @@ main{max-width:98rem;margin:0 auto;padding:.85rem 1rem 3rem;padding-bottom:max(2
 .controls{display:flex;flex-wrap:wrap;gap:.5rem .7rem;align-items:center;margin:0 0 .75rem;padding:.55rem .65rem;background:var(--panel);border:1px solid var(--border);border-radius:12px}
 .lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);width:100%}
 .row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
-.chip{appearance:none;border:1px solid var(--border);background:var(--panel2);color:var(--text);border-radius:999px;padding:.28rem .65rem;font-size:.78rem;cursor:pointer;min-height:40px}
+.chip{appearance:none;border:1px solid var(--border);background:var(--panel2);color:var(--text);border-radius:999px;padding:.28rem .65rem;font-size:.78rem;cursor:pointer;min-height:44px}
 .chip:hover{border-color:var(--accent)}
 .chip.active{border-color:var(--accent);background:rgba(110,168,255,.14);color:#cfe2ff}
-.controls input[type=search],.controls select{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:.35rem .5rem;font-size:16px}
-.controls input[type=search]{min-width:12rem}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.controls .find{flex:1 1 100%;display:flex;align-items:center;gap:.45rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.controls input[type=search],.controls select{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:.35rem .5rem;font-size:16px;text-transform:none;letter-spacing:0;color:var(--text)}
+.controls input[type=search]{flex:1 1 12rem;min-width:12rem}
 .statbar{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 .55rem}
 .statpill{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:.3rem .5rem;font-size:.76rem;color:var(--muted)}
 .statpill b{color:var(--text);font-variant-numeric:tabular-nums}
@@ -51,7 +53,7 @@ body.card-open #browse{display:none}
 #card-page{display:none}
 body.card-open #card-page{display:block}
 .back{appearance:none;border:1px solid var(--border);background:var(--panel2);color:var(--text);border-radius:8px;padding:.4rem .7rem;cursor:pointer;min-height:44px;margin:0 0 .75rem}
-.card-page-inner{max-width:46rem}
+.card-page-inner{max-width:46rem;min-width:0}
 .hero{display:grid;grid-template-columns:min(42vw,280px) 1fr;gap:1rem;margin:.15rem 0 1rem;align-items:start}
 .hero-art{appearance:none;border:1px solid var(--border);background:#0a0d14;border-radius:14px;padding:.55rem;cursor:zoom-in;min-height:44px}
 .hero-art img{display:block;width:100%;height:auto;max-height:380px;object-fit:contain}
@@ -60,12 +62,16 @@ body.card-open #card-page{display:block}
 .gains{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem;margin:0 0 .7rem}
 .tabs{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .7rem}
 .tab-note{color:var(--muted);font-size:.78rem;margin:.15rem 0 .55rem}
-.ladder{width:100%;border-collapse:collapse;font-size:.82rem;margin:.2rem 0 .65rem}
+.table-wrap{overflow-x:auto;max-width:100%;margin:.2rem 0 .65rem;-webkit-overflow-scrolling:touch}
+.ladder{width:100%;border-collapse:collapse;font-size:.82rem;margin:0}
+.ladder.wide{min-width:36rem}
 .ladder th{text-align:left;color:var(--muted);font-weight:600;font-size:.68rem;text-transform:uppercase;padding:.28rem .3rem;border-bottom:1px solid var(--border)}
 .ladder td{padding:.32rem .3rem;border-bottom:1px solid rgba(42,51,72,.55);font-variant-numeric:tabular-nums}
-.ladder td.num{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.ladder th.num,.ladder td.num{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
 .asks{margin:0;padding:0;list-style:none;display:grid;gap:.28rem}
 .asks li{display:flex;justify-content:space-between;gap:.5rem;background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:.4rem .55rem;font-size:.82rem}
+.asks li span{min-width:0}
+.asks li b{font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",ui-monospace,monospace;white-space:nowrap}
 .lightbox{display:none;position:fixed;inset:0;z-index:80;background:rgba(6,8,12,.92);align-items:center;justify-content:center;padding:1.2rem}
 .lightbox.on{display:flex}
 .lightbox img{max-width:min(92vw,520px);max-height:92vh;object-fit:contain;border-radius:12px}
@@ -97,7 +103,7 @@ body.card-open #card-page{display:block}
     <div class="row" id="set-row"></div>
     <div class="lbl">Sort</div>
     <div class="row" id="sort-row"></div>
-    <label>Search <input id="q" type="search" placeholder="Umbreon, Triumphant, 94…" autocomplete="off"/></label>
+    <label class="find">Search <input id="q" type="search" placeholder="Umbreon, Triumphant, 94…" autocomplete="off"/></label>
   </div>
   <div class="statbar" id="statbar"></div>
   <div class="pack-grid" id="grid"></div>
@@ -210,12 +216,12 @@ function sortSales(rows){
   });
 }
 function overviewBody(r){
-  return `<table class="ladder"><thead><tr><th></th><th>3m</th><th>6m</th><th>12m</th></tr></thead><tbody>
-      <tr><td>PSA 10</td><td>${pct(r.p10_r3)}</td><td>${pct(r.p10_r6)}</td><td>${pct(r.p10_r12)}</td></tr>
-      <tr><td>Grade 9</td><td>${pct(r.p9_r3)}</td><td>—</td><td>${pct(r.p9_r12)}</td></tr>
-      <tr><td>PC raw</td><td>${pct(r.raw_r3)}</td><td>—</td><td>${pct(r.raw_r12)}</td></tr>
-      <tr><td>TCG NM</td><td>${pct(r.tcg_r3)}</td><td>${pct(r.tcg_r6)}</td><td>${pct(r.tcg_r12)}</td></tr>
-    </tbody></table>
+  return `<div class="table-wrap"><table class="ladder"><thead><tr><th>Tape</th><th class="num">3m</th><th class="num">6m</th><th class="num">12m</th></tr></thead><tbody>
+      <tr><td>PSA 10</td><td class="num">${pct(r.p10_r3)}</td><td class="num">${pct(r.p10_r6)}</td><td class="num">${pct(r.p10_r12)}</td></tr>
+      <tr><td>Grade 9</td><td class="num">${pct(r.p9_r3)}</td><td class="num">—</td><td class="num">${pct(r.p9_r12)}</td></tr>
+      <tr><td>PC raw</td><td class="num">${pct(r.raw_r3)}</td><td class="num">—</td><td class="num">${pct(r.raw_r12)}</td></tr>
+      <tr><td>TCG NM</td><td class="num">${pct(r.tcg_r3)}</td><td class="num">${pct(r.tcg_r6)}</td><td class="num">${pct(r.tcg_r12)}</td></tr>
+    </tbody></table></div>
     <div class="gains">
       <div class="st"><span class="k">Graded leftover</span><span class="v">${pct(r.resid)}</span></div>
       <div class="st"><span class="k">Raw leftover</span><span class="v">${pct(r.tcg_resid)}</span></div>
@@ -227,9 +233,9 @@ function salesBody(r, d){
   const rows = sortSales((d.sales||[]).filter(s => s.band===salesBand));
   const n = rows.reduce((a,s)=>a+(s.n||0),0);
   const table = rows.length
-    ? `<table class="ladder"><thead><tr><th>Condition</th><th class="num">n</th><th class="num">Median</th><th class="num">Range</th></tr></thead><tbody>${
+    ? `<div class="table-wrap"><table class="ladder"><thead><tr><th>Condition</th><th class="num">n</th><th class="num">Median</th><th class="num">Range</th></tr></thead><tbody>${
         rows.map(s => `<tr><td>${s.label}</td><td class="num">${s.n}</td><td class="num">${usd(s.med)}</td><td class="num">${usd(s.lo)}–${usd(s.hi)}</td></tr>`).join("")
-      }</tbody></table>`
+      }</tbody></table></div>`
     : `<p class="tab-note">No ${salesBand} sales in the 60-day window.</p>`;
   return `<div class="row" id="sales-band" style="margin:0 0 .55rem"></div>
     <p class="tab-note"><code>gold.sales</code> last 60 days · ${n} ${salesBand} transactions · not a ranker. Thin n and wild ranges can be lots or ID misses.</p>
@@ -237,13 +243,14 @@ function salesBody(r, d){
 }
 function listingsBody(r, d){
   const asks = d.asks||[];
-  const mkts = [...new Set(asks.map(a=>a.mkt))].sort();
-  const view = asks.filter(a => listMkt==="all" || a.mkt===listMkt);
+  const view = asks.filter(a => listMkt==="all" || a.mkt===listMkt).slice().sort((a,b) =>
+    mktName(a.mkt).localeCompare(mktName(b.mkt)) || a.label.localeCompare(b.label)
+  );
   const cheap = (d.ask_rows||[]).filter(a => listMkt==="all" || a.mkt===listMkt);
   const table = view.length
-    ? `<table class="ladder"><thead><tr><th>Market</th><th>Condition</th><th class="num">n</th><th class="num">Qty</th><th class="num">Low</th><th class="num">Typical</th></tr></thead><tbody>${
+    ? `<div class="table-wrap"><table class="ladder wide"><thead><tr><th>Market</th><th>Condition</th><th class="num">n</th><th class="num">Qty</th><th class="num">Low</th><th class="num">Typical</th></tr></thead><tbody>${
         view.map(a => `<tr><td>${mktName(a.mkt)}</td><td>${a.label}</td><td class="num">${a.n}</td><td class="num">${a.qty}</td><td class="num">${usd(a.lo)}</td><td class="num">${usd(a.med)}</td></tr>`).join("")
-      }</tbody></table>`
+      }</tbody></table></div>`
     : `<p class="tab-note">No active asks for this filter.</p>`;
   const list = cheap.length
     ? `<ul class="asks">${cheap.map(a => `<li><span>${mktName(a.mkt)} · ${a.label} · ×${a.qty}</span><b>${usd(a.px)}</b></li>`).join("")}</ul>`
@@ -288,6 +295,7 @@ function paintSheet(){
     [["raw","Raw"],["graded","Graded"]].forEach(([id,lab]) => {
       const b=document.createElement("button");
       b.type="button"; b.className="chip"+(salesBand===id?" active":""); b.textContent=lab;
+      b.setAttribute("aria-pressed", salesBand===id ? "true" : "false");
       b.onclick=()=>{salesBand=id; paintSheet();};
       row.appendChild(b);
     });
