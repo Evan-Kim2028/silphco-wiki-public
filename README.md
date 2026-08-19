@@ -7,7 +7,7 @@ wifi and every number keeps working on a convention floor with no signal.
 - [Scan a card](scan.html) — type the collector number, get the price. Start here at a show; it needs no pictures, so it works fully offline.
 - [The whole board](set-macro.html) — every mid-era set, which ones already ran
 - [Floor book](floor.html) — under / over / blended LP on a phone
-- [Leftovers](mid-sleeve-leftovers.html) · [Chase leftovers](chase-sleeve-leftovers.html) · [Commons vs uncommons](commons-vs-uncommons.html) · [Prime cards](primes.html) · [Show deals](show-deals.html)
+- [Leftovers](mid-sleeve-leftovers.html) · [Chase leftovers](chase-sleeve-leftovers.html) · [Commons vs uncommons](commons-vs-uncommons.html) · [Cards to watch](listings-watch.html) · [Prime cards](primes.html) · [Show deals](show-deals.html)
 
 ## Reading a price
 
