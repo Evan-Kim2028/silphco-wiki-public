@@ -10,7 +10,9 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);
   color:var(--text);line-height:1.5;-webkit-text-size-adjust:100%}
-main{max-width:56rem;margin:0 auto;padding:1.4rem 1.1rem 4rem;padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
+main{max-width:98rem;margin:0 auto;padding:1rem 1.1rem 3rem;padding-bottom:calc(3rem + env(safe-area-inset-bottom))}
+.top{display:grid;gap:1rem}
+.desk{display:grid;gap:.6rem}
 h1{font-size:1.35rem;margin:0 0 .3rem}
 .lede{color:var(--muted);font-size:.94rem;margin:0 0 1.2rem}
 a.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.85rem;margin-bottom:.9rem;min-height:44px}
@@ -31,7 +33,12 @@ a.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.
 section{margin:1.4rem 0 0}
 section h2{margin:0 0 .35rem;font-size:1.05rem}
 section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
-.grid{display:grid;gap:.7rem}
+.grid{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(16.5rem,1fr))}
+.flow-grid{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr))}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .7rem}
+.chip{appearance:none;border:1px solid var(--border);background:var(--panel);color:var(--text);
+  border-radius:999px;padding:.28rem .65rem;font-size:.78rem;cursor:pointer;min-height:44px}
+.chip.active{border-color:var(--accent);background:rgba(110,168,255,.14);color:#cfe2ff}
 .set,.macro,.path,.rule,.flow-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.85rem .95rem}
 .set.pick,.macro.pick,.path.pick{border-color:rgba(61,214,140,.42)}
 .set.skip,.macro.skip,.path.skip{border-color:rgba(248,113,113,.32)}
@@ -54,12 +61,10 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
 .flow-lab b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
 .path{display:grid;grid-template-columns:1fr 10rem;gap:.7rem;align-items:center}
 .spark{width:100%;height:54px;display:block}
-.pile-block{margin:0 0 1.2rem}
-.pile-block h3{margin:0 0 .5rem;font-size:.95rem}
-.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:.55rem}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:.65rem}
 .card-tile{background:var(--panel);border:1px solid rgba(61,214,140,.36);border-radius:12px;overflow:hidden}
-.card-tile .art{min-height:168px;display:flex;align-items:flex-end;justify-content:center;padding:.45rem;background:#0a0d14}
-.card-tile .art img{width:min(100%,132px);height:176px;object-fit:contain}
+.card-tile .art{min-height:188px;display:flex;align-items:flex-end;justify-content:center;padding:.45rem;background:#0a0d14}
+.card-tile .art img{width:min(100%,148px);height:200px;object-fit:contain}
 .card-tile .body{padding:.45rem .5rem .55rem}
 .card-tile .nm{font-weight:700;font-size:.86rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .card-tile .sm{color:var(--muted);font-size:.7rem;margin:.1rem 0 .35rem}
@@ -69,7 +74,15 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
 .st .v{display:block;font-size:.76rem;font-variant-numeric:tabular-nums}
 .st .v.pos{color:var(--pos)} .st .v.neg{color:var(--neg)}
 .foot{margin-top:2rem;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem}
-@media (max-width:520px){
+@media (min-width:900px){
+  .top{grid-template-columns:minmax(20rem,26rem) 1fr;align-items:start}
+  .desk{grid-template-columns:1fr 1fr}
+}
+@media (max-width:700px){
+  .pack-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}
+  .card-tile .art{min-height:156px}
+  .card-tile .art img{height:160px}
+  .grid,.flow-grid{grid-template-columns:1fr}
   .path{grid-template-columns:1fr}
   .spark{width:13.5rem}
 }
@@ -79,8 +92,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
 <body>
 <main>
 <a class="back" href="index.html">← back</a>
-<h1>After the Prime pile</h1>
-<p class="lede">Platinum and HeartGold. Buy the pile that is still growing.</p>
+<div class="top">
 <section class="story">
   <h2>The call</h2>
   <p>Buy <b>HeartGold</b>, <b>Call of Legends</b>, and <b>Rising Rivals</b> shiny ones.</p>
@@ -88,10 +100,43 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
   <p>Leave Prime cards in plastic cases. Leave LV.X cards in plastic cases.</p>
   <p>The <a href="primes.html">Prime cards</a> page is that leave pile.</p>
 </section>
+<div class="desk">
+  <div>
+    <h2>Pick these</h2>
+    <div class="grid"><article class="set pick"><h3>HeartGold shiny ones</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
+<article class="set pick"><h3>Call of Legends shiny ones</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
+<article class="set pick"><h3>Rising Rivals shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
+<article class="set pick"><h3>Supreme Victors shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
+<article class="set pick"><h3>Arceus shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
+<article class="set pick"><h3>Unleashed plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
+<article class="set pick"><h3>Undaunted plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
+<article class="set pick"><h3>Triumphant plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article></div>
+  </div>
+  <div>
+    <h2>Leave these</h2>
+    <div class="grid"><article class="set skip"><h3>Platinum shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
+<article class="set skip"><h3>Unleashed shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
+<article class="set skip"><h3>Undaunted shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
+<article class="set skip"><h3>Triumphant shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
+<article class="set skip"><h3>Prime cards in plastic cases</h3><p class="why">Prices already jumped last year. Leave the whole pile.</p></article>
+<article class="set skip"><h3>LV.X cards in plastic cases</h3><p class="why">These are not moving. Leave them.</p></article>
+<article class="set skip"><h3>Emerging Powers</h3><p class="why">This pile is not moving.</p></article></div>
+  </div>
+</div>
+</div>
 <section>
   <h2>Buy these cards</h2>
   <p class="hint">Every card that kept up with its friends. Price, last 3 months, the 3 months before, and versus the pile.</p>
-  <div class="pile-block"><h3>HeartGold shiny ones</h3><div class="tiles"><article class="card-tile">
+  <div class="chips"><button type="button" class="chip active" data-pile="all">All</button>
+<button type="button" class="chip" data-pile="0">HeartGold shiny ones</button>
+<button type="button" class="chip" data-pile="1">Call of Legends shiny ones</button>
+<button type="button" class="chip" data-pile="2">Rising Rivals shiny ones</button>
+<button type="button" class="chip" data-pile="3">Supreme Victors shiny ones</button>
+<button type="button" class="chip" data-pile="4">Arceus shiny ones</button>
+<button type="button" class="chip" data-pile="5">Unleashed plain rares</button>
+<button type="button" class="chip" data-pile="6">Undaunted plain rares</button>
+<button type="button" class="chip" data-pile="7">Triumphant plain rares</button></div>
+  <div class="pack-grid"><article class="card-tile" data-pile="0">
   <div class="art"><img src="https://images.pokemontcg.io/hgss1/12.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Slowking</div>
@@ -104,7 +149,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="0">
   <div class="art"><img src="https://images.pokemontcg.io/hgss1/7.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Ninetales</div>
@@ -117,7 +162,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="0">
   <div class="art"><img src="https://images.pokemontcg.io/hgss1/13.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Wobbuffet</div>
@@ -130,7 +175,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="0">
   <div class="art"><img src="https://images.pokemontcg.io/hgss1/11.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Shuckle</div>
@@ -143,7 +188,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="0">
   <div class="art"><img src="https://images.pokemontcg.io/hgss1/10.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Raichu</div>
@@ -156,7 +201,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="0">
   <div class="art"><img src="https://images.pokemontcg.io/hgss1/1.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Arcanine</div>
@@ -169,7 +214,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="0">
   <div class="art"><img src="https://images.pokemontcg.io/hgss1/2.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Azumarill</div>
@@ -182,7 +227,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="0">
   <div class="art"><img src="https://images.pokemontcg.io/hgss1/5.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Hitmontop</div>
@@ -194,8 +239,8 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
       <div class="st"><span class="k">vs friends</span><span class="v neg">-2%</span></div>
     </div>
   </div>
-</article></div></div>
-<div class="pile-block"><h3>Call of Legends shiny ones</h3><div class="tiles"><article class="card-tile">
+</article>
+<article class="card-tile" data-pile="1">
   <div class="art"><img src="https://images.pokemontcg.io/col1/2.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Deoxys</div>
@@ -208,7 +253,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="1">
   <div class="art"><img src="https://images.pokemontcg.io/col1/1.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Clefable</div>
@@ -221,7 +266,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="1">
   <div class="art"><img src="https://images.pokemontcg.io/col1/19.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Palkia</div>
@@ -234,7 +279,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="1">
   <div class="art"><img src="https://images.pokemontcg.io/col1/7.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Gyarados</div>
@@ -247,7 +292,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="1">
   <div class="art"><img src="https://images.pokemontcg.io/col1/16.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Magmortar</div>
@@ -260,7 +305,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="1">
   <div class="art"><img src="https://images.pokemontcg.io/col1/12.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Kyogre</div>
@@ -273,7 +318,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="1">
   <div class="art"><img src="https://images.pokemontcg.io/col1/10.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Houndoom</div>
@@ -286,7 +331,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="1">
   <div class="art"><img src="https://images.pokemontcg.io/col1/21.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Smeargle</div>
@@ -299,7 +344,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="1">
   <div class="art"><img src="https://images.pokemontcg.io/col1/9.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Ho-Oh</div>
@@ -312,7 +357,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="1">
   <div class="art"><img src="https://images.pokemontcg.io/col1/11.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Jirachi</div>
@@ -324,8 +369,8 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
       <div class="st"><span class="k">vs friends</span><span class="v neg">-3%</span></div>
     </div>
   </div>
-</article></div></div>
-<div class="pile-block"><h3>Rising Rivals shiny ones</h3><div class="tiles"><article class="card-tile">
+</article>
+<article class="card-tile" data-pile="2">
   <div class="art"><img src="https://images.pokemontcg.io/pl2/11.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Rampardos GL</div>
@@ -338,7 +383,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="2">
   <div class="art"><img src="https://images.pokemontcg.io/pl2/7.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Jirachi</div>
@@ -351,7 +396,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="2">
   <div class="art"><img src="https://images.pokemontcg.io/pl2/4.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Floatzel GL</div>
@@ -364,7 +409,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="2">
   <div class="art"><img src="https://images.pokemontcg.io/pl2/3.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Darkrai G</div>
@@ -377,7 +422,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="2">
   <div class="art"><img src="https://images.pokemontcg.io/pl2/5.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Flygon</div>
@@ -390,7 +435,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="2">
   <div class="art"><img src="https://images.pokemontcg.io/pl2/12.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Roserade GL</div>
@@ -403,7 +448,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="2">
   <div class="art"><img src="https://images.pokemontcg.io/pl2/8.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Lucario GL</div>
@@ -416,7 +461,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="2">
   <div class="art"><img src="https://images.pokemontcg.io/pl2/2.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Bastiodon GL</div>
@@ -429,7 +474,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="2">
   <div class="art"><img src="https://images.pokemontcg.io/pl2/6.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Froslass GL</div>
@@ -441,8 +486,8 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
       <div class="st"><span class="k">vs friends</span><span class="v neg">-5%</span></div>
     </div>
   </div>
-</article></div></div>
-<div class="pile-block"><h3>Supreme Victors shiny ones</h3><div class="tiles"><article class="card-tile">
+</article>
+<article class="card-tile" data-pile="3">
   <div class="art"><img src="https://images.pokemontcg.io/pl3/2.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Blaziken FB</div>
@@ -455,7 +500,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="3">
   <div class="art"><img src="https://images.pokemontcg.io/pl3/1.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Absol G</div>
@@ -468,7 +513,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="3">
   <div class="art"><img src="https://images.pokemontcg.io/pl3/14.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Yanmega</div>
@@ -481,7 +526,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="3">
   <div class="art"><img src="https://images.pokemontcg.io/pl3/4.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Electivire FB</div>
@@ -494,7 +539,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="3">
   <div class="art"><img src="https://images.pokemontcg.io/pl3/13.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Venusaur</div>
@@ -507,7 +552,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="3">
   <div class="art"><img src="https://images.pokemontcg.io/pl3/6.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Magmortar</div>
@@ -520,7 +565,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="3">
   <div class="art"><img src="https://images.pokemontcg.io/pl3/7.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Metagross</div>
@@ -533,7 +578,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="3">
   <div class="art"><img src="https://images.pokemontcg.io/pl3/11.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Staraptor FB</div>
@@ -545,8 +590,8 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
       <div class="st"><span class="k">vs friends</span><span class="v">-1%</span></div>
     </div>
   </div>
-</article></div></div>
-<div class="pile-block"><h3>Arceus shiny ones</h3><div class="tiles"><article class="card-tile">
+</article>
+<article class="card-tile" data-pile="4">
   <div class="art"><img src="https://images.pokemontcg.io/pl4/8.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Salamence</div>
@@ -559,7 +604,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="4">
   <div class="art"><img src="https://images.pokemontcg.io/pl4/2.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Froslass</div>
@@ -572,7 +617,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="4">
   <div class="art"><img src="https://images.pokemontcg.io/pl4/4.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Kabutops</div>
@@ -585,7 +630,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="4">
   <div class="art"><img src="https://images.pokemontcg.io/pl4/5.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Luxray</div>
@@ -598,7 +643,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="4">
   <div class="art"><img src="https://images.pokemontcg.io/pl4/1.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Charizard</div>
@@ -611,7 +656,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="4">
   <div class="art"><img src="https://images.pokemontcg.io/pl4/12.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Zapdos G</div>
@@ -623,8 +668,8 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
       <div class="st"><span class="k">vs friends</span><span class="v neg">-4%</span></div>
     </div>
   </div>
-</article></div></div>
-<div class="pile-block"><h3>Unleashed plain rares</h3><div class="tiles"><article class="card-tile">
+</article>
+<article class="card-tile" data-pile="5">
   <div class="art"><img src="https://images.pokemontcg.io/hgss2/24.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Steelix</div>
@@ -637,7 +682,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="5">
   <div class="art"><img src="https://images.pokemontcg.io/hgss2/13.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Blastoise</div>
@@ -650,7 +695,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="5">
   <div class="art"><img src="https://images.pokemontcg.io/hgss2/19.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Lucario</div>
@@ -663,7 +708,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="5">
   <div class="art"><img src="https://images.pokemontcg.io/hgss2/20.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Ninetales</div>
@@ -676,7 +721,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="5">
   <div class="art"><img src="https://images.pokemontcg.io/hgss2/17.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Kingdra</div>
@@ -689,7 +734,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="5">
   <div class="art"><img src="https://images.pokemontcg.io/hgss2/26.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Tyranitar</div>
@@ -701,8 +746,8 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
       <div class="st"><span class="k">vs friends</span><span class="v neg">-4%</span></div>
     </div>
   </div>
-</article></div></div>
-<div class="pile-block"><h3>Undaunted plain rares</h3><div class="tiles"><article class="card-tile">
+</article>
+<article class="card-tile" data-pile="6">
   <div class="art"><img src="https://images.pokemontcg.io/hgss3/14.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Hariyama</div>
@@ -715,7 +760,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="6">
   <div class="art"><img src="https://images.pokemontcg.io/hgss3/24.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Vileplume</div>
@@ -728,7 +773,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="6">
   <div class="art"><img src="https://images.pokemontcg.io/hgss3/17.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Leafeon</div>
@@ -740,8 +785,8 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
       <div class="st"><span class="k">vs friends</span><span class="v">+0%</span></div>
     </div>
   </div>
-</article></div></div>
-<div class="pile-block"><h3>Triumphant plain rares</h3><div class="tiles"><article class="card-tile">
+</article>
+<article class="card-tile" data-pile="7">
   <div class="art"><img src="https://images.pokemontcg.io/hgss4/30.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Sharpedo</div>
@@ -754,7 +799,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="7">
   <div class="art"><img src="https://images.pokemontcg.io/hgss4/18.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Dragonite</div>
@@ -767,7 +812,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="7">
   <div class="art"><img src="https://images.pokemontcg.io/hgss4/15.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Bronzong</div>
@@ -780,7 +825,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     </div>
   </div>
 </article>
-<article class="card-tile">
+<article class="card-tile" data-pile="7">
   <div class="art"><img src="https://images.pokemontcg.io/hgss4/29.png" alt="" loading="lazy"/></div>
   <div class="body">
     <div class="nm">Pidgeot</div>
@@ -792,13 +837,12 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
       <div class="st"><span class="k">vs friends</span><span class="v">+0%</span></div>
     </div>
   </div>
-</article></div></div>
+</article></div>
 </section>
 <section>
   <h2>Last 3 months vs the 3 months before</h2>
-  <p class="hint">Green is the last 3 months. Gray is the 3 months before that. A much shorter green bar means the jump already happened. The sentence under the name is the takeaway.</p>
-  <div class="grid">
-<article class="macro pick">
+  <p class="hint">Green is the last 3 months. Gray is the 3 months before that. A much shorter green bar means the jump already happened.</p>
+  <div class="grid"><article class="macro pick">
   <h3>HeartGold shiny ones</h3>
   <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
   <div class="pair">
@@ -932,14 +976,12 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     <div class="lane"><span>before</span><div class="track"><span class="up" style="width:4%"></span></div><span class="v up">+2%</span></div>
     <div class="lane"><span>year</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+29%</span></div>
   </div>
-</article>
-  </div>
+</article></div>
 </section>
 <section>
   <h2>The path</h2>
-  <p class="hint">Left is a year ago. Right is now. A line still climbing at the end is still growing. A line that went flat already finished.</p>
-  <div class="grid">
-<article class="path pick">
+  <p class="hint">Left is a year ago. Right is now. A line still climbing at the end is still growing.</p>
+  <div class="grid"><article class="path pick">
   <div>
     <h3>HeartGold shiny ones</h3>
     <p>Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
@@ -980,33 +1022,7 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     <p>Jumped in the spring. That jump already happened. Leave it.</p>
   </div>
   <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,8.3 131.3,6.2 194.0,4.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#97a1b5"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
-</article>
-  </div>
-</section>
-<section>
-  <h2>Pick these</h2>
-  <div class="grid">
-<article class="set pick"><h3>HeartGold shiny ones</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
-<article class="set pick"><h3>Call of Legends shiny ones</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
-<article class="set pick"><h3>Rising Rivals shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
-<article class="set pick"><h3>Supreme Victors shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
-<article class="set pick"><h3>Arceus shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
-<article class="set pick"><h3>Unleashed plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
-<article class="set pick"><h3>Undaunted plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
-<article class="set pick"><h3>Triumphant plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
-  </div>
-</section>
-<section>
-  <h2>Leave these</h2>
-  <div class="grid">
-<article class="set skip"><h3>Platinum shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
-<article class="set skip"><h3>Unleashed shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
-<article class="set skip"><h3>Undaunted shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
-<article class="set skip"><h3>Triumphant shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
-<article class="set skip"><h3>Prime cards in plastic cases</h3><p class="why">Prices already jumped last year. Leave the whole pile.</p></article>
-<article class="set skip"><h3>LV.X cards in plastic cases</h3><p class="why">These are not moving. Leave them.</p></article>
-<article class="set skip"><h3>Emerging Powers</h3><p class="why">This pile is not moving.</p></article>
-  </div>
+</article></div>
 </section>
 <section>
   <h2>Inside a pile</h2>
@@ -1023,10 +1039,8 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
 </section>
 <section>
   <h2>Sitting on the shelf vs sold</h2>
-  <p class="hint">Think of a garage sale. One table has expensive stuff nobody takes. Another table is almost empty because people keep buying. The empty table is the one people want.</p>
-  <p class="hint">Gray is money still for sale. Green is money that sold last month. Every pile uses the same scale, so you can compare the bars.</p>
-  <div class="grid">
-<article class="flow-card">
+  <p class="hint">Gray is money still for sale. Green is money that sold last month. Same scale on every pile.</p>
+  <div class="flow-grid"><article class="flow-card">
   <h3>Call of Legends</h3>
   <p>Asked a lot. Nobody bought.</p>
   <div class="flow-pair">
@@ -1057,15 +1071,30 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
     <div class="flow-row"><div class="flow-lab"><span>still for sale</span><b>$357,000</b></div><div class="track"><span class="sit" style="width:6%"></span></div></div>
     <div class="flow-row"><div class="flow-lab"><span>sold</span><b>$532,000</b></div><div class="track"><span class="sold" style="width:9%"></span></div></div>
   </div>
-</article>
-  </div>
+</article></div>
   <article class="rule" style="margin-top:.7rem">
     <h3>What this means</h3>
     <p>Call of Legends had the most money sitting. People asked a lot for plastic cases, and those cases stayed on the shelf. Rising Rivals had a small shelf and people bought. Prime cases sold, but their big jump was last year — leave that pile.</p>
   </article>
 </section>
-<p class="foot">Shop prices from August 18. Shelf vs sold from one week in August so the shop and eBay line up. Each row is a pile, not one card.</p>
+<p class="foot">Shop prices from August 18. Shelf vs sold from one week in August so the shop and eBay line up.</p>
 </main>
+<script>
+(function(){
+  var chips = document.querySelectorAll(".chip");
+  var tiles = document.querySelectorAll(".card-tile");
+  chips.forEach(function(c){
+    c.addEventListener("click", function(){
+      chips.forEach(function(x){ x.classList.remove("active"); });
+      c.classList.add("active");
+      var pile = c.getAttribute("data-pile");
+      tiles.forEach(function(t){
+        t.style.display = (pile==="all" || t.getAttribute("data-pile")===pile) ? "" : "none";
+      });
+    });
+  });
+})();
+</script>
 
 <script>
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
