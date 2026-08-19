@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Cards to watch</title>
+<link rel="manifest" href="manifest.webmanifest"/>
+<style>
+:root{--bg:#0c0f16;--panel:#141925;--panel2:#1a2130;--text:#eef2fa;--muted:#97a1b5;--border:#2a3348;--accent:#6ea8ff;--pos:#3dd68c;--neg:#f07178;--warn:#e6b450}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;background:radial-gradient(1200px 600px at 8% -10%,#182038 0%,var(--bg) 55%);color:var(--text);line-height:1.4}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(12,15,22,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top)}
+.inner{max-width:98rem;margin:0 auto;padding:.7rem 1rem}
+h1{margin:0;font-size:1.15rem;font-weight:700;text-wrap:balance}
+.meta{color:var(--muted);font-size:.82rem;margin-top:.15rem}
+.meta a{color:var(--accent);text-decoration:none}
+main{max-width:98rem;margin:0 auto;padding:.85rem 1rem 3rem;padding-bottom:max(2.5rem,env(safe-area-inset-bottom))}
+.callout{color:var(--muted);font-size:.9rem;margin:0 0 .75rem;max-width:44rem}
+.controls{display:flex;flex-wrap:wrap;gap:.5rem .7rem;align-items:center;margin:0 0 .75rem;padding:.55rem .65rem;background:var(--panel);border:1px solid var(--border);border-radius:12px}
+.lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);width:100%}
+.row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
+.chip{appearance:none;border:1px solid var(--border);background:var(--panel2);color:var(--text);border-radius:999px;padding:.28rem .65rem;font-size:.78rem;cursor:pointer;min-height:44px}
+.chip:hover{border-color:var(--accent)}
+.chip.active{border-color:var(--accent);background:rgba(110,168,255,.14);color:#cfe2ff}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.controls .find{flex:1 1 100%;display:flex;align-items:center;gap:.45rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.controls input[type=search]{flex:1 1 12rem;min-width:12rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:.35rem .5rem;font-size:16px;text-transform:none;letter-spacing:0}
+.statbar{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 .55rem}
+.statpill{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:.3rem .5rem;font-size:.76rem;color:var(--muted)}
+.statpill b{color:var(--text);font-variant-numeric:tabular-nums}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:.65rem}
+.card-tile{background:var(--panel2);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;text-align:left;width:100%;padding:0;color:inherit;font:inherit}
+.card-tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card-tile .art{position:relative;min-height:210px;display:flex;align-items:flex-end;justify-content:center;padding:.55rem;background:linear-gradient(180deg,#101522,#0a0d14)}
+.card-tile .art img{width:min(100%,148px);height:208px;object-fit:contain}
+.card-tile.foil-cue .art::after{content:"";pointer-events:none;position:absolute;inset:0;background:linear-gradient(125deg,transparent 35%,rgba(255,255,255,.12) 48%,transparent 62%);mix-blend-mode:screen;opacity:.55}
+.badge{position:absolute;top:.35rem;left:.35rem;z-index:2;font-size:.62rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.18rem .35rem;border-radius:6px;background:rgba(0,0,0,.72);border:1px solid rgba(61,214,140,.55);color:#b8f5d4}
+.badge.spread{border-color:rgba(110,168,255,.55);color:#cfe2ff}
+.badge.delta{border-color:rgba(192,132,252,.55);color:#e9d5ff}
+.badge.plain{border-color:rgba(148,163,184,.55);color:#cbd5e1}
+.badge.pile{border-color:rgba(230,180,80,.55);color:#f0d78c}
+.badge.skip{border-color:rgba(240,113,120,.45);color:#f0a8ac}
+.badge.poison{border-color:rgba(240,113,120,.7);color:#ffd0d2}
+.card-tile .body{padding:.45rem .55rem .6rem}
+.card-tile .nm{font-weight:700;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-tile .sm{color:var(--muted);font-size:.72rem;margin:.12rem 0 .35rem}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:.25rem}
+.st{background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:8px;padding:.22rem .3rem}
+.st .k{display:block;font-size:.58rem;text-transform:uppercase;color:var(--muted);letter-spacing:.04em}
+.st .v{display:block;font-size:.76rem;font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",ui-monospace,monospace;white-space:nowrap}
+.st.hit{border-color:var(--accent);background:rgba(110,168,255,.14)}
+.pos{color:var(--pos);font-weight:700}.neg{color:var(--neg);font-weight:700}.flat{color:var(--muted)}
+footer{color:var(--muted);font-size:.78rem;margin-top:1rem}
+body.card-open #browse{display:none}
+#card-page{display:none}
+body.card-open #card-page{display:block}
+.back{appearance:none;border:1px solid var(--border);background:var(--panel2);color:var(--text);border-radius:8px;padding:.4rem .7rem;cursor:pointer;min-height:44px;margin:0 0 .75rem}
+.card-page-inner{max-width:46rem;min-width:0}
+.hero{display:grid;grid-template-columns:min(42vw,280px) 1fr;gap:1rem;margin:.15rem 0 1rem;align-items:start}
+.hero-art{appearance:none;border:1px solid var(--border);background:#0a0d14;border-radius:14px;padding:.55rem;cursor:zoom-in;min-height:44px}
+.hero-art img{display:block;width:100%;height:auto;max-height:380px;object-fit:contain}
+.hero-art:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hero h2{margin:0;font-size:1.25rem}
+.tab-note{color:var(--muted);font-size:.78rem;margin:.15rem 0 .55rem}
+.gains{display:grid;grid-template-columns:repeat(2,1fr);gap:.35rem;margin:0 0 .7rem}
+.lightbox{display:none;position:fixed;inset:0;z-index:80;background:rgba(6,8,12,.92);align-items:center;justify-content:center;padding:1.2rem}
+.lightbox.on{display:flex}
+.lightbox img{max-width:min(92vw,520px);max-height:92vh;object-fit:contain;border-radius:12px}
+.lightbox button{position:absolute;top:max(.7rem,env(safe-area-inset-top));right:max(.7rem,env(safe-area-inset-right));min-height:44px;min-width:44px}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important}
+}
+@media (max-width:700px){
+  main{padding:.55rem .7rem calc(2rem + env(safe-area-inset-bottom))}
+  .pack-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}
+  .card-tile .art{min-height:168px}
+  .card-tile .art img{height:164px}
+  .controls input[type=search]{width:100%;min-width:0}
+  .hero{grid-template-columns:1fr}
+  .hero-art img{max-height:320px;margin:0 auto}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="inner">
+  <h1>Cards to watch</h1>
+  <div class="meta">BIN sit + shop piles · HeartGold, Platinum, delta · freeze 2026-08-19T18Z · <a href="index.html">home</a> · <a href="buying.html">buying</a> · <a href="primes.html">primes</a></div>
+</div></header>
+<main>
+<div id="browse">
+  <div class="callout">Tap a picture. Fast cards leave the shelf first. Do not mix the two Latias cards. Shop pile is HeartGold friends, not a sit number.</div>
+  <div class="controls">
+    <div class="lbl">Pile</div>
+    <div class="row" id="seg-row"></div>
+    <div class="lbl">Sort</div>
+    <div class="row" id="sort-row"></div>
+    <label class="find">Search <input id="q" type="search" placeholder="Celebi, Holon, 92…" autocomplete="off"/></label>
+  </div>
+  <div class="statbar" id="statbar"></div>
+  <div class="pack-grid" id="grid"></div>
+  <footer>Fixed-price book only. An auction bid is not on this page. Pay at most is a buy ceiling, not a shop price. Tap the big picture to zoom.</footer>
+</div>
+<section id="card-page">
+  <div class="card-page-inner">
+    <button type="button" class="back" id="back">← All cards</button>
+    <div id="sheet"></div>
+  </div>
+</section>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Larger card image">
+  <button type="button" class="back" id="lb-close">Close</button>
+  <img id="lb-img" alt=""/>
+</div>
+</main>
+<script type="application/json" id="app-data">[{"id":"hgss4-96","name":"Magnezone","set":"HS\u2014Triumphant","set_id":"hgss4","num":"96","rarity":"Rare Prime","seg":"fast","grade":"NM","mark":52.96,"sold":69.99,"ask_p25":61.92,"ask_med":100.0,"asks":3,"sellers":1,"ebay_n":11,"sit":8.2,"shop":null,"r3":null,"pay":59.22,"note":"thin book; 1 seller","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss4/96.png","imgHi":"https://images.pokemontcg.io/hgss4/96_hires.png"},{"id":"hgss4-92","name":"Celebi","set":"HS\u2014Triumphant","set_id":"hgss4","num":"92","rarity":"Rare Prime","seg":"fast","grade":"LP","mark":54.8,"sold":76.47,"ask_p25":70.0,"ask_med":72.24,"asks":8,"sellers":7,"ebay_n":23,"sit":10.4,"shop":null,"r3":null,"pay":64.84,"note":"only ~10 day sit","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss4/92.png","imgHi":"https://images.pokemontcg.io/hgss4/92_hires.png"},{"id":"pl1-10","name":"Giratina","set":"Platinum","set_id":"pl1","num":"10","rarity":"Rare Holo","seg":"spread","grade":"LP","mark":46.22,"sold":65.0,"ask_p25":34.99,"ask_med":40.0,"asks":6,"sellers":1,"ebay_n":11,"sit":16.4,"shop":null,"r3":null,"pay":54.89,"note":"verify the holo; 1 seller","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/pl1/10.png","imgHi":"https://images.pokemontcg.io/pl1/10_hires.png"},{"id":"ex14-6","name":"Ludicolo \u03b4","set":"Crystal Guardians","set_id":"ex14","num":"6","rarity":"Rare Holo","seg":"spread","grade":"NM","mark":27.17,"sold":26.64,"ask_p25":19.69,"ask_med":20.86,"asks":10,"sellers":9,"ebay_n":11,"sit":27.3,"shop":null,"r3":null,"pay":21.61,"note":"cleanest \u03b4 holo under $100","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/ex14/6.png","imgHi":"https://images.pokemontcg.io/ex14/6_hires.png"},{"id":"col1-15","name":"Lugia","set":"Call of Legends","set_id":"col1","num":"15","rarity":"Rare Holo","seg":"spread","grade":"LP","mark":81.0,"sold":68.0,"ask_p25":50.0,"ask_med":70.0,"asks":9,"sellers":9,"ebay_n":9,"sit":30.0,"shop":null,"r3":null,"pay":57.49,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/col1/15.png","imgHi":"https://images.pokemontcg.io/col1/15_hires.png"},{"id":"col1-4","name":"Espeon","set":"Call of Legends","set_id":"col1","num":"4","rarity":"Rare Holo","seg":"spread","grade":"NM","mark":58.14,"sold":52.81,"ask_p25":34.97,"ask_med":47.49,"asks":12,"sellers":9,"ebay_n":10,"sit":36.0,"shop":null,"r3":null,"pay":44.31,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/col1/4.png","imgHi":"https://images.pokemontcg.io/col1/4_hires.png"},{"id":"hgss1-110","name":"Typhlosion","set":"HeartGold & SoulSilver","set_id":"hgss1","num":"110","rarity":"Rare Prime","seg":"spread","grade":"LP","mark":42.64,"sold":49.4,"ask_p25":29.99,"ask_med":50.0,"asks":11,"sellers":4,"ebay_n":8,"sit":41.3,"shop":null,"r3":null,"pay":41.35,"note":"slow sit","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss1/110.png","imgHi":"https://images.pokemontcg.io/hgss1/110_hires.png"},{"id":"ex13-13","name":"Omastar \u03b4","set":"Holon Phantoms","set_id":"ex13","num":"13","rarity":"Rare Holo","seg":"delta","grade":"LP","mark":9.82,"sold":13.92,"ask_p25":10.76,"ask_med":14.99,"asks":7,"sellers":7,"ebay_n":8,"sit":26.3,"shop":null,"r3":null,"pay":10.58,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/ex13/13.png","imgHi":"https://images.pokemontcg.io/ex13/13_hires.png"},{"id":"ex11-1","name":"Beedrill \u03b4","set":"Delta Species","set_id":"ex11","num":"1","rarity":"Rare Holo","seg":"delta","grade":"LP","mark":41.0,"sold":28.29,"ask_p25":21.38,"ask_med":35.07,"asks":10,"sellers":10,"ebay_n":8,"sit":37.5,"shop":null,"r3":null,"pay":23.04,"note":"mark and sold disagree","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/ex11/1.png","imgHi":"https://images.pokemontcg.io/ex11/1_hires.png"},{"id":"hgss2-14","name":"Crobat","set":"HS\u2014Unleashed","set_id":"hgss2","num":"14","rarity":"Rare","seg":"plain","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":4,"ebay_n":1,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":false,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss2/14.png","imgHi":"https://images.pokemontcg.io/hgss2/14_hires.png"},{"id":"hgss4-18","name":"Dragonite","set":"HS\u2014Triumphant","set_id":"hgss4","num":"18","rarity":"Rare","seg":"plain","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":18,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":false,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss4/18.png","imgHi":"https://images.pokemontcg.io/hgss4/18_hires.png"},{"id":"hgss3-19","name":"Mismagius","set":"HS\u2014Undaunted","set_id":"hgss3","num":"19","rarity":"Rare","seg":"plain","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":1,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":false,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss3/19.png","imgHi":"https://images.pokemontcg.io/hgss3/19_hires.png"},{"id":"hgss2-21","name":"Poliwrath","set":"HS\u2014Unleashed","set_id":"hgss2","num":"21","rarity":"Rare","seg":"plain","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":3,"ebay_n":1,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":false,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss2/21.png","imgHi":"https://images.pokemontcg.io/hgss2/21_hires.png"},{"id":"hgss3-20","name":"Rotom","set":"HS\u2014Undaunted","set_id":"hgss3","num":"20","rarity":"Rare","seg":"plain","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":9,"ebay_n":1,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":false,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss3/20.png","imgHi":"https://images.pokemontcg.io/hgss3/20_hires.png"},{"id":"hgss4-31","name":"Wailord","set":"HS\u2014Triumphant","set_id":"hgss4","num":"31","rarity":"Rare","seg":"plain","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":7,"ebay_n":1,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":false,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss4/31.png","imgHi":"https://images.pokemontcg.io/hgss4/31_hires.png"},{"id":"col1-1","name":"Clefable","set":"Call of Legends","set_id":"col1","num":"1","rarity":"Rare Holo","seg":"pile","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":16,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/col1/1.png","imgHi":"https://images.pokemontcg.io/col1/1_hires.png"},{"id":"col1-2","name":"Deoxys","set":"Call of Legends","set_id":"col1","num":"2","rarity":"Rare Holo","seg":"pile","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":39,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/col1/2.png","imgHi":"https://images.pokemontcg.io/col1/2_hires.png"},{"id":"col1-7","name":"Gyarados","set":"Call of Legends","set_id":"col1","num":"7","rarity":"Rare Holo","seg":"pile","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":66,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/col1/7.png","imgHi":"https://images.pokemontcg.io/col1/7_hires.png"},{"id":"col1-16","name":"Magmortar","set":"Call of Legends","set_id":"col1","num":"16","rarity":"Rare Holo","seg":"pile","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":7,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/col1/16.png","imgHi":"https://images.pokemontcg.io/col1/16_hires.png"},{"id":"hgss1-7","name":"Ninetales","set":"HeartGold & SoulSilver","set_id":"hgss1","num":"7","rarity":"Rare Holo","seg":"pile","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":49,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss1/7.png","imgHi":"https://images.pokemontcg.io/hgss1/7_hires.png"},{"id":"col1-19","name":"Palkia","set":"Call of Legends","set_id":"col1","num":"19","rarity":"Rare Holo","seg":"pile","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":18,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/col1/19.png","imgHi":"https://images.pokemontcg.io/col1/19_hires.png"},{"id":"hgss1-10","name":"Raichu","set":"HeartGold & SoulSilver","set_id":"hgss1","num":"10","rarity":"Rare Holo","seg":"pile","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":31,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss1/10.png","imgHi":"https://images.pokemontcg.io/hgss1/10_hires.png"},{"id":"hgss1-11","name":"Shuckle","set":"HeartGold & SoulSilver","set_id":"hgss1","num":"11","rarity":"Rare Holo","seg":"pile","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":29,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss1/11.png","imgHi":"https://images.pokemontcg.io/hgss1/11_hires.png"},{"id":"hgss1-12","name":"Slowking","set":"HeartGold & SoulSilver","set_id":"hgss1","num":"12","rarity":"Rare Holo","seg":"pile","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":32,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss1/12.png","imgHi":"https://images.pokemontcg.io/hgss1/12_hires.png"},{"id":"hgss1-13","name":"Wobbuffet","set":"HeartGold & SoulSilver","set_id":"hgss1","num":"13","rarity":"Rare Holo","seg":"pile","grade":"","mark":null,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":25,"ebay_n":0,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/hgss1/13.png","imgHi":"https://images.pokemontcg.io/hgss1/13_hires.png"},{"id":"ex15-7","name":"Nidoqueen \u03b4","set":"Dragon Frontiers","set_id":"ex15","num":"7","rarity":"Rare Holo","seg":"skip","grade":"LP","mark":18.03,"sold":24.99,"ask_p25":18.46,"ask_med":21.67,"asks":18,"sellers":17,"ebay_n":12,"sit":45.0,"shop":null,"r3":null,"pay":20.18,"note":"flooded","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/ex15/7.png","imgHi":"https://images.pokemontcg.io/ex15/7_hires.png"},{"id":"dp7-3","name":"Infernape","set":"Stormfront","set_id":"dp7","num":"3","rarity":"Rare Holo","seg":"skip","grade":"NM","mark":21.52,"sold":20.74,"ask_p25":10.29,"ask_med":17.49,"asks":18,"sellers":18,"ebay_n":9,"sit":60.0,"shop":null,"r3":null,"pay":16.49,"note":"flooded","foil":true,"twin":null,"twin_name":null,"img":"https://images.pokemontcg.io/dp7/3.png","imgHi":"https://images.pokemontcg.io/dp7/3_hires.png"},{"id":"ex13-11","name":"Latias \u03b4","set":"Holon Phantoms","set_id":"ex13","num":"11","rarity":"Rare Holo","seg":"poison","grade":"NM","mark":102.49,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":null,"ebay_n":null,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":"ex13-21","twin_name":"Latias \u03b4 21","img":"https://images.pokemontcg.io/ex13/11.png","imgHi":"https://images.pokemontcg.io/ex13/11_hires.png"},{"id":"ex13-21","name":"Latias \u03b4","set":"Holon Phantoms","set_id":"ex13","num":"21","rarity":"Rare","seg":"poison","grade":"NM","mark":15.69,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":null,"ebay_n":null,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":false,"twin":"ex13-11","twin_name":"Latias \u03b4 11","img":"https://images.pokemontcg.io/ex13/21.png","imgHi":"https://images.pokemontcg.io/ex13/21_hires.png"},{"id":"ex13-12","name":"Latios \u03b4","set":"Holon Phantoms","set_id":"ex13","num":"12","rarity":"Rare Holo","seg":"poison","grade":"NM","mark":89.18,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":null,"ebay_n":null,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":"ex13-22","twin_name":"Latios \u03b4 22","img":"https://images.pokemontcg.io/ex13/12.png","imgHi":"https://images.pokemontcg.io/ex13/12_hires.png"},{"id":"ex13-22","name":"Latios \u03b4","set":"Holon Phantoms","set_id":"ex13","num":"22","rarity":"Rare","seg":"poison","grade":"NM","mark":14.87,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":null,"ebay_n":null,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":false,"twin":"ex13-12","twin_name":"Latios \u03b4 12","img":"https://images.pokemontcg.io/ex13/22.png","imgHi":"https://images.pokemontcg.io/ex13/22_hires.png"},{"id":"ex13-16","name":"Rayquaza \u03b4","set":"Holon Phantoms","set_id":"ex13","num":"16","rarity":"Rare Holo","seg":"poison","grade":"NM","mark":349.99,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":null,"ebay_n":null,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":true,"twin":"ex13-26","twin_name":"Rayquaza \u03b4 26","img":"https://images.pokemontcg.io/ex13/16.png","imgHi":"https://images.pokemontcg.io/ex13/16_hires.png"},{"id":"ex13-26","name":"Rayquaza \u03b4","set":"Holon Phantoms","set_id":"ex13","num":"26","rarity":"Rare","seg":"poison","grade":"NM","mark":73.87,"sold":null,"ask_p25":null,"ask_med":null,"asks":null,"sellers":null,"ebay_n":null,"sit":null,"shop":null,"r3":null,"pay":null,"note":"","foil":false,"twin":"ex13-16","twin_name":"Rayquaza \u03b4 16","img":"https://images.pokemontcg.io/ex13/26.png","imgHi":"https://images.pokemontcg.io/ex13/26_hires.png"}]</script>
+<script>
+const SETS = {"ex11": "Delta Species", "ex13": "Holon Phantoms", "ex14": "Crystal Guardians", "ex15": "Dragon Frontiers", "pl1": "Platinum", "dp7": "Stormfront", "hgss1": "HeartGold", "hgss2": "Unleashed", "hgss3": "Undaunted", "hgss4": "Triumphant", "col1": "Call of Legends"};
+const SEGS = {"fast": "Fast", "spread": "Spread", "delta": "Delta leftover", "plain": "Plain rare", "pile": "Shop pile", "skip": "Skip", "poison": "Do not mix"};
+const ORDER = ["fast", "spread", "delta", "plain", "pile", "skip", "poison"];
+const ROWS = JSON.parse(document.getElementById("app-data").textContent);
+const $ = (id) => document.getElementById(id);
+let segF = "all", sortK = "sit", q = "";
+const SORTS = [
+  ["sit","Sit"],
+  ["sold","Sold"],
+  ["ask","Ask"],
+  ["pay","Pay at most"],
+  ["shop","Shop"],
+];
+let sheetId = null, lastFocus = null;
+
+function usd(x){
+  if(x==null) return "—";
+  return "$" + (x>=100 ? Math.round(x).toLocaleString() : x.toFixed(2));
+}
+function days(x){
+  if(x==null) return "—";
+  return x.toFixed(x>=10?0:1) + "d";
+}
+function pct(x){
+  if(x==null) return "—";
+  const cls = x>0.005 ? "pos" : x<-0.005 ? "neg" : "flat";
+  return `<span class="${cls}">${x>0?"+":""}${(x*100).toFixed(0)}%</span>`;
+}
+function sortVal(r){
+  if(sortK==="sit") return r.sit;
+  if(sortK==="sold") return r.sold;
+  if(sortK==="ask") return r.ask_p25;
+  if(sortK==="pay") return r.pay;
+  if(sortK==="shop") return r.shop;
+  return null;
+}
+function filtered(){
+  const qq = q.trim().toLowerCase();
+  let xs = ROWS.filter(r => segF==="all" || r.seg===segF);
+  if(qq) xs = xs.filter(r => (r.name+" "+r.set+" "+r.num+" "+r.id+" "+r.seg).toLowerCase().includes(qq));
+  xs = xs.slice();
+  const asc = sortK==="sit";
+  xs.sort((a,b) => {
+    if(sortK==="sit" && segF==="all"){
+      const ao = ORDER.indexOf(a.seg), bo = ORDER.indexOf(b.seg);
+      if(ao!==bo) return ao-bo;
+    }
+    const av=sortVal(a), bv=sortVal(b);
+    if(av==null&&bv==null) return a.name.localeCompare(b.name);
+    if(av==null) return 1;
+    if(bv==null) return -1;
+    if(av===bv) return a.name.localeCompare(b.name);
+    return asc ? av-bv : bv-av;
+  });
+  return xs;
+}
+function chips(){
+  const sr = $("seg-row"); sr.innerHTML = "";
+  [["all","All"], ...ORDER.map(id => [id, SEGS[id]])].forEach(([id,lab]) => {
+    const n = id==="all" ? ROWS.length : ROWS.filter(r=>r.seg===id).length;
+    const b=document.createElement("button");
+    b.type="button"; b.className="chip"+(segF===id?" active":""); b.textContent=lab+" "+n;
+    b.setAttribute("aria-pressed", segF===id ? "true" : "false");
+    b.onclick=()=>{segF=id; draw();};
+    sr.appendChild(b);
+  });
+  const or = $("sort-row"); or.innerHTML = "";
+  SORTS.forEach(([id,lab]) => {
+    const b=document.createElement("button");
+    b.type="button"; b.className="chip"+(sortK===id?" active":""); b.textContent=lab;
+    b.setAttribute("aria-pressed", sortK===id ? "true" : "false");
+    b.onclick=()=>{sortK=id; draw();};
+    or.appendChild(b);
+  });
+}
+function badgeClass(seg){
+  if(seg==="fast") return "";
+  return seg;
+}
+function cells(r){
+  if(r.seg==="poison") return [
+    ["sold","Mark", usd(r.mark)],
+    ["ask","Twin", r.twin_name || "—"],
+  ];
+  if(r.seg==="pile" || r.seg==="plain") return [
+    ["shop","Shop", usd(r.shop)],
+    ["sold","3 mo", pct(r.r3)],
+  ];
+  return [
+    ["sold","Sold", usd(r.sold)],
+    ["ask","Ask", usd(r.ask_p25)],
+    ["sit","Sit", days(r.sit)],
+    ["pay","Pay ≤", usd(r.pay)],
+  ];
+}
+function tile(r){
+  const b = document.createElement("button");
+  b.type="button"; b.className="card-tile"+(r.foil?" foil-cue":"");
+  const tag = SEGS[r.seg] || r.seg;
+  const bits = cells(r);
+  b.setAttribute("aria-label", `${r.name} ${SETS[r.set_id]||r.set} ${r.num}`);
+  b.innerHTML = `<div class="art"><span class="badge ${badgeClass(r.seg)}">${tag}</span><img src="${r.img}" alt="" loading="lazy"/></div>
+    <div class="body"><div class="nm">${r.name}</div>
+    <div class="sm">${SETS[r.set_id]||r.set} · ${r.num}${r.grade?" · "+r.grade:""}</div>
+    <div class="sg">${bits.map(([id,k,v]) =>
+      `<div class="st${sortK===id?" hit":""}"><span class="k">${k}</span><span class="v">${v}</span></div>`
+    ).join("")}</div></div>`;
+  b.onclick=()=>openCard(r.id);
+  return b;
+}
+function openCard(id){
+  const r = ROWS.find(x => x.id===id);
+  if(!r) return;
+  lastFocus = document.activeElement;
+  sheetId = id;
+  document.body.classList.add("card-open");
+  history.replaceState({}, "", "#"+id);
+  const twinBtn = r.twin
+    ? `<p class="tab-note">Looks like <button type="button" class="chip" id="twin-btn">${r.twin_name}</button>. Do not mix them.</p>`
+    : "";
+  const extra = r.seg==="pile" || r.seg==="plain"
+    ? `<div class="gains">
+        <div class="st"><span class="k">Shop now</span><span class="v">${usd(r.shop)}</span></div>
+        <div class="st"><span class="k">Last 3 months</span><span class="v">${pct(r.r3)}</span></div>
+      </div>
+      <p class="tab-note">Shop tape. No sit on this card. The buying page is the pile story.</p>`
+    : r.seg==="poison"
+    ? `<div class="gains">
+        <div class="st"><span class="k">Book mark</span><span class="v">${usd(r.mark)}</span></div>
+        <div class="st"><span class="k">Print</span><span class="v">${r.rarity}</span></div>
+      </div>
+      ${twinBtn}
+      <p class="tab-note">Same English name. Different number. Pictures first.</p>`
+    : `<div class="gains">
+        <div class="st"><span class="k">Sold</span><span class="v">${usd(r.sold)}</span></div>
+        <div class="st"><span class="k">Ask (p25)</span><span class="v">${usd(r.ask_p25)}</span></div>
+        <div class="st"><span class="k">Sit</span><span class="v">${days(r.sit)}</span></div>
+        <div class="st"><span class="k">Pay at most</span><span class="v">${usd(r.pay)}</span></div>
+        <div class="st"><span class="k">Asks · sellers</span><span class="v">${r.asks==null?"—":r.asks} · ${r.sellers==null?"—":r.sellers}</span></div>
+        <div class="st"><span class="k">eBay / 30d</span><span class="v">${r.ebay_n==null?"—":r.ebay_n}</span></div>
+      </div>
+      <p class="tab-note">Sit is how long a copy waits, not how old a listing is. Ask is the 25th percentile of live BIN prices.</p>`;
+  $("sheet").innerHTML = `<div class="hero">
+    <button type="button" class="hero-art" id="hero-art"><img src="${r.imgHi}" alt="${r.name}"/></button>
+    <div>
+      <h2>${r.name}</h2>
+      <p class="tab-note">${SETS[r.set_id]||r.set} · ${r.num} · ${r.rarity}${r.grade?" · "+r.grade:""}</p>
+      ${extra}
+      ${r.note?`<p class="tab-note">${r.note}</p>`:""}
+    </div>
+  </div>`;
+  $("hero-art").onclick=()=>openZoom(r.imgHi, r.name);
+  const tb = $("twin-btn");
+  if(tb) tb.onclick=()=>openCard(r.twin);
+}
+function openZoom(src, name){
+  const box = $("lightbox");
+  $("lb-img").src = src;
+  $("lb-img").alt = name;
+  box.hidden = false;
+  box.classList.add("on");
+}
+function closeZoom(){
+  const box = $("lightbox");
+  box.classList.remove("on");
+  box.hidden = true;
+}
+function draw(){
+  chips();
+  const xs = filtered();
+  const fast = xs.filter(r=>r.seg==="fast").length;
+  $("statbar").innerHTML = `<span class="statpill"><b>${xs.length}</b> cards</span>
+    <span class="statpill"><b>${fast}</b> leave first</span>
+    <span class="statpill">BIN book · shop pile has no sit</span>`;
+  const g=$("grid"); g.innerHTML="";
+  xs.forEach(r=>g.appendChild(tile(r)));
+}
+$("q").addEventListener("input", e=>{q=e.target.value; draw();});
+$("back").onclick=()=>{
+  document.body.classList.remove("card-open");
+  sheetId=null;
+  closeZoom();
+  history.replaceState({}, "", location.pathname);
+  if(lastFocus && lastFocus.focus) lastFocus.focus();
+};
+$("lb-close").onclick=closeZoom;
+$("lightbox").addEventListener("click", e=>{ if(e.target.id==="lightbox") closeZoom(); });
+document.addEventListener("keydown", e=>{
+  if(e.key!=="Escape") return;
+  const box = $("lightbox");
+  if(box && !box.hidden){ closeZoom(); return; }
+  if(document.body.classList.contains("card-open")) $("back").click();
+});
+window.addEventListener("popstate", ()=>{
+  if(location.hash) openCard(location.hash.slice(1));
+  else { document.body.classList.remove("card-open"); sheetId=null; }
+});
+if(location.hash) openCard(location.hash.slice(1));
+draw();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
+</script>
+</body>
+</html>
