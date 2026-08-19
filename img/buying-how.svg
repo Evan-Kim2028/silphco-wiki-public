@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 248" width="100%" preserveAspectRatio="xMidYMin meet" role="img" aria-labelledby="buy-how-t buy-how-d" style="display:block;max-width:100%;height:auto">
+  <title id="buy-how-t">How to look: pick the growing pile</title>
+  <desc id="buy-how-d">A long green bar is the growing pile. A short gray bar already jumped. Pick the long one.</desc>
+  <rect width="360" height="248" fill="#fafaf7"/>
+  <text x="16" y="28" fill="#1a1a1a" font-size="16" font-family="system-ui,sans-serif">How to look</text>
+  <text x="16" y="64" fill="#2a8f5b" font-size="16" font-family="system-ui,sans-serif">growing pile</text>
+  <rect x="16" y="76" width="248" height="16" rx="8" fill="#2a8f5b"/>
+  <text x="276" y="89" fill="#2a8f5b" font-size="15" font-family="system-ui,sans-serif">buy</text>
+  <text x="16" y="136" fill="#6b665d" font-size="16" font-family="system-ui,sans-serif">already jumped</text>
+  <rect x="16" y="148" width="100" height="16" rx="8" fill="#b0aaa0"/>
+  <text x="128" y="161" fill="#6b665d" font-size="15" font-family="system-ui,sans-serif">leave</text>
+  <text x="16" y="208" fill="#6b665d" font-size="14" font-family="system-ui,sans-serif">A longer bar means it is still growing.</text>
+  <text x="16" y="228" fill="#6b665d" font-size="14" font-family="system-ui,sans-serif">Read every pile this way.</text>
+</svg>

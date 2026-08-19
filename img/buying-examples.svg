@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420" width="100%" preserveAspectRatio="xMidYMin meet" role="img" aria-labelledby="buy-ex-t buy-ex-d" style="display:block;max-width:100%;height:auto">
+  <title id="buy-ex-t">HeartGold grew more. Pachirisu stayed shorter than friends.</title>
+  <desc id="buy-ex-d">HeartGold shiny ones are a long green bar. Unleashed shiny ones are shorter. Pachirisu is a short blue bar next to long gray friends.</desc>
+  <rect width="360" height="420" fill="#fafaf7"/>
+  <text x="16" y="28" fill="#1a1a1a" font-size="16" font-family="system-ui,sans-serif">Three examples</text>
+
+  <text x="16" y="68" fill="#1a1a1a" font-size="16" font-family="system-ui,sans-serif">HeartGold shiny ones</text>
+  <text x="16" y="88" fill="#2a8f5b" font-size="14" font-family="system-ui,sans-serif">still growing · buy</text>
+  <rect x="16" y="102" width="248" height="16" rx="8" fill="#2a8f5b"/>
+
+  <text x="16" y="158" fill="#1a1a1a" font-size="16" font-family="system-ui,sans-serif">Unleashed shiny ones</text>
+  <text x="16" y="178" fill="#6b665d" font-size="14" font-family="system-ui,sans-serif">already jumped · leave</text>
+  <rect x="16" y="192" width="100" height="16" rx="8" fill="#b0aaa0"/>
+
+  <text x="16" y="248" fill="#1a1a1a" font-size="16" font-family="system-ui,sans-serif">Pachirisu</text>
+  <text x="16" y="268" fill="#6b665d" font-size="14" font-family="system-ui,sans-serif">shorter than friends · leave</text>
+  <text x="16" y="300" fill="#2f6fed" font-size="14" font-family="system-ui,sans-serif">this card</text>
+  <rect x="16" y="310" width="72" height="14" rx="7" fill="#2f6fed"/>
+  <text x="16" y="348" fill="#6b665d" font-size="14" font-family="system-ui,sans-serif">friends</text>
+  <rect x="16" y="358" width="220" height="14" rx="7" fill="#b0aaa0"/>
+  <text x="16" y="400" fill="#6b665d" font-size="14" font-family="system-ui,sans-serif">Blue is this card. Gray is the rest of the pile.</text>
+</svg>

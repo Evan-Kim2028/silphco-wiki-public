@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 552" width="100%" preserveAspectRatio="xMidYMin meet" role="img" aria-labelledby="flow-t flow-d" style="display:block;max-width:100%;height:auto">
+<title id="flow-t">Money still for sale versus money sold</title>
+<desc id="flow-d">Gray is money still for sale. Green is money that sold. Every pile uses the same scale. A long gray bar and a tiny green bar means sellers asked too much. A green bar longer than gray means people wanted it.</desc>
+<rect width="360" height="552" fill="#fafaf7"/>
+<text x="16" y="26" fill="#1a1a1a" font-size="16" font-family="system-ui,sans-serif">On the shelf vs sold</text>
+<rect x="16" y="40" width="14" height="10" rx="3" fill="#b0aaa0"/>
+<text x="36" y="49" fill="#6b665d" font-size="13" font-family="system-ui,sans-serif">still for sale</text>
+<rect x="148" y="40" width="14" height="10" rx="3" fill="#2a8f5b"/>
+<text x="168" y="49" fill="#6b665d" font-size="13" font-family="system-ui,sans-serif">sold this month</text>
+<text x="16" y="72" fill="#6b665d" font-size="13" font-family="system-ui,sans-serif">Every pile uses the same scale.</text>
+<text x="16" y="90" fill="#6b665d" font-size="13" font-family="system-ui,sans-serif">A longer sold bar means people wanted it.</text>
+<text x="16" y="112" fill="#1a1a1a" font-size="15" font-family="system-ui,sans-serif">Call of Legends</text>
+<text x="16" y="130" fill="#6b665d" font-size="13" font-family="system-ui,sans-serif">Asked a lot. Nobody bought.</text>
+<rect x="16" y="140" width="196" height="12" rx="6" fill="#b0aaa0"/>
+<text x="220" y="150" fill="#1a1a1a" font-size="12" font-family="system-ui,sans-serif">$5.8 million</text>
+<rect x="16" y="162" width="9" height="12" rx="6" fill="#2a8f5b"/>
+<text x="220" y="172" fill="#1a1a1a" font-size="12" font-family="system-ui,sans-serif">$275,000</text>
+<text x="16" y="220" fill="#1a1a1a" font-size="15" font-family="system-ui,sans-serif">Triumphant</text>
+<text x="16" y="238" fill="#6b665d" font-size="13" font-family="system-ui,sans-serif">Smaller shelf. More sold.</text>
+<rect x="16" y="248" width="84" height="12" rx="6" fill="#b0aaa0"/>
+<text x="220" y="258" fill="#1a1a1a" font-size="12" font-family="system-ui,sans-serif">$2.5 million</text>
+<rect x="16" y="270" width="17" height="12" rx="6" fill="#2a8f5b"/>
+<text x="220" y="280" fill="#1a1a1a" font-size="12" font-family="system-ui,sans-serif">$503,000</text>
+<text x="16" y="328" fill="#1a1a1a" font-size="15" font-family="system-ui,sans-serif">Unleashed</text>
+<text x="16" y="346" fill="#6b665d" font-size="13" font-family="system-ui,sans-serif">Sat there.</text>
+<rect x="16" y="356" width="22" height="12" rx="6" fill="#b0aaa0"/>
+<text x="220" y="366" fill="#1a1a1a" font-size="12" font-family="system-ui,sans-serif">$657,000</text>
+<rect x="16" y="378" width="8" height="12" rx="6" fill="#2a8f5b"/>
+<text x="220" y="388" fill="#1a1a1a" font-size="12" font-family="system-ui,sans-serif">$84,000</text>
+<text x="16" y="436" fill="#1a1a1a" font-size="15" font-family="system-ui,sans-serif">Rising Rivals</text>
+<text x="16" y="454" fill="#6b665d" font-size="13" font-family="system-ui,sans-serif">Small shelf. People bought.</text>
+<rect x="16" y="464" width="12" height="12" rx="6" fill="#b0aaa0"/>
+<text x="220" y="474" fill="#1a1a1a" font-size="12" font-family="system-ui,sans-serif">$357,000</text>
+<rect x="16" y="486" width="18" height="12" rx="6" fill="#2a8f5b"/>
+<text x="220" y="496" fill="#1a1a1a" font-size="12" font-family="system-ui,sans-serif">$532,000</text>
+</svg>
