@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<title>HGSS Primes</title>
+<title>Prime cards</title>
 <link rel="manifest" href="manifest.webmanifest"/>
 <style>
 :root{--bg:#0c0f16;--panel:#141925;--panel2:#1a2130;--text:#eef2fa;--muted:#97a1b5;--border:#2a3348;--accent:#6ea8ff;--pos:#3dd68c;--neg:#f07178;--warn:#e6b450}
@@ -16,8 +16,7 @@ h1{margin:0;font-size:1.15rem;font-weight:700;text-wrap:balance}
 .meta{color:var(--muted);font-size:.82rem;margin-top:.15rem}
 .meta a{color:var(--accent);text-decoration:none}
 main{max-width:98rem;margin:0 auto;padding:.85rem 1rem 3rem;padding-bottom:max(2.5rem,env(safe-area-inset-bottom))}
-.callout{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:10px;padding:.7rem .85rem;margin-bottom:.8rem;color:var(--muted);font-size:.86rem}
-.callout strong{color:var(--text)}
+.callout{color:var(--muted);font-size:.9rem;margin:0 0 .75rem;max-width:40rem}
 .controls{display:flex;flex-wrap:wrap;gap:.5rem .7rem;align-items:center;margin:0 0 .75rem;padding:.55rem .65rem;background:var(--panel);border:1px solid var(--border);border-radius:12px}
 .lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);width:100%}
 .row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
@@ -93,12 +92,12 @@ body.card-open #card-page{display:block}
 </head>
 <body>
 <header class="topbar"><div class="inner">
-  <h1>HGSS Primes</h1>
-  <div class="meta">English Rare Prime · raw + graded · 60-day sales as liquidity · <code>2026-08-19T16Z</code> · not a buy list · <a href="index.html">floor</a></div>
+  <h1>Prime cards</h1>
+  <div class="meta">26 shiny HGSS cards · how they priced and moved · not a shopping list · <a href="index.html">home</a></div>
 </div></header>
 <main>
 <div id="browse">
-  <div class="callout"><strong>One pile, two tapes.</strong> Each tile shows raw $, PSA 10 $, both 3-month moves, 60-day sales, and leftover. Sort chips reorder the grid and light the matching cell. Sold 60d is <code>gold.sales</code> — look, do not rank on it.</div>
+  <div class="callout">Tap a picture. Sort by price, how it moved, or how often it sold. A minus means this card grew less than the other Primes in its set.</div>
   <div class="controls">
     <div class="lbl">Set</div>
     <div class="row" id="set-row"></div>
@@ -108,11 +107,11 @@ body.card-open #card-page{display:block}
   </div>
   <div class="statbar" id="statbar"></div>
   <div class="pack-grid" id="grid"></div>
-  <footer>Tap a tile for the card page. Tap the big picture to zoom. Sales and listings are 60-day / live-ask snapshots — counts are not a score.</footer>
+  <footer>Tap a card. Tap the big picture to zoom.</footer>
 </div>
 <section id="card-page">
   <div class="card-page-inner">
-    <button type="button" class="back" id="back">← All Primes</button>
+    <button type="button" class="back" id="back">← All cards</button>
     <div id="sheet"></div>
   </div>
 </section>
@@ -130,12 +129,12 @@ const ROWS = JSON.parse(document.getElementById("app-data").textContent);
 const $ = (id) => document.getElementById(id);
 let setF = "all", sortK = "p10m", q = "";
 const SORTS = [
-  ["p10m","PSA 10 3m"],
-  ["rawm","Raw 3m"],
-  ["p10","PSA 10 $"],
-  ["nm","Raw $"],
-  ["vol","60d sales"],
-  ["left","Potential"],
+  ["p10m","Graded move"],
+  ["rawm","Raw move"],
+  ["p10","Graded price"],
+  ["nm","Raw price"],
+  ["vol","Most sold"],
+  ["left","Behind the pack"],
 ];
 let sheetId = null, tab = "overview", salesBand = "raw", listMkt = "all", lastFocus = null;
 const RAW_ORDER = ["Near Mint","Lightly Played","Moderately Played","Heavily Played","Damaged","Unknown","Raw (unspecified)"];
@@ -200,17 +199,17 @@ function chips(){
 function tile(r){
   const b = document.createElement("button");
   b.type="button"; b.className="card-tile foil-cue";
-  const tag = r.leftover ? "leftover" : r.raw_left ? "raw left" : r.no_pc ? "raw only" : (r.regime||"prime");
+  const tag = r.leftover || r.raw_left ? "behind" : r.no_pc ? "no grade book" : r.regime==="still-hot" ? "rising" : r.regime==="already-ran" ? "already up" : r.regime==="dead" ? "flat" : "";
   const cells = [
-    ["nm","Raw $", usd(r.nm)],
-    ["p10","PSA 10 $", usd(r.p10)],
-    ["rawm","Raw 3m", pct(r.tcg_r3)],
-    ["p10m","PSA 10 3m", pct(r.p10_r3)],
-    ["vol","60d sales", r.n60==null?"—":String(Math.round(r.n60))],
-    ["left","vs set", pct(leftoverScore(r))],
+    ["nm","Raw", usd(r.nm)],
+    ["p10","Graded", usd(r.p10)],
+    ["rawm","Raw move", pct(r.tcg_r3)],
+    ["p10m","Graded move", pct(r.p10_r3)],
+    ["vol","Sold", r.n60==null?"—":String(Math.round(r.n60))],
+    ["left","vs pack", pct(leftoverScore(r))],
   ];
-  b.setAttribute("aria-label", `${r.name} ${SETS[r.set_id]||r.set} ${r.num} raw ${usd(r.nm)} PSA 10 ${usd(r.p10)} raw 3m ${r.tcg_r3==null?"none":Math.round(r.tcg_r3*100)+"%"} PSA 10 3m ${r.p10_r3==null?"none":Math.round(r.p10_r3*100)+"%"} 60d sales ${r.n60==null?"none":Math.round(r.n60)}`);
-  b.innerHTML = `<div class="art"><span class="badge ${r.leftover||r.raw_left?"left":r.no_pc?"gap":""}">${tag}</span><img src="${r.img}" alt="" loading="lazy"/></div>
+  b.setAttribute("aria-label", `${r.name} ${SETS[r.set_id]||r.set} ${r.num} raw ${usd(r.nm)} graded ${usd(r.p10)}`);
+  b.innerHTML = `<div class="art">${tag?`<span class="badge ${r.leftover||r.raw_left?"left":r.no_pc?"gap":""}">${tag}</span>`:""}<img src="${r.img}" alt="" loading="lazy"/></div>
     <div class="body"><div class="nm">${r.name}</div>
     <div class="sm">${SETS[r.set_id]||r.set} · ${r.num}</div>
     <div class="sg">${cells.map(([id,k,v]) =>
@@ -229,29 +228,29 @@ function sortSales(rows){
   });
 }
 function overviewBody(r){
-  return `<div class="table-wrap"><table class="ladder"><thead><tr><th>Tape</th><th class="num">3m</th><th class="num">6m</th><th class="num">12m</th></tr></thead><tbody>
-      <tr><td>PSA 10</td><td class="num">${pct(r.p10_r3)}</td><td class="num">${pct(r.p10_r6)}</td><td class="num">${pct(r.p10_r12)}</td></tr>
-      <tr><td>Grade 9</td><td class="num">${pct(r.p9_r3)}</td><td class="num">—</td><td class="num">${pct(r.p9_r12)}</td></tr>
-      <tr><td>PC raw</td><td class="num">${pct(r.raw_r3)}</td><td class="num">—</td><td class="num">${pct(r.raw_r12)}</td></tr>
-      <tr><td>TCG NM</td><td class="num">${pct(r.tcg_r3)}</td><td class="num">${pct(r.tcg_r6)}</td><td class="num">${pct(r.tcg_r12)}</td></tr>
+  return `<div class="table-wrap"><table class="ladder"><thead><tr><th>Price book</th><th class="num">3 mo</th><th class="num">6 mo</th><th class="num">1 yr</th></tr></thead><tbody>
+      <tr><td>Perfect grade</td><td class="num">${pct(r.p10_r3)}</td><td class="num">${pct(r.p10_r6)}</td><td class="num">${pct(r.p10_r12)}</td></tr>
+      <tr><td>High grade</td><td class="num">${pct(r.p9_r3)}</td><td class="num">—</td><td class="num">${pct(r.p9_r12)}</td></tr>
+      <tr><td>Ungraded</td><td class="num">${pct(r.raw_r3)}</td><td class="num">—</td><td class="num">${pct(r.raw_r12)}</td></tr>
+      <tr><td>Shop price</td><td class="num">${pct(r.tcg_r3)}</td><td class="num">${pct(r.tcg_r6)}</td><td class="num">${pct(r.tcg_r12)}</td></tr>
     </tbody></table></div>
     <div class="gains">
-      <div class="st"><span class="k">Graded leftover</span><span class="v">${pct(r.resid)}</span></div>
-      <div class="st"><span class="k">Raw leftover</span><span class="v">${pct(r.tcg_resid)}</span></div>
-      <div class="st"><span class="k">Agree 3m</span><span class="v">${r.agree==null?"—":(r.agree*100).toFixed(0)+"%"}</span></div>
+      <div class="st"><span class="k">vs pack, graded</span><span class="v">${pct(r.resid)}</span></div>
+      <div class="st"><span class="k">vs pack, raw</span><span class="v">${pct(r.tcg_resid)}</span></div>
+      <div class="st"><span class="k">Same story?</span><span class="v">${r.agree==null?"—":(r.agree*100).toFixed(0)+"%"}</span></div>
     </div>
-    <p class="tab-note">Tapes stay separate. Leftover is vs other Primes in the same set.</p>`;
+    <p class="tab-note">Graded and raw are two different books. A minus means this card grew less than the other Primes in its set.</p>`;
 }
 function salesBody(r, d){
   const rows = sortSales((d.sales||[]).filter(s => s.band===salesBand));
   const n = rows.reduce((a,s)=>a+(s.n||0),0);
   const table = rows.length
-    ? `<div class="table-wrap"><table class="ladder"><thead><tr><th>Condition</th><th class="num">n</th><th class="num">Median</th><th class="num">Range</th></tr></thead><tbody>${
+    ? `<div class="table-wrap"><table class="ladder"><thead><tr><th>Condition</th><th class="num">Sold</th><th class="num">Typical</th><th class="num">Low–high</th></tr></thead><tbody>${
         rows.map(s => `<tr><td>${s.label}</td><td class="num">${s.n}</td><td class="num">${usd(s.med)}</td><td class="num">${usd(s.lo)}–${usd(s.hi)}</td></tr>`).join("")
       }</tbody></table></div>`
-    : `<p class="tab-note">No ${salesBand} sales in the 60-day window.</p>`;
+    : `<p class="tab-note">No ${salesBand==="raw"?"raw":"graded"} sales in the last 60 days.</p>`;
   return `<div class="row" id="sales-band" style="margin:0 0 .55rem"></div>
-    <p class="tab-note"><code>gold.sales</code> last 60 days · ${n} ${salesBand} transactions · not a ranker. Thin n and wild ranges can be lots or ID misses.</p>
+    <p class="tab-note">Last 60 days · ${n} sales. A wide spread can mean a mixed lot or a bad match.</p>`
     ${table}`;
 }
 function listingsBody(r, d){
@@ -261,22 +260,22 @@ function listingsBody(r, d){
   );
   const cheap = (d.ask_rows||[]).filter(a => listMkt==="all" || a.mkt===listMkt);
   const table = view.length
-    ? `<div class="table-wrap"><table class="ladder wide"><thead><tr><th>Market</th><th>Condition</th><th class="num">n</th><th class="num">Qty</th><th class="num">Low</th><th class="num">Typical</th></tr></thead><tbody>${
+    ? `<div class="table-wrap"><table class="ladder wide"><thead><tr><th>Shop</th><th>Condition</th><th class="num">Listed</th><th class="num">Qty</th><th class="num">Lowest</th><th class="num">Typical</th></tr></thead><tbody>${
         view.map(a => `<tr><td>${mktName(a.mkt)}</td><td>${a.label}</td><td class="num">${a.n}</td><td class="num">${a.qty}</td><td class="num">${usd(a.lo)}</td><td class="num">${usd(a.med)}</td></tr>`).join("")
       }</tbody></table></div>`
-    : `<p class="tab-note">No active asks for this filter.</p>`;
+    : `<p class="tab-note">Nothing for sale in this filter.</p>`;
   const list = cheap.length
     ? `<ul class="asks">${cheap.map(a => `<li><span>${mktName(a.mkt)} · ${a.label} · ×${a.qty}</span><b>${usd(a.px)}</b></li>`).join("")}</ul>`
     : "";
   return `<div class="row" id="list-mkt" style="margin:0 0 .55rem"></div>
-    <p class="tab-note">Active <code>gold.asks</code> · no seller names · cheapest 12 below.</p>
+    <p class="tab-note">What people are asking right now. No seller names. Lowest 12 below.</p>
     ${table}
-    ${list ? `<h3 style="margin:.7rem 0 .35rem;font-size:.95rem">Cheapest asks</h3>${list}` : ""}`;
+    ${list ? `<h3 style="margin:.7rem 0 .35rem;font-size:.95rem">Lowest prices</h3>${list}` : ""}`;
 }
 function paintSheet(){
   const r = ROWS.find(x=>x.id===sheetId); if(!r) return;
   const d = DETAIL[r.id] || {sales:[],asks:[],ask_rows:[]};
-  const tabs = [["overview","Overview"],["sales","Sales"],["listings","Listings"]];
+  const tabs = [["overview","Overview"],["sales","Sold"],["listings","For sale"]];
   let body = "";
   if(tab==="sales") body = salesBody(r,d);
   else if(tab==="listings") body = listingsBody(r,d);
@@ -287,12 +286,12 @@ function paintSheet(){
       </button>
       <div>
         <h2>${r.name}</h2>
-        <div class="sm">${r.set} · ${r.num}/Prime${r.no_pc?" · no PC slab book":""}</div>
+        <div class="sm">${r.set} · ${r.num}${r.no_pc?" · no graded price yet":""}</div>
         <div class="sg" style="margin-top:.45rem">
-          <div class="st"><span class="k">NM</span><span class="v">${usd(r.nm)}</span></div>
-          <div class="st"><span class="k">LP</span><span class="v">${usd(r.lp)}</span></div>
-          <div class="st"><span class="k">PSA 10</span><span class="v">${usd(r.p10)}</span></div>
-          <div class="st"><span class="k">Grade 9</span><span class="v">${usd(r.p9)}</span></div>
+          <div class="st"><span class="k">Near mint</span><span class="v">${usd(r.nm)}</span></div>
+          <div class="st"><span class="k">Light play</span><span class="v">${usd(r.lp)}</span></div>
+          <div class="st"><span class="k">Perfect grade</span><span class="v">${usd(r.p10)}</span></div>
+          <div class="st"><span class="k">High grade</span><span class="v">${usd(r.p9)}</span></div>
         </div>
       </div>
     </div>
@@ -305,7 +304,7 @@ function paintSheet(){
   if(zoom) zoom.onclick = () => openZoom(r.imgHi || r.img, r.name);
   if(tab==="sales"){
     const row = $("sales-band");
-    [["raw","Raw"],["graded","Graded"]].forEach(([id,lab]) => {
+    [["raw","Loose card"],["graded","In a case"]].forEach(([id,lab]) => {
       const b=document.createElement("button");
       b.type="button"; b.className="chip"+(salesBand===id?" active":""); b.textContent=lab;
       b.setAttribute("aria-pressed", salesBand===id ? "true" : "false");
@@ -358,8 +357,8 @@ function draw(){
   const n60 = xs.map(r=>r.n60).filter(x=>x!=null);
   const left = xs.filter(r=>r.leftover).length;
   $("statbar").innerHTML = `<span class="statpill"><b>${xs.length}</b> cards</span>
-    <span class="statpill"><b>${left}</b> leftover</span>
-    <span class="statpill">60d sales <b>${n60.length?Math.round(n60.reduce((a,b)=>a+b,0)).toLocaleString():"—"}</b></span>`;
+    <span class="statpill"><b>${left}</b> behind the pack</span>
+    <span class="statpill">sold in 60 days <b>${n60.length?Math.round(n60.reduce((a,b)=>a+b,0)).toLocaleString():"—"}</b></span>`;
   const g=$("grid"); g.innerHTML="";
   xs.forEach(r=>g.appendChild(tile(r)));
 }
