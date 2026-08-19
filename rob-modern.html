@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Rob's modern pictures</title>
+<link rel="manifest" href="manifest.webmanifest"/>
+<style>
+:root{--bg:#0c0f16;--panel:#141925;--panel2:#1a2130;--text:#eef2fa;--muted:#97a1b5;--border:#2a3348;--accent:#6ea8ff;--pos:#3dd68c;--neg:#f07178;--warn:#e6b450}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;background:radial-gradient(1200px 600px at 8% -10%,#182038 0%,var(--bg) 55%);color:var(--text);line-height:1.4}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(12,15,22,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top)}
+.inner{max-width:98rem;margin:0 auto;padding:.7rem 1rem}
+h1{margin:0;font-size:1.15rem;font-weight:700}
+.meta{color:var(--muted);font-size:.82rem;margin-top:.15rem}
+.meta a{color:var(--accent);text-decoration:none}
+main{max-width:98rem;margin:0 auto;padding:.85rem 1rem 3rem;padding-bottom:max(2.5rem,env(safe-area-inset-bottom))}
+.callout{color:var(--muted);font-size:.9rem;margin:0 0 .75rem;max-width:46rem}
+.controls{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:0 0 .75rem;padding:.55rem .65rem;background:var(--panel);border:1px solid var(--border);border-radius:12px}
+.chip{appearance:none;border:1px solid var(--border);background:var(--panel2);color:var(--text);border-radius:999px;padding:.28rem .65rem;font-size:.78rem;cursor:pointer;min-height:44px}
+.chip.active{border-color:var(--accent);background:rgba(110,168,255,.14);color:#cfe2ff}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.controls input[type=search]{flex:1 1 12rem;min-width:12rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:.35rem .5rem;font-size:16px}
+.pack-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.card-tile{display:grid;grid-template-columns:4.75rem minmax(0,1fr);align-items:center;gap:.65rem;background:var(--panel2);border:1px solid var(--border);border-radius:16px;cursor:pointer;text-align:left;width:100%;padding:.65rem;color:inherit;font:inherit}
+.card-tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card-tile.h1{border-color:rgba(61,214,140,.36)}
+.card-tile.h2{border-color:rgba(110,168,255,.36)}
+.card-tile.plant{border-color:rgba(61,214,140,.36)}
+.card-tile.watch{border-color:rgba(110,168,255,.36)}
+.card-tile.walk{border-color:rgba(230,180,80,.36)}
+.art{aspect-ratio:63/88;min-height:0;padding:0;background:#0a0d14;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.art img{width:100%;height:100%;object-fit:contain}
+.badge{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.12rem .35rem;border-radius:6px;border:1px solid var(--border);margin:0 0 .2rem}
+.badge.h1{border-color:rgba(61,214,140,.55);color:#b8f5d4}
+.badge.h2{border-color:rgba(110,168,255,.55);color:#cfe2ff}
+.badge.plant{border-color:rgba(61,214,140,.55);color:#b8f5d4}
+.badge.watch{border-color:rgba(110,168,255,.55);color:#cfe2ff}
+.badge.walk{border-color:rgba(230,180,80,.55);color:#f0d78c}
+.body{min-width:0}
+.nm{font-weight:700;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sm{color:var(--muted);font-size:.72rem;margin:.12rem 0 .2rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hint{display:block;font-size:.58rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.mark{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.15rem;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:-.02em}
+.conds{display:flex;flex-direction:column;gap:.08rem;margin:.28rem 0 0;font-size:.68rem;color:var(--muted);font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.conds b{color:var(--text);font-weight:700}
+.conds .thin b{color:var(--warn)}
+.st{background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:8px;padding:.16rem .2rem}
+.st .k{display:block;font-size:.52rem;text-transform:uppercase;color:var(--muted);letter-spacing:.04em}
+.st .v{display:block;font-size:.7rem;font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.st.on{border-color:var(--accent);background:rgba(110,168,255,.14)}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:.25rem;margin-top:.25rem}
+.pos{color:var(--pos);font-weight:700}.neg{color:var(--neg);font-weight:700}.flat{color:var(--muted)}
+footer{color:var(--muted);font-size:.78rem;margin-top:1rem}
+body.card-open #browse{display:none}
+#card-page{display:none}
+body.card-open #card-page{display:block}
+.back{appearance:none;border:1px solid var(--border);background:var(--panel2);color:var(--text);border-radius:8px;padding:.4rem .7rem;cursor:pointer;min-height:44px;margin:0 0 .75rem}
+.card-page-inner{max-width:46rem;min-width:0}
+.peek-grid{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:.75rem;align-items:start}
+.hero-art{appearance:none;border:1px solid var(--border);background:#0a0d14;border-radius:12px;padding:.4rem;cursor:zoom-in;aspect-ratio:63/88}
+.hero-art img{display:block;width:100%;height:100%;object-fit:contain}
+.today{font-size:.72rem;color:var(--muted)}
+.hero-px{font-size:1.7rem;font-weight:800;font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:-.03em}
+.tabs{display:flex;flex-wrap:wrap;gap:.35rem;margin:.85rem 0 .55rem}
+.cond-row{display:flex;width:100%;min-height:44px;align-items:center;justify-content:space-between;gap:.75rem;padding:.35rem 0;border:0;border-bottom:1px solid rgba(42,51,72,.55);background:none;color:inherit;font:inherit;cursor:pointer;text-align:left}
+.cond-row[data-selected="true"]{font-weight:700}
+.cond-row .n{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.cond-row .n span{margin-left:.45rem;font-size:.72rem;font-weight:400;color:var(--muted)}
+.asks{list-style:none;margin:.4rem 0 0;padding:0}
+.asks li{display:flex;justify-content:space-between;gap:.7rem;padding:.35rem 0;border-bottom:1px solid rgba(42,51,72,.45);font-size:.88rem}
+.asks b{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.table-wrap{overflow-x:auto;max-width:100%;margin:.2rem 0 .65rem}
+.ladder{width:100%;border-collapse:collapse;font-size:.82rem}
+.ladder th{text-align:left;color:var(--muted);font-weight:600;font-size:.68rem;text-transform:uppercase;padding:.28rem .3rem;border-bottom:1px solid var(--border)}
+.ladder td{padding:.32rem .3rem;border-bottom:1px solid rgba(42,51,72,.55)}
+.ladder th.num,.ladder td.num{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.spark{display:block;width:100%;max-width:22rem;height:54px;margin:.2rem 0 .55rem}
+.tab-note{color:var(--muted);font-size:.78rem;margin:.15rem 0 .55rem}
+.lightbox{display:none;position:fixed;inset:0;z-index:80;background:rgba(6,8,12,.92);align-items:center;justify-content:center;padding:1.2rem}
+.lightbox.on{display:flex}
+.lightbox img{max-width:min(92vw,520px);max-height:92vh;object-fit:contain;border-radius:12px}
+.lightbox button{position:absolute;top:max(.7rem,env(safe-area-inset-top));right:max(.7rem,env(safe-area-inset-right))}
+@media (min-width:700px){
+  .pack-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+  .card-tile{grid-template-columns:5.5rem minmax(0,1fr)}
+  .peek-grid{grid-template-columns:10rem minmax(0,1fr)}
+}
+@media (max-width:699px){
+  .pack-grid{grid-template-columns:1fr}
+  .card-tile .sg{display:none}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="inner">
+  <h1>Rob's modern pictures</h1>
+  <div class="meta">Modern pictures · freeze 2026-08-19T21Z · <a href="index.html">home</a></div>
+</div></header>
+<main>
+<div id="browse">
+  <p class="callout">Tap a picture. 🌱 Plant means the ask looks small. 👀 Watch means wait. 🚶 Walk means leave it. Leftover vs friends is how this card moved next to its same-set pals.</p>
+  <div class="controls">
+    <div id="rank-row"></div>
+    <input id="q" type="search" placeholder="Slowbro, Swablu…" autocomplete="off"/>
+  </div>
+  <div class="pack-grid" id="grid"></div>
+  <footer>Freeze 2026-08-19T21Z. Shop now is the TCGPlayer Near Mint shop tape. The mark is the oracle Near Mint mark. Not a buy list. The Mega sleeve is dumping. Scarlet &amp; Violet chase stalled. Pictures: pokemontcg.io.</footer>
+</div>
+<section id="card-page">
+  <div class="card-page-inner">
+    <button type="button" class="back" id="back">← All cards</button>
+    <div id="sheet"></div>
+  </div>
+</section>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Larger card image">
+  <button type="button" class="back" id="lb-close">Close</button>
+  <img id="lb-img" alt=""/>
+</div>
+</main>
+<script type="application/json" id="app-data">[{"id":"me2-107","name":"Ambipom","set":"Phantasmal Flames","set_id":"me2","num":"107","action":"plant","era":"mega","rob":2.0,"shop":2.41,"mark":3.064822020529297,"cheap":0.6525664415758141,"r3":0.04329004329004338,"r12":null,"weather":"asleep","resid":0.16093710211357282,"peer":-0.11764705882352944,"reason":"151 adjacent","img":"https://images.pokemontcg.io/me2/107_hires.png","imgHi":"https://images.pokemontcg.io/me2/107_hires.png"},{"id":"swsh12pt5gg-GG27","name":"Swablu","set":"Crown Zenith Galarian Gallery","set_id":"swsh12pt5gg","num":"GG27","action":"plant","era":"swsh","rob":6.0,"shop":7.04,"mark":7.025568529099148,"cheap":0.8540234110803483,"r3":0.0014224751066855834,"r12":2.0608695652173914,"weather":"asleep","resid":0.08710690561870238,"peer":-0.0856844305120168,"reason":"connecting","img":"https://images.pokemontcg.io/swsh12pt5gg/GG27_hires.png","imgHi":"https://images.pokemontcg.io/swsh12pt5gg/GG27_hires.png"},{"id":"me5-85","name":"Fomantis","set":"Pitch Black","set_id":"me5","num":"85","action":"watch","era":"mega","rob":3.0,"shop":3.7,"mark":7.239618367841479,"cheap":0.4143864838685498,"r3":null,"r12":null,"weather":"unknown","resid":null,"peer":null,"reason":"cute","img":"https://images.pokemontcg.io/me5/85_hires.png","imgHi":"https://images.pokemontcg.io/me5/85_hires.png"},{"id":"me5-87","name":"Goldeen","set":"Pitch Black","set_id":"me5","num":"87","action":"watch","era":"mega","rob":9.0,"shop":10.91,"mark":15.437244909051913,"cheap":0.5830055850654209,"r3":null,"r12":null,"weather":"unknown","resid":null,"peer":null,"reason":"151","img":"https://images.pokemontcg.io/me5/87_hires.png","imgHi":"https://images.pokemontcg.io/me5/87_hires.png"},{"id":"me4-87","name":"Chespin","set":"Chaos Rising","set_id":"me4","num":"87","action":"watch","era":"mega","rob":4.5,"shop":4.86,"mark":7.643396487649224,"cheap":0.5887434999965577,"r3":-0.49003147953830006,"r12":null,"weather":"tired","resid":0.017077525201036448,"peer":-0.5071090047393365,"reason":"starter","img":"https://images.pokemontcg.io/me4/87_hires.png","imgHi":"https://images.pokemontcg.io/me4/87_hires.png"},{"id":"me5-86","name":"Armarouge","set":"Pitch Black","set_id":"me5","num":"86","action":"watch","era":"mega","rob":5.0,"shop":5.64,"mark":8.354987379170057,"cheap":0.5984449494759949,"r3":null,"r12":null,"weather":"unknown","resid":null,"peer":null,"reason":"cool","img":"https://images.pokemontcg.io/me5/86_hires.png","imgHi":"https://images.pokemontcg.io/me5/86_hires.png"},{"id":"me4-93","name":"Crobat","set":"Chaos Rising","set_id":"me4","num":"93","action":"watch","era":"mega","rob":3.0,"shop":3.36,"mark":4.9876118770366045,"cheap":0.6014902670779695,"r3":-0.5956678700361011,"r12":null,"weather":"tired","resid":-0.0885588652967646,"peer":-0.5071090047393365,"reason":"151 adjacent","img":"https://images.pokemontcg.io/me4/93_hires.png","imgHi":"https://images.pokemontcg.io/me4/93_hires.png"},{"id":"me4-88","name":"Froakie","set":"Chaos Rising","set_id":"me4","num":"88","action":"watch","era":"mega","rob":9.0,"shop":10.79,"mark":13.525324171461834,"cheap":0.6654184318176877,"r3":-0.5349137931034482,"r12":null,"weather":"tired","resid":-0.02780478836411171,"peer":-0.5071090047393365,"reason":"starter","img":"https://images.pokemontcg.io/me4/88_hires.png","imgHi":"https://images.pokemontcg.io/me4/88_hires.png"},{"id":"me5-90","name":"Slowbro","set":"Pitch Black","set_id":"me5","num":"90","action":"watch","era":"mega","rob":14.0,"shop":16.91,"mark":19.191598216389032,"cheap":0.7294858845077546,"r3":null,"r12":null,"weather":"unknown","resid":null,"peer":null,"reason":"151","img":"https://images.pokemontcg.io/me5/90_hires.png","imgHi":"https://images.pokemontcg.io/me5/90_hires.png"},{"id":"me2pt5-227","name":"Snorunt","set":"Ascended Heroes","set_id":"me2pt5","num":"227","action":"watch","era":"mega","rob":5.0,"shop":5.5,"mark":6.61284204852887,"cheap":0.75610455584862,"r3":-0.18998527245949925,"r12":null,"weather":"tired","resid":-0.06281235388676365,"peer":-0.1271729185727356,"reason":"cute","img":"https://images.pokemontcg.io/me2pt5/227_hires.png","imgHi":"https://images.pokemontcg.io/me2pt5/227_hires.png"},{"id":"me3-94","name":"Clefairy","set":"Perfect Order","set_id":"me3","num":"94","action":"watch","era":"mega","rob":22.0,"shop":22.94,"mark":28.75620123032828,"cheap":0.765052373357204,"r3":-0.311111111111111,"r12":null,"weather":"tired","resid":-0.07926753569211653,"peer":-0.23184357541899447,"reason":"151","img":"https://images.pokemontcg.io/me3/94_hires.png","imgHi":"https://images.pokemontcg.io/me3/94_hires.png"},{"id":"me3-90","name":"Rowlet","set":"Perfect Order","set_id":"me3","num":"90","action":"watch","era":"mega","rob":5.0,"shop":5.5,"mark":6.513081273068353,"cheap":0.767685798836112,"r3":-0.23184357541899447,"r12":null,"weather":"tired","resid":0.0,"peer":-0.23184357541899447,"reason":"cute, starter","img":"https://images.pokemontcg.io/me3/90_hires.png","imgHi":"https://images.pokemontcg.io/me3/90_hires.png"},{"id":"me3-99","name":"Raticate","set":"Perfect Order","set_id":"me3","num":"99","action":"watch","era":"mega","rob":3.0,"shop":2.61,"mark":3.772877663579454,"cheap":0.7951490261557542,"r3":-0.2770083102493075,"r12":null,"weather":"tired","resid":-0.045164734830313025,"peer":-0.23184357541899447,"reason":"151","img":"https://images.pokemontcg.io/me3/99_hires.png","imgHi":"https://images.pokemontcg.io/me3/99_hires.png"},{"id":"me2pt5-231","name":"Iono's Wattrel","set":"Ascended Heroes","set_id":"me2pt5","num":"231","action":"watch","era":"mega","rob":9.0,"shop":9.54,"mark":11.217465000946278,"cheap":0.8023203102698142,"r3":-0.1271729185727356,"r12":null,"weather":"tired","resid":0.0,"peer":-0.1271729185727356,"reason":"connecting","img":"https://images.pokemontcg.io/me2pt5/231_hires.png","imgHi":"https://images.pokemontcg.io/me2pt5/231_hires.png"},{"id":"me2pt5-232","name":"Marill","set":"Ascended Heroes","set_id":"me2pt5","num":"232","action":"watch","era":"mega","rob":13.0,"shop":15.76,"mark":16.130492732147697,"cheap":0.8059270237970662,"r3":-0.09942857142857142,"r12":null,"weather":"tired","resid":0.027744347144164183,"peer":-0.1271729185727356,"reason":"151 adjacent, cute","img":"https://images.pokemontcg.io/me2pt5/232_hires.png","imgHi":"https://images.pokemontcg.io/me2pt5/232_hires.png"},{"id":"me2pt5-235","name":"Togekiss","set":"Ascended Heroes","set_id":"me2pt5","num":"235","action":"watch","era":"mega","rob":6.0,"shop":6.01,"mark":7.287598178696749,"cheap":0.8233165238911386,"r3":-0.14872521246458925,"r12":null,"weather":"tired","resid":-0.021552293891853647,"peer":-0.1271729185727356,"reason":"151 adjacent","img":"https://images.pokemontcg.io/me2pt5/235_hires.png","imgHi":"https://images.pokemontcg.io/me2pt5/235_hires.png"},{"id":"me2-106","name":"Meowth","set":"Phantasmal Flames","set_id":"me2","num":"106","action":"watch","era":"mega","rob":20.0,"shop":22.07,"mark":23.622611762470868,"cheap":0.8466464335571017,"r3":-0.21487015297047307,"r12":null,"weather":"tired","resid":-0.09722309414694363,"peer":-0.11764705882352944,"reason":"151","img":"https://images.pokemontcg.io/me2/106_hires.png","imgHi":"https://images.pokemontcg.io/me2/106_hires.png"},{"id":"me4-96","name":"Tauros","set":"Chaos Rising","set_id":"me4","num":"96","action":"watch","era":"mega","rob":4.5,"shop":4.16,"mark":5.174597877212622,"cheap":0.8696327921086682,"r3":-0.5071090047393365,"r12":null,"weather":"tired","resid":0.0,"peer":-0.5071090047393365,"reason":"151","img":"https://images.pokemontcg.io/me4/96_hires.png","imgHi":"https://images.pokemontcg.io/me4/96_hires.png"},{"id":"sv10-204","name":"Kangaskhan","set":"Destined Rivals","set_id":"sv10","num":"204","action":"watch","era":"sv","rob":11.0,"shop":12.04,"mark":12.451144778252374,"cheap":0.8834529029983655,"r3":-0.029814665592264422,"r12":0.11999999999999988,"weather":"asleep","resid":0.03733861907926839,"peer":-0.06715328467153281,"reason":"151","img":"https://images.pokemontcg.io/sv10/204_hires.png","imgHi":"https://images.pokemontcg.io/sv10/204_hires.png"},{"id":"me3-93","name":"Dedenne","set":"Perfect Order","set_id":"me3","num":"93","action":"watch","era":"mega","rob":6.0,"shop":6.0,"mark":6.570388915231144,"cheap":0.9131879524043247,"r3":-0.1643454038997214,"r12":null,"weather":"tired","resid":0.06749817151927306,"peer":-0.23184357541899447,"reason":"cute","img":"https://images.pokemontcg.io/me3/93_hires.png","imgHi":"https://images.pokemontcg.io/me3/93_hires.png"},{"id":"swsh12pt5gg-GG31","name":"Turtwig","set":"Crown Zenith Galarian Gallery","set_id":"swsh12pt5gg","num":"GG31","action":"watch","era":"swsh","rob":11.0,"shop":11.12,"mark":11.998812997912253,"cheap":0.9167573494073087,"r3":-0.1244094488188977,"r12":1.7055961070559609,"weather":"tired","resid":-0.03872501830688091,"peer":-0.0856844305120168,"reason":"connecting","img":"https://images.pokemontcg.io/swsh12pt5gg/GG31_hires.png","imgHi":"https://images.pokemontcg.io/swsh12pt5gg/GG31_hires.png"},{"id":"me2-98","name":"Piplup","set":"Phantasmal Flames","set_id":"me2","num":"98","action":"watch","era":"mega","rob":14.0,"shop":15.02,"mark":14.908477256948979,"cheap":0.9390630416982707,"r3":-0.243705941591138,"r12":null,"weather":"tired","resid":-0.12605888276760857,"peer":-0.11764705882352944,"reason":"starter","img":"https://images.pokemontcg.io/me2/98_hires.png","imgHi":"https://images.pokemontcg.io/me2/98_hires.png"},{"id":"me1-133","name":"Bulbasaur","set":"Mega Evolution","set_id":"me1","num":"133","action":"watch","era":"mega","rob":23.5,"shop":21.56,"mark":24.72597031940154,"cheap":0.950417706421027,"r3":-0.15484123872990996,"r12":null,"weather":"tired","resid":-0.28866476814167463,"peer":0.13382352941176467,"reason":"151, starter","img":"https://images.pokemontcg.io/me1/133_hires.png","imgHi":"https://images.pokemontcg.io/me1/133_hires.png"},{"id":"me1-150","name":"Steelix","set":"Mega Evolution","set_id":"me1","num":"150","action":"watch","era":"mega","rob":8.0,"shop":7.3,"mark":8.309342611525844,"cheap":0.9627717105927541,"r3":-0.03566710700132103,"r12":null,"weather":"asleep","resid":-0.1694906364130857,"peer":0.13382352941176467,"reason":"151 adjacent","img":"https://images.pokemontcg.io/me1/150_hires.png","imgHi":"https://images.pokemontcg.io/me1/150_hires.png"},{"id":"sv8-198","name":"Feebas","set":"Surging Sparks","set_id":"sv8","num":"198","action":"watch","era":"sv","rob":9.5,"shop":9.93,"mark":9.751592269184993,"cheap":0.9741998781081092,"r3":0.0960264900662251,"r12":0.49099099099099086,"weather":"asleep","resid":0.08418580115341556,"peer":0.011840688912809538,"reason":"cute, connecting","img":"https://images.pokemontcg.io/sv8/198_hires.png","imgHi":"https://images.pokemontcg.io/sv8/198_hires.png"},{"id":"sv3-208","name":"Pidgeotto","set":"Obsidian Flames","set_id":"sv3","num":"208","action":"watch","era":"sv","rob":12.0,"shop":11.07,"mark":12.242248406627366,"cheap":0.9802120984168051,"r3":-0.015124555160142328,"r12":1.0538033395176254,"weather":"asleep","resid":0.0,"peer":-0.015124555160142328,"reason":"151, connecting","img":"https://images.pokemontcg.io/sv3/208_hires.png","imgHi":"https://images.pokemontcg.io/sv3/208_hires.png"},{"id":"me2pt5-219","name":"Beautifly","set":"Ascended Heroes","set_id":"me2pt5","num":"219","action":"watch","era":"mega","rob":8.0,"shop":8.18,"mark":8.067166926538443,"cheap":0.9916740378437584,"r3":0.03675538656527255,"r12":null,"weather":"asleep","resid":0.16392830513800816,"peer":-0.1271729185727356,"reason":"cute","img":"https://images.pokemontcg.io/me2pt5/219_hires.png","imgHi":"https://images.pokemontcg.io/me2pt5/219_hires.png"},{"id":"me2-105","name":"Wigglytuff","set":"Phantasmal Flames","set_id":"me2","num":"105","action":"watch","era":"mega","rob":7.0,"shop":6.58,"mark":7.058174578576475,"cheap":0.9917578436281456,"r3":-0.06666666666666665,"r12":null,"weather":"tired","resid":0.050980392156862786,"peer":-0.11764705882352944,"reason":"151","img":"https://images.pokemontcg.io/me2/105_hires.png","imgHi":"https://images.pokemontcg.io/me2/105_hires.png"},{"id":"sv5-181","name":"Chatot","set":"Temporal Forces","set_id":"sv5","num":"181","action":"watch","era":"sv","rob":11.0,"shop":11.31,"mark":10.997952377192904,"cheap":1.0001861821852713,"r3":0.018918918918918948,"r12":1.0563636363636366,"weather":"asleep","resid":0.0,"peer":0.018918918918918948,"reason":"cute","img":"https://images.pokemontcg.io/sv5/181_hires.png","imgHi":"https://images.pokemontcg.io/sv5/181_hires.png"},{"id":"me1-135","name":"Exeggutor","set":"Mega Evolution","set_id":"me1","num":"135","action":"watch","era":"mega","rob":6.0,"shop":5.46,"mark":5.92838448469914,"cheap":1.0120801063908214,"r3":-0.0072727272727273196,"r12":null,"weather":"asleep","resid":-0.141096256684492,"peer":0.13382352941176467,"reason":"151","img":"https://images.pokemontcg.io/me1/135_hires.png","imgHi":"https://images.pokemontcg.io/me1/135_hires.png"},{"id":"sv6-168","name":"Pinsir","set":"Twilight Masquerade","set_id":"sv6","num":"168","action":"watch","era":"sv","rob":16.0,"shop":15.79,"mark":15.78318268959579,"cheap":1.0137372363146462,"r3":-0.019254658385093326,"r12":0.9398034398034396,"weather":"asleep","resid":-0.19700228389391283,"peer":0.1777476255088195,"reason":"151","img":"https://images.pokemontcg.io/sv6/168_hires.png","imgHi":"https://images.pokemontcg.io/sv6/168_hires.png"},{"id":"swsh12pt5gg-GG28","name":"Duskull","set":"Crown Zenith Galarian Gallery","set_id":"swsh12pt5gg","num":"GG28","action":"watch","era":"swsh","rob":6.0,"shop":5.24,"mark":5.888758909889328,"cheap":1.0188904133813084,"r3":-0.11035653650254662,"r12":1.1563786008230452,"weather":"tired","resid":-0.024672105990529825,"peer":-0.0856844305120168,"reason":"connecting","img":"https://images.pokemontcg.io/swsh12pt5gg/GG28_hires.png","imgHi":"https://images.pokemontcg.io/swsh12pt5gg/GG28_hires.png"},{"id":"swsh12pt5gg-GG32","name":"Paras","set":"Crown Zenith Galarian Gallery","set_id":"swsh12pt5gg","num":"GG32","action":"watch","era":"swsh","rob":9.0,"shop":8.75,"mark":8.81540455964977,"cheap":1.0209400985628236,"r3":-0.0856844305120168,"r12":2.070175438596491,"weather":"tired","resid":0.0,"peer":-0.0856844305120168,"reason":"connecting","img":"https://images.pokemontcg.io/swsh12pt5gg/GG32_hires.png","imgHi":"https://images.pokemontcg.io/swsh12pt5gg/GG32_hires.png"},{"id":"swsh12pt5gg-GG24","name":"Miltank","set":"Crown Zenith Galarian Gallery","set_id":"swsh12pt5gg","num":"GG24","action":"watch","era":"swsh","rob":13.0,"shop":12.45,"mark":12.62866871508314,"cheap":1.0294038345050067,"r3":-0.038610038610038644,"r12":3.016129032258064,"weather":"asleep","resid":0.04707439190197815,"peer":-0.0856844305120168,"reason":"cute","img":"https://images.pokemontcg.io/swsh12pt5gg/GG24_hires.png","imgHi":"https://images.pokemontcg.io/swsh12pt5gg/GG24_hires.png"},{"id":"sv6-169","name":"Sunflora","set":"Twilight Masquerade","set_id":"sv6","num":"169","action":"watch","era":"sv","rob":8.0,"shop":8.68,"mark":7.769292998817878,"cheap":1.0296947227009232,"r3":0.1777476255088195,"r12":0.7394789579158316,"weather":"waking up","resid":0.0,"peer":0.1777476255088195,"reason":"cute","img":"https://images.pokemontcg.io/sv6/169_hires.png","imgHi":"https://images.pokemontcg.io/sv6/169_hires.png"},{"id":"swsh12pt5gg-GG26","name":"Riolu","set":"Crown Zenith Galarian Gallery","set_id":"swsh12pt5gg","num":"GG26","action":"watch","era":"swsh","rob":12.0,"shop":10.94,"mark":11.624364219223338,"cheap":1.0323145226433519,"r3":-0.15128006206361533,"r12":1.6748166259168702,"weather":"tired","resid":-0.06559563155159853,"peer":-0.0856844305120168,"reason":"connecting","img":"https://images.pokemontcg.io/swsh12pt5gg/GG26_hires.png","imgHi":"https://images.pokemontcg.io/swsh12pt5gg/GG26_hires.png"},{"id":"me2-102","name":"Paldean Wooper","set":"Phantasmal Flames","set_id":"me2","num":"102","action":"watch","era":"mega","rob":5.0,"shop":4.05,"mark":4.6772199084913275,"cheap":1.0690111001457674,"r3":-0.11764705882352944,"r12":null,"weather":"tired","resid":0.0,"peer":-0.11764705882352944,"reason":"151 adjacent","img":"https://images.pokemontcg.io/me2/102_hires.png","imgHi":"https://images.pokemontcg.io/me2/102_hires.png"},{"id":"me2-97","name":"Dewgong","set":"Phantasmal Flames","set_id":"me2","num":"97","action":"watch","era":"mega","rob":5.0,"shop":5.02,"mark":4.670355826958025,"cheap":1.0705822393958115,"r3":0.010060362173038184,"r12":null,"weather":"asleep","resid":0.12770742099656762,"peer":-0.11764705882352944,"reason":"151","img":"https://images.pokemontcg.io/me2/97_hires.png","imgHi":"https://images.pokemontcg.io/me2/97_hires.png"},{"id":"me1-151","name":"Spearow","set":"Mega Evolution","set_id":"me1","num":"151","action":"watch","era":"mega","rob":5.0,"shop":4.52,"mark":4.652459271364332,"cheap":1.0747004344078335,"r3":0.15897435897435885,"r12":null,"weather":"waking up","resid":0.02515082956259418,"peer":0.13382352941176467,"reason":"151","img":"https://images.pokemontcg.io/me1/151_hires.png","imgHi":"https://images.pokemontcg.io/me1/151_hires.png"},{"id":"sv8-199","name":"Spheal","set":"Surging Sparks","set_id":"sv8","num":"199","action":"watch","era":"sv","rob":10.0,"shop":10.62,"mark":9.293841294646878,"cheap":1.0759813604477901,"r3":-0.01939058171745156,"r12":0.6139817629179329,"weather":"asleep","resid":-0.0312312706302611,"peer":0.011840688912809538,"reason":"cute","img":"https://images.pokemontcg.io/sv8/199_hires.png","imgHi":"https://images.pokemontcg.io/sv8/199_hires.png"},{"id":"sv9-170","name":"Hop's Wooloo","set":"Journey Together","set_id":"sv9","num":"170","action":"watch","era":"sv","rob":5.0,"shop":4.43,"mark":4.590584170352116,"cheap":1.089185997784783,"r3":-0.015555555555555656,"r12":0.06490384615384603,"weather":"asleep","resid":0.07010552451893226,"peer":-0.08566108007448792,"reason":"cute","img":"https://images.pokemontcg.io/sv9/170_hires.png","imgHi":"https://images.pokemontcg.io/sv9/170_hires.png"},{"id":"sv3-209","name":"Lechonk","set":"Obsidian Flames","set_id":"sv3","num":"209","action":"watch","era":"sv","rob":14.0,"shop":12.91,"mark":12.82854559488817,"cheap":1.091316228831008,"r3":-0.01072796934865905,"r12":1.5413385826771653,"weather":"asleep","resid":0.004396585811483278,"peer":-0.015124555160142328,"reason":"cute","img":"https://images.pokemontcg.io/sv3/209_hires.png","imgHi":"https://images.pokemontcg.io/sv3/209_hires.png"},{"id":"swsh12pt5gg-GG29","name":"Bidoof","set":"Crown Zenith Galarian Gallery","set_id":"swsh12pt5gg","num":"GG29","action":"watch","era":"swsh","rob":8.0,"shop":7.26,"mark":7.307994616329195,"cheap":1.0946915563025414,"r3":-0.02941176470588247,"r12":1.1801801801801801,"weather":"asleep","resid":0.056272665806134325,"peer":-0.0856844305120168,"reason":"connecting","img":"https://images.pokemontcg.io/swsh12pt5gg/GG29_hires.png","imgHi":"https://images.pokemontcg.io/swsh12pt5gg/GG29_hires.png"},{"id":"sv7-154","name":"Gulpin","set":"Stellar Crown","set_id":"sv7","num":"154","action":"watch","era":"sv","rob":13.0,"shop":14.05,"mark":11.810811861919913,"cheap":1.1006864008996904,"r3":0.08746130030959764,"r12":1.460595446584939,"weather":"asleep","resid":null,"peer":null,"reason":"cute","img":"https://images.pokemontcg.io/sv7/154_hires.png","imgHi":"https://images.pokemontcg.io/sv7/154_hires.png"},{"id":"sv8-192","name":"Exeggcute","set":"Surging Sparks","set_id":"sv8","num":"192","action":"watch","era":"sv","rob":9.0,"shop":8.11,"mark":8.13366472514107,"cheap":1.106512292322684,"r3":0.07417218543046356,"r12":0.5447619047619046,"weather":"asleep","resid":0.06233149651765402,"peer":0.011840688912809538,"reason":"151","img":"https://images.pokemontcg.io/sv8/192_hires.png","imgHi":"https://images.pokemontcg.io/sv8/192_hires.png"},{"id":"me1-138","name":"Vulpix","set":"Mega Evolution","set_id":"me1","num":"138","action":"watch","era":"mega","rob":20.5,"shop":21.32,"mark":18.350728343576627,"cheap":1.1171218720141802,"r3":0.16439104314582198,"r12":null,"weather":"waking up","resid":0.030567513734057306,"peer":0.13382352941176467,"reason":"151","img":"https://images.pokemontcg.io/me1/138_hires.png","imgHi":"https://images.pokemontcg.io/me1/138_hires.png"},{"id":"sv5-172","name":"Cutiefly","set":"Temporal Forces","set_id":"sv5","num":"172","action":"watch","era":"sv","rob":9.0,"shop":8.42,"mark":7.973011800117167,"cheap":1.128808062201506,"r3":0.013237063778579916,"r12":0.8384279475982532,"weather":"asleep","resid":-0.005681855140339032,"peer":0.018918918918918948,"reason":"cute","img":"https://images.pokemontcg.io/sv5/172_hires.png","imgHi":"https://images.pokemontcg.io/sv5/172_hires.png"},{"id":"sv8-205","name":"Phanpy","set":"Surging Sparks","set_id":"sv8","num":"205","action":"watch","era":"sv","rob":10.0,"shop":9.4,"mark":8.738894027021532,"cheap":1.144309562409042,"r3":0.011840688912809538,"r12":0.48734177215189867,"weather":"asleep","resid":0.0,"peer":0.011840688912809538,"reason":"151 adjacent","img":"https://images.pokemontcg.io/sv8/205_hires.png","imgHi":"https://images.pokemontcg.io/sv8/205_hires.png"},{"id":"sv9-161","name":"Articuno","set":"Journey Together","set_id":"sv9","num":"161","action":"walk","era":"sv","rob":20.0,"shop":24.35,"mark":24.858341519036436,"cheap":0.804558903685673,"r3":-0.1623667010663914,"r12":0.3007478632478635,"weather":"tired","resid":-0.07670562099190348,"peer":-0.08566108007448792,"reason":"151","img":"https://images.pokemontcg.io/sv9/161_hires.png","imgHi":"https://images.pokemontcg.io/sv9/161_hires.png"},{"id":"sv8-209","name":"Skarmory","set":"Surging Sparks","set_id":"sv8","num":"209","action":"walk","era":"sv","rob":9.0,"shop":9.6,"mark":10.636727691164372,"cheap":0.8461248855205764,"r3":-0.11520737327188946,"r12":0.1387900355871885,"weather":"tired","resid":-0.127048062184699,"peer":0.011840688912809538,"reason":"151 adjacent","img":"https://images.pokemontcg.io/sv8/209_hires.png","imgHi":"https://images.pokemontcg.io/sv8/209_hires.png"},{"id":"sv9-163","name":"Iono's Kilowattrel","set":"Journey Together","set_id":"sv9","num":"163","action":"walk","era":"sv","rob":5.0,"shop":4.91,"mark":5.67580601478692,"cheap":0.8809321507771278,"r3":-0.08566108007448792,"r12":-0.0770676691729324,"weather":"tired","resid":0.0,"peer":-0.08566108007448792,"reason":"connecting","img":"https://images.pokemontcg.io/sv9/163_hires.png","imgHi":"https://images.pokemontcg.io/sv9/163_hires.png"},{"id":"sv3-207","name":"Pidgey","set":"Obsidian Flames","set_id":"sv3","num":"207","action":"walk","era":"sv","rob":16.0,"shop":17.49,"mark":17.85030250130031,"cheap":0.896343353219615,"r3":-0.1603456553048488,"r12":1.4879089615931718,"weather":"tired","resid":-0.14522110014470646,"peer":-0.015124555160142328,"reason":"151, connecting","img":"https://images.pokemontcg.io/sv3/207_hires.png","imgHi":"https://images.pokemontcg.io/sv3/207_hires.png"},{"id":"sv10-185","name":"Shaymin","set":"Destined Rivals","set_id":"sv10","num":"185","action":"walk","era":"sv","rob":11.0,"shop":12.78,"mark":11.861482211297414,"cheap":0.9273714535880769,"r3":-0.06715328467153281,"r12":0.0031397174254317317,"weather":"tired","resid":0.0,"peer":-0.06715328467153281,"reason":"cute","img":"https://images.pokemontcg.io/sv10/185_hires.png","imgHi":"https://images.pokemontcg.io/sv10/185_hires.png"},{"id":"sv8-212","name":"Slakoth","set":"Surging Sparks","set_id":"sv8","num":"212","action":"walk","era":"sv","rob":12.0,"shop":12.45,"mark":12.770245894545056,"cheap":0.9396843333397304,"r3":-0.18839634941329864,"r12":0.5504358655043586,"weather":"tired","resid":-0.20023703832610817,"peer":0.011840688912809538,"reason":"cute","img":"https://images.pokemontcg.io/sv8/212_hires.png","imgHi":"https://images.pokemontcg.io/sv8/212_hires.png"},{"id":"sv10-189","name":"Rapidash","set":"Destined Rivals","set_id":"sv10","num":"189","action":"walk","era":"sv","rob":10.0,"shop":9.24,"mark":10.201095614422588,"cheap":0.9802868611349673,"r3":-0.10896817743490828,"r12":0.14074074074074083,"weather":"tired","resid":-0.041814892763375466,"peer":-0.06715328467153281,"reason":"151","img":"https://images.pokemontcg.io/sv10/189_hires.png","imgHi":"https://images.pokemontcg.io/sv10/189_hires.png"},{"id":"sv9-164","name":"Lillie's Ribombee","set":"Journey Together","set_id":"sv9","num":"164","action":"walk","era":"sv","rob":6.0,"shop":4.87,"mark":5.98658609038197,"cheap":1.0022406609402277,"r3":-0.14860139860139854,"r12":-0.11615245009074404,"weather":"tired","resid":-0.06294031852691062,"peer":-0.08566108007448792,"reason":"cute","img":"https://images.pokemontcg.io/sv9/164_hires.png","imgHi":"https://images.pokemontcg.io/sv9/164_hires.png"},{"id":"swsh12pt5gg-GG33","name":"Poochyena","set":"Crown Zenith Galarian Gallery","set_id":"swsh12pt5gg","num":"GG33","action":"walk","era":"swsh","rob":7.0,"shop":5.45,"mark":5.987639166208751,"cheap":1.1690751238826327,"r3":-0.10361842105263153,"r12":1.1372549019607847,"weather":"tired","resid":-0.01793399054061473,"peer":-0.0856844305120168,"reason":"connecting","img":"https://images.pokemontcg.io/swsh12pt5gg/GG33_hires.png","imgHi":"https://images.pokemontcg.io/swsh12pt5gg/GG33_hires.png"},{"id":"me1-136","name":"Shuckle","set":"Mega Evolution","set_id":"me1","num":"136","action":"walk","era":"mega","rob":8.0,"shop":7.71,"mark":6.796862126268238,"cheap":1.1770137235948812,"r3":0.13382352941176467,"r12":null,"weather":"waking up","resid":0.0,"peer":0.13382352941176467,"reason":"151 adjacent","img":"https://images.pokemontcg.io/me1/136_hires.png","imgHi":"https://images.pokemontcg.io/me1/136_hires.png"},{"id":"swsh12pt5gg-GG34","name":"Mareep","set":"Crown Zenith Galarian Gallery","set_id":"swsh12pt5gg","num":"GG34","action":"walk","era":"swsh","rob":11.0,"shop":9.89,"mark":9.327114285365585,"cheap":1.1793572656506637,"r3":-0.06255924170616112,"r12":2.519572953736655,"weather":"tired","resid":0.02312518880585568,"peer":-0.0856844305120168,"reason":"connecting","img":"https://images.pokemontcg.io/swsh12pt5gg/GG34_hires.png","imgHi":"https://images.pokemontcg.io/swsh12pt5gg/GG34_hires.png"},{"id":"me2-124","name":"Ignition Energy","set":"Phantasmal Flames","set_id":"me2","num":"124","action":"walk","era":"mega","rob":8.0,"shop":1.6,"mark":2.616427851725202,"cheap":3.0576038986609224,"r3":-0.4444444444444444,"r12":null,"weather":"tired","resid":-0.326797385620915,"peer":-0.11764705882352944,"reason":"unique","img":"https://images.pokemontcg.io/me2/124_hires.png","imgHi":"https://images.pokemontcg.io/me2/124_hires.png"}]</script>
+<script>
+const ROWS = JSON.parse(document.getElementById("app-data").textContent);
+const BADGE = {"plant":"🌱 Plant","watch":"👀 Watch","walk":"🚶 Walk"};
+const $ = (id) => document.getElementById(id);
+let filt = "all", q = "";
+let sheetId = null, lastFocus = null;
+function usd(x){
+  if(x==null) return "—";
+  return "$" + (x>=100 ? Math.round(x).toLocaleString() : x.toFixed(2));
+}
+function pct(x){
+  if(x==null) return "—";
+  const cls = x>0.005 ? "pos" : x<-0.005 ? "neg" : "flat";
+  return `<span class="${cls}">${x>0?"+":""}${(x*100).toFixed(0)}%</span>`;
+}
+function cheapTalk(x){
+  if(x==null) return "We do not have a mark yet.";
+  const n = Math.round(x*100);
+  if(x < 0.90) return `Rob's ask is ${n}% of the mark — cheaper.`;
+  if(x > 1.10) return `Rob's ask is ${n}% of the mark — more than the mark.`;
+  return `Rob's ask is about the mark (${n}%).`;
+}
+function leftoverTalk(resid, peer){
+  if(resid==null) return "Not enough friends on this sheet to say leftover.";
+  const bit = resid < -0.005 ? "Leftover vs friends" : resid > 0.005 ? "Ahead of friends" : "Moved with friends";
+  return `${bit}: ${pct(resid)} vs friends' ${pct(peer)}.`;
+}
+function eraOf(r){
+  if(r.era==="mega") return "Mega";
+  if(r.era==="sv") return "Scarlet & Violet";
+  if(r.era==="swsh") return "Crown Zenith";
+  return r.era || "";
+}
+function matches(r){
+  if(filt==="all") return true;
+  if(filt==="plant" || filt==="watch" || filt==="walk") return r.action===filt;
+  if(filt==="mega" || filt==="sv" || filt==="swsh") return r.era===filt;
+  if(filt==="leftover") return r.resid!=null && r.resid<0;
+  return true;
+}
+function filtered(){
+  const qq = q.trim().toLowerCase();
+  let xs = ROWS.filter(matches);
+  if(qq) xs = xs.filter(r => (r.name+" "+r.set+" "+r.num+" "+r.reason+" "+r.action+" "+r.weather+" "+eraOf(r)).toLowerCase().includes(qq));
+  return xs;
+}
+function chipCount(id){
+  if(id==="all") return ROWS.length;
+  const old = filt; filt = id;
+  const n = ROWS.filter(matches).length;
+  filt = old;
+  return n;
+}
+function chips(){
+  const row = $("rank-row"); row.innerHTML = "";
+  [["all","All"],["plant","Plant"],["watch","Watch"],["walk","Walk"],["mega","Mega"],["sv","Scarlet & Violet"],["swsh","Crown Zenith"],["leftover","leftover"]].forEach(([id,lab]) => {
+    const b=document.createElement("button");
+    b.type="button"; b.className="chip"+(filt===id?" active":""); b.textContent=lab+" "+chipCount(id);
+    b.setAttribute("aria-pressed", filt===id ? "true" : "false");
+    b.onclick=()=>{filt=id; draw();};
+    row.appendChild(b);
+  });
+}
+function tile(r){
+  const b = document.createElement("button");
+  b.type="button"; b.className="card-tile "+r.action;
+  b.setAttribute("aria-label", `${r.name} ${r.set} Rob's ask ${usd(r.rob)}`);
+  b.innerHTML = `<div class="art"><img src="${r.img}" alt="${r.name}" loading="lazy"/></div>
+    <div class="body"><span class="badge ${r.action}">${BADGE[r.action]||r.action}</span>
+    <div class="nm">${r.name}</div>
+    <div class="sm">${r.set} · #${r.num}</div>
+    <span class="hint">Rob's ask</span>
+    <div class="mark">${usd(r.rob)}</div>
+    <div class="sg">
+      <div class="st"><span class="k">Shop now</span><span class="v">${usd(r.shop)}</span></div>
+      <div class="st"><span class="k">3-month move</span><span class="v">${pct(r.r3)}</span></div>
+      <div class="st"><span class="k">Leftover vs friends</span><span class="v">${pct(r.resid)}</span></div>
+    </div></div>`;
+  b.onclick=()=>openCard(r.id);
+  return b;
+}
+function sparkSvg(r){
+  const now=1;
+  const p3=(r.r3!=null && r.r3>-0.99)? now/(1+r.r3): null;
+  const p12=(r.r12!=null && r.r12>-0.99)? now/(1+r.r12): null;
+  const xs=[p12,p3,now];
+  const known=xs.filter(v=>v!=null);
+  if(known.length<2) return "";
+  const lo=Math.min(...known), hi=Math.max(...known), span=Math.max(hi-lo,0.04);
+  const w=200,h=54,pad=6,plot=36, n=xs.length-1;
+  const pts=[];
+  xs.forEach((v,i)=>{
+    if(v==null) return;
+    pts.push((pad+(w-2*pad)*i/n).toFixed(1)+","+(4+(plot-8)*(1-(v-lo)/span)).toFixed(1));
+  });
+  const last=pts[pts.length-1].split(",");
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" aria-hidden="true">
+    <polyline points="${pts.join(" ")}" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${last[0]}" cy="${last[1]}" r="3.2" fill="#3dd68c"/>
+    <text x="${pad}" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">then</text>
+    <text x="${w/2}" y="50" fill="#97a1b5" font-size="9" text-anchor="middle" font-family="system-ui,sans-serif">3mo ago</text>
+    <text x="${w-pad}" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text>
+  </svg>`;
+}
+function tcgSearch(r){
+  return "https://www.tcgplayer.com/search/pokemon/product?" + new URLSearchParams({
+    Language:"English", q:`${r.name} ${r.set}`, productLineName:"pokemon", view:"grid"
+  }).toString();
+}
+function paintSheet(){
+  const r = ROWS.find(x => x.id===sheetId); if(!r) return;
+  $("sheet").innerHTML = `<div class="peek-grid">
+    <button type="button" class="hero-art" id="hero-art" aria-label="Expand ${r.name} art"><img src="${r.imgHi}" alt="${r.name}"/></button>
+    <div>
+      <span class="badge ${r.action}">${BADGE[r.action]||r.action}</span>
+      <div class="sm">${r.set} · #${r.num} · ${eraOf(r)}</div>
+      <h2 style="margin:.1rem 0 .35rem;font-size:1.2rem">${r.name}</h2>
+      <div class="today">Rob's ask</div>
+      <div class="hero-px">${usd(r.rob)}</div>
+      <div class="tab-note" style="margin:.2rem 0 0">Shop now ${usd(r.shop)} · mark ${usd(r.mark)}</div>
+      <div class="tab-note" style="margin:.2rem 0 0">${cheapTalk(r.cheap)}</div>
+      <div class="tab-note" style="margin:.2rem 0 0">Weather: ${r.weather}</div>
+      <div class="tab-note" style="margin:.2rem 0 0">${leftoverTalk(r.resid, r.peer)}</div>
+    </div>
+  </div>
+  ${sparkSvg(r)}
+  <p class="tab-note">${r.reason ? "Why it's here: "+r.reason : ""}</p>
+  <p class="tab-note"><a href="${tcgSearch(r)}" target="_blank" rel="noopener noreferrer">On TCGPlayer</a></p>`;
+  $("hero-art").onclick=()=>openZoom(r.imgHi, r.name);
+}
+function openZoom(src, name){
+  $("lb-img").src=src; $("lb-img").alt=name;
+  $("lightbox").hidden=false; $("lightbox").classList.add("on");
+}
+function closeZoom(){
+  $("lightbox").classList.remove("on"); $("lightbox").hidden=true;
+}
+function openCard(id){
+  const r = ROWS.find(x => x.id===id);
+  if(!r) return;
+  lastFocus = document.activeElement;
+  sheetId = id;
+  document.body.classList.add("card-open");
+  history.replaceState({}, "", "#"+id);
+  paintSheet();
+}
+function draw(){
+  chips();
+  const g=$("grid"); g.innerHTML="";
+  filtered().forEach(r=>g.appendChild(tile(r)));
+}
+$("q").addEventListener("input", e=>{q=e.target.value; draw();});
+$("back").onclick=()=>{
+  document.body.classList.remove("card-open");
+  sheetId=null; closeZoom();
+  history.replaceState({}, "", location.pathname);
+  if(lastFocus && lastFocus.focus) lastFocus.focus();
+};
+$("lb-close").onclick=closeZoom;
+$("lightbox").addEventListener("click", e=>{ if(e.target.id==="lightbox") closeZoom(); });
+document.addEventListener("keydown", e=>{
+  if(e.key!=="Escape") return;
+  if(!$("lightbox").hidden){ closeZoom(); return; }
+  if(document.body.classList.contains("card-open")) $("back").click();
+});
+if(location.hash) openCard(location.hash.slice(1));
+draw();
+</script>
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
+</script>
+</body>
+</html>
