@@ -83,7 +83,7 @@ body.card-open #card-page{display:block}
 .ladder th.num,.ladder td.num{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
 .ladder a{color:var(--accent);text-decoration:none}
 .chart-box{position:relative;margin:.15rem 0 .35rem}
-.plot{display:block;width:100%;height:180px}
+.plot{display:block;width:100%;height:180px;overflow:visible}
 .plot .grid{stroke:var(--border);stroke-width:1}
 .plot .axis{stroke:#6b758c;stroke-width:1.1}
 .plot .line{fill:none;stroke:var(--pos);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
@@ -304,6 +304,23 @@ function buildDots(n){
     d.appendChild(s);
   }
 }
+function xAt(t, t0, spanT, L, W){
+  return L + ((pointDate(t).getTime() - t0) / spanT) * W;
+}
+function lineSegs(pts, t0, spanT, L, W, y, grain){
+  const gap = grain==="week" ? 10*864e5 : 40*864e5;
+  const segs = [];
+  let cur = [];
+  pts.forEach((p,i) => {
+    if(cur.length){
+      const dt = pointDate(p.t).getTime() - pointDate(pts[i-1].t).getTime();
+      if(dt > gap){ segs.push(cur); cur = []; }
+    }
+    cur.push(`${xAt(p.t,t0,spanT,L,W)},${y(p.y)}`);
+  });
+  if(cur.length) segs.push(cur);
+  return segs;
+}
 function drawChart(r){
   const spec = RANGES.find(x=>x.id===range) || RANGES[2];
   const {pts, grain, used} = pickSeries(r, condId, spec);
@@ -321,20 +338,31 @@ function drawChart(r){
   const values = pts.map(p=>p.y);
   const ymin = Math.max(0, Math.floor(Math.min(...values)*0.85));
   const ymax = Math.max(ymin+1, Math.ceil(Math.max(...values)*1.12));
-  const L=42,T=10,R=8,B=28,W=320-L-R,H=180-T-B;
-  const x = (i) => L + (pts.length===1 ? W/2 : (i/(pts.length-1))*W);
+  const start = new Date(AS_OF);
+  start.setUTCDate(start.getUTCDate()-spec.days);
+  const t0 = start.getTime();
+  const spanT = Math.max(1, AS_OF.getTime() - t0);
+  const L=50,T=16,R=22,B=34,W=320-L-R,H=180-T-B;
   const y = (v) => T + (1-(v-ymin)/(ymax-ymin||1))*H;
   const ticks = [0,1,2,3].map(i => ymin + ((ymax-ymin)*i)/3);
   const grid = ticks.map(t => `<line class="grid" x1="${L}" x2="${L+W}" y1="${y(t)}" y2="${y(t)}"/><text x="${L-6}" y="${y(t)+3}" text-anchor="end">${usdTick(t)}</text>`).join("");
-  const idx = pts.length<=5 ? pts.map((_,i)=>i) : [0, Math.round((pts.length-1)/3), Math.round(2*(pts.length-1)/3), pts.length-1];
-  const seen = new Set();
-  const xlabs = idx.filter(i => { if(seen.has(i)) return false; seen.add(i); return true; })
-    .map(i => `<text x="${x(i)}" y="${T+H+16}" text-anchor="middle">${xLabel(pts[i].t, grain)}</text>`).join("");
-  const line = pts.map((p,i)=>`${x(i)},${y(p.y)}`).join(" ");
-  const area = `${L},${T+H} ${line} ${L+W},${T+H}`;
-  const dots = pts.length<=16 ? pts.map((p,i)=>`<circle class="dot" cx="${x(i)}" cy="${y(p.y)}" r="2.4"/>`).join("") : "";
+  const xlabs = [0,1,2,3].map(i => {
+    const d = new Date(t0 + (spanT*i)/3);
+    const lab = grain==="week"
+      ? d.toLocaleDateString("en-US",{month:"short", day:"numeric", timeZone:"UTC"})
+      : d.toLocaleDateString("en-US",{month:"short", year:"2-digit", timeZone:"UTC"});
+    const anchor = i===0 ? "start" : i===3 ? "end" : "middle";
+    return `<text x="${L + (W*i)/3}" y="${T+H+18}" text-anchor="${anchor}">${lab}</text>`;
+  }).join("");
+  const segs = lineSegs(pts, t0, spanT, L, W, y, grain);
+  const areas = segs.filter(s=>s.length>=2).map(s => {
+    const x0 = s[0].split(",")[0], x1 = s[s.length-1].split(",")[0];
+    return `<polygon class="area" points="${x0},${T+H} ${s.join(" ")} ${x1},${T+H}"/>`;
+  }).join("");
+  const lines = segs.filter(s=>s.length>=2).map(s => `<polyline class="line" points="${s.join(" ")}"/>`).join("");
+  const dots = pts.map(p=>`<circle class="dot" cx="${xAt(p.t,t0,spanT,L,W)}" cy="${y(p.y)}" r="2.6"/>`).join("");
   svg.setAttribute("aria-label", `Price ${seriesCap(used, grain)}`);
-  svg.innerHTML = `${grid}<line class="axis" x1="${L}" y1="${T}" x2="${L}" y2="${T+H}"/><line class="axis" x1="${L}" y1="${T+H}" x2="${L+W}" y2="${T+H}"/><polygon class="area" points="${area}"/><polyline class="line" points="${line}"/>${dots}${xlabs}`;
+  svg.innerHTML = `${grid}<line class="axis" x1="${L}" y1="${T}" x2="${L}" y2="${T+H}"/><line class="axis" x1="${L}" y1="${T+H}" x2="${L+W}" y2="${T+H}"/>${areas}${lines}${dots}${xlabs}`;
   cap.textContent = usd(values[values.length-1]) + " · " + seriesCap(used, grain);
 }
 function priceBody(r){
