@@ -10,7 +10,7 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);
   color:var(--text);line-height:1.5;-webkit-text-size-adjust:100%}
-main{max-width:40rem;margin:0 auto;padding:1.4rem 1.1rem 4rem;padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
+main{max-width:56rem;margin:0 auto;padding:1.4rem 1.1rem 4rem;padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
 h1{font-size:1.35rem;margin:0 0 .3rem}
 .lede{color:var(--muted);font-size:.94rem;margin:0 0 1.2rem}
 a.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.85rem;margin-bottom:.9rem;min-height:44px}
@@ -54,14 +54,20 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
 .flow-lab b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
 .path{display:grid;grid-template-columns:1fr 10rem;gap:.7rem;align-items:center}
 .spark{width:100%;height:54px;display:block}
-.pile-block{margin:0 0 1.1rem}
-.pile-block h3{margin:0 0 .45rem;font-size:.95rem}
-.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
-.tile{display:grid;grid-template-columns:4.4rem 1fr;gap:.55rem;align-items:center;
-  background:var(--panel);border:1px solid rgba(61,214,140,.42);border-radius:12px;padding:.5rem .55rem}
-.tile img{width:4.4rem;height:6.1rem;object-fit:contain;background:#0a0d14;border-radius:6px}
-.tile h3{margin:0;font-size:.92rem}
-.tile .meta{margin:.2rem 0 0;font-size:.74rem;color:var(--muted)}
+.pile-block{margin:0 0 1.2rem}
+.pile-block h3{margin:0 0 .5rem;font-size:.95rem}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:.55rem}
+.card-tile{background:var(--panel);border:1px solid rgba(61,214,140,.36);border-radius:12px;overflow:hidden}
+.card-tile .art{min-height:168px;display:flex;align-items:flex-end;justify-content:center;padding:.45rem;background:#0a0d14}
+.card-tile .art img{width:min(100%,132px);height:176px;object-fit:contain}
+.card-tile .body{padding:.45rem .5rem .55rem}
+.card-tile .nm{font-weight:700;font-size:.86rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-tile .sm{color:var(--muted);font-size:.7rem;margin:.1rem 0 .35rem}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:.25rem}
+.st{background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:8px;padding:.22rem .3rem}
+.st .k{display:block;font-size:.58rem;text-transform:uppercase;color:var(--muted);letter-spacing:.04em}
+.st .v{display:block;font-size:.76rem;font-variant-numeric:tabular-nums}
+.st .v.pos{color:var(--pos)} .st .v.neg{color:var(--neg)}
 .foot{margin-top:2rem;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem}
 @media (max-width:520px){
   .path{grid-template-columns:1fr}
@@ -80,52 +86,717 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
   <p>Buy <b>HeartGold</b>, <b>Call of Legends</b>, and <b>Rising Rivals</b> shiny ones.</p>
   <p>Buy the <b>plain rares</b> in Unleashed, Undaunted, and Triumphant. Leave those sets' shiny ones.</p>
   <p>Leave Prime cards in plastic cases. Leave LV.X cards in plastic cases.</p>
-  <p>The <a href="primes.html">26 Prime cards</a> page is that leave pile. It is current. It is not what to buy.</p>
+  <p>The <a href="primes.html">Prime cards</a> page is that leave pile.</p>
 </section>
 <section>
   <h2>Buy these cards</h2>
-  <p class="hint">Five from each growing pile. They kept up with their friends. Middle of the set, not the leftover and not the moon.</p>
-  <div class="pile-block"><h3>HeartGold shiny ones</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/hgss1/12.png" alt="" loading="lazy"/><div><h3>Slowking</h3><p class="meta">12 · $32.74 · +80% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss1/7.png" alt="" loading="lazy"/><div><h3>Ninetales</h3><p class="meta">7 · $49.11 · +57% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss1/13.png" alt="" loading="lazy"/><div><h3>Wobbuffet</h3><p class="meta">13 · $25.13 · +55% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss1/11.png" alt="" loading="lazy"/><div><h3>Shuckle</h3><p class="meta">11 · $29.78 · +41% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss1/10.png" alt="" loading="lazy"/><div><h3>Raichu</h3><p class="meta">10 · $31.52 · +32% this quarter</p></div></article></div></div>
-<div class="pile-block"><h3>Call of Legends shiny ones</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/col1/2.png" alt="" loading="lazy"/><div><h3>Deoxys</h3><p class="meta">2 · $39.58 · +67% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/col1/1.png" alt="" loading="lazy"/><div><h3>Clefable</h3><p class="meta">1 · $16.38 · +51% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/col1/19.png" alt="" loading="lazy"/><div><h3>Palkia</h3><p class="meta">19 · $18.93 · +48% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/col1/7.png" alt="" loading="lazy"/><div><h3>Gyarados</h3><p class="meta">7 · $66.20 · +34% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/col1/16.png" alt="" loading="lazy"/><div><h3>Magmortar</h3><p class="meta">16 · $7.57 · +31% this quarter</p></div></article></div></div>
-<div class="pile-block"><h3>Rising Rivals shiny ones</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/pl2/11.png" alt="" loading="lazy"/><div><h3>Rampardos GL</h3><p class="meta">11 · $12.47 · +50% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl2/7.png" alt="" loading="lazy"/><div><h3>Jirachi</h3><p class="meta">7 · $44.55 · +41% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl2/4.png" alt="" loading="lazy"/><div><h3>Floatzel GL</h3><p class="meta">4 · $7.79 · +38% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl2/3.png" alt="" loading="lazy"/><div><h3>Darkrai G</h3><p class="meta">3 · $69.87 · +32% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl2/5.png" alt="" loading="lazy"/><div><h3>Flygon</h3><p class="meta">5 · $22.99 · +27% this quarter</p></div></article></div></div>
-<div class="pile-block"><h3>Supreme Victors shiny ones</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/pl3/2.png" alt="" loading="lazy"/><div><h3>Blaziken FB</h3><p class="meta">2 · $37.76 · +62% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl3/1.png" alt="" loading="lazy"/><div><h3>Absol G</h3><p class="meta">1 · $32.08 · +57% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl3/14.png" alt="" loading="lazy"/><div><h3>Yanmega</h3><p class="meta">14 · $9.40 · +42% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl3/4.png" alt="" loading="lazy"/><div><h3>Electivire FB</h3><p class="meta">4 · $23.58 · +37% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl3/13.png" alt="" loading="lazy"/><div><h3>Venusaur</h3><p class="meta">13 · $45.86 · +36% this quarter</p></div></article></div></div>
-<div class="pile-block"><h3>Arceus shiny ones</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/pl4/8.png" alt="" loading="lazy"/><div><h3>Salamence</h3><p class="meta">8 · $15.43 · +61% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl4/2.png" alt="" loading="lazy"/><div><h3>Froslass</h3><p class="meta">2 · $8.10 · +34% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl4/4.png" alt="" loading="lazy"/><div><h3>Kabutops</h3><p class="meta">4 · $18.38 · +23% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl4/5.png" alt="" loading="lazy"/><div><h3>Luxray</h3><p class="meta">5 · $6.40 · +19% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/pl4/1.png" alt="" loading="lazy"/><div><h3>Charizard</h3><p class="meta">1 · $70.61 · +12% this quarter</p></div></article></div></div>
-<div class="pile-block"><h3>Unleashed plain rares</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/hgss2/24.png" alt="" loading="lazy"/><div><h3>Steelix</h3><p class="meta">24 · $3.01 · +90% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss2/13.png" alt="" loading="lazy"/><div><h3>Blastoise</h3><p class="meta">13 · $14.26 · +55% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss2/19.png" alt="" loading="lazy"/><div><h3>Lucario</h3><p class="meta">19 · $5.91 · +54% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss2/20.png" alt="" loading="lazy"/><div><h3>Ninetales</h3><p class="meta">20 · $12.37 · +53% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss2/17.png" alt="" loading="lazy"/><div><h3>Kingdra</h3><p class="meta">17 · $3.84 · +40% this quarter</p></div></article></div></div>
-<div class="pile-block"><h3>Undaunted plain rares</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/hgss3/14.png" alt="" loading="lazy"/><div><h3>Hariyama</h3><p class="meta">14 · $4.08 · +44% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss3/24.png" alt="" loading="lazy"/><div><h3>Vileplume</h3><p class="meta">24 · $5.86 · +43% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss3/17.png" alt="" loading="lazy"/><div><h3>Leafeon</h3><p class="meta">17 · $10.14 · +21% this quarter</p></div></article></div></div>
-<div class="pile-block"><h3>Triumphant plain rares</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/hgss4/30.png" alt="" loading="lazy"/><div><h3>Sharpedo</h3><p class="meta">30 · $4.16 · +72% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss4/18.png" alt="" loading="lazy"/><div><h3>Dragonite</h3><p class="meta">18 · $18.65 · +32% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss4/15.png" alt="" loading="lazy"/><div><h3>Bronzong</h3><p class="meta">15 · $15.26 · +28% this quarter</p></div></article>
-<article class="tile"><img src="https://images.pokemontcg.io/hgss4/29.png" alt="" loading="lazy"/><div><h3>Pidgeot</h3><p class="meta">29 · $11.77 · +22% this quarter</p></div></article></div></div>
+  <p class="hint">Every card that kept up with its friends. Price, last 3 months, the 3 months before, and versus the pile.</p>
+  <div class="pile-block"><h3>HeartGold shiny ones</h3><div class="tiles"><article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss1/12.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Slowking</div>
+    <div class="sm">HeartGold · 12</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$32.74</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+80%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+7%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+53%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss1/7.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Ninetales</div>
+    <div class="sm">HeartGold · 7</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$49.11</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+57%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+16%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+30%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss1/13.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Wobbuffet</div>
+    <div class="sm">HeartGold · 13</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$25.13</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+55%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+15%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+28%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss1/11.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Shuckle</div>
+    <div class="sm">HeartGold · 11</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$29.78</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+41%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+61%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+14%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss1/10.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Raichu</div>
+    <div class="sm">HeartGold · 10</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$31.52</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+32%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+13%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+5%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss1/1.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Arcanine</div>
+    <div class="sm">HeartGold · 1</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$75.84</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+28%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+39%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v">+2%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss1/2.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Azumarill</div>
+    <div class="sm">HeartGold · 2</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$9.66</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+25%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+25%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v">-2%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss1/5.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Hitmontop</div>
+    <div class="sm">HeartGold · 5</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$8.04</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+24%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+37%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v neg">-2%</span></div>
+    </div>
+  </div>
+</article></div></div>
+<div class="pile-block"><h3>Call of Legends shiny ones</h3><div class="tiles"><article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/col1/2.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Deoxys</div>
+    <div class="sm">Call of Legends · 2</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$39.58</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+67%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+10%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+47%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/col1/1.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Clefable</div>
+    <div class="sm">Call of Legends · 1</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$16.38</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+51%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+88%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+31%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/col1/19.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Palkia</div>
+    <div class="sm">Call of Legends · 19</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$18.93</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+48%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+44%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+28%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/col1/7.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Gyarados</div>
+    <div class="sm">Call of Legends · 7</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$66.20</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+34%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+16%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+14%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/col1/16.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Magmortar</div>
+    <div class="sm">Call of Legends · 16</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$7.57</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+31%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+5%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+11%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/col1/12.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Kyogre</div>
+    <div class="sm">Call of Legends · 12</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$42.61</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+28%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+97%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+8%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/col1/10.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Houndoom</div>
+    <div class="sm">Call of Legends · 10</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$23.76</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+27%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+8%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+7%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/col1/21.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Smeargle</div>
+    <div class="sm">Call of Legends · 21</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$10.08</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+25%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+7%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+5%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/col1/9.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Ho-Oh</div>
+    <div class="sm">Call of Legends · 9</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$36.05</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+20%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+4%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v">+0%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/col1/11.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Jirachi</div>
+    <div class="sm">Call of Legends · 11</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$34.24</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+18%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+10%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v neg">-3%</span></div>
+    </div>
+  </div>
+</article></div></div>
+<div class="pile-block"><h3>Rising Rivals shiny ones</h3><div class="tiles"><article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl2/11.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Rampardos GL</div>
+    <div class="sm">Rising Rivals · 11</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$12.47</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+50%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+35%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+33%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl2/7.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Jirachi</div>
+    <div class="sm">Rising Rivals · 7</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$44.55</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+41%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+59%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+24%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl2/4.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Floatzel GL</div>
+    <div class="sm">Rising Rivals · 4</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$7.79</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+38%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+18%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+21%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl2/3.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Darkrai G</div>
+    <div class="sm">Rising Rivals · 3</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$69.87</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+32%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+8%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+15%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl2/5.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Flygon</div>
+    <div class="sm">Rising Rivals · 5</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$22.99</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+27%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+5%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+10%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl2/12.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Roserade GL</div>
+    <div class="sm">Rising Rivals · 12</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$7.23</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+26%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+6%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+9%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl2/8.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Lucario GL</div>
+    <div class="sm">Rising Rivals · 8</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$27.87</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+17%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+14%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v">+0%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl2/2.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Bastiodon GL</div>
+    <div class="sm">Rising Rivals · 2</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$10.87</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+17%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+47%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v">-0%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl2/6.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Froslass GL</div>
+    <div class="sm">Rising Rivals · 6</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$10.47</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+12%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+17%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v neg">-5%</span></div>
+    </div>
+  </div>
+</article></div></div>
+<div class="pile-block"><h3>Supreme Victors shiny ones</h3><div class="tiles"><article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl3/2.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Blaziken FB</div>
+    <div class="sm">Supreme Victors · 2</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$37.76</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+62%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+53%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+40%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl3/1.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Absol G</div>
+    <div class="sm">Supreme Victors · 1</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$32.08</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+57%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+15%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+35%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl3/14.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Yanmega</div>
+    <div class="sm">Supreme Victors · 14</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$9.40</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+42%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+33%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+20%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl3/4.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Electivire FB</div>
+    <div class="sm">Supreme Victors · 4</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$23.58</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+37%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+68%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+15%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl3/13.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Venusaur</div>
+    <div class="sm">Supreme Victors · 13</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$45.86</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+36%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+27%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+14%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl3/6.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Magmortar</div>
+    <div class="sm">Supreme Victors · 6</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$11.84</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+31%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+62%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+9%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl3/7.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Metagross</div>
+    <div class="sm">Supreme Victors · 7</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$11.84</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+23%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+32%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v">+1%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl3/11.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Staraptor FB</div>
+    <div class="sm">Supreme Victors · 11</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$10.90</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+21%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+34%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v">-1%</span></div>
+    </div>
+  </div>
+</article></div></div>
+<div class="pile-block"><h3>Arceus shiny ones</h3><div class="tiles"><article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl4/8.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Salamence</div>
+    <div class="sm">Arceus · 8</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$15.43</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+61%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+53%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+46%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl4/2.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Froslass</div>
+    <div class="sm">Arceus · 2</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$8.10</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+34%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+50%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+19%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl4/4.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Kabutops</div>
+    <div class="sm">Arceus · 4</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$18.38</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+23%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+43%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+7%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl4/5.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Luxray</div>
+    <div class="sm">Arceus · 5</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$6.40</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+19%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+7%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+4%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl4/1.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Charizard</div>
+    <div class="sm">Arceus · 1</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$70.61</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+12%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+41%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v neg">-3%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/pl4/12.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Zapdos G</div>
+    <div class="sm">Arceus · 12</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$17.31</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+11%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+25%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v neg">-4%</span></div>
+    </div>
+  </div>
+</article></div></div>
+<div class="pile-block"><h3>Unleashed plain rares</h3><div class="tiles"><article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss2/24.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Steelix</div>
+    <div class="sm">Unleashed · 24</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$3.01</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+90%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v">+1%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+51%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss2/13.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Blastoise</div>
+    <div class="sm">Unleashed · 13</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$14.26</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+55%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+15%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+15%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss2/19.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Lucario</div>
+    <div class="sm">Unleashed · 19</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$5.91</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+54%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+104%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+14%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss2/20.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Ninetales</div>
+    <div class="sm">Unleashed · 20</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$12.37</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+53%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+51%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+13%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss2/17.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Kingdra</div>
+    <div class="sm">Unleashed · 17</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$3.84</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+40%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+15%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v">+1%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss2/26.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Tyranitar</div>
+    <div class="sm">Unleashed · 26</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$10.08</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+35%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+29%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v neg">-4%</span></div>
+    </div>
+  </div>
+</article></div></div>
+<div class="pile-block"><h3>Undaunted plain rares</h3><div class="tiles"><article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss3/14.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Hariyama</div>
+    <div class="sm">Undaunted · 14</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$4.08</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+44%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+62%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+23%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss3/24.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Vileplume</div>
+    <div class="sm">Undaunted · 24</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$5.86</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+43%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v">+1%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+22%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss3/17.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Leafeon</div>
+    <div class="sm">Undaunted · 17</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$10.14</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+21%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+23%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v">+0%</span></div>
+    </div>
+  </div>
+</article></div></div>
+<div class="pile-block"><h3>Triumphant plain rares</h3><div class="tiles"><article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss4/30.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Sharpedo</div>
+    <div class="sm">Triumphant · 30</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$4.16</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+72%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+89%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+50%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss4/18.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Dragonite</div>
+    <div class="sm">Triumphant · 18</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$18.65</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+32%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+28%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+10%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss4/15.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Bronzong</div>
+    <div class="sm">Triumphant · 15</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$15.26</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+28%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+68%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v pos">+7%</span></div>
+    </div>
+  </div>
+</article>
+<article class="card-tile">
+  <div class="art"><img src="https://images.pokemontcg.io/hgss4/29.png" alt="" loading="lazy"/></div>
+  <div class="body">
+    <div class="nm">Pidgeot</div>
+    <div class="sm">Triumphant · 29</div>
+    <div class="sg">
+      <div class="st"><span class="k">Price</span><span class="v">$11.77</span></div>
+      <div class="st"><span class="k">3 months</span><span class="v pos">+22%</span></div>
+      <div class="st"><span class="k">Before</span><span class="v pos">+32%</span></div>
+      <div class="st"><span class="k">vs friends</span><span class="v">+0%</span></div>
+    </div>
+  </div>
+</article></div></div>
 </section>
 <section>
   <h2>Last 3 months vs the 3 months before</h2>
-  <p class="hint">Green is the last 3 months. Gray is the 3 months before that. If the green bar is longer, prices sped up. Buy that pile.</p>
+  <p class="hint">Green is the last 3 months. Gray is the 3 months before that. A much shorter green bar means the jump already happened. The sentence under the name is the takeaway.</p>
   <div class="grid">
 <article class="macro pick">
   <h3>HeartGold shiny ones</h3>
