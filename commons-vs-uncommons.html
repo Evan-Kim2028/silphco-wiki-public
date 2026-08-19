@@ -148,8 +148,10 @@ a.shop:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-r
     <summary><strong>Same book, two piles.</strong> Reverse holos. Gains are TCGplayer NM, not slabs.</summary>
     <p>Current NM and LP come from the TCGplayer condition tape. 3-month and
     1-year bars are monthly NM medians from the daily archive (sub-$0.50
-    starts are dropped so penny ticks cannot print fake multiples). Default
-    eras: δ four + HGSS / Call of Legends.</p>
+    starts are dropped so penny ticks cannot print fake multiples). Sold is
+    reverse <code>quantity_sold</code> since mid-July — AND it with a heat
+    chip to see names that are both moving and printing. Default eras: δ
+    four + HGSS / Call of Legends.</p>
   </details>
   <div class="controls">
     <div class="lbl">Era</div>
@@ -158,12 +160,15 @@ a.shop:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-r
       <summary>Filters · search</summary>
       <div class="lbl">How hot</div>
       <div class="row" id="heat-row"></div>
+      <div class="lbl">Sold (tape units since mid-July)</div>
+      <div class="row" id="flow-row"></div>
       <label>Set <select id="setn"><option value="all">all sets</option></select></label>
       <label>Sort
         <select id="sort">
           <option value="r3" selected>3 months</option>
           <option value="r6">6 months</option>
           <option value="r12">1 year</option>
+          <option value="u30">sold</option>
           <option value="nm">NM $</option>
           <option value="lp">LP $</option>
           <option value="name">name</option>
@@ -213,6 +218,13 @@ const HEAT = [
   {id:"up3", label:"Up 3m"},
   {id:"all", label:"All"},
 ];
+const FLOW = [
+  {id:"any", label:"Any sold", min:0},
+  {id:"s3", label:"≥3 sold", min:3},
+  {id:"s5", label:"≥5 sold", min:5},
+  {id:"s10", label:"≥10 sold", min:10},
+  {id:"s20", label:"≥20 sold", min:20},
+];
 const DEFAULT_ERA = new Set(["delta","hgss"]);
 const COND_ORDER = [
   ["nm","Near Mint"],["lp","Lightly Played"],["mp","Moderately Played"],
@@ -224,6 +236,7 @@ const COND_Q = {nm:"Near+Mint",lp:"Lightly+Played",mp:"Moderately+Played",hp:"He
 let eras = new Set(DEFAULT_ERA);
 let lastFocus = null;
 let heat = "hot3";
+let flow = "any";
 let side = "both";
 let DETAIL = null;
 let sheetId = null;
@@ -255,6 +268,12 @@ function heatOk(r){
   if (heat==="up3") return r.r3!=null && r.r3>0;
   return true;
 }
+function flowOk(r){
+  const spec = FLOW.find(f => f.id===flow);
+  const min = spec ? spec.min : 0;
+  if (!min) return true;
+  return r.u30!=null && r.u30>=min;
+}
 function hitsQ(r, q){
   if (!q) return true;
   const blob = (r.name+" "+r.set+" "+r.num+" "+r.id).toLowerCase();
@@ -267,6 +286,7 @@ function filtered(){
     eras.has(r.era) &&
     (setn==="all" || r.set===setn) &&
     heatOk(r) &&
+    flowOk(r) &&
     hitsQ(r, q)
   );
 }
@@ -331,13 +351,16 @@ function render(){
   fillGrid("grid-uncommon", u);
   const mc3 = median(c.map(r=>r.r3)), mu3 = median(u.map(r=>r.r3));
   const mc12 = median(c.map(r=>r.r12)), mu12 = median(u.map(r=>r.r12));
+  const mcs = median(c.map(r=>r.u30)), mus = median(u.map(r=>r.u30));
   document.getElementById("statbar").innerHTML =
     pill("common","Commons", c.length) +
     pill("common","C 3m", fmtPct(mc3)) +
     pill("common","C 1y", fmtPct(mc12)) +
+    pill("common","C sold", mcs==null?"—":Math.round(mcs)) +
     pill("uncommon","Uncommons", u.length) +
     pill("uncommon","U 3m", fmtPct(mu3)) +
-    pill("uncommon","U 1y", fmtPct(mu12));
+    pill("uncommon","U 1y", fmtPct(mu12)) +
+    pill("uncommon","U sold", mus==null?"—":Math.round(mus));
   const scale = Math.max(mc3||0, mu3||0, 0.01);
   document.getElementById("viz").innerHTML =
     vizRow("common","Commons", mc3, scale) +
@@ -385,6 +408,17 @@ function buildChips(){
     if (!btn) return;
     heat = btn.dataset.heat;
     heatRow.querySelectorAll(".chip").forEach(b => b.classList.toggle("active", b.dataset.heat===heat));
+    render();
+  });
+  const flowRow = document.getElementById("flow-row");
+  flowRow.innerHTML = FLOW.map(f =>
+    `<button type="button" class="chip${f.id===flow?" active":""}" data-flow="${f.id}">${f.label}</button>`
+  ).join("");
+  flowRow.addEventListener("click", e => {
+    const btn = e.target.closest("[data-flow]");
+    if (!btn) return;
+    flow = btn.dataset.flow;
+    flowRow.querySelectorAll(".chip").forEach(b => b.classList.toggle("active", b.dataset.flow===flow));
     render();
   });
 }
