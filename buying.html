@@ -34,6 +34,13 @@ h2{font-size:1.25rem;margin:0 0 .45rem}
 .how i{display:block;height:14px;border-radius:999px}
 .how .grow{width:100%;background:var(--pos)}
 .how .flat{width:38%;background:#6b7280}
+.middle{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;align-items:end;
+  margin:0 0 1.4rem;text-align:center;color:var(--muted);font-size:.85rem}
+.middle i{display:block;margin:0 auto .35rem;width:46%;border-radius:10px;
+  background:var(--panel);border:1px solid var(--border)}
+.middle .lo{height:28px}
+.middle .ok{height:68px;background:rgba(61,214,140,.32);border-color:var(--pos)}
+.middle .hi{height:112px}
 .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .7rem}
 .chip{appearance:none;border:1px solid var(--border);background:var(--panel);color:var(--text);
   border-radius:999px;padding:.28rem .65rem;font-size:.8rem;cursor:pointer;min-height:44px}
@@ -96,6 +103,11 @@ h2{font-size:1.25rem;margin:0 0 .45rem}
   <div><i class="grow"></i> still going up</div>
   <div><i class="flat"></i> already jumped</div>
 </div>
+<div class="middle" aria-hidden="true">
+  <div><i class="lo"></i> leftover</div>
+  <div><i class="ok"></i> middle — buy this</div>
+  <div><i class="hi"></i> the moon</div>
+</div>
 <div class="spread">
   <section class="page buy">
     <h2>Buy</h2>
@@ -135,7 +147,7 @@ h2{font-size:1.25rem;margin:0 0 .45rem}
     <em>Buy</em>
   </figcaption>
 </figure></div>
-    <p class="say">Shiny HeartGold, Call of Legends, Rising Rivals. Plain rares from Unleashed, Undaunted, Triumphant.</p>
+    <p class="say">Shiny HeartGold, Call of Legends, Rising Rivals. Not shiny from Unleashed, Undaunted, Triumphant.</p>
   </section>
   <section class="page leave">
     <h2>Leave</h2>
@@ -180,8 +192,9 @@ h2{font-size:1.25rem;margin:0 0 .45rem}
   </section>
 </div>
 <section>
-  <h2>These cards</h2>
-  <p class="say">Tap the words for what people paid. Tap the picture to make it bigger.</p>
+  <h2>Pick one</h2>
+  <p class="say">Tap the name for what people paid. Tap the picture to make it bigger.</p>
+  <p class="say">Ahead grew more than friends. Behind grew less.</p>
   <div class="chips"><button type="button" class="chip active" data-pile="all">All</button>
 <button type="button" class="chip" data-pile="heat">Still sitting</button>
 <button type="button" class="chip" data-pile="0">HeartGold</button>
@@ -1028,7 +1041,10 @@ document.querySelectorAll(".chip[data-pile]").forEach(c=>{
     c.classList.add("active");
     const pile=c.getAttribute("data-pile");
     document.querySelectorAll(".card-tile").forEach(t=>{
-      t.style.display=(pile==="all"||t.getAttribute("data-pile")===pile)?"":"none";
+      const show=pile==="all"
+        || (pile==="heat" && t.getAttribute("data-heat")==="1")
+        || t.getAttribute("data-pile")===pile;
+      t.style.display=show?"":"none";
     });
     if(openId && tileEl(openId) && tileEl(openId).style.display==="none") closeCard();
   });
