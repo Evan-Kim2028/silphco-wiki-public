@@ -14,6 +14,7 @@ main{max-width:40rem;margin:0 auto;padding:1.4rem 1.1rem 4rem;padding-bottom:cal
 h1{font-size:1.35rem;margin:0 0 .3rem}
 .lede{color:var(--muted);font-size:.94rem;margin:0 0 1.2rem}
 a.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.85rem;margin-bottom:.9rem;min-height:44px}
+.story a{color:var(--accent)}
 .story{background:var(--panel);border:1px solid var(--border);border-radius:14px;
   padding:1rem 1.1rem;margin-bottom:1.3rem}
 .story h2{margin:0 0 .5rem;font-size:1.02rem}
@@ -30,28 +31,41 @@ a.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.
 section{margin:1.4rem 0 0}
 section h2{margin:0 0 .35rem;font-size:1.05rem}
 section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
-.grid{display:grid;gap:.55rem}
-.set,.macro,.path,.rule{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.75rem .85rem}
+.grid{display:grid;gap:.7rem}
+.set,.macro,.path,.rule,.flow-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.85rem .95rem}
 .set.pick,.macro.pick,.path.pick{border-color:rgba(61,214,140,.42)}
 .set.skip,.macro.skip,.path.skip{border-color:rgba(248,113,113,.32)}
-.set h3,.macro h3,.path h3,.rule h3{margin:0;font-size:1rem}
-.why,.rule p,.path p{margin:.35rem 0 0;font-size:.84rem;color:var(--muted)}
-.pair{display:grid;gap:.28rem;margin:.5rem 0 0}
-.lane{display:grid;grid-template-columns:3.6rem 1fr 3.1rem;gap:.4rem;align-items:center;font-size:.78rem}
+.set h3,.macro h3,.path h3,.rule h3,.flow-card h3{margin:0;font-size:1rem}
+.why,.rule p,.path p,.flow-card p{margin:.4rem 0 0;font-size:.88rem;color:var(--muted)}
+.pair{display:grid;gap:.45rem;margin:.65rem 0 0}
+.lane{display:grid;grid-template-columns:5.4rem 1fr 3.2rem;gap:.45rem;align-items:center;font-size:.82rem}
 .lane span{color:var(--muted)}
-.track{position:relative;height:.62rem;background:var(--panel2);border-radius:999px;overflow:hidden}
+.track{position:relative;height:.68rem;background:var(--panel2);border-radius:999px;overflow:hidden}
 .track span{position:absolute;top:0;bottom:0;left:0;border-radius:999px;background:var(--bar)}
 .track span.up{background:#64748b}
 .track span.up.now{background:var(--pos)}
 .track span.down{background:var(--neg)}
+.track span.sit{background:#8b93a7}
+.track span.sold{background:var(--pos)}
 .v{text-align:right;font-variant-numeric:tabular-nums}
 .v.up{color:var(--pos)} .v.down{color:var(--neg)}
-.path{display:grid;grid-template-columns:1fr 9rem;gap:.6rem;align-items:center}
-.spark{width:100%;height:44px;display:block}
+.flow-pair{display:grid;gap:.7rem;margin:.7rem 0 0}
+.flow-lab{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;margin-bottom:.28rem;font-size:.82rem}
+.flow-lab b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
+.path{display:grid;grid-template-columns:1fr 10rem;gap:.7rem;align-items:center}
+.spark{width:100%;height:54px;display:block}
+.pile-block{margin:0 0 1.1rem}
+.pile-block h3{margin:0 0 .45rem;font-size:.95rem}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
+.tile{display:grid;grid-template-columns:4.4rem 1fr;gap:.55rem;align-items:center;
+  background:var(--panel);border:1px solid rgba(61,214,140,.42);border-radius:12px;padding:.5rem .55rem}
+.tile img{width:4.4rem;height:6.1rem;object-fit:contain;background:#0a0d14;border-radius:6px}
+.tile h3{margin:0;font-size:.92rem}
+.tile .meta{margin:.2rem 0 0;font-size:.74rem;color:var(--muted)}
 .foot{margin-top:2rem;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem}
 @media (max-width:520px){
   .path{grid-template-columns:1fr}
-  .spark{width:12rem}
+  .spark{width:13.5rem}
 }
 </style>
 <link rel="manifest" href="manifest.webmanifest"/>
@@ -60,226 +74,326 @@ section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
 <main>
 <a class="back" href="index.html">← back</a>
 <h1>After the Prime pile</h1>
-<p class="lede">Platinum and HeartGold. Shop prices through the day we looked. Not the plastic-case picture.</p>
+<p class="lede">Platinum and HeartGold. Buy the pile that is still growing.</p>
 <section class="story">
   <h2>The call</h2>
   <p>Buy <b>HeartGold</b>, <b>Call of Legends</b>, and <b>Rising Rivals</b> shiny ones.</p>
   <p>Buy the <b>plain rares</b> in Unleashed, Undaunted, and Triumphant. Leave those sets' shiny ones.</p>
-  <p>Leave Prime plastic cases as a pile. Leave LV.X plastic cases.</p>
+  <p>Leave Prime cards in plastic cases. Leave LV.X cards in plastic cases.</p>
+  <p>The <a href="primes.html">26 Prime cards</a> page is that leave pile. It is current. It is not what to buy.</p>
 </section>
 <section>
-  <h2>This quarter vs last quarter</h2>
-  <p class="hint">Green is this quarter. Gray is the quarter before. Pick the pile that sped up. Leave the pile that already printed.</p>
+  <h2>Buy these cards</h2>
+  <p class="hint">Five from each growing pile. They kept up with their friends. Middle of the set, not the leftover and not the moon.</p>
+  <div class="pile-block"><h3>HeartGold shiny ones</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/hgss1/12.png" alt="" loading="lazy"/><div><h3>Slowking</h3><p class="meta">12 · $32.74 · +80% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss1/7.png" alt="" loading="lazy"/><div><h3>Ninetales</h3><p class="meta">7 · $49.11 · +57% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss1/13.png" alt="" loading="lazy"/><div><h3>Wobbuffet</h3><p class="meta">13 · $25.13 · +55% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss1/11.png" alt="" loading="lazy"/><div><h3>Shuckle</h3><p class="meta">11 · $29.78 · +41% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss1/10.png" alt="" loading="lazy"/><div><h3>Raichu</h3><p class="meta">10 · $31.52 · +32% this quarter</p></div></article></div></div>
+<div class="pile-block"><h3>Call of Legends shiny ones</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/col1/2.png" alt="" loading="lazy"/><div><h3>Deoxys</h3><p class="meta">2 · $39.58 · +67% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/col1/1.png" alt="" loading="lazy"/><div><h3>Clefable</h3><p class="meta">1 · $16.38 · +51% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/col1/19.png" alt="" loading="lazy"/><div><h3>Palkia</h3><p class="meta">19 · $18.93 · +48% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/col1/7.png" alt="" loading="lazy"/><div><h3>Gyarados</h3><p class="meta">7 · $66.20 · +34% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/col1/16.png" alt="" loading="lazy"/><div><h3>Magmortar</h3><p class="meta">16 · $7.57 · +31% this quarter</p></div></article></div></div>
+<div class="pile-block"><h3>Rising Rivals shiny ones</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/pl2/11.png" alt="" loading="lazy"/><div><h3>Rampardos GL</h3><p class="meta">11 · $12.47 · +50% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl2/7.png" alt="" loading="lazy"/><div><h3>Jirachi</h3><p class="meta">7 · $44.55 · +41% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl2/4.png" alt="" loading="lazy"/><div><h3>Floatzel GL</h3><p class="meta">4 · $7.79 · +38% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl2/3.png" alt="" loading="lazy"/><div><h3>Darkrai G</h3><p class="meta">3 · $69.87 · +32% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl2/5.png" alt="" loading="lazy"/><div><h3>Flygon</h3><p class="meta">5 · $22.99 · +27% this quarter</p></div></article></div></div>
+<div class="pile-block"><h3>Supreme Victors shiny ones</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/pl3/2.png" alt="" loading="lazy"/><div><h3>Blaziken FB</h3><p class="meta">2 · $37.76 · +62% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl3/1.png" alt="" loading="lazy"/><div><h3>Absol G</h3><p class="meta">1 · $32.08 · +57% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl3/14.png" alt="" loading="lazy"/><div><h3>Yanmega</h3><p class="meta">14 · $9.40 · +42% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl3/4.png" alt="" loading="lazy"/><div><h3>Electivire FB</h3><p class="meta">4 · $23.58 · +37% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl3/13.png" alt="" loading="lazy"/><div><h3>Venusaur</h3><p class="meta">13 · $45.86 · +36% this quarter</p></div></article></div></div>
+<div class="pile-block"><h3>Arceus shiny ones</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/pl4/8.png" alt="" loading="lazy"/><div><h3>Salamence</h3><p class="meta">8 · $15.43 · +61% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl4/2.png" alt="" loading="lazy"/><div><h3>Froslass</h3><p class="meta">2 · $8.10 · +34% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl4/4.png" alt="" loading="lazy"/><div><h3>Kabutops</h3><p class="meta">4 · $18.38 · +23% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl4/5.png" alt="" loading="lazy"/><div><h3>Luxray</h3><p class="meta">5 · $6.40 · +19% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/pl4/1.png" alt="" loading="lazy"/><div><h3>Charizard</h3><p class="meta">1 · $70.61 · +12% this quarter</p></div></article></div></div>
+<div class="pile-block"><h3>Unleashed plain rares</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/hgss2/24.png" alt="" loading="lazy"/><div><h3>Steelix</h3><p class="meta">24 · $3.01 · +90% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss2/13.png" alt="" loading="lazy"/><div><h3>Blastoise</h3><p class="meta">13 · $14.26 · +55% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss2/19.png" alt="" loading="lazy"/><div><h3>Lucario</h3><p class="meta">19 · $5.91 · +54% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss2/20.png" alt="" loading="lazy"/><div><h3>Ninetales</h3><p class="meta">20 · $12.37 · +53% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss2/17.png" alt="" loading="lazy"/><div><h3>Kingdra</h3><p class="meta">17 · $3.84 · +40% this quarter</p></div></article></div></div>
+<div class="pile-block"><h3>Undaunted plain rares</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/hgss3/14.png" alt="" loading="lazy"/><div><h3>Hariyama</h3><p class="meta">14 · $4.08 · +44% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss3/24.png" alt="" loading="lazy"/><div><h3>Vileplume</h3><p class="meta">24 · $5.86 · +43% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss3/17.png" alt="" loading="lazy"/><div><h3>Leafeon</h3><p class="meta">17 · $10.14 · +21% this quarter</p></div></article></div></div>
+<div class="pile-block"><h3>Triumphant plain rares</h3><div class="tiles"><article class="tile"><img src="https://images.pokemontcg.io/hgss4/30.png" alt="" loading="lazy"/><div><h3>Sharpedo</h3><p class="meta">30 · $4.16 · +72% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss4/18.png" alt="" loading="lazy"/><div><h3>Dragonite</h3><p class="meta">18 · $18.65 · +32% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss4/15.png" alt="" loading="lazy"/><div><h3>Bronzong</h3><p class="meta">15 · $15.26 · +28% this quarter</p></div></article>
+<article class="tile"><img src="https://images.pokemontcg.io/hgss4/29.png" alt="" loading="lazy"/><div><h3>Pidgeot</h3><p class="meta">29 · $11.77 · +22% this quarter</p></div></article></div></div>
+</section>
+<section>
+  <h2>Last 3 months vs the 3 months before</h2>
+  <p class="hint">Green is the last 3 months. Gray is the 3 months before that. If the green bar is longer, prices sped up. Buy that pile.</p>
   <div class="grid">
 <article class="macro pick">
   <h3>HeartGold shiny ones</h3>
+  <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:17%"></span></div><span class="v up">+27%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:10%"></span></div><span class="v up">+15%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:17%"></span></div><span class="v up">+27%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:10%"></span></div><span class="v up">+15%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
   </div>
 </article>
 <article class="macro pick">
   <h3>Call of Legends shiny ones</h3>
+  <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:13%"></span></div><span class="v up">+20%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:6%"></span></div><span class="v up">+10%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:63%"></span></div><span class="v up">+98%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:13%"></span></div><span class="v up">+20%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:6%"></span></div><span class="v up">+10%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:63%"></span></div><span class="v up">+98%</span></div>
   </div>
 </article>
 <article class="macro pick">
   <h3>Rising Rivals shiny ones</h3>
+  <p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:11%"></span></div><span class="v up">+17%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:11%"></span></div><span class="v up">+17%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:72%"></span></div><span class="v up">+113%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:11%"></span></div><span class="v up">+17%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:11%"></span></div><span class="v up">+17%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:72%"></span></div><span class="v up">+113%</span></div>
   </div>
 </article>
 <article class="macro pick">
   <h3>Supreme Victors shiny ones</h3>
+  <p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:14%"></span></div><span class="v up">+22%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+28%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:81%"></span></div><span class="v up">+126%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:14%"></span></div><span class="v up">+22%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+28%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:81%"></span></div><span class="v up">+126%</span></div>
   </div>
 </article>
 <article class="macro pick">
   <h3>Arceus shiny ones</h3>
+  <p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:10%"></span></div><span class="v up">+15%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:17%"></span></div><span class="v up">+26%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:43%"></span></div><span class="v up">+67%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:10%"></span></div><span class="v up">+15%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:17%"></span></div><span class="v up">+26%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:43%"></span></div><span class="v up">+67%</span></div>
   </div>
 </article>
 <article class="macro pick">
   <h3>Unleashed plain rares</h3>
+  <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:25%"></span></div><span class="v up">+39%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:10%"></span></div><span class="v up">+15%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:74%"></span></div><span class="v up">+116%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:25%"></span></div><span class="v up">+39%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:10%"></span></div><span class="v up">+15%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:74%"></span></div><span class="v up">+116%</span></div>
   </div>
 </article>
 <article class="macro pick">
   <h3>Undaunted plain rares</h3>
+  <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:13%"></span></div><span class="v up">+21%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:5%"></span></div><span class="v up">+7%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:31%"></span></div><span class="v up">+48%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:13%"></span></div><span class="v up">+21%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:5%"></span></div><span class="v up">+7%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:31%"></span></div><span class="v up">+48%</span></div>
   </div>
 </article>
 <article class="macro pick">
   <h3>Triumphant plain rares</h3>
+  <p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:14%"></span></div><span class="v up">+22%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:12%"></span></div><span class="v up">+19%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:39%"></span></div><span class="v up">+61%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:14%"></span></div><span class="v up">+22%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:12%"></span></div><span class="v up">+19%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:39%"></span></div><span class="v up">+61%</span></div>
   </div>
 </article>
 <article class="macro skip">
   <h3>Platinum shiny ones</h3>
+  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:6%"></span></div><span class="v up">+9%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:13%"></span></div><span class="v up">+20%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:6%"></span></div><span class="v up">+9%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:13%"></span></div><span class="v up">+20%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
   </div>
 </article>
 <article class="macro skip">
   <h3>Unleashed shiny ones</h3>
+  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:5%"></span></div><span class="v up">+7%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:16%"></span></div><span class="v up">+24%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:77%"></span></div><span class="v up">+120%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:5%"></span></div><span class="v up">+7%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:16%"></span></div><span class="v up">+24%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:77%"></span></div><span class="v up">+120%</span></div>
   </div>
 </article>
 <article class="macro skip">
   <h3>Undaunted shiny ones</h3>
+  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:7%"></span></div><span class="v up">+11%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:22%"></span></div><span class="v up">+34%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:82%"></span></div><span class="v up">+128%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:7%"></span></div><span class="v up">+11%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:22%"></span></div><span class="v up">+34%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:82%"></span></div><span class="v up">+128%</span></div>
   </div>
 </article>
 <article class="macro skip">
   <h3>Triumphant shiny ones</h3>
+  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:8%"></span></div><span class="v up">+12%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:20%"></span></div><span class="v up">+32%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:8%"></span></div><span class="v up">+12%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:20%"></span></div><span class="v up">+32%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
   </div>
 </article>
 <article class="macro skip">
   <h3>HeartGold Prime</h3>
+  <p class="why">Prices already jumped last year. Leave the whole pile.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:15%"></span></div><span class="v up">+23%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+28%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:100%"></span></div><span class="v up">+156%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:15%"></span></div><span class="v up">+23%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+28%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:100%"></span></div><span class="v up">+156%</span></div>
   </div>
 </article>
 <article class="macro skip">
   <h3>Unleashed Prime</h3>
+  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:10%"></span></div><span class="v up">+15%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:17%"></span></div><span class="v up">+26%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:81%"></span></div><span class="v up">+127%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:10%"></span></div><span class="v up">+15%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:17%"></span></div><span class="v up">+26%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:81%"></span></div><span class="v up">+127%</span></div>
   </div>
 </article>
 <article class="macro skip">
   <h3>Emerging Powers shiny ones</h3>
+  <p class="why">Jumped in the spring. That jump already happened. Leave it.</p>
   <div class="pair">
-    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:4%"></span></div><span class="v up">+2%</span></div>
-    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:4%"></span></div><span class="v up">+2%</span></div>
-    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+29%</span></div>
+    <div class="lane"><span>3 months</span><div class="track"><span class="up now" style="width:4%"></span></div><span class="v up">+2%</span></div>
+    <div class="lane"><span>before</span><div class="track"><span class="up" style="width:4%"></span></div><span class="v up">+2%</span></div>
+    <div class="lane"><span>year</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+29%</span></div>
   </div>
 </article>
   </div>
 </section>
 <section>
   <h2>The path</h2>
-  <p class="hint">Year ago → six months → three months → now. A steep finish is still running. A flat finish already ran.</p>
+  <p class="hint">Left is a year ago. Right is now. A line still climbing at the end is still growing. A line that went flat already finished.</p>
   <div class="grid">
 <article class="path pick">
   <div>
     <h3>HeartGold shiny ones</h3>
-    <p>Speeding up right now. This is the pile to pick.</p>
+    <p>Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
   </div>
-  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,23.6 131.3,17.7 194.0,6.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#3dd68c"/></svg>
+  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,19.4 131.3,14.2 194.0,4.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#3dd68c"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
 </article>
 <article class="path pick">
   <div>
     <h3>Call of Legends shiny ones</h3>
-    <p>Speeding up right now. This is the pile to pick.</p>
+    <p>Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
   </div>
-  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,21.8 131.3,16.9 194.0,6.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#3dd68c"/></svg>
+  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,17.8 131.3,13.5 194.0,4.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#3dd68c"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
 </article>
 <article class="path skip">
   <div>
     <h3>Unleashed shiny ones</h3>
-    <p>Still up, but the spring bounce already printed. Leave it.</p>
+    <p>Jumped in the spring. That jump already happened. Leave it.</p>
   </div>
-  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,20.8 131.3,10.1 194.0,6.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#97a1b5"/></svg>
+  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,16.9 131.3,7.5 194.0,4.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#97a1b5"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
 </article>
 <article class="path pick">
   <div>
     <h3>Unleashed plain rares</h3>
-    <p>Speeding up right now. This is the pile to pick.</p>
+    <p>Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p>
   </div>
-  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,28.4 131.3,22.8 194.0,6.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#3dd68c"/></svg>
+  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,23.6 131.3,18.7 194.0,4.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#3dd68c"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
 </article>
 <article class="path skip">
   <div>
     <h3>HeartGold Prime</h3>
-    <p>Still climbing. Buy the middle of the set, not the trophy.</p>
+    <p>Prices already jumped last year. Leave the whole pile.</p>
   </div>
-  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,25.1 131.3,15.9 194.0,6.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#97a1b5"/></svg>
+  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,20.7 131.3,12.7 194.0,4.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#97a1b5"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
 </article>
 <article class="path skip">
   <div>
     <h3>Emerging Powers shiny ones</h3>
-    <p>Still up, but the spring bounce already printed. Leave it.</p>
+    <p>Jumped in the spring. That jump already happened. Leave it.</p>
   </div>
-  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,10.9 131.3,8.5 194.0,6.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#97a1b5"/></svg>
+  <svg class="spark" viewBox="0 0 200 54" aria-hidden="true"><polyline points="6.0,32.0 68.7,8.3 131.3,6.2 194.0,4.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="4.0" r="3.2" fill="#97a1b5"/><text x="6" y="50" fill="#97a1b5" font-size="9" font-family="system-ui,sans-serif">a year ago</text><text x="194" y="50" fill="#97a1b5" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">now</text></svg>
 </article>
   </div>
 </section>
 <section>
   <h2>Pick these</h2>
   <div class="grid">
-<article class="set pick"><h3>HeartGold shiny ones</h3><p class="why">Speeding up right now. This is the pile to pick.</p></article>
-<article class="set pick"><h3>Call of Legends shiny ones</h3><p class="why">Speeding up right now. This is the pile to pick.</p></article>
-<article class="set pick"><h3>Rising Rivals shiny ones</h3><p class="why">Still climbing. Buy the middle of the set, not the trophy.</p></article>
-<article class="set pick"><h3>Supreme Victors shiny ones</h3><p class="why">Still climbing. Buy the middle of the set, not the trophy.</p></article>
-<article class="set pick"><h3>Arceus shiny ones</h3><p class="why">Still climbing. Buy the middle of the set, not the trophy.</p></article>
-<article class="set pick"><h3>Unleashed plain rares</h3><p class="why">Speeding up right now. This is the pile to pick.</p></article>
-<article class="set pick"><h3>Undaunted plain rares</h3><p class="why">Speeding up right now. This is the pile to pick.</p></article>
-<article class="set pick"><h3>Triumphant plain rares</h3><p class="why">Speeding up right now. This is the pile to pick.</p></article>
+<article class="set pick"><h3>HeartGold shiny ones</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
+<article class="set pick"><h3>Call of Legends shiny ones</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
+<article class="set pick"><h3>Rising Rivals shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
+<article class="set pick"><h3>Supreme Victors shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
+<article class="set pick"><h3>Arceus shiny ones</h3><p class="why">Still going up. Buy a normal card from the middle, not the most expensive one.</p></article>
+<article class="set pick"><h3>Unleashed plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
+<article class="set pick"><h3>Undaunted plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
+<article class="set pick"><h3>Triumphant plain rares</h3><p class="why">Prices went up faster in the last 3 months than the 3 months before. Buy this pile.</p></article>
   </div>
 </section>
 <section>
   <h2>Leave these</h2>
   <div class="grid">
-<article class="set skip"><h3>Platinum shiny ones</h3><p class="why">Still up, but the spring bounce already printed. Leave it.</p></article>
-<article class="set skip"><h3>Unleashed shiny ones</h3><p class="why">Still up, but the spring bounce already printed. Leave it.</p></article>
-<article class="set skip"><h3>Undaunted shiny ones</h3><p class="why">Still up, but the spring bounce already printed. Leave it.</p></article>
-<article class="set skip"><h3>Triumphant shiny ones</h3><p class="why">Still up, but the spring bounce already printed. Leave it.</p></article>
-<article class="set skip"><h3>Prime plastic cases</h3><p class="why">The year already ran. Leave the whole pile.</p></article>
-<article class="set skip"><h3>LV.X plastic cases</h3><p class="why">Quiet book. Leave them in the case.</p></article>
-<article class="set skip"><h3>Emerging Powers</h3><p class="why">This pile is not moving. Different era.</p></article>
+<article class="set skip"><h3>Platinum shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
+<article class="set skip"><h3>Unleashed shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
+<article class="set skip"><h3>Undaunted shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
+<article class="set skip"><h3>Triumphant shiny ones</h3><p class="why">Jumped in the spring. That jump already happened. Leave it.</p></article>
+<article class="set skip"><h3>Prime cards in plastic cases</h3><p class="why">Prices already jumped last year. Leave the whole pile.</p></article>
+<article class="set skip"><h3>LV.X cards in plastic cases</h3><p class="why">These are not moving. Leave them.</p></article>
+<article class="set skip"><h3>Emerging Powers</h3><p class="why">This pile is not moving.</p></article>
   </div>
 </section>
 <section>
   <h2>Inside a pile</h2>
   <div class="grid">
-    <article class="rule"><h3>Middle of the set</h3><p>A shiny one or a plain rare that people already buy and sell. Johto starter, legendary, or Umbreon on HeartGold or Call of Legends.</p></article>
-    <article class="rule"><h3>Skip the leftover</h3><p>Pachirisu sat out the Call of Legends melt. A short bar next to long friends is not a bargain.</p>
+    <article class="rule"><h3>Middle of the set</h3><p>A shiny one or a plain rare that people already buy and sell. On HeartGold or Call of Legends, that is a Johto starter, a legendary, or Umbreon.</p></article>
+    <article class="rule"><h3>Skip the leftover</h3><p>Pachirisu did not go up with the rest of Call of Legends. A short bar next to long friends is not a bargain.</p>
       <div class="bars">
         <div class="bar-row"><span>This card</span><div class="bar short"></div></div>
-        <div class="bar-row"><span>Friends</span><div class="bar friends"></div></div>
+        <div class="bar-row"><span>Friends in the same pile</span><div class="bar friends"></div></div>
       </div>
     </article>
-    <article class="rule"><h3>Skip cheap chase</h3><p>The two-dollar name pretending to be a trophy is dead weight. So is the plastic case from last year.</p></article>
+    <article class="rule"><h3>Skip the fake-famous one</h3><p>A two-dollar card with a famous name is still a two-dollar card. Same for last year's plastic case.</p></article>
   </div>
 </section>
-<p class="foot">Shop prices, day we looked 2026-08-18-trailing. One pile per row. Not a shopping list of single cards. The other board is plastic cases, not this.</p>
+<section>
+  <h2>Sitting on the shelf vs sold</h2>
+  <p class="hint">Think of a garage sale. One table has expensive stuff nobody takes. Another table is almost empty because people keep buying. The empty table is the one people want.</p>
+  <p class="hint">Gray is money still for sale. Green is money that sold last month. Every pile uses the same scale, so you can compare the bars.</p>
+  <div class="grid">
+<article class="flow-card">
+  <h3>Call of Legends</h3>
+  <p>Asked a lot. Nobody bought.</p>
+  <div class="flow-pair">
+    <div class="flow-row"><div class="flow-lab"><span>still for sale</span><b>$5.8 million</b></div><div class="track"><span class="sit" style="width:100%"></span></div></div>
+    <div class="flow-row"><div class="flow-lab"><span>sold</span><b>$275,000</b></div><div class="track"><span class="sold" style="width:6%"></span></div></div>
+  </div>
+</article>
+<article class="flow-card">
+  <h3>Triumphant</h3>
+  <p>Smaller shelf. More sold.</p>
+  <div class="flow-pair">
+    <div class="flow-row"><div class="flow-lab"><span>still for sale</span><b>$2.5 million</b></div><div class="track"><span class="sit" style="width:43%"></span></div></div>
+    <div class="flow-row"><div class="flow-lab"><span>sold</span><b>$503,000</b></div><div class="track"><span class="sold" style="width:9%"></span></div></div>
+  </div>
+</article>
+<article class="flow-card">
+  <h3>Unleashed</h3>
+  <p>Sat there.</p>
+  <div class="flow-pair">
+    <div class="flow-row"><div class="flow-lab"><span>still for sale</span><b>$657,000</b></div><div class="track"><span class="sit" style="width:11%"></span></div></div>
+    <div class="flow-row"><div class="flow-lab"><span>sold</span><b>$84,000</b></div><div class="track"><span class="sold" style="width:6%"></span></div></div>
+  </div>
+</article>
+<article class="flow-card">
+  <h3>Rising Rivals</h3>
+  <p>Small shelf. People bought.</p>
+  <div class="flow-pair">
+    <div class="flow-row"><div class="flow-lab"><span>still for sale</span><b>$357,000</b></div><div class="track"><span class="sit" style="width:6%"></span></div></div>
+    <div class="flow-row"><div class="flow-lab"><span>sold</span><b>$532,000</b></div><div class="track"><span class="sold" style="width:9%"></span></div></div>
+  </div>
+</article>
+  </div>
+  <article class="rule" style="margin-top:.7rem">
+    <h3>What this means</h3>
+    <p>Call of Legends had the most money sitting. People asked a lot for plastic cases, and those cases stayed on the shelf. Rising Rivals had a small shelf and people bought. Prime cases sold, but their big jump was last year — leave that pile.</p>
+  </article>
+</section>
+<p class="foot">Shop prices from August 18. Shelf vs sold from one week in August so the shop and eBay line up. Each row is a pile, not one card.</p>
 </main>
 
 <script>
