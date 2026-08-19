@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Cards to hunt</title>
+<link rel="manifest" href="manifest.webmanifest"/>
+<style>
+:root{--bg:#0c0f16;--panel:#141925;--panel2:#1a2130;--text:#eef2fa;--muted:#97a1b5;--border:#2a3348;--accent:#6ea8ff;--pos:#3dd68c;--neg:#f07178}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;background:radial-gradient(1200px 600px at 8% -10%,#182038 0%,var(--bg) 55%);color:var(--text);line-height:1.4}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(12,15,22,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top)}
+.inner{max-width:98rem;margin:0 auto;padding:.7rem 1rem}
+h1{margin:0;font-size:1.15rem;font-weight:700}
+.meta{color:var(--muted);font-size:.82rem;margin-top:.15rem}
+.meta a{color:var(--accent);text-decoration:none}
+main{max-width:98rem;margin:0 auto;padding:.85rem 1rem 3rem;padding-bottom:max(2.5rem,env(safe-area-inset-bottom))}
+.callout{color:var(--muted);font-size:.9rem;margin:0 0 .75rem;max-width:46rem}
+.controls{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:0 0 .75rem;padding:.55rem .65rem;background:var(--panel);border:1px solid var(--border);border-radius:12px}
+.chip{appearance:none;border:1px solid var(--border);background:var(--panel2);color:var(--text);border-radius:999px;padding:.28rem .65rem;font-size:.78rem;cursor:pointer;min-height:44px}
+.chip.active{border-color:var(--accent);background:rgba(110,168,255,.14);color:#cfe2ff}
+.controls input[type=search]{flex:1 1 12rem;min-width:12rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:.35rem .5rem;font-size:16px}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:.65rem}
+.card-tile{background:var(--panel2);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;text-align:left;width:100%;padding:0;color:inherit;font:inherit}
+.card-tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card-tile.h1{border-color:rgba(61,214,140,.36)}
+.card-tile.h2{border-color:rgba(110,168,255,.36)}
+.art{min-height:210px;display:flex;align-items:flex-end;justify-content:center;padding:.55rem;background:#0a0d14;position:relative}
+.art img{width:min(100%,148px);height:208px;object-fit:contain}
+.badge{position:absolute;top:.35rem;left:.35rem;font-size:.62rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.18rem .35rem;border-radius:6px;background:rgba(0,0,0,.72);border:1px solid var(--border)}
+.badge.h1{border-color:rgba(61,214,140,.55);color:#b8f5d4}
+.badge.h2{border-color:rgba(110,168,255,.55);color:#cfe2ff}
+.body{padding:.45rem .55rem .6rem}
+.nm{font-weight:700;font-size:.88rem}
+.sm{color:var(--muted);font-size:.72rem;margin:.12rem 0 .2rem;line-height:1.35}
+.price{font-variant-numeric:tabular-nums;font-weight:700}
+.pos{color:var(--pos)}.neg{color:var(--neg)}
+footer{color:var(--muted);font-size:.78rem;margin-top:1rem}
+body.card-open #browse{display:none}
+#card-page{display:none}
+body.card-open #card-page{display:block}
+.back{appearance:none;border:1px solid var(--border);background:var(--panel2);color:var(--text);border-radius:8px;padding:.4rem .7rem;cursor:pointer;min-height:44px;margin:0 0 .75rem}
+.hero{display:grid;grid-template-columns:min(42vw,280px) 1fr;gap:1rem;align-items:start}
+.hero-art{appearance:none;border:1px solid var(--border);background:#0a0d14;border-radius:14px;padding:.55rem;cursor:zoom-in}
+.hero-art img{display:block;width:100%;height:auto;max-height:380px;object-fit:contain}
+.lightbox{display:none;position:fixed;inset:0;z-index:80;background:rgba(6,8,12,.92);align-items:center;justify-content:center;padding:1.2rem}
+.lightbox.on{display:flex}
+.lightbox img{max-width:min(92vw,520px);max-height:92vh;object-fit:contain;border-radius:12px}
+@media (max-width:700px){
+  .pack-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="inner">
+  <h1>Cards to hunt</h1>
+  <div class="meta">Hunt #1 HeartGold / Call of Legends · Hunt #2 Delta Species reverse commons · freeze 2026-08-19T20Z · <a href="index.html">home</a> · <a href="buying.html">buying</a></div>
+</div></header>
+<main>
+<div id="browse">
+  <p class="callout">Tap a picture. Hunt #1 is a shiny one or a plain rare people already buy. Hunt #2 is a Delta Species common that is shiny on the back. Not a buy list — the middle of a growing pile.</p>
+  <div class="controls">
+    <div id="rank-row"></div>
+    <input id="q" type="search" placeholder="Slowking, Marill…" autocomplete="off"/>
+  </div>
+  <div class="pack-grid" id="grid"></div>
+  <footer>Shop $ is the TCGplayer NM print on 2026-08-18. Reverse commons show PriceCharting raw / Grade 9 / PSA 10 from the 2026-08-11 melt freeze. Pictures: pokemontcg.io (holos) and PriceCharting reverse product shots.</footer>
+</div>
+<section id="card-page">
+  <button type="button" class="back" id="back">← All cards</button>
+  <div id="sheet"></div>
+</section>
+<div class="lightbox" id="lightbox" hidden>
+  <button type="button" class="back" id="lb-close">Close</button>
+  <img id="lb-img" alt=""/>
+</div>
+</main>
+<script type="application/json" id="app-data">[{"id":"hgss1-12","rank":1,"hunt":"Hunt #1","name":"Slowking","set":"HeartGold & SoulSilver","set_id":"hgss1","num":"12","pile":"HeartGold rare holo","why":"Shop tape ahead of the HeartGold holo pile","now":32.74,"r3":0.7969264544456642,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/hgss1/12.png","imgHi":"https://images.pokemontcg.io/hgss1/12_hires.png"},{"id":"hgss1-7","rank":1,"hunt":"Hunt #1","name":"Ninetales","set":"HeartGold & SoulSilver","set_id":"hgss1","num":"7","pile":"HeartGold rare holo","why":"Buying-page face; same show-walk tape","now":49.11,"r3":0.5675071816150654,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/hgss1/7.png","imgHi":"https://images.pokemontcg.io/hgss1/7_hires.png"},{"id":"hgss1-13","rank":1,"hunt":"Hunt #1","name":"Wobbuffet","set":"HeartGold & SoulSilver","set_id":"hgss1","num":"13","pile":"HeartGold rare holo","why":"Liquid HeartGold holo; ahead of friends","now":25.13,"r3":0.5464615384615383,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/hgss1/13.png","imgHi":"https://images.pokemontcg.io/hgss1/13_hires.png"},{"id":"col1-2","rank":1,"hunt":"Hunt #1","name":"Deoxys","set":"Call of Legends","set_id":"col1","num":"2","pile":"Call of Legends rare holo","why":"Legendary already trading; heating versus the pile","now":39.58,"r3":0.6693378321383381,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/col1/2.png","imgHi":"https://images.pokemontcg.io/col1/2_hires.png"},{"id":"col1-12","rank":1,"hunt":"Hunt #1","name":"Kyogre","set":"Call of Legends","set_id":"col1","num":"12","pile":"Call of Legends rare holo","why":"Legendary that kept up with friends","now":42.61,"r3":0.2830472749171935,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/col1/12.png","imgHi":"https://images.pokemontcg.io/col1/12_hires.png"},{"id":"col1-1","rank":1,"hunt":"Hunt #1","name":"Clefable","set":"Call of Legends","set_id":"col1","num":"1","pile":"Call of Legends rare holo","why":"Heating versus the pile; not leftover-vs-friends","now":16.38,"r3":0.5082872928176796,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/col1/1.png","imgHi":"https://images.pokemontcg.io/col1/1_hires.png"},{"id":"col1-7","rank":1,"hunt":"Hunt #1","name":"Gyarados","set":"Call of Legends","set_id":"col1","num":"7","pile":"Call of Legends rare holo","why":"Liquid middle on the accelerating sleeve","now":66.2,"r3":0.33764396847848044,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/col1/7.png","imgHi":"https://images.pokemontcg.io/col1/7_hires.png"},{"id":"pl2-3","rank":1,"hunt":"Hunt #1","name":"Darkrai G","set":"Rising Rivals","set_id":"pl2","num":"3","pile":"Rising Rivals rare holo","why":"Buying-page face; middle of a still-hot sleeve","now":69.87,"r3":0.3187995469988676,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/pl2/3.png","imgHi":"https://images.pokemontcg.io/pl2/3_hires.png"},{"id":"pl3-2","rank":1,"hunt":"Hunt #1","name":"Blaziken FB","set":"Supreme Victors","set_id":"pl3","num":"2","pile":"Supreme Victors rare holo","why":"Heating versus the pile; middle not moon","now":37.76,"r3":0.6226901590030081,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/pl3/2.png","imgHi":"https://images.pokemontcg.io/pl3/2_hires.png"},{"id":"pl4-8","rank":1,"hunt":"Hunt #1","name":"Salamence","set":"Arceus","set_id":"pl4","num":"8","pile":"Arceus rare holo","why":"Heating versus the pile on still-hot Arceus holos","now":15.43,"r3":0.6140167364016735,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/pl4/8.png","imgHi":"https://images.pokemontcg.io/pl4/8_hires.png"},{"id":"hgss2-24","rank":1,"hunt":"Hunt #1","name":"Steelix","set":"HS Unleashed","set_id":"hgss2","num":"24","pile":"Unleashed plain rare","why":"Heating versus Unleashed rares; people already clear it","now":3.01,"r3":0.8990536277602523,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/hgss2/24.png","imgHi":"https://images.pokemontcg.io/hgss2/24_hires.png"},{"id":"hgss2-13","rank":1,"hunt":"Hunt #1","name":"Blastoise","set":"HS Unleashed","set_id":"hgss2","num":"13","pile":"Unleashed plain rare","why":"Buying-page face; heating versus that rare pile","now":14.26,"r3":0.546637744034707,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/hgss2/13.png","imgHi":"https://images.pokemontcg.io/hgss2/13_hires.png"},{"id":"hgss3-14","rank":1,"hunt":"Hunt #1","name":"Hariyama","set":"HS Undaunted","set_id":"hgss3","num":"14","pile":"Undaunted plain rare","why":"Heating versus Undaunted rares","now":4.08,"r3":0.43661971830985924,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/hgss3/14.png","imgHi":"https://images.pokemontcg.io/hgss3/14_hires.png"},{"id":"hgss4-30","rank":1,"hunt":"Hunt #1","name":"Sharpedo","set":"HS Triumphant","set_id":"hgss4","num":"30","pile":"Triumphant plain rare","why":"Heating versus Triumphant rares","now":4.16,"r3":0.71900826446281,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/hgss4/30.png","imgHi":"https://images.pokemontcg.io/hgss4/30_hires.png"},{"id":"hgss4-18","rank":1,"hunt":"Hunt #1","name":"Dragonite","set":"HS Triumphant","set_id":"hgss4","num":"18","pile":"Triumphant plain rare","why":"Liquid rare on the listings-watch plain pile","now":18.65,"r3":0.31523272214386444,"raw":null,"raw_r3":null,"p9":null,"p10":null,"p10_r3":null,"img":"https://images.pokemontcg.io/hgss4/18.png","imgHi":"https://images.pokemontcg.io/hgss4/18_hires.png"},{"id":"ex11-74","rank":2,"hunt":"Hunt #2","name":"Magnemite","set":"Delta Species","set_id":"ex11","num":"74","pile":"Delta Species reverse-holo common","why":"Melt example; raw / 9 / 10 all up","now":null,"r3":null,"raw":16.86,"raw_r3":0.5596669750231267,"p9":96.0,"p10":597.5,"p10_r3":5.494565217391305,"img":"https://storage.googleapis.com/images.pricecharting.com/m7vihckl3kvm24tp/1600.jpg","imgHi":"https://storage.googleapis.com/images.pricecharting.com/m7vihckl3kvm24tp/1600.jpg"},{"id":"ex11-76","rank":2,"hunt":"Hunt #2","name":"Marill","set":"Delta Species","set_id":"ex11","num":"76","pile":"Delta Species reverse-holo common","why":"Delta Species reverse-common leaders row","now":null,"r3":null,"raw":24.88,"raw_r3":0.16098926738217445,"p9":110.0,"p10":1888.08,"p10_r3":2.602518603319977,"img":"https://storage.googleapis.com/images.pricecharting.com/e3d7570cf22ccf7a1db10f1032138af56db935a211e4aed39795f7bfb64feb9a/1600.jpg","imgHi":"https://storage.googleapis.com/images.pricecharting.com/e3d7570cf22ccf7a1db10f1032138af56db935a211e4aed39795f7bfb64feb9a/1600.jpg"},{"id":"ex11-79","rank":2,"hunt":"Hunt #2","name":"Poochyena","set":"Delta Species","set_id":"ex11","num":"79","pile":"Delta Species reverse-holo common","why":"Melt leaders; raw and Grade 9 confirm","now":null,"r3":null,"raw":24.98,"raw_r3":0.9215384615384616,"p9":74.0,"p10":755.0,"p10_r3":4.3584102200141945,"img":"https://storage.googleapis.com/images.pricecharting.com/ahshscf7stbfic42/1600.jpg","imgHi":"https://storage.googleapis.com/images.pricecharting.com/ahshscf7stbfic42/1600.jpg"},{"id":"ex11-82","rank":2,"hunt":"Hunt #2","name":"Sandshrew","set":"Delta Species","set_id":"ex11","num":"82","pile":"Delta Species reverse-holo common","why":"Even raw / 9 / 10 lift; not a talk name","now":null,"r3":null,"raw":50.95,"raw_r3":0.6983333333333335,"p9":134.98,"p10":1543.0,"p10_r3":0.8859391806003716,"img":"https://storage.googleapis.com/images.pricecharting.com/7e0a36e878e9d1b8fd6e21b4267f52015313612eb6f5db8c961f76e5cf1b8c88/1600.jpg","imgHi":"https://storage.googleapis.com/images.pricecharting.com/7e0a36e878e9d1b8fd6e21b4267f52015313612eb6f5db8c961f76e5cf1b8c88/1600.jpg"},{"id":"ex11-60","rank":2,"hunt":"Hunt #2","name":"Cubone","set":"Delta Species","set_id":"ex11","num":"60","pile":"Delta Species reverse-holo common","why":"Same multi-grade gate; talk-silent common","now":null,"r3":null,"raw":74.99,"raw_r3":0.3810313075506446,"p9":164.0,"p10":485.03,"p10_r3":0.973672431332655,"img":"https://storage.googleapis.com/images.pricecharting.com/b8f694b355a21195c93746b44f62e19c68ea568e2d73b4c49d04e8009359d14b/1600.jpg","imgHi":"https://storage.googleapis.com/images.pricecharting.com/b8f694b355a21195c93746b44f62e19c68ea568e2d73b4c49d04e8009359d14b/1600.jpg"},{"id":"ex11-57","rank":2,"hunt":"Hunt #2","name":"Bagon \u03b4","set":"Delta Species","set_id":"ex11","num":"57","pile":"Delta Species reverse-holo common","why":"Reverse common with all three grades up","now":null,"r3":null,"raw":15.5,"raw_r3":0.193225558121632,"p9":89.7,"p10":952.5,"p10_r3":1.0053053748499967,"img":"https://storage.googleapis.com/images.pricecharting.com/770b38f92d13512fa3c7c3dcb14f074f43d40679dd8de011b43a1775a0b75e9d/1600.jpg","imgHi":"https://storage.googleapis.com/images.pricecharting.com/770b38f92d13512fa3c7c3dcb14f074f43d40679dd8de011b43a1775a0b75e9d/1600.jpg"},{"id":"ex11-87","rank":2,"hunt":"Hunt #2","name":"Weedle","set":"Delta Species","set_id":"ex11","num":"87","pile":"Delta Species reverse-holo common","why":"All three grades up on the still-hot cell","now":null,"r3":null,"raw":27.92,"raw_r3":0.18707482993197289,"p9":50.0,"p10":412.0,"p10_r3":0.47675543926305597,"img":"https://storage.googleapis.com/images.pricecharting.com/x7edjzgiutxv7ajf/1600.jpg","imgHi":"https://storage.googleapis.com/images.pricecharting.com/x7edjzgiutxv7ajf/1600.jpg"},{"id":"ex11-73","rank":2,"hunt":"Hunt #2","name":"Larvitar \u03b4","set":"Delta Species","set_id":"ex11","num":"73","pile":"Delta Species reverse-holo common","why":"Mid-pop reverse common; raw / 9 / 10 all up","now":null,"r3":null,"raw":33.56,"raw_r3":0.1186666666666667,"p9":198.45,"p10":1100.01,"p10_r3":0.047618594108627565,"img":"https://storage.googleapis.com/images.pricecharting.com/f75edab79475196f02b395f51971dd1cd4c7a81c3f578a97b049855b4c18c333/1600.jpg","imgHi":"https://storage.googleapis.com/images.pricecharting.com/f75edab79475196f02b395f51971dd1cd4c7a81c3f578a97b049855b4c18c333/1600.jpg"}]</script>
+<script>
+const ROWS = JSON.parse(document.getElementById("app-data").textContent);
+const $ = (id) => document.getElementById(id);
+let rankF = "all", q = "";
+function usd(x){
+  if(x==null) return "—";
+  return "$" + (x>=100 ? Math.round(x).toLocaleString() : x.toFixed(2));
+}
+function pct(x){
+  if(x==null) return "—";
+  const cls = x>0.005 ? "pos" : x<-0.005 ? "neg" : "";
+  return `<span class="${cls}">${x>0?"+":""}${(x*100).toFixed(0)}%</span>`;
+}
+function filtered(){
+  const qq = q.trim().toLowerCase();
+  let xs = ROWS.filter(r => rankF==="all" || r.rank===rankF);
+  if(qq) xs = xs.filter(r => (r.name+" "+r.set+" "+r.pile+" "+r.num+" "+r.why).toLowerCase().includes(qq));
+  return xs;
+}
+function chips(){
+  const row = $("rank-row"); row.innerHTML = "";
+  [["all","All"],[1,"Hunt #1"],[2,"Hunt #2"]].forEach(([id,lab]) => {
+    const n = id==="all" ? ROWS.length : ROWS.filter(r=>r.rank===id).length;
+    const b=document.createElement("button");
+    b.type="button"; b.className="chip"+(rankF===id?" active":""); b.textContent=lab+" "+n;
+    b.onclick=()=>{rankF=id; draw();};
+    row.appendChild(b);
+  });
+}
+function tile(r){
+  const b = document.createElement("button");
+  b.type="button"; b.className="card-tile h"+r.rank;
+  const px = r.rank===1 ? usd(r.now) : usd(r.raw);
+  const mv = r.rank===1 ? pct(r.r3) : pct(r.raw_r3);
+  b.innerHTML = `<div class="art"><span class="badge h${r.rank}">${r.hunt}</span><img src="${r.img}" alt="${r.name}" loading="lazy"/></div>
+    <div class="body"><div class="nm">${r.name}</div>
+    <div class="sm">${r.set} · #${r.num}<br/>${r.pile}</div>
+    <div class="price">${px} · ${mv}</div></div>`;
+  b.onclick=()=>openCard(r.id);
+  return b;
+}
+function openCard(id){
+  const r = ROWS.find(x => x.id===id);
+  if(!r) return;
+  document.body.classList.add("card-open");
+  history.replaceState({}, "", "#"+id);
+  const extra = r.rank===1
+    ? `<p class="sm">Shop NM ${usd(r.now)} · last 3 months ${pct(r.r3)}</p>`
+    : `<p class="sm">Raw ${usd(r.raw)} (${pct(r.raw_r3)}) · Grade 9 ${usd(r.p9)} · PSA 10 ${usd(r.p10)} (${pct(r.p10_r3)})</p>`;
+  $("sheet").innerHTML = `<div class="hero">
+    <button type="button" class="hero-art" id="hero-art"><img src="${r.imgHi}" alt="${r.name}"/></button>
+    <div>
+      <h2>${r.name}</h2>
+      <p class="sm">${r.set} · #${r.num} · ${r.pile}</p>
+      <p>${r.why}</p>
+      ${extra}
+    </div>
+  </div>`;
+  $("hero-art").onclick=()=>{
+    $("lb-img").src=r.imgHi; $("lb-img").alt=r.name;
+    $("lightbox").hidden=false; $("lightbox").classList.add("on");
+  };
+}
+function draw(){
+  chips();
+  const g=$("grid"); g.innerHTML="";
+  filtered().forEach(r=>g.appendChild(tile(r)));
+}
+$("q").addEventListener("input", e=>{q=e.target.value; draw();});
+$("back").onclick=()=>{document.body.classList.remove("card-open"); history.replaceState({}, "", location.pathname);};
+$("lb-close").onclick=()=>{$("lightbox").classList.remove("on"); $("lightbox").hidden=true;};
+$("lightbox").addEventListener("click", e=>{ if(e.target.id==="lightbox") $("lb-close").click(); });
+if(location.hash) openCard(location.hash.slice(1));
+draw();
+</script>
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
+</script>
+</body>
+</html>
