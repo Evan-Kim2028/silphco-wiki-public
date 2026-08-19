@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <title>After the Prime pile</title>
 <style>
-:root{--bg:#0c0f16;--panel:#141925;--text:#eef2fa;--muted:#97a1b5;
+:root{--bg:#0c0f16;--panel:#141925;--panel2:#1b2233;--text:#eef2fa;--muted:#97a1b5;
   --border:#2a3348;--accent:#6ea8ff;--pos:#3dd68c;--neg:#f87171;--bar:#5b657a}
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);
@@ -28,17 +28,31 @@ a.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.
 .bar.short{width:22%;background:var(--accent)}
 .bar.friends{width:74%;background:var(--bar)}
 section{margin:1.4rem 0 0}
-section h2{margin:0 0 .55rem;font-size:1.05rem}
+section h2{margin:0 0 .35rem;font-size:1.05rem}
+section .hint{margin:0 0 .7rem;font-size:.84rem;color:var(--muted)}
 .grid{display:grid;gap:.55rem}
-.set{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.75rem .85rem}
-.set.pick{border-color:rgba(61,214,140,.42)}
-.set.skip{border-color:rgba(248,113,113,.32)}
-.set h3{margin:0;font-size:1rem}
-.why{margin:.35rem 0 0;font-size:.84rem;color:var(--muted)}
-.rule{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.75rem .85rem}
-.rule h3{margin:0;font-size:.95rem}
-.rule p{margin:.35rem 0 0;font-size:.84rem;color:var(--muted)}
+.set,.macro,.path,.rule{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.75rem .85rem}
+.set.pick,.macro.pick,.path.pick{border-color:rgba(61,214,140,.42)}
+.set.skip,.macro.skip,.path.skip{border-color:rgba(248,113,113,.32)}
+.set h3,.macro h3,.path h3,.rule h3{margin:0;font-size:1rem}
+.why,.rule p,.path p{margin:.35rem 0 0;font-size:.84rem;color:var(--muted)}
+.pair{display:grid;gap:.28rem;margin:.5rem 0 0}
+.lane{display:grid;grid-template-columns:3.6rem 1fr 3.1rem;gap:.4rem;align-items:center;font-size:.78rem}
+.lane span{color:var(--muted)}
+.track{position:relative;height:.62rem;background:var(--panel2);border-radius:999px;overflow:hidden}
+.track span{position:absolute;top:0;bottom:0;left:0;border-radius:999px;background:var(--bar)}
+.track span.up{background:#64748b}
+.track span.up.now{background:var(--pos)}
+.track span.down{background:var(--neg)}
+.v{text-align:right;font-variant-numeric:tabular-nums}
+.v.up{color:var(--pos)} .v.down{color:var(--neg)}
+.path{display:grid;grid-template-columns:1fr 9rem;gap:.6rem;align-items:center}
+.spark{width:100%;height:44px;display:block}
 .foot{margin-top:2rem;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem}
+@media (max-width:520px){
+  .path{grid-template-columns:1fr}
+  .spark{width:12rem}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest"/>
 </head>
@@ -46,15 +60,185 @@ section h2{margin:0 0 .55rem;font-size:1.05rem}
 <main>
 <a class="back" href="index.html">← back</a>
 <h1>After the Prime pile</h1>
-<p class="lede">Platinum and HeartGold. What to pick this week. Shop tape through 2026-08-18-trailing.</p>
+<p class="lede">Platinum and HeartGold. Shop tape through 2026-08-18-trailing. This is the marks book, not the slab board.</p>
 <section class="story">
   <h2>The call</h2>
   <p>Buy <b>HeartGold</b>, <b>Call of Legends</b>, and <b>Rising Rivals</b> shiny holos.</p>
   <p>Buy the <b>plain rares</b> in Unleashed, Undaunted, and Triumphant. Leave those sets' shiny holos.</p>
   <p>Leave Prime plastic cases as a pile. Leave LV.X plastic cases.</p>
-  <div class="bars">
-    <div class="bar-row"><span>Growing pile · pick</span><div class="bar grow"></div></div>
-    <div class="bar-row"><span>Tired pile · leave</span><div class="bar tired"></div></div>
+</section>
+<section>
+  <h2>This quarter vs last quarter</h2>
+  <p class="hint">Green is this quarter. Gray is the quarter before. Pick the pile that sped up. Leave the pile that already printed.</p>
+  <div class="grid">
+<article class="macro pick">
+  <h3>HeartGold holos</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:17%"></span></div><span class="v up">+27%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:10%"></span></div><span class="v up">+15%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
+  </div>
+</article>
+<article class="macro pick">
+  <h3>Call of Legends holos</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:13%"></span></div><span class="v up">+20%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:6%"></span></div><span class="v up">+10%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:63%"></span></div><span class="v up">+98%</span></div>
+  </div>
+</article>
+<article class="macro pick">
+  <h3>Rising Rivals holos</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:11%"></span></div><span class="v up">+17%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:11%"></span></div><span class="v up">+17%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:72%"></span></div><span class="v up">+113%</span></div>
+  </div>
+</article>
+<article class="macro pick">
+  <h3>Supreme Victors holos</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:14%"></span></div><span class="v up">+22%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+28%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:81%"></span></div><span class="v up">+126%</span></div>
+  </div>
+</article>
+<article class="macro pick">
+  <h3>Arceus holos</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:10%"></span></div><span class="v up">+15%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:17%"></span></div><span class="v up">+26%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:43%"></span></div><span class="v up">+67%</span></div>
+  </div>
+</article>
+<article class="macro pick">
+  <h3>Unleashed plain rares</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:25%"></span></div><span class="v up">+39%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:10%"></span></div><span class="v up">+15%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:74%"></span></div><span class="v up">+116%</span></div>
+  </div>
+</article>
+<article class="macro pick">
+  <h3>Undaunted plain rares</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:13%"></span></div><span class="v up">+21%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:5%"></span></div><span class="v up">+7%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:31%"></span></div><span class="v up">+48%</span></div>
+  </div>
+</article>
+<article class="macro pick">
+  <h3>Triumphant plain rares</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:14%"></span></div><span class="v up">+22%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:12%"></span></div><span class="v up">+19%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:39%"></span></div><span class="v up">+61%</span></div>
+  </div>
+</article>
+<article class="macro skip">
+  <h3>Platinum holos</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:6%"></span></div><span class="v up">+9%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:13%"></span></div><span class="v up">+20%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
+  </div>
+</article>
+<article class="macro skip">
+  <h3>Unleashed holos</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:5%"></span></div><span class="v up">+7%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:16%"></span></div><span class="v up">+24%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:77%"></span></div><span class="v up">+120%</span></div>
+  </div>
+</article>
+<article class="macro skip">
+  <h3>Undaunted holos</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:7%"></span></div><span class="v up">+11%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:22%"></span></div><span class="v up">+34%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:82%"></span></div><span class="v up">+128%</span></div>
+  </div>
+</article>
+<article class="macro skip">
+  <h3>Triumphant holos</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:8%"></span></div><span class="v up">+12%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:20%"></span></div><span class="v up">+32%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:86%"></span></div><span class="v up">+134%</span></div>
+  </div>
+</article>
+<article class="macro skip">
+  <h3>HeartGold Prime</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:15%"></span></div><span class="v up">+23%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+28%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:100%"></span></div><span class="v up">+156%</span></div>
+  </div>
+</article>
+<article class="macro skip">
+  <h3>Unleashed Prime</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:10%"></span></div><span class="v up">+15%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:17%"></span></div><span class="v up">+26%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:81%"></span></div><span class="v up">+127%</span></div>
+  </div>
+</article>
+<article class="macro skip">
+  <h3>Emerging Powers holos</h3>
+  <div class="pair">
+    <div class="lane"><span>this Q</span><div class="track"><span class="up now" style="width:4%"></span></div><span class="v up">+2%</span></div>
+    <div class="lane"><span>last Q</span><div class="track"><span class="up" style="width:4%"></span></div><span class="v up">+2%</span></div>
+    <div class="lane"><span>1 year</span><div class="track"><span class="up" style="width:18%"></span></div><span class="v up">+29%</span></div>
+  </div>
+</article>
+  </div>
+</section>
+<section>
+  <h2>The path</h2>
+  <p class="hint">Year ago → six months → three months → now. A steep finish is still running. A flat finish already ran.</p>
+  <div class="grid">
+<article class="path pick">
+  <div>
+    <h3>HeartGold holos</h3>
+    <p>Speeding up right now. This is the pile to pick.</p>
+  </div>
+  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,23.6 131.3,17.7 194.0,6.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#3dd68c"/></svg>
+</article>
+<article class="path pick">
+  <div>
+    <h3>Call of Legends holos</h3>
+    <p>Speeding up right now. This is the pile to pick.</p>
+  </div>
+  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,21.8 131.3,16.9 194.0,6.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#3dd68c"/></svg>
+</article>
+<article class="path skip">
+  <div>
+    <h3>Unleashed holos</h3>
+    <p>Still up, but the spring bounce already printed. Leave it.</p>
+  </div>
+  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,20.8 131.3,10.1 194.0,6.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#97a1b5"/></svg>
+</article>
+<article class="path pick">
+  <div>
+    <h3>Unleashed plain rares</h3>
+    <p>Speeding up right now. This is the pile to pick.</p>
+  </div>
+  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,28.4 131.3,22.8 194.0,6.0" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#3dd68c"/></svg>
+</article>
+<article class="path skip">
+  <div>
+    <h3>HeartGold Prime</h3>
+    <p>Still climbing. Buy the middle of the set, not the trophy.</p>
+  </div>
+  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,25.1 131.3,15.9 194.0,6.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#97a1b5"/></svg>
+</article>
+<article class="path skip">
+  <div>
+    <h3>Emerging Powers holos</h3>
+    <p>Still up, but the spring bounce already printed. Leave it.</p>
+  </div>
+  <svg class="spark" viewBox="0 0 200 44" aria-hidden="true"><polyline points="6.0,38.0 68.7,10.9 131.3,8.5 194.0,6.0" fill="none" stroke="#97a1b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="194.0" cy="6.0" r="3.2" fill="#97a1b5"/></svg>
+</article>
   </div>
 </section>
 <section>
@@ -95,7 +279,7 @@ section h2{margin:0 0 .55rem;font-size:1.05rem}
     <article class="rule"><h3>Skip cheap chase</h3><p>The two-dollar name pretending to be a trophy is dead weight. So is the plastic case from last year.</p></article>
   </div>
 </section>
-<p class="foot">Shop tape is the TCGplayer marks book, freeze 2026-08-18-trailing. One pile per row. Not a card shopping list.</p>
+<p class="foot">Shop tape is the TCGplayer marks book, freeze 2026-08-18-trailing. One pile per row. Not a card shopping list. The mid-era board is a different clock — slab PSA 10, not this tape.</p>
 </main>
 
 <script>
