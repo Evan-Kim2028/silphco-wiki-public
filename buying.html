@@ -2,23 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <title>After the Prime pile</title>
 <style>
-:root{--bg:#0c0f16;--panel:#141925;--panel2:#1b2233;--text:#eef2fa;--muted:#97a1b5;
-  --border:#2a3348;--accent:#6ea8ff;--pos:#3dd68c;--neg:#f87171}
+:root{--bg:#0c0f16;--panel:#141925;--text:#eef2fa;--muted:#97a1b5;
+  --border:#2a3348;--accent:#6ea8ff;--pos:#3dd68c;--neg:#f87171;--bar:#5b657a}
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);
   color:var(--text);line-height:1.5;-webkit-text-size-adjust:100%}
-main{max-width:40rem;margin:0 auto;padding:1.4rem 1.1rem 4rem}
+main{max-width:40rem;margin:0 auto;padding:1.4rem 1.1rem 4rem;padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
 h1{font-size:1.35rem;margin:0 0 .3rem}
 .lede{color:var(--muted);font-size:.94rem;margin:0 0 1.2rem}
-a.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.85rem;margin-bottom:.9rem}
+a.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:.85rem;margin-bottom:.9rem;min-height:44px}
 .story{background:var(--panel);border:1px solid var(--border);border-radius:14px;
   padding:1rem 1.1rem;margin-bottom:1.3rem}
 .story h2{margin:0 0 .5rem;font-size:1.02rem}
 .story p{margin:.45rem 0;font-size:.9rem;color:var(--muted)}
 .story b{color:var(--text)}
+.bars{margin:.7rem 0 0}
+.bar-row{margin:.55rem 0 0}
+.bar-row span{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.25rem}
+.bar{height:14px;border-radius:8px}
+.bar.grow{width:88%;background:var(--pos)}
+.bar.tired{width:36%;background:var(--bar)}
+.bar.short{width:22%;background:var(--accent)}
+.bar.friends{width:74%;background:var(--bar)}
 section{margin:1.4rem 0 0}
 section h2{margin:0 0 .55rem;font-size:1.05rem}
 .grid{display:grid;gap:.55rem}
@@ -27,6 +35,9 @@ section h2{margin:0 0 .55rem;font-size:1.05rem}
 .set.skip{border-color:rgba(248,113,113,.32)}
 .set h3{margin:0;font-size:1rem}
 .why{margin:.35rem 0 0;font-size:.84rem;color:var(--muted)}
+.rule{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.75rem .85rem}
+.rule h3{margin:0;font-size:.95rem}
+.rule p{margin:.35rem 0 0;font-size:.84rem;color:var(--muted)}
 .foot{margin-top:2rem;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem}
 </style>
 <link rel="manifest" href="manifest.webmanifest"/>
@@ -41,6 +52,10 @@ section h2{margin:0 0 .55rem;font-size:1.05rem}
   <p>Buy <b>HeartGold</b>, <b>Call of Legends</b>, and <b>Rising Rivals</b> shiny holos.</p>
   <p>Buy the <b>plain rares</b> in Unleashed, Undaunted, and Triumphant. Leave those sets' shiny holos.</p>
   <p>Leave Prime plastic cases as a pile. Leave LV.X plastic cases.</p>
+  <div class="bars">
+    <div class="bar-row"><span>Growing pile · pick</span><div class="bar grow"></div></div>
+    <div class="bar-row"><span>Tired pile · leave</span><div class="bar tired"></div></div>
+  </div>
 </section>
 <section>
   <h2>Pick these</h2>
@@ -65,6 +80,19 @@ section h2{margin:0 0 .55rem;font-size:1.05rem}
 <article class="set skip"><h3>Prime plastic cases</h3><p class="why">The year already ran. Do not buy the sleeve.</p></article>
 <article class="set skip"><h3>LV.X plastic cases</h3><p class="why">Quiet book. Leave them in the case.</p></article>
 <article class="set skip"><h3>Emerging Powers</h3><p class="why">This pile is not moving. Different era.</p></article>
+  </div>
+</section>
+<section>
+  <h2>Inside a pile</h2>
+  <div class="grid">
+    <article class="rule"><h3>Middle of the book</h3><p>A real holo or plain rare that already trades. Johto starter, legendary, or Umbreon-class name on HeartGold or Call of Legends.</p></article>
+    <article class="rule"><h3>Skip the leftover</h3><p>Pachirisu sat out the Call of Legends melt. A short bar next to long friends is not a bargain.</p>
+      <div class="bars">
+        <div class="bar-row"><span>This card</span><div class="bar short"></div></div>
+        <div class="bar-row"><span>Friends</span><div class="bar friends"></div></div>
+      </div>
+    </article>
+    <article class="rule"><h3>Skip cheap chase</h3><p>The two-dollar name pretending to be a trophy is dead weight. So is the plastic case from last year.</p></article>
   </div>
 </section>
 <p class="foot">Shop tape is the TCGplayer marks book, freeze 2026-08-18-trailing. One pile per row. Not a card shopping list.</p>
