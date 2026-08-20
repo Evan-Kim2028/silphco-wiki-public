@@ -68,7 +68,13 @@ body.card-open #card-page{display:block}
 .hero-art{appearance:none;border:1px solid var(--border);background:#0a0d14;border-radius:12px;padding:.35rem;cursor:zoom-in;aspect-ratio:63/88;width:100%}
 .hero-art img{display:block;width:100%;height:100%;object-fit:contain}
 .today{font-size:.72rem;color:var(--muted)}
+.hero-pair{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin:.2rem 0 .3rem}
+.hero-slot{appearance:none;border:1px solid var(--border);background:rgba(0,0,0,.18);color:inherit;font:inherit;text-align:left;border-radius:10px;padding:.35rem .45rem;cursor:pointer;min-height:44px}
+.hero-slot.on{border-color:var(--accent);background:rgba(110,168,255,.12)}
+.hero-slot .k{display:block;font-size:.58rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
 .hero-px{font-size:1.45rem;font-weight:800;font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:-.03em}
+.hero-slot .hero-px{font-size:1.15rem}
+.hero-slot .chg{font-size:.72rem;margin-top:.08rem}
 .nums{display:flex;flex-wrap:wrap;gap:.35rem;margin:.45rem 0 0}
 .st{flex:1 1 5.2rem;background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:8px;padding:.28rem .35rem;min-width:0}
 .st .k{display:block;font-size:.58rem;text-transform:uppercase;color:var(--muted);letter-spacing:.04em}
@@ -248,9 +254,29 @@ function askSpark(a, span){
 }
 function varOf(r){ return varF==="want" ? r.want : varF; }
 function quoteCell(r, v, c){ return ((QUOTES[r.id]||{})[v]||{})[c] || null; }
-function shopNow(r){
-  const cell = quoteCell(r, varOf(r), condF);
+function shopY(r, cond){
+  const cell = quoteCell(r, varOf(r), cond);
   return cell ? cell.y : null;
+}
+function shopNow(r){ return shopY(r, condF); }
+function chg3(r, cond){
+  const {pts} = pickSeries(r, {id:"3m", days:92, grain:"day"}, cond);
+  if(pts.length<2) return null;
+  const last = pts[pts.length-1];
+  const target = pointDate(last.t).getTime() - 90*86400000;
+  let then = pts[0], best = Infinity;
+  pts.forEach(p => {
+    const d = Math.abs(pointDate(p.t).getTime() - target);
+    if(d<best){ best=d; then=p; }
+  });
+  if(!then || !then.y) return null;
+  return (last.y - then.y) / then.y;
+}
+function pct3(x){
+  if(x==null || !isFinite(x)) return `<span class="flat">— 3 mo</span>`;
+  const n = Math.round(x*100);
+  const cls = n>0?"pos": n<0?"neg":"flat";
+  return `<span class="${cls}">${n>0?"+":""}${n}% 3 mo</span>`;
 }
 function artOf(r){ return (r.imgs||{})[varOf(r)] || r.img; }
 function artHi(r){ return (r.imgsHi||{})[varOf(r)] || r.imgHi; }
@@ -330,12 +356,13 @@ function pickShop(shop, spec){
   }
   return null;
 }
-function pickSeries(r, spec){
+function pickSeries(r, spec, cond){
+  cond = cond || condF;
   const empty = {pts:[], grain:spec.grain, used:"shop"};
   const by = (((HISTORY[r.id]||{}).series||{}).by||{})[varOf(r)]||{};
-  const picked = pickShop(by[condF]||{}, spec);
+  const picked = pickShop(by[cond]||{}, spec);
   if(picked) return picked;
-  if(condF==="nm" && varOf(r)===((HISTORY[r.id]||{}).want)){
+  if(cond==="nm" && varOf(r)===((HISTORY[r.id]||{}).want)){
     return pickShop((HISTORY[r.id]||{}).series?.shop||{}, spec) || empty;
   }
   return empty;
@@ -357,7 +384,7 @@ function tile(r){
     <button type="button" class="stats" aria-label="${r.name} TCGPlayer shop ${usd(px)}">
       <span class="badge h${r.rank}">${r.hunt}</span>
       <div class="nm">${r.name}</div>
-      <span class="hint">TCGPlayer shop</span>
+      <span class="hint">TCGPlayer shop · ${condF.toUpperCase()}</span>
       <div class="mark">${usd(px)}</div>
     </button>`;
   el.querySelector(".art").onclick=()=>openZoom(artHi(r), r.name);
@@ -493,7 +520,6 @@ function forSaleBody(r, d){
 function paintSheet(){
   const r = ROWS.find(x => x.id===sheetId); if(!r) return;
   const d = DETAIL[r.id] || {sales:[],asks:[],ask_rows:[]};
-  const px = shopNow(r);
   const hi = artHi(r);
   const body = tab==="forsale" ? forSaleBody(r,d) : priceBody(r);
   $("sheet").innerHTML = `<div class="peek-grid">
@@ -501,9 +527,11 @@ function paintSheet(){
     <div>
       <div class="sm">${r.set} · #${r.num}</div>
       <h2 style="margin:.1rem 0 .35rem;font-size:1.15rem">${r.name}</h2>
-      <div class="today">TCGPlayer shop</div>
-      <div class="hero-px">${usd(px)}</div>
-      <div class="tab-note" style="margin:.15rem 0 0">${finishLab(r)} · ${condF.toUpperCase()}</div>
+      <div class="today">TCGPlayer shop · ${finishLab(r)} · item ask, not landed</div>
+      <div class="hero-pair">
+        <button type="button" class="hero-slot${condF==="nm"?" on":""}" data-cond="nm"><span class="k">Near Mint</span><div class="hero-px">${usd(shopY(r,"nm"))}</div><div class="chg">${pct3(chg3(r,"nm"))}</div></button>
+        <button type="button" class="hero-slot${condF==="lp"?" on":""}" data-cond="lp"><span class="k">Lightly Played</span><div class="hero-px">${usd(shopY(r,"lp"))}</div><div class="chg">${pct3(chg3(r,"lp"))}</div></button>
+      </div>
       ${shopLinks(r, "peek-shops")}
     </div>
   </div>
@@ -515,6 +543,7 @@ function paintSheet(){
   </div>
   <div id="tab-body">${body}</div>`;
   $("hero-art").onclick=()=>openZoom(hi, r.name);
+  $("sheet").querySelectorAll("[data-cond]").forEach(b => b.onclick = () => { condF=b.dataset.cond; paintSheet(); });
   [["sheet-cond",[["nm","NM"],["lp","LP"],["mp","MP"]],condF,id=>{condF=id;}],
    ["sheet-var",[["want","Hunt"],["holo","Holo"],["reverse","Reverse"],["normal","Normal"]],varF,id=>{varF=id;}]
   ].forEach(([rid, items, cur, set]) => {
