@@ -31,12 +31,15 @@ main{max-width:42rem;margin:0 auto;padding:.55rem 1rem 1.5rem;padding-bottom:max
 .strip-track::-webkit-scrollbar{display:none}
 .strip-page{flex:0 0 100%;scroll-snap-align:start;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;padding:0 1rem;height:100%;min-height:0}
 
-.card-tile{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--panel2);border:1px solid var(--border);border-radius:16px;width:100%;padding:.45rem;color:inherit}
-.card-tile .art{appearance:none;border:1px solid var(--border);background:#0a0d14;border-radius:10px;padding:0;cursor:zoom-in;flex:1 1 auto;min-height:0;width:100%;overflow:hidden;aspect-ratio:63/88}
+.card-tile{display:grid;grid-template-rows:minmax(0,1fr) auto;height:100%;min-width:0;min-height:0;overflow:hidden;background:var(--panel2);border:1px solid var(--border);border-radius:16px;width:100%;padding:.45rem;color:inherit}
+.card-tile .art{appearance:none;border:1px solid var(--border);background:#0a0d14;border-radius:10px;padding:0;cursor:zoom-in;min-height:0;width:100%;height:100%;overflow:hidden}
 .card-tile .art:focus-visible,.card-tile .stats:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .card-tile .art img{width:100%;height:100%;object-fit:contain;display:block}
-.card-tile .stats{appearance:none;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;padding:.35rem 0 0;min-height:44px;width:100%}
-.card-tile .hint{display:block;font-size:.58rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.card-tile .stats{appearance:none;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;padding:.28rem 0 0;min-height:44px;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"badge badge" "nm mark" "hint hint";gap:.04rem .35rem;align-items:baseline}
+.card-tile .badge{grid-area:badge}
+.card-tile .nm{grid-area:nm;min-width:0}
+.card-tile .hint{grid-area:hint;display:block;font-size:.58rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.card-tile .mark{grid-area:mark;justify-self:end}
 
 .card-tile.h1{border-color:rgba(61,214,140,.36)}
 .card-tile.h2{border-color:rgba(110,168,255,.36)}
@@ -123,7 +126,7 @@ body.card-open #card-page{display:block}
 .lightbox img{max-width:min(92vw,520px);max-height:92vh;object-fit:contain;border-radius:12px}
 .lightbox button{position:absolute;top:max(.7rem,env(safe-area-inset-top));right:max(.7rem,env(safe-area-inset-right))}
 @media (max-width:699px){
-  body:not(.card-open){height:100svh;overflow:hidden;display:flex;flex-direction:column}
+  body:not(.card-open){height:100dvh;overflow:hidden;display:flex;flex-direction:column}
   main{flex:1;min-height:0;display:flex;flex-direction:column;padding-bottom:max(.4rem,env(safe-area-inset-bottom))}
   #browse{display:flex;flex-direction:column;flex:1;min-height:0}
   .callout{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -131,6 +134,10 @@ body.card-open #card-page{display:block}
   .strip-track{flex:1;min-height:0;height:auto}
   .pager{margin:.35rem 0 0;flex:0 0 auto}
   footer{display:none}
+  .peek-grid{grid-template-columns:1fr}
+  .hero-art{max-width:16rem}
+  .hero-slot{min-width:0}
+  .hero-px{overflow:visible}
 }
 @media (min-width:700px){
   .inner,main,.card-page-inner{max-width:46rem}
