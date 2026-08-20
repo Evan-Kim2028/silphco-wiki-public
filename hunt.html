@@ -79,10 +79,16 @@ body.card-open #card-page{display:block}
 .cond-row[data-selected="true"]{font-weight:700}
 .cond-row .n{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
 .cond-row .n span{margin-left:.45rem;font-size:.72rem;font-weight:400;color:var(--muted)}
-.asks{list-style:none;margin:.4rem 0 0;padding:0}
-.asks li{display:flex;justify-content:space-between;gap:.7rem;padding:.35rem 0;border-bottom:1px solid rgba(42,51,72,.45);font-size:.88rem}
-.asks a{color:inherit;text-decoration:none}
-.asks b{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.book{margin:.45rem 0 0;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#0a0d14}
+.book-hd,.book-row{display:grid;grid-template-columns:2.6rem 5.4rem minmax(0,1fr);gap:.45rem;align-items:center;padding:.32rem .55rem}
+.book-hd{font-size:.62rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);border-bottom:1px solid var(--border)}
+.book-row{position:relative;color:inherit;text-decoration:none;border-bottom:1px solid rgba(42,51,72,.45);font-size:.88rem;min-height:44px}
+.book-row:last-child{border-bottom:0}
+.book-bar{position:absolute;inset:0 auto 0 0;background:rgba(240,113,120,.16);pointer-events:none}
+.book-row .sz,.book-row .px,.book-row .who{position:relative}
+.book-row .sz,.book-row .px{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.book-row .px{color:var(--neg);font-weight:700}
+.book-row .who{color:var(--muted);font-size:.78rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .table-wrap{overflow-x:auto;max-width:100%;margin:.2rem 0 .65rem}
 .ladder{width:100%;border-collapse:collapse;font-size:.82rem}
 .ladder th{text-align:left;color:var(--muted);font-weight:600;font-size:.68rem;text-transform:uppercase;padding:.28rem .3rem;border-bottom:1px solid var(--border)}
@@ -194,6 +200,27 @@ function usdTick(x){
   return "$" + x.toFixed(1);
 }
 function mktName(k){ return MKT[k] || k; }
+function bookLevels(rows){
+  const map = new Map();
+  rows.forEach(a => {
+    const k = String(a.px);
+    const cur = map.get(k) || {px:a.px, qty:0, lots:[]};
+    cur.qty += (a.qty||1);
+    cur.lots.push(a);
+    map.set(k, cur);
+  });
+  return [...map.values()].sort((a,b)=>a.px-b.px);
+}
+function bookWho(lots){
+  const bits=[], seen=new Set();
+  lots.forEach(a => {
+    const k=a.mkt+"|"+a.label;
+    if(seen.has(k)) return;
+    seen.add(k);
+    bits.push(mktName(a.mkt)+" · "+a.label);
+  });
+  return bits.join(" · ");
+}
 function varOf(r){ return varF==="want" ? r.want : varF; }
 function quoteCell(r, v, c){ return ((QUOTES[r.id]||{})[v]||{})[c] || null; }
 function shopNow(r){
@@ -420,13 +447,21 @@ function forSaleBody(r, d){
         asks.map(a=>`<tr><td><a href="${mktSearch(r,a.mkt)}" target="_blank" rel="noopener noreferrer">${mktName(a.mkt)}</a></td><td>${a.label}</td><td class="num">${a.n}</td><td class="num">${usd(a.p25)}</td><td class="num">${usd(a.lo)}</td></tr>`).join("")
       }</tbody></table></div>`
     : `<p class="tab-note">Nothing for sale in this filter.</p>`;
-  const list = cheap.length
-    ? `<ul class="asks">${cheap.map(a=>`<li><a href="${mktSearch(r,a.mkt)}" target="_blank" rel="noopener noreferrer"><span>${mktName(a.mkt)} · ${a.label} · ×${a.qty}</span></a><b>${usd(a.px)}</b></li>`).join("")}</ul>`
+  const levels = bookLevels(cheap);
+  const maxQty = Math.max(1, ...levels.map(lv=>lv.qty));
+  const list = levels.length
+    ? `<div class="book" role="table" aria-label="Ask book">
+        <div class="book-hd" role="row"><span>Size</span><span>Ask</span><span>Who</span></div>
+        ${levels.map(lv => {
+          const w = Math.max(8, Math.round(100*lv.qty/maxQty));
+          return `<a class="book-row" role="row" href="${mktSearch(r, lv.lots[0].mkt)}" target="_blank" rel="noopener noreferrer"><i class="book-bar" style="width:${w}%"></i><span class="sz">${lv.qty}</span><span class="px">${usd(lv.px)}</span><span class="who">${bookWho(lv.lots)}</span></a>`;
+        }).join("")}
+      </div>`
     : "";
   return `<div class="tabs" id="list-mkt"></div>
     <p class="tab-note">Live asks. Not the shop tape above.</p>
     ${table}
-    ${list?`<h3 style="margin:.7rem 0 .35rem;font-size:.95rem">Lowest prices</h3>${list}`:""}`;
+    ${list?`<h3 style="margin:.7rem 0 .35rem;font-size:.95rem">Ask book</h3>${list}`:""}`;
 }
 function paintSheet(){
   const r = ROWS.find(x => x.id===sheetId); if(!r) return;
