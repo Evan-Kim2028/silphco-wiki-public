@@ -133,6 +133,10 @@ body.card-open #card-page{display:block}
   <p class="callout">The number is the TCGPlayer shop. Tap the picture to zoom. Tap the number for the chart and listings.</p>
   <div class="controls">
     <div class="row" id="rank-row"></div>
+    <div class="lbl">Condition</div>
+    <div class="row" id="cond-row"></div>
+    <div class="lbl">Finish</div>
+    <div class="row" id="var-row"></div>
     <input id="q" type="search" placeholder="Slowking, Marill…" autocomplete="off"/>
   </div>
   <div class="strip" id="strip">
@@ -239,6 +243,8 @@ function chipRow(el, items, cur, set){
 }
 function chips(){
   chipRow($("rank-row"), [["all","All",ROWS.length],[1,"Hunt #1",ROWS.filter(r=>r.rank===1).length],[2,"Hunt #2",ROWS.filter(r=>r.rank===2).length]], rankF, id=>{rankF=id;});
+  chipRow($("cond-row"), [["nm","NM",ROWS.filter(r=>quoteCell(r,varOf(r),"nm")).length],["lp","LP",ROWS.filter(r=>quoteCell(r,varOf(r),"lp")).length],["mp","MP",ROWS.filter(r=>quoteCell(r,varOf(r),"mp")).length]], condF, id=>{condF=id;});
+  chipRow($("var-row"), [["want","Hunt",ROWS.filter(r=>quoteCell(r,r.want,condF)).length],["holo","Holo",ROWS.filter(r=>quoteCell(r,"holo",condF)).length],["reverse","Reverse",ROWS.filter(r=>quoteCell(r,"reverse",condF)).length],["normal","Normal",ROWS.filter(r=>quoteCell(r,"normal",condF)).length]], varF, id=>{varF=id;});
 }
 function condsOf(r){
   const xs = [...(r.conds||[])];
