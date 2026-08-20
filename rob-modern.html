@@ -30,14 +30,14 @@ main{max-width:98rem;margin:0 auto;padding:.85rem 1rem 3rem;padding-bottom:max(2
 .rail-nav .pg{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.82rem;min-width:7rem;text-align:center}
 .pages{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center;margin:.4rem 0 0}
 .pages .chip{min-width:44px;padding:.28rem .5rem}
-.card-tile{display:flex;flex-direction:column;align-items:stretch;gap:.28rem;min-width:0;min-height:0;height:100%;background:var(--panel2);border:1px solid var(--border);border-radius:16px;cursor:pointer;text-align:left;width:100%;padding:.5rem .55rem .55rem;color:inherit;font:inherit;touch-action:pan-x;transition:transform 160ms cubic-bezier(0.2,0,0,1)}
-.card-tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.card-tile:active{transform:scale(0.96)}
+.card-tile{display:flex;flex-direction:column;align-items:stretch;gap:.28rem;min-width:0;min-height:0;height:100%;background:var(--panel2);border:1px solid var(--border);border-radius:16px;text-align:left;width:100%;padding:.5rem .55rem .55rem;color:inherit;font:inherit;touch-action:pan-x}
 .card-tile.deal{border-color:rgba(61,214,140,.36)}
 .card-tile.live{border-color:rgba(110,168,255,.36)}
 .card-tile.thin{border-color:rgba(230,180,80,.36)}
-.art{flex:1 1 auto;aspect-ratio:63/88;width:auto;max-height:46%;margin:0 auto;padding:0;background:#0a0d14;border-radius:8px;overflow:hidden;outline:1px solid rgba(255,255,255,.1)}
-.art img{width:100%;height:100%;object-fit:contain}
+.card-tile .art{appearance:none;flex:1 1 auto;aspect-ratio:63/88;width:auto;max-height:46%;margin:0 auto;padding:0;background:#0a0d14;border:0;border-radius:8px;overflow:hidden;outline:1px solid rgba(255,255,255,.1);cursor:zoom-in}
+.card-tile .art:focus-visible,.card-tile .stats:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card-tile .art img{width:100%;height:100%;object-fit:contain;display:block}
+.card-tile .stats{appearance:none;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;padding:0;min-height:44px;width:100%}
 .badge{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.12rem .35rem;border-radius:6px;border:1px solid var(--border);margin:0 0 .2rem}
 .badge.deal{border-color:rgba(61,214,140,.55);color:#b8f5d4}
 .badge.live{border-color:rgba(110,168,255,.55);color:#cfe2ff}
@@ -96,7 +96,7 @@ body.card-open #browse{pointer-events:none}
 }
 </style>
 </head>
-<body>
+<body data-binder="1">
 <header class="topbar"><div class="inner">
   <h1>What to pay</h1>
   <div class="meta">Near Mint · shiny · <a href="index.html">home</a></div>
@@ -239,22 +239,23 @@ function chips(){
 }
 function tile(r){
   const pile = pileOf(r);
-  const b = document.createElement("button");
-  b.type="button"; b.className="card-tile "+pile;
-  b.setAttribute("aria-label", `${r.name} ${r.set} pay at most ${usd(r.keepMax)}`);
+  const el = document.createElement("article");
+  el.className="card-tile "+pile;
   const sellers = r.thin
     ? `<div class="warn">Not enough listings</div>`
     : `<div class="cmp"><span>Sellers want</span><b>${usd(r.p25)}</b></div>`;
-  b.innerHTML = `<div class="art"><img alt="${r.name}" loading="lazy"/></div>
-    <div class="body"><span class="badge ${pile}">${BADGE[pile]||pile}</span>
+  el.innerHTML = `<button type="button" class="art" aria-label="Larger ${r.name}"><img alt="${r.name}" loading="lazy"/></button>
+    <button type="button" class="stats" aria-label="${r.name} pay at most ${usd(r.keepMax)}">
+    <span class="badge ${pile}">${BADGE[pile]||pile}</span>
     <div class="nm">${r.name}</div>
     <div class="sm">${r.set} · #${r.num}</div>
     <span class="hint">Pay at most</span>
     <div class="mark">${usd(r.keepMax)}</div>
-    ${sellers}</div>`;
-  b.onclick=()=>{ if(dragged) return; openCard(r.id); };
-  bindArt(b.querySelector("img"), r.imgs || [r.img]);
-  return b;
+    ${sellers}</button>`;
+  el.querySelector(".art").onclick=()=>{ if(dragged) return; openZoom(r.imgHi||r.img, r.name); };
+  el.querySelector(".stats").onclick=()=>{ if(dragged) return; openCard(r.id); };
+  bindArt(el.querySelector("img"), r.imgs || [r.img]);
+  return el;
 }
 function bindArt(img, chain){
   if(!img || !chain || !chain.length) return;

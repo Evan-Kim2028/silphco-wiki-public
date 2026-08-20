@@ -30,13 +30,16 @@ main{max-width:42rem;margin:0 auto;padding:.55rem 1rem 1.5rem;padding-bottom:max
 .strip-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;touch-action:pan-x}
 .strip-track::-webkit-scrollbar{display:none}
 .strip-page{flex:0 0 100%;scroll-snap-align:start;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;padding:0 1rem;height:100%;min-height:0}
-.card-tile{display:grid;grid-template-rows:minmax(0,1fr) auto;min-width:0;min-height:0;background:var(--panel2);border:1px solid var(--border);border-radius:16px;width:100%;padding:.5rem;color:inherit}
-.tile-hit{display:grid;grid-template-rows:minmax(0,1fr) auto;min-width:0;min-height:0;gap:0;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
-.tile-hit:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.card-tile{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--panel2);border:1px solid var(--border);border-radius:16px;width:100%;padding:.45rem;color:inherit}
+.card-tile .art{appearance:none;border:1px solid var(--border);background:#0a0d14;border-radius:10px;padding:0;cursor:zoom-in;flex:1 1 auto;min-height:0;width:100%;overflow:hidden;aspect-ratio:63/88}
+.card-tile .art:focus-visible,.card-tile .stats:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card-tile .art img{width:100%;height:100%;object-fit:contain;display:block}
+.card-tile .stats{appearance:none;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;padding:.35rem 0 0;min-height:44px;width:100%}
+.card-tile .hint{display:block;font-size:.58rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+
 .card-tile.h1{border-color:rgba(61,214,140,.36)}
 .card-tile.h2{border-color:rgba(110,168,255,.36)}
-.art{min-height:0;padding:0;background:#0a0d14;border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.art img{width:100%;height:100%;object-fit:contain}
 .badge{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.1rem .32rem;border-radius:6px;border:1px solid var(--border);margin:0 0 .12rem}
 .badge.h1{border-color:rgba(61,214,140,.55);color:#b8f5d4}
 .badge.h2{border-color:rgba(110,168,255,.55);color:#cfe2ff}
@@ -46,9 +49,8 @@ main{max-width:42rem;margin:0 auto;padding:.55rem 1rem 1.5rem;padding-bottom:max
 .mark{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.05rem;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:-.02em}
 .shops{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.15rem}
 .shops a{color:var(--accent);font-size:.68rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center}
-.card-tile .shops a{min-height:32px}
 .peek-shops a,.sheet-shops a{min-height:44px}
-.pager{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin:.55rem 0 0;color:var(--muted);font-size:.78rem}
+.pager{display:flex;align-items:center;justify-content:center;gap:.65rem;margin:.55rem 0 0;color:var(--muted);font-size:.78rem}
 .dots{display:flex;gap:.35rem;flex-wrap:wrap}
 .dot{width:8px;height:8px;border-radius:99px;border:0;background:#2a3348;padding:0;cursor:pointer}
 .dot.on{background:var(--accent)}
@@ -59,6 +61,8 @@ body.card-open #browse{display:none}
 #card-page{display:none}
 body.card-open #card-page{display:block}
 .back{appearance:none;border:1px solid var(--border);background:var(--panel2);color:var(--text);border-radius:8px;padding:.4rem .7rem;cursor:pointer;min-height:44px;margin:0 0 .75rem}
+.pager .back{margin:0}
+.back:disabled{opacity:.4;cursor:default}
 .card-page-inner{max-width:42rem;min-width:0}
 .peek-grid{display:grid;grid-template-columns:minmax(12rem,1.2fr) minmax(0,1fr);gap:.7rem;align-items:start}
 .hero-art{appearance:none;border:1px solid var(--border);background:#0a0d14;border-radius:12px;padding:.35rem;cursor:zoom-in;aspect-ratio:63/88;width:100%}
@@ -119,30 +123,27 @@ body.card-open #card-page{display:block}
 }
 </style>
 </head>
-<body>
+<body data-binder="1">
 <header class="topbar"><div class="inner">
   <h1>Cards to hunt</h1>
   <div class="meta">Hunt #1 HeartGold / Call of Legends · Hunt #2 Delta Species reverse commons · freeze 2026-08-19T20Z · <a href="index.html">home</a> · <a href="buying.html">buying</a> · <a href="listings-watch.html">watch</a></div>
 </div></header>
 <main>
 <div id="browse">
-  <p class="callout">The number is that TCGPlayer shop. Tap a picture.</p>
+  <p class="callout">The number is the TCGPlayer shop. Tap the picture to zoom. Tap the number for the chart and listings.</p>
   <div class="controls">
     <div class="row" id="rank-row"></div>
-    <div class="lbl">Condition</div>
-    <div class="row" id="cond-row"></div>
-    <div class="lbl">Finish</div>
-    <div class="row" id="var-row"></div>
     <input id="q" type="search" placeholder="Slowking, Marill…" autocomplete="off"/>
   </div>
   <div class="strip" id="strip">
     <div class="strip-track" id="track"></div>
   </div>
   <div class="pager">
+    <button type="button" class="back" id="prev" aria-label="Previous four">←</button>
     <span id="page-lab">1 / 1</span>
-    <span id="swipe-hint">Swipe for more</span>
-    <div class="dots" id="dots"></div>
+    <button type="button" class="back" id="next" aria-label="Next four">→</button>
   </div>
+  <div class="dots" id="dots"></div>
   <footer>TCGPlayer shop for the selected condition and finish. Chart is Near Mint from February 2024. For sale is the live book. <a href="https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&view=grid" target="_blank" rel="noopener noreferrer">TCGPlayer</a></footer>
 </div>
 <section id="card-page">
@@ -238,8 +239,6 @@ function chipRow(el, items, cur, set){
 }
 function chips(){
   chipRow($("rank-row"), [["all","All",ROWS.length],[1,"Hunt #1",ROWS.filter(r=>r.rank===1).length],[2,"Hunt #2",ROWS.filter(r=>r.rank===2).length]], rankF, id=>{rankF=id;});
-  chipRow($("cond-row"), [["nm","NM",ROWS.filter(r=>quoteCell(r,varOf(r),"nm")).length],["lp","LP",ROWS.filter(r=>quoteCell(r,varOf(r),"lp")).length],["mp","MP",ROWS.filter(r=>quoteCell(r,varOf(r),"mp")).length]], condF, id=>{condF=id;});
-  chipRow($("var-row"), [["want","Hunt",ROWS.filter(r=>quoteCell(r,r.want,condF)).length],["holo","Holo",ROWS.filter(r=>quoteCell(r,"holo",condF)).length],["reverse","Reverse",ROWS.filter(r=>quoteCell(r,"reverse",condF)).length],["normal","Normal",ROWS.filter(r=>quoteCell(r,"normal",condF)).length]], varF, id=>{varF=id;});
 }
 function condsOf(r){
   const xs = [...(r.conds||[])];
@@ -296,14 +295,15 @@ function tile(r){
   el.className="card-tile h"+r.rank;
   const px = shopNow(r);
   const img = artOf(r);
-  el.innerHTML = `<button type="button" class="tile-hit" aria-label="${r.name} ${r.set} ${finishLab(r)} ${condF.toUpperCase()} ${usd(px)}">
-      <div class="art"><img src="${img}" alt="${r.name}" loading="lazy"/></div>
-      <div class="body"><span class="badge h${r.rank}">${r.hunt}</span>
+  el.innerHTML = `<button type="button" class="art" aria-label="Larger ${r.name}"><img src="${img}" alt="${r.name}" loading="lazy"/></button>
+    <button type="button" class="stats" aria-label="${r.name} TCGPlayer shop ${usd(px)}">
+      <span class="badge h${r.rank}">${r.hunt}</span>
       <div class="nm">${r.name}</div>
-      <div class="mark">${usd(px)}</div></div>
-    </button>
-    ${shopLinks(r)}`;
-  el.querySelector(".tile-hit").onclick=()=>openCard(r.id);
+      <span class="hint">TCGPlayer shop</span>
+      <div class="mark">${usd(px)}</div>
+    </button>`;
+  el.querySelector(".art").onclick=()=>openZoom(artHi(r), r.name);
+  el.querySelector(".stats").onclick=()=>openCard(r.id);
   return el;
 }
 function pageIndex(){
@@ -315,7 +315,8 @@ function syncPager(){
   const n=$("track").children.length;
   const i=pageIndex();
   $("page-lab").textContent = n? `${i+1} / ${n}` : "0 / 0";
-  $("swipe-hint").hidden = n<=1;
+  $("prev").disabled = i<=0;
+  $("next").disabled = i>=n-1;
   [...$("dots").children].forEach((el,k)=>el.classList.toggle("on", k===i));
 }
 function buildDots(n){
@@ -516,8 +517,15 @@ function draw(){
   track.scrollLeft=0;
   syncPager();
 }
+function goPage(delta){
+  const t=$("track");
+  const page=t.children[pageIndex()+delta];
+  if(page) page.scrollIntoView({behavior:"smooth", inline:"start", block:"nearest"});
+}
 $("q").addEventListener("input", e=>{q=e.target.value; draw();});
 $("track").addEventListener("scroll", syncPager, {passive:true});
+$("prev").onclick=()=>goPage(-1);
+$("next").onclick=()=>goPage(1);
 $("back").onclick=()=>{
   document.body.classList.remove("card-open");
   sheetId=null; closeZoom();

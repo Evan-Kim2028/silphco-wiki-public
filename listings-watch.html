@@ -30,10 +30,11 @@ main{max-width:98rem;margin:0 auto;padding:.85rem 1rem 3rem;padding-bottom:max(2
 .statpill{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:.3rem .5rem;font-size:.76rem;color:var(--muted)}
 .statpill b{color:var(--text);font-variant-numeric:tabular-nums}
 .pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:.65rem}
-.card-tile{background:var(--panel2);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;text-align:left;width:100%;padding:0;color:inherit;font:inherit}
-.card-tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.card-tile .art{position:relative;min-height:210px;display:flex;align-items:flex-end;justify-content:center;padding:.55rem;background:linear-gradient(180deg,#101522,#0a0d14)}
+.card-tile{background:var(--panel2);border:1px solid var(--border);border-radius:12px;overflow:hidden;text-align:left;width:100%;padding:0;color:inherit;font:inherit}
+.card-tile .art{appearance:none;border:0;position:relative;min-height:210px;display:flex;align-items:flex-end;justify-content:center;padding:.55rem;background:linear-gradient(180deg,#101522,#0a0d14);width:100%;cursor:zoom-in;color:inherit}
+.card-tile .art:focus-visible,.card-tile .stats:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 .card-tile .art img{width:min(100%,148px);height:208px;object-fit:contain}
+.card-tile .stats{appearance:none;border:0;width:100%;padding:.45rem .55rem .6rem;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;min-height:44px}
 .card-tile.foil-cue .art::after{content:"";pointer-events:none;position:absolute;inset:0;background:linear-gradient(125deg,transparent 35%,rgba(255,255,255,.12) 48%,transparent 62%);mix-blend-mode:screen;opacity:.55}
 .badge{position:absolute;top:.35rem;left:.35rem;z-index:2;font-size:.62rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.18rem .35rem;border-radius:6px;background:rgba(0,0,0,.72);border:1px solid rgba(61,214,140,.55);color:#b8f5d4}
 .badge.spread{border-color:rgba(110,168,255,.55);color:#cfe2ff}
@@ -114,7 +115,7 @@ body.card-open #card-page{display:block}
 }
 </style>
 </head>
-<body>
+<body data-binder="1">
 <header class="topbar"><div class="inner">
   <h1>Cards to watch</h1>
   <div class="meta">BIN sit + shop piles · HeartGold, Platinum, delta · freeze 2026-08-19T18Z · <a href="index.html">home</a> · <a href="buying.html">buying</a> · <a href="primes.html">primes</a></div>
@@ -301,23 +302,24 @@ function cells(r){
   ];
 }
 function tile(r){
-  const b = document.createElement("button");
-  b.type="button"; b.className="card-tile"+(r.foil?" foil-cue":"");
+  const el = document.createElement("article");
+  el.className="card-tile"+(r.foil?" foil-cue":"");
   const tag = SEGS[r.seg] || r.seg;
   const bits = cells(r);
   const h = hero(r);
-  b.setAttribute("aria-label", `${r.call} ${r.name} ${r.line} ${h?h.k+" "+h.v:""}`);
-  b.innerHTML = `<div class="art"><span class="badge ${badgeClass(r.seg)}">${tag}</span><span class="mark ${r.take}" aria-hidden="true">${r.icon}</span>${h?`<span class="stamp ${h.cls}">${h.v}</span>`:""}<img src="${r.img}" alt="" loading="lazy"/></div>
-    <div class="body"><div class="nm">${r.name}</div>
+  el.innerHTML = `<button type="button" class="art" aria-label="Larger ${r.name}"><span class="badge ${badgeClass(r.seg)}">${tag}</span><span class="mark ${r.take}" aria-hidden="true">${r.icon}</span>${h?`<span class="stamp ${h.cls}">${h.v}</span>`:""}<img src="${r.img}" alt="" loading="lazy"/></button>
+    <button type="button" class="stats" aria-label="${r.call} ${r.name} ${h?h.k+" "+h.v:""}">
+    <div class="nm">${r.name}</div>
     <div class="sm">${r.line}${r.grade?" · "+r.grade:""}</div>
     <div class="take ${r.take}">${r.icon} ${r.call}</div>
     ${h?`<div class="bid ${h.cls}"><span class="k">${h.k}</span>${h.v}</div>`:""}
     ${condBoxes(r)}
     <div class="sg">${bits.map(([id,k,v]) =>
       `<div class="st${sortK===id?" hit":""}"><span class="k">${k}</span><span class="v">${v}</span></div>`
-    ).join("")}</div></div>`;
-  b.onclick=()=>openCard(r.id);
-  return b;
+    ).join("")}</div></button>`;
+  el.querySelector(".art").onclick=()=>openZoom(r.imgHi||r.img, r.name);
+  el.querySelector(".stats").onclick=()=>openCard(r.id);
+  return el;
 }
 function openCard(id){
   const r = ROWS.find(x => x.id===id);
