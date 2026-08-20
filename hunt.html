@@ -150,16 +150,16 @@ body.card-open #card-page{display:block}
 <body data-binder="1">
 <header class="topbar"><div class="inner">
   <h1>Cards to hunt</h1>
-  <div class="meta">Hunt #1 HeartGold / Call of Legends · Hunt #2 Delta Species reverse commons · freeze 2026-08-19T20Z · <a href="index.html">home</a> · <a href="buying.html">buying</a> · <a href="listings-watch.html">watch</a></div>
+  <div class="meta">Two lists to look for in person · <a href="index.html">home</a> · <a href="buying.html">buying</a></div>
 </div></header>
 <main>
 <div id="browse">
-  <p class="callout">The dollar is the latest TCGPlayer shop print for that finish and condition. Tap the picture to zoom. Tap the number for shop tape, sold range, and listings.</p>
+  <p class="callout">The dollar is today’s shop price. Tap it to see the chart and what’s for sale.</p>
   <div class="controls">
     <div class="row" id="rank-row"></div>
-    <div class="lbl">Condition</div>
+    <div class="lbl">Looks</div>
     <div class="row" id="cond-row"></div>
-    <div class="lbl">Finish</div>
+    <div class="lbl">Kind of card</div>
     <div class="row" id="var-row"></div>
     <input id="q" type="search" placeholder="Slowking, Marill…" autocomplete="off"/>
   </div>
@@ -172,7 +172,7 @@ body.card-open #card-page{display:block}
     <button type="button" class="back" id="next" aria-label="Next four">→</button>
   </div>
   <div class="dots" id="dots"></div>
-  <footer>TCGPlayer shop for the selected condition and finish. Chart is Near Mint from February 2024. For sale is the live book. <a href="https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&view=grid" target="_blank" rel="noopener noreferrer">TCGPlayer</a></footer>
+  <footer>Shop price is what TCGPlayer shows today. Blue bars are what sold on eBay.</footer>
 </div>
 <section id="card-page">
   <div class="card-page-inner">
@@ -197,10 +197,10 @@ const QUOTES = JSON.parse(document.getElementById("quote-data").textContent);
 const MKT = {"tcgplayer": "TCGPlayer", "ebay": "eBay", "ebay_hk": "eBay HK", "alt_xyz": "ALT", "misprint": "Misprint", "doubleholo": "Doubleholo", "mercari_us": "Mercari"};
 const AS_OF = new Date("2026-08-19T00:00:00Z");
 const RANGES = [
-  {id:"3m", lab:"3 mo", days:92, grain:"week"},
-  {id:"6m", lab:"6 mo", days:183, grain:"week"},
-  {id:"1y", lab:"1 yr", days:366, grain:"week"},
-  {id:"2y", lab:"2 yr", days:731, grain:"week"},
+  {id:"3m", lab:"3 months", days:92, grain:"week"},
+  {id:"6m", lab:"6 months", days:183, grain:"week"},
+  {id:"1y", lab:"1 year", days:366, grain:"week"},
+  {id:"2y", lab:"2 years", days:731, grain:"week"},
   {id:"2024", lab:"Since 2024", days:930, grain:"week"},
 ];
 const $ = (id) => document.getElementById(id);
@@ -208,6 +208,8 @@ let rankF = "all", q = "", condF = "nm", varF = "want";
 let sheetId = null, tab = "price", condId = "nm", range = "3m", listMkt = "all", lastFocus = null;
 const VAR_Q = {holo:"holo", reverse:"reverse holo", normal:""};
 const FIN_LAB = {holo:"Holo", reverse:"Reverse holo", normal:"Normal"};
+const LOOK = {"Near Mint":"Looks new","Lightly Played":"A little worn","Moderately Played":"Worn","Heavily Played":"Beat up","Damaged":"Torn","Raw (unspecified)":"Loose"};
+function look(s){ return LOOK[s] || s; }
 function usd(x){
   if(x==null) return "—";
   return "$" + (x>=100 ? Math.round(x).toLocaleString() : x.toFixed(2));
@@ -231,8 +233,8 @@ function bookLevels(rows){
 }
 function lotAsk(a){
   if(a.ship==null) return usd(a.px);
-  if(a.ship===0) return usd(a.px)+" · free ship";
-  return usd(a.px)+" + "+usd(a.ship);
+  if(a.ship===0) return usd(a.px)+" · ship free";
+  return usd(a.px)+" + ship "+usd(a.ship);
 }
 function bookWho(lots){
   const bits=[], seen=new Set();
@@ -240,7 +242,7 @@ function bookWho(lots){
     const k=a.mkt+"|"+a.label;
     if(seen.has(k)) return;
     seen.add(k);
-    bits.push(mktName(a.mkt)+" · "+a.label);
+    bits.push(mktName(a.mkt)+" · "+look(a.label));
   });
   return bits.join(" · ");
 }
@@ -262,7 +264,7 @@ function askSpark(a){
   let left=Math.min(pLo??50, p25??50);
   const width=Math.max(2, Math.max(pLo??50, p25??50)-left);
   if(left+width>100) left=100-width;
-  const aria=`Lowest ${usd(a.lo)}, live book p25 ${usd(a.p25)}, median ${usd(a.med)}`;
+  const aria=`Cheapest ${usd(a.lo)}, typical ask ${usd(a.p25)}, middle ${usd(a.med)}`;
   return `<div class="spark" role="img" aria-label="${aria}"><i class="spark-rng" style="left:${left}%;width:${width}%"></i>${pMed==null?"":`<i class="spark-med" style="left:${pMed}%"></i>`}</div><div class="spark-cap"><span>${usd(a.lo)}</span><span>${usd(a.p25)}</span></div>`;
 }
 function varOf(r){ return varF==="want" ? r.want : varF; }
@@ -286,10 +288,10 @@ function chg3(r, cond){
   return (last.y - then.y) / then.y;
 }
 function pct3(x, cond){
-  if(x==null || !isFinite(x)) return `<span class="flat">${cond==="lp"||cond==="mp"?"no shop tape":"— 3 mo"}</span>`;
+  if(x==null || !isFinite(x)) return `<span class="flat">no chart yet</span>`;
   const n = Math.round(x*100);
   const cls = n>0?"pos": n<0?"neg":"flat";
-  return `<span class="${cls}">${n>0?"+":""}${n}% 3 mo</span>`;
+  return `<span class="${cls}">${n>0?"up ":"down "}${Math.abs(n)}% in 3 months</span>`;
 }
 function artOf(r){ return (r.imgs||{})[varOf(r)] || r.img; }
 function artHi(r){ return (r.imgsHi||{})[varOf(r)] || r.imgHi; }
@@ -342,9 +344,9 @@ function chipRow(el, items, cur, set){
   });
 }
 function chips(){
-  chipRow($("rank-row"), [["all","All",ROWS.length],[1,"Hunt #1",ROWS.filter(r=>r.rank===1).length],[2,"Hunt #2",ROWS.filter(r=>r.rank===2).length]], rankF, id=>{rankF=id;});
+  chipRow($("rank-row"), [["all","All",ROWS.length],[1,"Hunt 1",ROWS.filter(r=>r.rank===1).length],[2,"Hunt 2",ROWS.filter(r=>r.rank===2).length]], rankF, id=>{rankF=id;});
   chipRow($("cond-row"), [["nm","NM",ROWS.filter(r=>quoteCell(r,varOf(r),"nm")).length],["lp","LP",ROWS.filter(r=>quoteCell(r,varOf(r),"lp")).length],["mp","MP",ROWS.filter(r=>quoteCell(r,varOf(r),"mp")).length]], condF, id=>{condF=id;});
-  chipRow($("var-row"), [["want","Wanted",ROWS.filter(r=>quoteCell(r,r.want,condF)).length],["holo","Holo",ROWS.filter(r=>quoteCell(r,"holo",condF)).length],["reverse","Reverse",ROWS.filter(r=>quoteCell(r,"reverse",condF)).length],["normal","Normal",ROWS.filter(r=>quoteCell(r,"normal",condF)).length]], varF, id=>{varF=id;});
+  chipRow($("var-row"), [["want","This hunt",ROWS.filter(r=>quoteCell(r,r.want,condF)).length],["holo","Holo",ROWS.filter(r=>quoteCell(r,"holo",condF)).length],["reverse","Reverse",ROWS.filter(r=>quoteCell(r,"reverse",condF)).length],["normal","Normal",ROWS.filter(r=>quoteCell(r,"normal",condF)).length]], varF, id=>{varF=id;});
 }
 function condsOf(r){
   const xs = [...(r.conds||[])];
@@ -396,8 +398,7 @@ function pickSold(r, spec){
   return pts;
 }
 function seriesCap(grain, soldN){
-  const shop = grain==="week" ? "TCGPlayer shop, weekly" : grain==="day" ? "TCGPlayer shop" : "TCGPlayer shop, monthly";
-  return soldN ? shop + " (line). eBay sold range (bars)." : shop;
+  return soldN ? "Green line is the shop. Blue bars are what sold." : "Shop price over time.";
 }
 function xLabel(t, grain){
   const d = pointDate(t);
@@ -410,10 +411,10 @@ function tile(r){
   const px = shopNow(r);
   const img = artOf(r);
   el.innerHTML = `<button type="button" class="art" aria-label="Larger ${r.name}"><img src="${img}" alt="${r.name}" loading="lazy"/></button>
-    <button type="button" class="stats" aria-label="${r.name} TCGPlayer shop ${usd(px)}">
+    <button type="button" class="stats" aria-label="${r.name} shop ${usd(px)}">
       <span class="badge h${r.rank}">${r.hunt}</span>
       <div class="nm">${r.name}</div>
-      <span class="hint">TCGPlayer shop · ${condF.toUpperCase()}</span>
+      <span class="hint">Shop · ${condF.toUpperCase()}</span>
       <div class="mark">${usd(px)}</div>
     </button>`;
   el.querySelector(".art").onclick=()=>openZoom(artHi(r), r.name);
@@ -474,7 +475,7 @@ function drawChart(r){
   if(pts.length<2 && !sold.length){
     box.classList.add("empty");
     svg.innerHTML="";
-    cap.textContent="No shop tape";
+    cap.textContent="No prices yet";
     return;
   }
   box.classList.remove("empty");
@@ -525,8 +526,8 @@ function priceBody(r){
   ).join("");
   return `<div class="ranges" role="group" aria-label="Time frame">${rangeBtns}</div>
     <div class="chart-box" id="chart-box">
-      <svg class="plot" id="price-svg" viewBox="0 0 320 180" width="100%" height="180" aria-label="TCGPlayer shop"></svg>
-      <div class="chart-empty">No shop tape yet</div>
+      <svg class="plot" id="price-svg" viewBox="0 0 320 180" width="100%" height="180" aria-label="Price chart"></svg>
+      <div class="chart-empty">No prices yet</div>
     </div>
     <p class="tab-note" id="price-cap"></p>`;
 }
@@ -534,16 +535,16 @@ function forSaleBody(r, d){
   const cheap=(d.ask_rows||[]).filter(a=>listMkt==="all"||a.mkt===listMkt);
   const asks=(d.asks||[]).filter(a=>a.band==="raw" && (listMkt==="all"||a.mkt===listMkt));
   const table = asks.length
-    ? `<div class="table-wrap"><table class="ladder"><thead><tr><th>Shop</th><th>Condition</th><th class="num">Listed</th><th class="ask">Ask</th></tr></thead><tbody>${
-        asks.map(a=>`<tr><td><a href="${mktSearch(r,a.mkt)}" target="_blank" rel="noopener noreferrer">${mktName(a.mkt)}</a></td><td>${a.label}</td><td class="num">${a.n}</td><td class="ask">${askSpark(a)}</td></tr>`).join("")
+    ? `<div class="table-wrap"><table class="ladder"><thead><tr><th>Where</th><th>Looks</th><th class="num">How many</th><th class="ask">Price</th></tr></thead><tbody>${
+        asks.map(a=>`<tr><td><a href="${mktSearch(r,a.mkt)}" target="_blank" rel="noopener noreferrer">${mktName(a.mkt)}</a></td><td>${look(a.label)}</td><td class="num">${a.n}</td><td class="ask">${askSpark(a)}</td></tr>`).join("")
       }</tbody></table></div>
-      <p class="tab-note">Bar is lowest to live book p25 on that row's own scale. Mark is the median.</p>`
-    : `<p class="tab-note">Nothing for sale in this filter.</p>`;
+      <p class="tab-note">The bar is cheap to typical. The white mark is the middle.</p>`
+    : `<p class="tab-note">Nobody is selling this right now.</p>`;
   const levels = bookLevels(cheap);
   const maxQty = Math.max(1, ...levels.map(lv=>lv.qty));
   const list = levels.length
-    ? `<div class="book" role="table" aria-label="Ask book">
-        <div class="book-hd" role="row"><span>Size</span><span>Ask</span><span>Who</span></div>
+    ? `<div class="book" role="table" aria-label="Cheapest listings">
+        <div class="book-hd" role="row"><span>#</span><span>Price</span><span>Where</span></div>
         ${levels.map(lv => {
           const w = Math.max(8, Math.round(100*lv.qty/maxQty));
           return `<a class="book-row" role="row" href="${mktSearch(r, lv.lots[0].mkt)}" target="_blank" rel="noopener noreferrer"><i class="book-bar" style="width:${w}%"></i><span class="sz">${lv.qty}</span><span class="px">${lotAsk(lv.lots[0])}</span><span class="who">${bookWho(lv.lots)}</span></a>`;
@@ -551,9 +552,9 @@ function forSaleBody(r, d){
       </div>`
     : "";
   return `<div class="tabs" id="list-mkt"></div>
-    <p class="tab-note">Live asks. Not the shop tape. Cheapest lots in this freeze, item ask (ship when known).</p>
+    <p class="tab-note">What’s for sale. Price is the card, not shipping.</p>
     ${table}
-    ${list?`<h3 style="margin:.7rem 0 .35rem;font-size:.95rem">Ask book</h3>${list}`:""}`;
+    ${list?`<h3 style="margin:.7rem 0 .35rem;font-size:.95rem">Cheapest listings</h3>${list}`:""}`;
 }
 function paintSheet(){
   const r = ROWS.find(x => x.id===sheetId); if(!r) return;
@@ -565,10 +566,10 @@ function paintSheet(){
     <div>
       <div class="sm">${r.set} · #${r.num}</div>
       <h2 style="margin:.1rem 0 .35rem;font-size:1.15rem">${r.name}</h2>
-      <div class="today">TCGPlayer shop · ${finishLab(r)} · item ask, not landed</div>
+      <div class="today">${finishLab(r)}</div>
       <div class="hero-pair">
-        <button type="button" class="hero-slot${condF==="nm"?" on":""}" data-cond="nm"><span class="k">Near Mint</span><div class="hero-px">${usd(shopY(r,"nm"))}</div><div class="chg">${pct3(chg3(r,"nm"),"nm")}</div></button>
-        <button type="button" class="hero-slot${condF==="lp"?" on":""}" data-cond="lp"><span class="k">Lightly Played</span><div class="hero-px">${usd(shopY(r,"lp"))}</div><div class="chg">${pct3(chg3(r,"lp"),"lp")}</div></button>
+        <button type="button" class="hero-slot${condF==="nm"?" on":""}" data-cond="nm"><span class="k">Looks new</span><div class="hero-px">${usd(shopY(r,"nm"))}</div><div class="chg">${pct3(chg3(r,"nm"),"nm")}</div></button>
+        <button type="button" class="hero-slot${condF==="lp"?" on":""}" data-cond="lp"><span class="k">A little worn</span><div class="hero-px">${usd(shopY(r,"lp"))}</div><div class="chg">${pct3(chg3(r,"lp"),"lp")}</div></button>
       </div>
       ${shopLinks(r, "peek-shops")}
     </div>
@@ -576,14 +577,14 @@ function paintSheet(){
   <div class="tabs" id="sheet-cond" role="group" aria-label="Condition"></div>
   <div class="tabs" id="sheet-var" role="group" aria-label="Finish"></div>
   <div class="tabs" role="tablist">
-    <button type="button" class="chip${tab==="price"?" active":""}" data-tab="price" role="tab" aria-selected="${tab==="price"}">TCGPlayer shop</button>
+    <button type="button" class="chip${tab==="price"?" active":""}" data-tab="price" role="tab" aria-selected="${tab==="price"}">Price</button>
     <button type="button" class="chip${tab==="forsale"?" active":""}" data-tab="forsale" role="tab" aria-selected="${tab==="forsale"}">For sale${(d.ask_rows||[]).length? " · "+(d.ask_rows||[]).length:""}</button>
   </div>
   <div id="tab-body">${body}</div>`;
   $("hero-art").onclick=()=>openZoom(hi, r.name);
   $("sheet").querySelectorAll("[data-cond]").forEach(b => b.onclick = () => { condF=b.dataset.cond; paintSheet(); });
   [["sheet-cond",[["nm","NM"],["lp","LP"],["mp","MP"]],condF,id=>{condF=id;}],
-   ["sheet-var",[["want","Wanted"],["holo","Holo"],["reverse","Reverse"],["normal","Normal"]],varF,id=>{varF=id;}]
+   ["sheet-var",[["want","This hunt"],["holo","Holo"],["reverse","Reverse"],["normal","Normal"]],varF,id=>{varF=id;}]
   ].forEach(([rid, items, cur, set]) => {
     const row = $(rid); if(!row) return;
     row.innerHTML = "";
