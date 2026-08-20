@@ -94,7 +94,12 @@ body.card-open #card-page{display:block}
 .ladder th{text-align:left;color:var(--muted);font-weight:600;font-size:.68rem;text-transform:uppercase;padding:.28rem .3rem;border-bottom:1px solid var(--border)}
 .ladder td{padding:.32rem .3rem;border-bottom:1px solid rgba(42,51,72,.55)}
 .ladder th.num,.ladder td.num{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.ladder th.ask,.ladder td.ask{width:42%;min-width:8rem}
 .ladder a{color:var(--accent);text-decoration:none}
+.spark{position:relative;height:12px;margin:.12rem 0 .08rem;background:rgba(42,51,72,.55);border-radius:99px}
+.spark-rng{position:absolute;top:0;bottom:0;background:rgba(240,113,120,.42);border-radius:99px}
+.spark-med{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--text);border-radius:1px;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(12,15,22,.55)}
+.spark-cap{display:flex;justify-content:space-between;gap:.4rem;font-size:.62rem;color:var(--muted);font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
 .chart-box{position:relative;margin:.15rem 0 .35rem}
 .plot{display:block;width:100%;height:180px;overflow:visible}
 .plot .grid{stroke:var(--border);stroke-width:1}
@@ -176,7 +181,7 @@ const ROWS = JSON.parse(document.getElementById("app-data").textContent);
 const DETAIL = JSON.parse(document.getElementById("detail-data").textContent);
 const HISTORY = JSON.parse(document.getElementById("hist-data").textContent);
 const QUOTES = JSON.parse(document.getElementById("quote-data").textContent);
-const MKT = {"tcgplayer": "TCGPlayer", "ebay": "eBay", "ebay_hk": "eBay HK", "alt_xyz": "ALT", "misprint": "Misprint", "doubleholo": "Doubleholo"};
+const MKT = {"tcgplayer": "TCGPlayer", "ebay": "eBay", "ebay_hk": "eBay HK", "alt_xyz": "ALT", "misprint": "Misprint", "doubleholo": "Doubleholo", "mercari_us": "Mercari"};
 const AS_OF = new Date("2026-08-19T00:00:00Z");
 const RANGES = [
   {id:"3m", lab:"3 mo", days:92, grain:"week"},
@@ -220,6 +225,26 @@ function bookWho(lots){
     bits.push(mktName(a.mkt)+" · "+a.label);
   });
   return bits.join(" · ");
+}
+function askSpan(asks){
+  const xs=[];
+  asks.forEach(a => [a.lo,a.p25,a.med].forEach(v => { if(v!=null) xs.push(v); }));
+  if(!xs.length) return {lo:0, hi:1};
+  return {lo:Math.min(...xs), hi:Math.max(...xs)};
+}
+function sparkPct(v, span){
+  if(v==null) return null;
+  const d=span.hi-span.lo;
+  if(d<=0) return 50;
+  return Math.max(0, Math.min(100, ((v-span.lo)/d)*100));
+}
+function askSpark(a, span){
+  const pLo=sparkPct(a.lo, span), p25=sparkPct(a.p25, span), pMed=sparkPct(a.med, span);
+  let left=Math.min(pLo??50, p25??50);
+  const width=Math.max(2, Math.max(pLo??50, p25??50)-left);
+  if(left+width>100) left=100-width;
+  const aria=`Lowest ${usd(a.lo)}, ask p25 ${usd(a.p25)}, median ${usd(a.med)}`;
+  return `<div class="spark" role="img" aria-label="${aria}"><i class="spark-rng" style="left:${left}%;width:${width}%"></i>${pMed==null?"":`<i class="spark-med" style="left:${pMed}%"></i>`}</div><div class="spark-cap"><span>${usd(a.lo)}</span><span>${usd(a.p25)}</span></div>`;
 }
 function varOf(r){ return varF==="want" ? r.want : varF; }
 function quoteCell(r, v, c){ return ((QUOTES[r.id]||{})[v]||{})[c] || null; }
@@ -442,10 +467,12 @@ function priceBody(r){
 function forSaleBody(r, d){
   const cheap=(d.ask_rows||[]).filter(a=>listMkt==="all"||a.mkt===listMkt);
   const asks=(d.asks||[]).filter(a=>a.band==="raw" && (listMkt==="all"||a.mkt===listMkt));
+  const span = askSpan(asks);
   const table = asks.length
-    ? `<div class="table-wrap"><table class="ladder"><thead><tr><th>Shop</th><th>Condition</th><th class="num">Listed</th><th class="num">Ask p25</th><th class="num">Lowest</th></tr></thead><tbody>${
-        asks.map(a=>`<tr><td><a href="${mktSearch(r,a.mkt)}" target="_blank" rel="noopener noreferrer">${mktName(a.mkt)}</a></td><td>${a.label}</td><td class="num">${a.n}</td><td class="num">${usd(a.p25)}</td><td class="num">${usd(a.lo)}</td></tr>`).join("")
-      }</tbody></table></div>`
+    ? `<div class="table-wrap"><table class="ladder"><thead><tr><th>Shop</th><th>Condition</th><th class="num">Listed</th><th class="ask">Ask</th></tr></thead><tbody>${
+        asks.map(a=>`<tr><td><a href="${mktSearch(r,a.mkt)}" target="_blank" rel="noopener noreferrer">${mktName(a.mkt)}</a></td><td>${a.label}</td><td class="num">${a.n}</td><td class="ask">${askSpark(a, span)}</td></tr>`).join("")
+      }</tbody></table></div>
+      <p class="tab-note">Bar is lowest to ask p25. Mark is the median on the same scale.</p>`
     : `<p class="tab-note">Nothing for sale in this filter.</p>`;
   const levels = bookLevels(cheap);
   const maxQty = Math.max(1, ...levels.map(lv=>lv.qty));
